@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual CAS Helicópteros · ArmaDos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c1310; --bg2:#0f1714; --surface:#151f1a; --surface2:#1b271f;
+  --ink:#e9efe9; --ink-dim:#9fb0a4; --ink-faint:#6f8074;
+  --line:rgba(160,190,170,.14); --line-strong:rgba(160,190,170,.28);
+  --amber:#ffb22e; --amber-deep:#e0921a;
+  --green:#7fb069; --green-bright:#9ed47f;
+  --red:#e5533c; --red-deep:#c13a26;
+  --blue:#5aa0e0;
+  --radius:14px;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:'Oswald',system-ui,sans-serif;
+  --body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  background-image:
+    linear-gradient(rgba(127,176,105,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(127,176,105,.035) 1px,transparent 1px);
+  background-size:34px 34px;
+}
+.wrap{max-width:920px;margin:0 auto;padding:0 22px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;letter-spacing:.01em;margin:0}
+p{margin:.5em 0}
+a{color:var(--amber)}
+strong{color:#fff;font-weight:600}
+code{font-family:var(--mono);font-size:.86em;background:rgba(255,178,46,.1);color:var(--amber);padding:1px 6px;border-radius:5px}
+ol,ul{margin:.5em 0}
+
+/* ---- top nav ---- */
+nav.topbar{position:sticky;top:0;z-index:50;background:rgba(10,17,14,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
+nav.topbar .wrap{display:flex;align-items:center;gap:18px;height:54px}
+nav.topbar .brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;letter-spacing:.08em;font-size:15px;color:#fff}
+nav.topbar .brand svg{width:26px;height:26px}
+nav.topbar .links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav.topbar .links a{color:var(--ink-dim);text-decoration:none;font-family:var(--disp);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:7px}
+nav.topbar .links a:hover{color:var(--amber);background:rgba(255,178,46,.08)}
+
+/* ---- cover ---- */
+.cover{min-height:96vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:60px 22px;background:radial-gradient(120% 80% at 50% 0%,rgba(127,176,105,.08),transparent 60%),linear-gradient(180deg,#0f1714,#0a100d);border-bottom:1px solid var(--line-strong)}
+.cover .emblem{width:188px;height:188px;filter:drop-shadow(0 8px 28px rgba(0,0,0,.55))}
+.cover .kicker{margin-top:30px;font-family:var(--disp);letter-spacing:.42em;font-size:13px;color:var(--amber);text-transform:uppercase;padding-left:.42em}
+.cover h1{font-size:clamp(38px,7vw,72px);line-height:.98;font-weight:700;margin:14px 0 6px;text-transform:uppercase}
+.cover h1 .sub{display:block;color:var(--ink-dim);font-weight:400;font-size:.42em;letter-spacing:.18em;margin-top:14px}
+.cover .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+.badge{font-family:var(--disp);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--line-strong);border-radius:99px;color:var(--ink-dim);background:rgba(255,255,255,.02)}
+.badge.amber{color:var(--amber);border-color:rgba(255,178,46,.4)}
+.cover .clas{position:absolute;bottom:20px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase}
+.cover .clas::before,.cover .clas::after{content:"//";opacity:.5;margin:0 8px}
+
+/* ---- section ---- */
+section{padding:54px 0 18px}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.shead .num{font-family:var(--disp);font-weight:700;font-size:30px;color:var(--amber);line-height:1}
+.shead h2{font-size:clamp(24px,4vw,34px);text-transform:uppercase;letter-spacing:.02em}
+.shead .tag{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.12em;text-transform:uppercase}
+.lead{color:var(--ink-dim);font-size:17px;max-width:64ch}
+.subh{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-top:24px;margin-bottom:4px}
+
+/* ---- hero idea ---- */
+.hero{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--line-strong);border-radius:var(--radius);padding:26px 28px;margin:22px 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 120% at 100% 0,rgba(255,178,46,.07),transparent 55%)}
+.hero p{position:relative;font-size:18px}
+.taxi{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;position:relative}
+.taxi .col{background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:10px;padding:16px}
+.taxi .col h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.taxi .col.you h4{color:var(--blue)}
+.taxi .col ul{margin:0;padding-left:18px;color:var(--ink-dim);font-size:14.5px}
+
+/* ---- golden rules ---- */
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.rule{background:linear-gradient(180deg,rgba(229,83,60,.12),rgba(229,83,60,.04));border:1px solid rgba(229,83,60,.35);border-radius:12px;padding:18px;position:relative}
+.rule .n{font-family:var(--disp);font-weight:700;font-size:13px;color:var(--red);letter-spacing:.1em;text-transform:uppercase}
+.rule p{margin:8px 0 0;font-size:15px}
+
+/* ---- cards grid ---- */
+.cards{display:grid;gap:14px;margin:20px 0}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.cards.c2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;padding:18px 20px;position:relative}
+.card .ic{width:30px;height:30px;color:var(--amber);margin-bottom:8px}
+.card h3{font-size:18px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.card .role{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.card p{font-size:14.5px;color:var(--ink-dim);margin:0}
+.card.pilot{border-color:rgba(90,160,224,.4)} .card.pilot .ic{color:var(--blue)}
+.card.jtac{border-color:rgba(229,83,60,.4)} .card.jtac .ic{color:var(--red)}
+
+/* corner brackets */
+.bk::before,.bk::after{content:"";position:absolute;width:12px;height:12px;border:2px solid var(--amber);opacity:.55}
+.bk::before{top:7px;left:7px;border-right:0;border-bottom:0}
+.bk::after{bottom:7px;right:7px;border-left:0;border-top:0}
+
+/* ---- tables ---- */
+.tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;overflow:hidden;border-radius:10px;border:1px solid var(--line-strong)}
+.tbl th{background:var(--surface2);color:var(--amber);font-family:var(--disp);font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:12.5px;text-align:left;padding:10px 14px}
+.tbl td{padding:10px 14px;border-top:1px solid var(--line);color:var(--ink-dim);vertical-align:top}
+.tbl td:first-child{color:var(--ink);font-weight:500;white-space:nowrap}
+.tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tbl.brev td:first-child{font-family:var(--mono);color:var(--amber);font-size:13px}
+
+/* ---- callouts ---- */
+.callout{display:flex;gap:13px;border-radius:10px;padding:13px 16px;margin:16px 0;border:1px solid;font-size:14.5px}
+.callout .ic{flex:0 0 22px;width:22px;height:22px;margin-top:2px}
+.callout.key{background:rgba(255,178,46,.08);border-color:rgba(255,178,46,.32)} .callout.key .ic{color:var(--amber)}
+.callout.warn{background:rgba(229,83,60,.09);border-color:rgba(229,83,60,.34)} .callout.warn .ic{color:var(--red)}
+.callout.tip{background:rgba(127,176,105,.09);border-color:rgba(127,176,105,.32)} .callout.tip .ic{color:var(--green-bright)}
+.callout b{color:#fff}
+
+/* ---- radio transcript ---- */
+.radio{background:#0a100d;border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:8px;padding:14px 16px;margin:14px 0;font-family:var(--mono);font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-x:auto}
+.radio .pil{color:var(--blue);font-weight:700}
+.radio .jt{color:var(--amber);font-weight:700}
+.radio .sys{color:var(--ink-faint);font-style:italic}
+.radio .ph{display:block;color:var(--green-bright);font-weight:700;margin:12px 0 4px;letter-spacing:.05em}
+.radio .ph:first-child{margin-top:0}
+
+/* ---- timeline steps ---- */
+.steps{margin:24px 0}
+.step{display:grid;grid-template-columns:54px 1fr;gap:18px;margin-bottom:14px}
+.step .dot{display:flex;flex-direction:column;align-items:center}
+.step .dot .b{width:46px;height:46px;border-radius:50%;background:var(--surface2);border:2px solid var(--amber);color:var(--amber);font-family:var(--disp);font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center}
+.step .dot .ln{flex:1;width:2px;background:var(--line-strong);margin:6px 0}
+.step:last-child .dot .ln{display:none}
+.step .body{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:6px}
+.step .body h3{font-size:19px;text-transform:uppercase;letter-spacing:.03em}
+.step .body .why{color:var(--ink-dim);font-size:14.5px;margin:6px 0}
+.step .star{margin-top:10px;font-size:13.5px;color:var(--amber);display:flex;gap:8px;align-items:flex-start}
+.step .star svg{width:18px;height:18px;flex:0 0 18px;margin-top:2px}
+.step .freq{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
+.step .freq b{color:var(--green-bright)}
+/* phase variant (green) */
+.steps.flow .dot .b{border-color:var(--green);color:var(--green)}
+.steps.flow .body{border-color:rgba(127,176,105,.25)}
+.steps.flow .body .ph-tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green-bright)}
+
+/* ---- pocket cards ---- */
+.pocket{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:22px 0}
+.pcard{border-radius:14px;padding:18px 20px;border:1.5px solid;position:relative;background:var(--surface)}
+.pcard h3{font-family:var(--disp);text-transform:uppercase;letter-spacing:.05em;font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.pcard pre{margin:0;font-family:var(--mono);font-size:11.6px;line-height:1.65;color:var(--ink-dim);white-space:pre-wrap}
+.pcard.blue{border-color:rgba(90,160,224,.5)} .pcard.blue h3{color:var(--blue)}
+.pcard.red{border-color:rgba(229,83,60,.5)} .pcard.red h3{color:var(--red)}
+.pcard.green{border-color:rgba(127,176,105,.5);grid-column:1/-1} .pcard.green h3{color:var(--green-bright)}
+
+.dot-i{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:middle;margin-right:3px}
+.dot-i.r{background:var(--red)} .dot-i.g{background:var(--green)}
+
+.diagram{background:#0a100d;border:1px solid var(--line);border-radius:10px;padding:18px;font-family:var(--mono);font-size:13px;color:var(--ink-dim);white-space:pre-wrap;line-height:1.7;margin:16px 0}
+.diagram b{color:var(--amber)}
+
+footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 0 50px;text-align:center;color:var(--ink-faint);font-size:13px}
+footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
+
+@media(max-width:720px){
+  .rules,.cards.c3,.cards.c2,.taxi,.pocket{grid-template-columns:1fr}
+  nav.topbar .links{display:none}
+}
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  :root{
+    --bg:#f4efe3; --bg2:#efe7d6; --surface:#fffaf0; --surface2:#eee2cb;
+    --ink:#1b1d18; --ink-dim:#4f5b50; --ink-faint:#778172;
+    --line:rgba(55,65,55,.16); --line-strong:rgba(55,65,55,.30);
+    --amber:#b46911; --amber-deep:#8f4e0c;
+    --green:#3f6d45; --green-bright:#4f7f50;
+    --red:#a83b2c; --red-deep:#7e281f;
+    --blue:#2d628b;
+    --radius:9px;
+  }
+  html,body{background:var(--bg);color:var(--ink)}
+  body{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:11.2px;line-height:1.48;background:none;
+  }
+  h1,h2,h3,h4,nav.topbar .brand,.badge,.shead .num,.shead h2,.shead .tag,.subh{
+    font-family:"Segoe UI",Arial,sans-serif;
+  }
+  nav.topbar{display:none}
+  .wrap{max-width:100%;padding:0}
+  body.book-cover{background:#07100c}
+  body.book-cover > :not(.cover):not(svg[aria-hidden]){display:none !important}
+  body.book-body .cover{display:none !important}
+  .cover{
+    min-height:297mm;padding:0 22mm;break-after:auto;
+    background:
+      radial-gradient(120mm 100mm at 50% 30%,rgba(180,105,17,.14),transparent 65%),
+      linear-gradient(180deg,#0e1913,#07100c);
+    color:#f8f1df;border:0;
+  }
+  .cover .emblem{width:43mm;height:43mm}
+  .cover .kicker{font-size:11px;color:#d49b45;letter-spacing:.38em}
+  .cover h1{font-size:52px;letter-spacing:.03em}
+  .cover h1 .sub{color:#c8c4b8;font-size:.35em;letter-spacing:.15em}
+  .cover .badges{gap:6px;margin-top:20px}
+  .badge{border-radius:999px;background:rgba(255,255,255,.04);color:#d2cbbb;border-color:rgba(255,255,255,.20)}
+  .cover .clas{bottom:17mm;color:#9f9788}
+  section{padding:0 0 5mm;margin:0;break-inside:auto}
+  body.book-body footer{display:none !important}
+  .shead{gap:10px;margin:0 0 4mm;padding-bottom:2.5mm;border-bottom:1px solid var(--line-strong);break-after:avoid}
+  .shead .num{font-size:23px;color:var(--amber-deep)}
+  .shead h2{font-size:22px;line-height:1.1;letter-spacing:.03em}
+  .shead .tag{font-size:8.5px;color:var(--ink-faint)}
+  h2,h3,h4,.lead,.subh{break-after:avoid}
+  p{margin:.38em 0}
+  strong{color:#10120f}
+  .lead{font-size:12.1px;color:var(--ink-dim);max-width:72ch}
+  .subh{font-size:10.5px;margin-top:4mm;margin-bottom:1mm;color:var(--ink-dim)}
+  .hero,.callout,.card,.rule,.pcard,.taxi .col,.diagram,.step .body{
+    background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius);
+    box-shadow:none;color:var(--ink);
+  }
+  .hero{padding:5mm 6mm;margin:4mm 0}
+  .hero::before{display:none}
+  .hero p{font-size:12.4px}
+  .rules,.cards,.pocket,.steps,.brief-grid{gap:3mm}
+  .phase-grid{display:block}
+  .rule,.card,.pcard,.step .body{padding:3.5mm 4mm}
+  .rule .n,.card h3,.pcard h3,.step .dot{color:var(--amber-deep)}
+  .card .role,.why,.sys,.tbl td{color:var(--ink-dim)}
+  .callout{padding:3.5mm 4mm;margin:3mm 0;background:#fff4d9}
+  .callout.key{background:#edf4df}
+  .callout.warn{background:#fff1e5}
+  .radio{
+    background:#162018;color:#f4efe3;border-color:#26382b;border-radius:8px;
+    padding:3.6mm 4.2mm;font-size:9.7px;line-height:1.48;
+    break-inside:avoid;
+  }
+  .radio.long{break-inside:auto;font-size:7.85px;line-height:1.22}
+  .pil{color:#8fce84}.jt{color:#ffba5b}.ph{color:#c9d6c6}
+  .diagram{font-size:9.5px;line-height:1.45;background:#152018;color:#e9efe9}
+  .taxi{gap:3mm}
+  .tbl{
+    font-size:10.1px;margin:3.2mm 0;border-radius:8px;background:var(--surface);
+    border-collapse:separate;border-spacing:0;break-inside:avoid;
+  }
+  .tbl th{background:var(--surface2);color:var(--amber-deep);font-size:9.2px;padding:2.4mm 3mm}
+  .tbl td{padding:2.25mm 3mm;border-top:1px solid var(--line)}
+  .tbl td:first-child{color:var(--ink)}
+  .tbl.wide{break-inside:auto}
+  .tbl tr{break-inside:avoid}
+  .step{break-inside:auto}
+  .step.print-break-before{break-before:page}
+  .step .body{break-inside:auto;margin-bottom:2.3mm}
+  .step .dot .ln{display:none}
+  .phase{padding:3mm 3.4mm;break-inside:avoid;margin-bottom:3mm}
+  .phase-grid .phase:nth-child(6){break-before:page}
+  .phase .why{font-size:10.2px}
+  .pcard pre{font-size:8.7px;line-height:1.42;color:var(--ink-dim)}
+  .pcard.green{grid-column:1/-1}
+  .pocket{grid-template-columns:1fr 1fr}
+  footer{margin-top:5mm;padding:6mm 0 2mm;color:var(--ink-faint);font-size:9.5px}
+  footer .emblem{width:12mm;height:12mm}
+  a{color:var(--amber-deep)}
+}
+@page{size:A4;margin:0}
+</style>
+</head>
+<body>
+
+<!-- ======= EMBLEM (reusable symbol) — NO MODIFICAR ======= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="emblem" viewBox="0 0 200 200"><image href="data:image/png;base64,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" width="200" height="200"/></symbol>
+</defs></svg>
+
+<!-- ======= NAV ======= -->
+<nav class="topbar"><div class="wrap">
+  <span class="brand"><svg><use href="#emblem"/></svg>ARMADOS</span>
+  <span class="links">
+    <a href="#mision">Misión</a><a href="#idea">Idea</a><a href="#briefing">Briefing</a>
+    <a href="#radio">Radio</a><a href="#salida">Despegue</a><a href="#zona">Zona</a>
+    <a href="#secuencia">CAS</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tarjetas">Tarjetas</a>
+  </span>
+</div></nav>
+
+<!-- ======= COVER ======= -->
+<header class="cover">
+  <svg class="emblem"><use href="#emblem"/></svg>
+  <div class="kicker">ArmaDos · Simulación Virtual</div>
+  <h1>Manual CAS<span class="sub">Apoyo Aéreo Cercano · Helicópteros · Ciclo completo de misión</span></h1>
+  <div class="badges">
+    <span class="badge amber">Arma Reforger</span>
+    <span class="badge">OH-58 Kiowa</span>
+    <span class="badge">De 0 a final</span>
+  </div>
+  <div class="clas">Uso interno · Edición 1</div>
+</header>
+
+<div class="wrap">
+
+<div class="callout key" style="margin-top:26px">
+  <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 0 3-3m-3 3L9 5M5 13a7 7 0 0 0 14 0"/><circle cx="12" cy="13" r="2"/></svg>
+  <div><b>Para qué es esto:</b> para que cualquiera del grupo —aunque no sepa nada de aviación— pueda llevar una misión de apoyo aéreo <b>de principio a fin</b> como se hace en simulación militar: planear, despegar, llegar a la zona, atacar coordinado con tierra y volver. Léelo una vez; en partida te bastará con las <b>tarjetas del final</b>. Norma nº1: <b>si te pierdes, pregunta o habla con tus propias palabras.</b></div>
+</div>
+
+<!-- ======= 00 LA MISIÓN DE PRINCIPIO A FIN ======= -->
+<section id="mision" class="sheet">
+  <div class="shead"><span class="num">00</span><h2>La misión, de principio a fin</h2><span class="tag">Visión global</span></div>
+  <p class="lead">Antes de entrar en detalle, mira el viaje completo. Una salida de CAS no empieza disparando: empieza en tierra, planeando. Estas son las <strong>8 fases</strong> por las que pasarás siempre, y en qué frecuencia ocurre cada una.</p>
+  <div class="steps flow">
+    <div class="step"><div class="dot"><div class="b">1</div><div class="ln"></div></div><div class="body">
+      <div class="ph-tag">Fase 1 · En tierra</div><h3>Briefing</h3>
+      <div class="why">El líder de vuelo y el JTAC repasan el plan: situación, qué hay que lograr, ruta, puntos del mapa, frecuencias y armamento. <strong>Aquí se gana o se pierde la misión.</strong></div>
+      <div class="freq">Frecuencia: <b>cara a cara / canal de mando</b></div>
+    </div></div>
+    <div class="step"><div class="dot"><div class="b">2</div><div class="ln"></div></div><div class="body">
+      <div class="ph-tag">Fase 2 · En tierra</div><h3>Armado y arranque</h3>
+      <div class="why">Cargas el armamento y combustible que pide la misión, arrancas y haces tus comprobaciones. Todos a la frecuencia de Aeródromo.</div>
+      <div class="freq">Frecuencia: <b>1 · Aeródromo</b></div>
+    </div></div>
+    <div class="step"><div class="dot"><div class="b">3</div><div class="ln"></div></div><div class="body">
+      <div class="ph-tag">Fase 3 · En el aire</div><h3>Despegue y salida</h3>
+      <div class="why">Sin torre: te <strong>autoinformas</strong>, despegas y, si sois dos, formáis. Rumbo a la zona.</div>
+      <div class="freq">Frecuencia: <b>1 · Aeródromo</b></div>
+    </div></div>
+    <div class="step"><div class="dot"><div class="b">4</div><div class="ln"></div></div><div class="body">
+      <div class="ph-tag">Fase 4 · En ruta</div><h3>Navegación a la zona</h3>
+      <div class="why">Vuelas la ruta planeada, bajo y pegado al terreno. Te diriges al <strong>Punto de Contacto (CP)</strong>.</div>
+      <div class="freq">Frecuencia: <b>1 → cambias a 2 al acercarte</b></div>
+    </div></div>
+    <div class="step"><div class="dot"><div class="b">5</div><div class="ln"></div></div><div class="body">
+      <div class="ph-tag">Fase 5 · Llegada</div><h3>Punto de Contacto</h3>
+      <div class="why">Llamas por primera vez al JTAC y te pones a sus órdenes. Si te dice que esperes, vas a la <strong>zona de espera</strong> y orbitas seguro.</div>
+      <div class="freq">Frecuencia: <b>2 · JTAC</b></div>
+    </div></div>
+    <div class="step print-break-before"><div class="dot"><div class="b">6</div><div class="ln"></div></div><div class="body" style="border-color:rgba(255,178,46,.4)">
+      <div class="ph-tag" style="color:var(--amber)">Fase 6 · El corazón</div><h3>CAS — el apoyo</h3>
+      <div class="why">La secuencia de 8 pasos: check-in → SITREP → game plan → líneas → colación → correlación → ataque → BDA. <strong>El grueso del manual.</strong></div>
+      <div class="freq">Frecuencia: <b>2 · JTAC</b></div>
+    </div></div>
+    <div class="step"><div class="dot"><div class="b">7</div><div class="ln"></div></div><div class="body">
+      <div class="ph-tag">Fase 7 · Regreso</div><h3>Vuelta a base (RTB)</h3>
+      <div class="why">El JTAC te libera. Egreso seguro, cambias a Aeródromo, te autoinformas y aterrizas. Rearmas y repostas si vais a volver.</div>
+      <div class="freq">Frecuencia: <b>2 → 1 · Aeródromo</b></div>
+    </div></div>
+    <div class="step"><div class="dot"><div class="b">8</div></div><div class="body">
+      <div class="ph-tag">Fase 8 · En tierra</div><h3>Debrief</h3>
+      <div class="why">Repaso honesto: qué salió bien, qué falló, daños confirmados y lecciones para la próxima.</div>
+      <div class="freq">Frecuencia: <b>cara a cara</b></div>
+    </div></div>
+  </div>
+  <div class="callout tip">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+    <div>Las fases 1 a 5 y 7 a 8 son <b>rápidas</b>; existen para que llegues al ataque ordenado y vuelvas vivo. La fase 6 (CAS) es la que más se practica. El resto de este manual desarrolla cada fase en orden.</div>
+  </div>
+</section>
+
+<!-- ======= 01 IDEA ======= -->
+<section id="idea" class="sheet">
+  <div class="shead"><span class="num">01</span><h2>La idea en 30 segundos</h2><span class="tag">Concepto</span></div>
+  <div class="hero">
+    <p>Piensa en un <strong>taxi armado</strong>. Tú eres el puño; un compañero en tierra son los ojos. Él (el <strong>JTAC</strong>) ve dónde están enemigos <em>y</em> amigos; tú desde el aire muchas veces no. Por eso <strong>él te señala el blanco y te da permiso</strong>. Todo esto existe <strong>porque hay amigos cerca del enemigo</strong>: si fallas, matas a los tuyos.</p>
+    <div class="taxi">
+      <div class="col"><h4>El JTAC (en tierra)</h4><ul><li>Ve dónde está todo el mundo</li><li>Te dice QUÉ atacar</li><li>Te da el PERMISO</li></ul></div>
+      <div class="col you"><h4>Tú (en el Kiowa)</h4><ul><li>Llevas las armas</li><li>Atacas lo que te señalan</li><li>NUNCA disparas sin permiso</li></ul></div>
+    </div>
+  </div>
+  <h3 class="subh">Las 3 reglas de oro · no se rompen jamás</h3>
+  <div class="rules">
+    <div class="rule bk"><div class="n">Regla 1</div><p><b>No disparas sin permiso.</b> «CLEARED HOT» o nada. Aunque lo veas clarísimo.</p></div>
+    <div class="rule bk"><div class="n">Regla 2</div><p><b>No pasas tu línea de espera (la «BP») sin permiso.</b> Esperas ahí hasta que te autoricen.</p></div>
+    <div class="rule bk"><div class="n">Regla 3</div><p><b>Si oyes «ABORT» → cortas al instante y te alejas.</b> Sin preguntar.</p></div>
+  </div>
+</section>
+
+<!-- ======= 02 DICCIONARIO ======= -->
+<section id="dicc" class="sheet">
+  <div class="shead"><span class="num">02</span><h2>Diccionario para novatos</h2><span class="tag">Aviación básica</span></div>
+  <p class="lead">Si ya vuelas, sáltatela. Si no, esto es todo lo de «aviación» que necesitas para empezar.</p>
+  <table class="tbl wide">
+    <tr><th>Palabra</th><th>En cristiano</th></tr>
+    <tr><td>Callsign / indicativo</td><td>El «nombre en clave» de cada uno por radio: el heli es «Pantera», la escuadra de tierra «Lince». Se acuerdan en el briefing.</td></tr>
+    <tr><td>Rumbo</td><td>La dirección a la que apuntas, en grados, como una brújula: <strong>000 = norte, 090 = este, 180 = sur, 270 = oeste</strong>. Siempre 3 cifras: «cero-nueve-cero».</td></tr>
+    <tr><td>Cardinal</td><td>Norte, sur, este, oeste. Lo usamos para todo («100 metros al sur»), nunca «izquierda/derecha».</td></tr>
+    <tr><td>Cota / altitud</td><td>Lo alto que está algo. En Reforger, en metros.</td></tr>
+    <tr><td>Pasada</td><td>Cada vez que el heli <strong>entra a disparar y vuelve a salir</strong>. Un ataque puede tener varias.</td></tr>
+    <tr><td>CP (Punto de Contacto)</td><td>El punto del mapa donde, al llegar, <strong>llamas por primera vez al JTAC</strong>. Está lejos del peligro.</td></tr>
+    <tr><td>Zona de espera</td><td>Sitio seguro donde <strong>orbitas esperando órdenes</strong> si el JTAC está ocupado.</td></tr>
+    <tr><td>BP (Posición de batalla)</td><td>La zona desde donde <strong>esperas y atacas</strong>, escondido. Tu «esquina segura».</td></tr>
+    <tr><td>JTAC</td><td>El compañero en tierra que dirige el ataque. Tu jefe mientras dure el apoyo.</td></tr>
+    <tr><td>Sección / vuelo</td><td>Dos helicópteros juntos: un <strong>líder</strong> y un <strong>punto</strong> (el segundo). Se cubren mutuamente.</td></tr>
+    <tr><td>ROE</td><td>Reglas de enfrentamiento: <strong>cuándo se puede disparar y cuándo no</strong>. Las marca el mando.</td></tr>
+    <tr><td>Egress (salida)</td><td>Por dónde te largas después de disparar.</td></tr>
+    <tr><td>RTB</td><td><em>Return To Base</em>: volver a la base.</td></tr>
+    <tr><td>Brevity</td><td>Palabras clave cortas (casi siempre en inglés) para decir mucho en poco.</td></tr>
+  </table>
+  <div class="callout tip">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+    <div>Lo de los <b>3 dígitos en el rumbo</b> es para que no se confunda por radio: «cuarenta» (40) podría oírse mal, pero «cero-cuatro-cero» no.</div>
+  </div>
+</section>
+
+<!-- ======= 03 BRIEFING ======= -->
+<section id="briefing" class="sheet">
+  <div class="shead"><span class="num">03</span><h2>El briefing: planear antes de volar</h2><span class="tag">Fase 1</span></div>
+  <p class="lead">En simulación militar de verdad <strong>nunca se despega sin briefing</strong>. Es una reunión corta en tierra donde el líder de vuelo y el JTAC dejan claro el plan. Se usa el orden clásico de <strong>5 puntos</strong> (lo que los militares llaman SMEAC). No hace falta que sea largo: 5 minutos bien hechos salvan la misión.</p>
+  <div class="steps">
+    <div class="step"><div class="dot"><div class="b">S</div><div class="ln"></div></div><div class="body">
+      <h3>Situación</h3><div class="why">Qué está pasando: dónde está el <strong>enemigo</strong>, dónde los <strong>amigos</strong>, el terreno y la meteo. La foto general.</div></div></div>
+    <div class="step"><div class="dot"><div class="b">M</div><div class="ln"></div></div><div class="body">
+      <h3>Misión</h3><div class="why">En una frase: <strong>qué hay que conseguir</strong>. «Apoyar a Lince para que tome el cruce norte.»</div></div></div>
+    <div class="step"><div class="dot"><div class="b">E</div><div class="ln"></div></div><div class="body">
+      <h3>Ejecución — el plan</h3><div class="why">Cómo: la <strong>ruta</strong>, el <strong>Punto de Contacto</strong>, la <strong>zona de espera</strong>, dónde estarán probablemente las <strong>BP</strong>, el tipo de control esperado, el <strong>código de humos</strong> (rojo enemigo / verde amigo) y, si sois dos helis, <strong>qué hace cada uno</strong>.</div></div></div>
+    <div class="step"><div class="dot"><div class="b">A</div><div class="ln"></div></div><div class="body">
+      <h3>Apoyo y logística</h3><div class="why">Con qué: el <strong>armamento</strong> que cargáis, el <strong>combustible</strong>, dónde <strong>rearmar/repostar</strong> y el plan si te quedas sin munición (WINCHESTER) o sin combustible (BINGO).</div></div></div>
+    <div class="step"><div class="dot"><div class="b">C</div></div><div class="body">
+      <h3>Comunicaciones y mando</h3><div class="why">Quién manda (líder de vuelo y JTAC), los <strong>callsigns</strong>, las <strong>2 frecuencias</strong> (Aeródromo y JTAC) y qué hacer <strong>si se cae la radio</strong>: la regla por defecto es seguir el último plan acordado y volver a la zona de espera.</div></div></div>
+  </div>
+  <div class="callout key">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M21 12a9 9 0 1 1-6.2-8.5"/></svg>
+    <div><b>Antes de cerrar el briefing, comprobad que todos tienen apuntado:</b> callsigns · las 2 frecuencias · Punto de Contacto · zona de espera · código de humos. Si falta uno, no se despega.</div>
+  </div>
+</section>
+
+<!-- ======= 04 RADIO ======= -->
+<section id="radio" class="sheet">
+  <div class="shead"><span class="num">04</span><h2>Las radios y cómo se habla</h2><span class="tag">Comunicaciones</span></div>
+  <p class="lead">En ArmaDos <strong>no hay torre de control</strong>: te coordinas tú con los demás pilotos. Y usamos <strong>solo 2 frecuencias</strong>.</p>
+  <div class="cards c2">
+    <div class="card bk">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.6"/></svg>
+      <h3>Frecuencia 1 · Aeródromo</h3><div class="role">Pilotos entre sí</div>
+      <p>Despegues, aterrizajes y avisar por dónde vuelas. Aquí te <strong>autoinformas</strong>.</p>
+    </div>
+    <div class="card bk">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11h3l2-7 4 16 3-9h5"/></svg>
+      <h3>Frecuencia 2 · JTAC (CAS)</h3><div class="role">JTAC ↔ helicóptero</div>
+      <p><strong>TODO</strong> el procedimiento de apoyo a la infantería ocurre aquí.</p>
+    </div>
+  </div>
+  <p>Hay <strong>radio corta</strong> (~2 km) y <strong>radio larga / de mochila</strong> (~40 km). Como el heli vuela lejos del JTAC, las dos frecuencias van en <strong>radio larga</strong>. El piloto pone la 1 en un canal y la 2 en otro, y va cambiando. Los números MHz se acuerdan en el briefing (ej.: Aeródromo 60, JTAC 65).</p>
+  <h3 class="subh">Las 3 reglas de hablar por radio</h3>
+  <div class="cards c3">
+    <div class="card"><h3 style="font-size:15px">A quién–Quién soy–Qué</h3><p>«<strong>Lince, Pantera, en estación.</strong>» Si solo confirmas: «Recibido, Pantera».</p></div>
+    <div class="card"><h3 style="font-size:15px">Colación</h3><p>Repetir lo crítico: dónde está el <strong>objetivo</strong>, dónde los <strong>amigos</strong> y las <strong>restricciones</strong>. El JTAC cierra: «colación correcta».</p></div>
+    <div class="card"><h3 style="font-size:15px">Silencio radio</h3><p>Desde «IN» hasta «OFF» nadie más habla. <strong>Única excepción:</strong> cantar un peligro nuevo.</p></div>
+  </div>
+</section>
+
+<!-- ======= 05 DESPEGUE ======= -->
+<section id="salida" class="sheet">
+  <div class="shead"><span class="num">05</span><h2>Despegue y salida del aeródromo</h2><span class="tag">Fases 2–3</span></div>
+  <p class="lead">Ya tienes el plan. Ahora, sin torre que te mande, eres tú quien avisa de lo que haces.</p>
+  <ol style="color:var(--ink-dim);font-size:15px">
+    <li><strong>Arma y reposta</strong> el Kiowa según el briefing. Comprueba que llevas lo acordado.</li>
+    <li><strong>Arranca</strong> y haz tus comprobaciones (según el mod). Pon la frecuencia 1 (Aeródromo).</li>
+    <li><strong>Escucha</strong> que no haya nadie despegando o aterrizando, y <strong>autoinfórmate</strong>.</li>
+    <li><strong>Despega</strong> y, si sois dos, <strong>formad</strong>: el líder delante, el punto detrás y un poco escalonado, sin pegarse.</li>
+  </ol>
+  <div class="radio"><span class="pil">PANTERA</span> "Tráfico aeródromo, Pantera, sección de dos, despegando hacia el norte."
+<span class="pil">PANTERA 2</span> "Dos, en el aire, contigo."</div>
+  <div class="callout tip">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+    <div><b>Regla simple:</b> escucha antes de mover el helicóptero; avisa antes de hacer algo que afecte a otros.</div>
+  </div>
+</section>
+
+<!-- ======= 06 NAVEGACIÓN Y CP ======= -->
+<section id="zona" class="sheet">
+  <div class="shead"><span class="num">06</span><h2>Navegación y Punto de Contacto</h2><span class="tag">Fases 4–5</span></div>
+  <p class="lead">Volar a la zona no es ir en línea recta y alto. Es llegar <strong>sin que te vean ni te derriben</strong>, y presentarte al JTAC en el momento justo.</p>
+  <div class="cards c2">
+    <div class="card bk"><h3 style="font-size:16px">En ruta</h3><p>Vuela <strong>bajo y pegado al terreno</strong> (máscara de terreno). Sigue la ruta del briefing. Si sois dos, mantened separación para no estorbaros.</p></div>
+    <div class="card bk"><h3 style="font-size:16px">Punto de Contacto (CP)</h3><p>Al acercarte al CP, <strong>cambia a la frecuencia 2 (JTAC)</strong> y llámalo. Es tu primer «hola»: a partir de aquí trabajas para él.</p></div>
+  </div>
+  <div class="radio"><span class="pil">PANTERA</span> "Lince, Pantera, sobre Punto de Contacto, listo para instrucciones."
+<span class="jt">LINCE</span> "Pantera, Lince, recibido. Espere en la zona del lago al oeste, le llamo en breve."
+<span class="pil">PANTERA</span> "A la espera sobre el lago, Pantera."</div>
+  <div class="callout key">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    <div>Si el JTAC está ocupado, te mandará a la <b>zona de espera</b>: orbita ahí, seguro y sin pasar al objetivo, hasta que te llame. <b>Paciencia: el JTAC suele estar gestionando muchas cosas.</b></div>
+  </div>
+</section>
+
+<!-- ======= QUIÉN HACE QUÉ ======= -->
+<section class="sheet">
+  <div class="shead"><span class="num">07</span><h2>Quién hace qué</h2><span class="tag">Roles</span></div>
+  <div class="cards c3">
+    <div class="card jtac bk">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+      <h3>JTAC</h3><div class="role">En tierra · radio mochila</div>
+      <p>Sabe dónde está todo. Pide, dirige y <strong>autoriza</strong> el ataque. Da el resultado.</p>
+    </div>
+    <div class="card pilot bk">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h7l3-4 2 4h6M7 12v4M14 12l2 5"/><circle cx="6" cy="9" r="1.5"/></svg>
+      <h3>Piloto</h3><div class="role">Tripulante 1</div>
+      <p>Vuela, se esconde, vigila peligros y combustible.</p>
+    </div>
+    <div class="card pilot bk">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 9v6M12 9v6M16 9v6"/></svg>
+      <h3>Copiloto</h3><div class="role">Tripulante 2</div>
+      <p>Apunta las armas <strong>y lleva la radio</strong> mientras el piloto vuela.</p>
+    </div>
+  </div>
+  <h3 class="subh">Si voláis dos · soporte mutuo</h3>
+  <p style="color:var(--ink-dim);font-size:15px">En una sección de dos, casi nunca atacan los dos a la vez. Se reparten el trabajo: uno es <strong>Shooter</strong> (ataca) y el otro <strong>Cover</strong> (lo cubre, vigila amenazas y la zona desde otra posición). Cuando el shooter sale, pueden cambiar de rol. Así siempre hay alguien mirando por el otro.</p>
+  <div class="callout warn">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
+    <div><b>Regla de cabina:</b> el que vuela NO escribe ni copia datos. Si vuelas solo, primero <b>escóndete</b> (estabiliza el heli tras cobertura) y luego hablas.</div>
+  </div>
+</section>
+
+<!-- ======= MAPA ======= -->
+<section id="mapa" class="sheet">
+  <div class="shead"><span class="num">08</span><h2>Leer el mapa de Arma</h2><span class="tag">Cuadrícula</span></div>
+  <p class="lead">El JTAC te dará la posición del enemigo como una <strong>cuadrícula de 6 cifras</strong>. Así se lee en el mapa de Reforger:</p>
+  <div class="diagram">El mapa está lleno de cuadros. Cada cuadro grande = <b>1 km</b>.
+En los <b>BORDES</b> del mapa hay números.
+
+Para dar un punto:
+  <b>1)</b> Mira el número de la línea VERTICAL a la izquierda del punto  → 3 cifras
+  <b>2)</b> Mira el número de la línea HORIZONTAL debajo del punto        → 3 cifras
+  <b>3)</b> Júntalas: 6 cifras.
+
+Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
+  <ul style="color:var(--ink-dim)">
+    <li><strong>6 cifras = un cuadro de 100 × 100 m.</strong> Suficiente para el CAS.</li>
+    <li>Se dice <strong>cifra a cifra</strong>: «<strong>cero-tres-cinco, cero-cuatro-ocho</strong>», no «treinta y cinco…».</li>
+    <li>Para <strong>rumbo y distancia</strong>: si tu versión tiene herramienta de medición en el mapa, úsala. Si no, vale el <strong>cardinal</strong> y una distancia aproximada en metros.</li>
+    <li>Podéis poner <strong>marcadores</strong> en el mapa para acordar puntos («el cruce», «la colina»).</li>
+  </ul>
+</section>
+
+<!-- ======= SECUENCIA ======= -->
+<section id="secuencia" class="sheet">
+  <div class="shead"><span class="num">09</span><h2>La secuencia CAS</h2><span class="tag">Fase 6 · el corazón</span></div>
+  <p class="lead">Ocho pasos. <strong>El orden importa.</strong> Hilo conductor: la escuadra <strong>Lince</strong> está clavada por un <strong>técnico</strong> (camioneta con ametralladora) y trabaja con el Kiowa <strong>Pantera</strong>.</p>
+  <div class="steps">
+
+    <div class="step"><div class="dot"><div class="b">1</div><div class="ln"></div></div><div class="body">
+      <h3>Check-in — «quién soy y qué llevo»</h3>
+      <p class="why"><strong>Cómo:</strong> 4 datos → quién/cuántos · dónde estás · qué armas · cuánto tiempo aguantas.</p>
+      <div class="radio"><span class="pil">PANTERA</span> "Lince, Pantera, en estación al sur del pueblo. Un Kiowa, 14 cohetes y ametralladora .50. Tiempo de juego 25 minutos."
+<span class="jt">LINCE</span> "Recibido. Listo para copiar SITREP."</div>
+      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: di <b>qué llevas y cuánto tiempo te queda</b>.</span></div>
+    </div></div>
+
+    <div class="step"><div class="dot"><div class="b">2</div><div class="ln"></div></div><div class="body">
+      <h3>SITREP — «qué pasa en la zona»</h3>
+      <p class="why"><strong>Lo dice el JTAC:</strong> Amenazas · Objetivo · Aliados · Intención · Restricciones.</p>
+      <div class="radio"><span class="jt">LINCE</span> "SITREP: TIC, repito TIC. Técnico con ametralladora en el cruce norte, activo, nos tiene fijados. Somos 8 en la linde sur del bosque. Intención: reventar el técnico para avanzar. Restricción: ningún disparo hacia el sur. Colacione."
+<span class="pil">PANTERA</span> "Ningún disparo hacia el sur, Pantera."</div>
+      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span><b>TIC</b> = tropas amigas bajo fuego = máxima urgencia. <b>Colaciona las restricciones</b>: son sagradas.</span></div>
+    </div></div>
+
+    <div class="step"><div class="dot"><div class="b">3</div><div class="ln"></div></div><div class="body">
+      <h3>Game Plan — «cómo será el ataque»</h3>
+      <p class="why"><strong>Una frase:</strong> tipo de control + arma.</p>
+      <div class="radio"><span class="jt">LINCE</span> "Game plan: Tipo 2, con cohetes."
+<span class="pil">PANTERA</span> "Tipo 2, cohetes, Pantera."</div>
+      <table class="tbl">
+        <tr><th>Tipo</th><th>El JTAC…</th><th>Cuándo</th></tr>
+        <tr><td>Tipo 1</td><td>Te ve A TI <strong>y</strong> al objetivo</td><td>Riesgo alto / amigos muy cerca</td></tr>
+        <tr><td>Tipo 2</td><td>Te ve a ti <strong>o</strong> al objetivo</td><td><strong>El normal (casi siempre)</strong></td></tr>
+        <tr><td>Tipo 3</td><td>No necesita ver nada; autoriza en bloque</td><td>Zona sin amigos cerca: «límpialo»</td></tr>
+      </table>
+    </div></div>
+
+    <div class="step"><div class="dot"><div class="b">4</div><div class="ln"></div></div><div class="body">
+      <h3>Las líneas — «los datos del ataque»</h3>
+      <p class="why">El JTAC las dice <strong>despacio, en bloques de 3, con pausa</strong>. Tú las copias.</p>
+      <table class="tbl">
+        <tr><th>#</th><th>Línea</th><th>En Reforger</th></tr>
+        <tr><td>1</td><td>BP</td><td>Desde dónde atacas: «BP la colina al oeste del lago»</td></tr>
+        <tr><td>2</td><td>Rumbo</td><td>Desde la BP. 3 cifras: «cero-nueve-cero»</td></tr>
+        <tr><td>3</td><td>Distancia</td><td>Desde la BP, en metros</td></tr>
+        <tr><td>4</td><td>Cota</td><td>Altura del terreno (o «N/A» si es llano)</td></tr>
+        <tr><td>5</td><td>Qué es</td><td>«Técnico», «infantería en trinchera», «blindado BTR»</td></tr>
+        <tr><td>6</td><td>Dónde está</td><td>Cuadrícula de 6 cifras, cifra a cifra</td></tr>
+        <tr><td>7</td><td>Marca</td><td>«Humo rojo», «trazadoras», «sin marca»</td></tr>
+        <tr><td>8</td><td>Aliados</td><td>Cardinal + metros desde el objetivo: «300 al sur»</td></tr>
+        <tr><td>9</td><td>Salida</td><td>Por dónde te vas: «por el norte de vuelta a la BP»</td></tr>
+      </table>
+      <div class="callout key">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+        <div><b>Código de humos:</b> <span class="dot-i r"></span>rojo/naranja = ENEMIGO · <span class="dot-i g"></span>verde = SOLO amigos. Correcciones desde un humo, en <b>metros y cardinal</b>: «desde el humo, 100 al norte».</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="dot"><div class="b">5</div><div class="ln"></div></div><div class="body">
+      <h3>Colación — «confirmo lo crítico»</h3>
+      <p class="why">Repites <strong>líneas 4, 6 y 8 + restricciones</strong>. Nada más.</p>
+      <div class="radio"><span class="pil">PANTERA</span> "Cota 45, objetivo en cero-tres-cinco cero-cuatro-ocho, aliados 300 al sur, ningún disparo al sur. Pantera."
+<span class="jt">LINCE</span> "Colación correcta."</div>
+    </div></div>
+
+    <div class="step"><div class="dot"><div class="b" style="border-color:var(--red);color:var(--red)">6</div><div class="ln"></div></div><div class="body" style="border-color:rgba(229,83,60,.35)">
+      <h3 style="color:var(--red)">Correlación — ★ el paso más importante ★</h3>
+      <p class="why"><strong>Por qué:</strong> aquí os aseguráis de que los dos miráis el <strong>MISMO objetivo</strong>. Sin esto, no hay permiso de disparo.</p>
+      <p style="font-size:14px;color:var(--ink-dim)"><strong>a) Por humo</strong> · <strong>b) por la cuadrícula</strong> · <strong>c) hablando (talk-on)</strong> con el método <strong>DEDO</strong>:</p>
+      <div class="diagram"><b>D</b>esde un punto fácil de ver   →  "desde el cruce de carreteras"
+<b>E</b>n una dirección (cardinal)   →  "hacia el norte"
+<b>D</b>istancia (metros)            →  "unos 200 metros"
+<b>O</b>bjeto que quieres que vea    →  "una casa baja con tejado rojo"</div>
+      <p style="font-size:14px;color:var(--ink-dim)">Trucos: de lo grande a lo pequeño · máximo 2 indicaciones y luego una pregunta · preguntas abiertas («¿qué orientación tiene la casa?»).</p>
+      <div class="radio"><span class="jt">LINCE</span> "Humo rojo en la zona."
+<span class="pil">PANTERA</span> "CONTACT con el humo."
+<span class="jt">LINCE</span> "Desde el humo, 50 al este, junto al granero."
+<span class="pil">PANTERA</span> "TALLY, técnico junto al granero."
+<span class="jt">LINCE</span> "Ese técnico es su objetivo."</div>
+      <table class="tbl">
+        <tr><th>Palabra</th><th>Significa</th></tr>
+        <tr><td>VISUAL / BLIND</td><td>Veo / no veo a un <strong>amigo</strong></td></tr>
+        <tr><td>TALLY / NO JOY</td><td>Veo / no veo mi <strong>objetivo</strong></td></tr>
+        <tr><td>CONTACT</td><td>Veo la <strong>referencia</strong> que me describes (cruce, humo, casa)</td></tr>
+      </table>
+      <div class="callout warn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
+        <div>Un enemigo que ves pero que <b>aún no te han asignado</b> es <b>CONTACT</b>, no TALLY. Solo es TALLY cuando el JTAC confirma que es TUYO.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="dot"><div class="b">7</div><div class="ln"></div></div><div class="body">
+      <h3>El ataque</h3>
+      <p class="why">Secuencia cerrada. A partir de aquí, <strong>silencio radio</strong> para los demás.</p>
+      <div class="radio"><span class="pil">PANTERA</span> "Pantera, dejando la BP"        <span class="sys">(si atacas en movimiento)</span>
+<span class="jt">LINCE</span> "Continue"                       <span class="sys">(autoriza MANIOBRAR, no disparar)</span>
+<span class="pil">PANTERA</span> "Pantera, IN desde el oeste"     <span class="sys">(entro a atacar + por dónde)</span>
+<span class="jt">LINCE</span> "Pantera, CLEARED HOT"            <span class="sys">✅ PERMISO DE FUEGO</span>
+<span class="pil">PANTERA</span> "ROCKETS" / "GUNS GUNS GUNS"
+<span class="pil">PANTERA</span> "Pantera, OFF, vuelvo a la BP"</div>
+      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: <b>IN → esperas → CLEARED HOT → disparas → OFF.</b> Nunca te saltes el CLEARED HOT.</span></div>
+    </div></div>
+
+    <div class="step"><div class="dot"><div class="b">8</div></div><div class="body">
+      <h3>BDA — «¿funcionó?»</h3>
+      <p class="why">Quien mejor vea la zona reporta: arma usada · daño · qué queda. Decide si hay otra pasada.</p>
+      <div class="radio"><span class="jt">LINCE</span> "Efectos positivos, técnico destruido. ¿Algo más?"
+<span class="pil">PANTERA</span> "Veo dos a pie huyendo al norte."
+<span class="jt">LINCE</span> "Recibido. Puede retirarse o vigilar, a su gusto."</div>
+    </div></div>
+
+  </div>
+</section>
+
+<!-- ======= DANGER CLOSE ======= -->
+<section id="danger" class="sheet">
+  <div class="shead"><span class="num">10</span><h2>Danger Close</h2><span class="tag">Amigos muy cerca</span></div>
+  <div class="callout warn" style="font-size:16px">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
+    <div><b>Regla del grupo:</b> amigos a menos de <b>200 m</b> del objetivo = DANGER CLOSE.</div>
+  </div>
+  <ol style="color:var(--ink-dim)">
+    <li>El JTAC lo <strong>anuncia</strong>.</li>
+    <li>Al autorizar, <strong>acepta el riesgo diciendo sus iniciales</strong>: <em>«Pantera, DANGER CLOSE, iniciales DELTA MIKE, CLEARED HOT.»</em></li>
+    <li>Tú extremas el cuidado: <strong>rumbo de ataque que NUNCA apunte a los amigos</strong>, prefieres la <strong>ametralladora .50</strong> antes que cohetes, y disparas <strong>ráfagas cortas</strong>.</li>
+  </ol>
+  <table class="tbl" style="max-width:380px">
+    <tr><th>Arma</th><th>Riesgo a amigos</th></tr>
+    <tr><td>Cohetes Hydra 70</td><td>~150 m</td></tr>
+    <tr><td>Ametralladora .50</td><td>~100 m</td></tr>
+  </table>
+</section>
+
+<!-- ======= VUELTA A CASA ======= -->
+<section id="vuelta" class="sheet">
+  <div class="shead"><span class="num">11</span><h2>Vuelta a casa y debrief</h2><span class="tag">Fases 7–8</span></div>
+  <p class="lead">La misión no acaba con el último disparo: acaba cuando el helicóptero está en tierra y se ha aprendido algo.</p>
+  <div class="cards c2">
+    <div class="card bk"><h3 style="font-size:16px">Vuelta a base (RTB)</h3><p>El JTAC te libera (sin más objetivos, o por BINGO/WINCHESTER). <strong>Egreso por ruta segura</strong> y con máscara de terreno. Cambia a <strong>frecuencia Aeródromo</strong>, autoinfórmate y aterriza. <strong>Rearma y reposta</strong> si vais a volver.</p></div>
+    <div class="card bk"><h3 style="font-size:16px">Debrief</h3><p>Reunión corta en tierra: qué salió <strong>bien</strong>, qué <strong>falló</strong>, confirmar el <strong>daño causado</strong> y sacar <strong>lecciones</strong>. Sin reproches: se aprende para la próxima.</p></div>
+  </div>
+  <div class="radio"><span class="jt">LINCE</span> "Pantera, sin más objetivos. Gracias por el apoyo, puede volver a casa."
+<span class="pil">PANTERA</span> "Recibido, Pantera RTB. Cambio a Aeródromo."
+<span class="sys">... cambia a frecuencia 1 ...</span>
+<span class="pil">PANTERA</span> "Tráfico aeródromo, Pantera a 2 minutos, entro a aterrizar por el sur."</div>
+  <div class="callout key">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    <div>Vigila siempre el <b>combustible</b>: avisa <b>BINGO</b> con margen para volver. Más vale dejar la zona a tiempo que caer por quedarte sin gasolina.</div>
+  </div>
+</section>
+
+<!-- ======= TRANSCRIPCIÓN COMPLETA ======= -->
+<section class="sheet">
+  <div class="shead"><span class="num">12</span><h2>Una misión entera, de radio a radio</h2><span class="tag">Ejemplo completo</span></div>
+  <p class="lead">Todo junto, de principio a fin. Léelo en voz alta en la formación: es exactamente cómo debería sonar una salida real.</p>
+  <div class="radio long"><span class="ph">— FRECUENCIA 1 · AERÓDROMO —</span>
+<span class="pil">PANTERA</span> "Tráfico aeródromo, Pantera despegando hacia el norte."
+<span class="sys">(vuela la ruta, bajo y pegado al terreno; al acercarse al CP cambia de frecuencia)</span>
+
+<span class="ph">— FRECUENCIA 2 · JTAC —</span>
+<span class="pil">PANTERA</span> "Lince, Pantera, sobre Punto de Contacto, listo para instrucciones."
+<span class="jt">LINCE</span> "Pantera, espere sobre el lago al oeste. Listo para SITREP cuando quiera su check-in."
+<span class="pil">PANTERA</span> "Lince, Pantera, en estación. Un Kiowa, 14 cohetes y ametralladora .50. Tiempo de juego 25 minutos."
+<span class="jt">LINCE</span> "Recibido. SITREP: TIC, repito TIC. Técnico con ametralladora en el cruce norte, activo. Somos 8 en la linde sur del bosque. Intención: reventar el técnico para avanzar. Restricción: ningún disparo hacia el sur. Colacione."
+<span class="pil">PANTERA</span> "Ningún disparo hacia el sur, Pantera."
+<span class="jt">LINCE</span> "Colación correcta. Game plan: Tipo 2, cohetes. Listo para copiar líneas."
+<span class="pil">PANTERA</span> "Listo para copiar."
+<span class="jt">LINCE</span> "BP colina al oeste del lago. Rumbo cero-nueve-cero. Distancia mil doscientos metros.
+        — pausa —
+        Cota cuatro-cinco. Objetivo técnico con ametralladora. Posición cero-tres-cinco, cero-cuatro-ocho.
+        — pausa —
+        Marca humo rojo. Aliados 300 metros al sur. Salida por el norte de vuelta a la BP. Listo observaciones."
+<span class="pil">PANTERA</span> "Listo."
+<span class="jt">LINCE</span> "Ataque de oeste a este, avise al dejar la BP. Colacione."
+<span class="pil">PANTERA</span> "Cota cuatro-cinco, posición cero-tres-cinco cero-cuatro-ocho, aliados 300 al sur, ataque de oeste a este. Pantera."
+<span class="jt">LINCE</span> "Colación correcta. Humo rojo en la zona."
+<span class="pil">PANTERA</span> "CONTACT con el humo."
+<span class="jt">LINCE</span> "Desde el humo, 50 al este, junto al granero."
+<span class="pil">PANTERA</span> "TALLY, técnico junto al granero."
+<span class="jt">LINCE</span> "Ese técnico es su objetivo. Proceda cuando listo."
+<span class="pil">PANTERA</span> "Pantera, dejando la BP."
+<span class="jt">LINCE</span> "Continue."
+<span class="pil">PANTERA</span> "Pantera, IN desde el oeste."
+<span class="jt">LINCE</span> "Pantera, CLEARED HOT."
+<span class="pil">PANTERA</span> "ROCKETS."
+<span class="pil">PANTERA</span> "Pantera, OFF, vuelvo a la BP."
+<span class="jt">LINCE</span> "Efectos positivos, técnico destruido. Sin más objetivos. Gracias por el apoyo, puede volver a casa."
+<span class="pil">PANTERA</span> "Recibido, Pantera RTB."
+
+<span class="ph">— FRECUENCIA 1 · AERÓDROMO —</span>
+<span class="pil">PANTERA</span> "Tráfico aeródromo, Pantera a 2 minutos, entro a aterrizar por el sur."</div>
+</section>
+
+<!-- ======= VOLAR ======= -->
+<section id="volar" class="sheet">
+  <div class="shead"><span class="num">13</span><h2>Volar el Kiowa sin morir</h2><span class="tag">Supervivencia</span></div>
+  <p class="lead">El Kiowa es un <strong>explorador armado</strong>, no un tanque volador. <strong>Vive del terreno, no del blindaje.</strong></p>
+  <div class="callout key">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h7l3-4 2 4h6M7 12v4M14 12l2 5"/><circle cx="6" cy="9" r="1.5"/></svg>
+    <div><b>Armamento del mod (OH-58D Kiowa Warrior):</b> 2 pods M260 = <b>14 cohetes Hydra 70 mm</b> + <b>ametralladora GAU-19/A .50</b>. <span style="color:var(--ink-dim)">(Si tu versión monta Hellfire/Stinger, úsalos solo contra blindados/objetivos puntuales y desde lejos.)</span></div>
+  </div>
+  <table class="tbl">
+    <tr><th>Arma</th><th>Contra</th><th>Nota</th></tr>
+    <tr><td>Cohetes Hydra</td><td>Infantería agrupada, vehículos ligeros, técnicos</td><td>Arma de área: salpica. NO con amigos a &lt;150 m</td></tr>
+    <tr><td>Ametralladora .50</td><td>Infantería, vehículos sin blindar</td><td>Más precisa que el cohete. La preferida en Danger Close. Ráfagas cortas</td></tr>
+  </table>
+  <h3 class="subh">8 cosas que mantienen vivo al Kiowa</h3>
+  <div class="cards c2">
+    <div class="card"><p><strong>1 · La BP es una ZONA con cobertura</strong>, no un punto: tras una colina o arboleda, a ~800 m–2 km del objetivo.</p></div>
+    <div class="card"><p><strong>2 · Máscara de terreno siempre.</strong> Vuela bajo, pon colinas y árboles entre tú y el enemigo.</p></div>
+    <div class="card"><p><strong>3 · Asoma lo justo (pop-up):</strong> sube, mira/dispara, vuelve a esconderte.</p></div>
+    <div class="card"><p><strong>4 · Nunca sobrevueles el objetivo.</strong> Dispara desde lejos y rompe ANTES de llegarle encima.</p></div>
+    <div class="card"><p><strong>5 · No repitas el mismo rumbo de ataque.</strong> Ser predecible mata.</p></div>
+    <div class="card"><p><strong>6 · Antiaérea detectada → OFF inmediato</strong>, máscara, avisas. Se reanuda cuando haya plan.</p></div>
+    <div class="card"><p><strong>7 · Parado y a la vista = muerto.</strong> Si te quedas estático para disparar, tras cobertura y pocos segundos.</p></div>
+    <div class="card"><p><strong>8 · Coordina la cabina en voz alta:</strong> «subo», «bajo», «cambio a ametralladora».</p></div>
+  </div>
+  <div class="callout tip">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+    <div><b>Show of Force:</b> pasada baja, rápida y <b>sin disparar</b> para asustar/fijar al enemigo. Se autoriza con «CONTINUE DRY», nunca con «cleared».</div>
+  </div>
+</section>
+
+<!-- ======= TARJETAS ======= -->
+<section id="tarjetas" class="sheet">
+  <div class="shead"><span class="num">14</span><h2>Tarjetas de bolsillo</h2><span class="tag">Recórtalas</span></div>
+  <div class="pocket">
+    <div class="pcard blue bk">
+      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h7l3-4 2 4h6M7 12v4M14 12l2 5"/></svg>Piloto / Copiloto</h3>
+<pre>ANTES:    briefing → armar/repostar → frec 1 (Aeródromo)
+DESPEGUE: escucha → autoinfórmate → despega → forma
+
+EN RUTA:  bajo y con máscara → al CP cambia a frec 2
+          "Lince, Pantera sobre Punto de Contacto"
+
+CHECK-IN: "[JTAC], [yo], en estación [dónde]. Un Kiowa,
+           [cohetes] y ametralladora .50. Tiempo de juego [min]."
+COPIAR:   SITREP→colaciono RESTRICCIONES · Game plan→colaciono
+          Líneas→colaciono 4·6·8 + restricciones
+CORRELAR: CONTACT → TALLY (lo veo) / NO JOY (no lo veo)
+ATACAR:   "Dejando la BP" → "IN desde el [dir]"
+          → esperar CLEARED HOT → "ROCKETS"/"GUNS×3" → "OFF"
+          ABORT = cortar YA sin disparar, volver a BP
+VUELTA:   te liberan → egreso → frec 1 → autoinfórmate → aterriza
+
+NUNCA:    disparar sin CLEARED · pasar la BP sin permiso ·
+          sobrevolar el blanco · repetir rumbo de pasada</pre>
+    </div>
+    <div class="pcard red bk">
+      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>JTAC</h3>
+<pre>BRIEFING: situación·misión·plan·logística·comms (SMEAC)
+          fija callsigns·2 frecuencias·CP·espera·humos
+
+1 CHECK-IN: recibo armas+tiempo → espera SEGURA
+2 SITREP: amenazas/objetivo/aliados/intención/
+          RESTRICCIONES → pido colación
+3 GAME PLAN: Tipo ___ | arma ___
+4 LÍNEAS (despacio, bloques de 3):
+   1 BP __    4 Cota __   7 Marca __
+   2 Rumbo __ 5 Objet. __ 8 Aliados __
+   3 Dist __m 6 Cuadríc__ 9 Salida __
+5 Exijo colación 4·6·8 + restr. → "correcta"
+6 CORRELACIÓN: humo o talk-on (DEDO · 2+1 ·
+   preguntas abiertas) → "el ___ es su objetivo"
+7 "IN" → geometría → CLEARED HOT (o ABORT)
+   Danger Close → "iniciales __ __" antes
+8 BDA → ¿otra pasada o RTB? → liberar y debrief</pre>
+    </div>
+    <div class="pcard green bk">
+      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>La misión en una línea</h3>
+<pre>BRIEFING → ARMAR → DESPEGUE → RUTA → PUNTO DE CONTACTO → [ CHECK-IN → SITREP → GAME PLAN → LÍNEAS → COLACIÓN → CORRELACIÓN → IN → CLEARED HOT → ROCKETS/GUNS → OFF → BDA ] → RTB → DEBRIEF
+                                                                                                          ↘ ABORT ×3 = todos a casa, sin disparar</pre>
+    </div>
+  </div>
+
+  <h3 class="subh">Diccionario rápido · brevity</h3>
+  <table class="tbl brev wide">
+    <tr><th>Palabra</th><th>Significa</th><th>Palabra</th><th>Significa</th></tr>
+    <tr><td>VISUAL/BLIND</td><td>Veo/no veo a un amigo</td><td>CONTINUE</td><td>Sigue, aún sin permiso de fuego</td></tr>
+    <tr><td>TALLY/NO JOY</td><td>Veo/no veo mi objetivo</td><td>CLEARED HOT</td><td>Autorizado a disparar esta pasada</td></tr>
+    <tr><td>CONTACT</td><td>Veo la referencia descrita</td><td>CONTINUE DRY</td><td>Pasada sin disparar</td></tr>
+    <tr><td>IN</td><td>Entro a atacar (+ dirección)</td><td>ABORT ×3</td><td>Corta el ataque YA</td></tr>
+    <tr><td>ROCKETS</td><td>Cohetes lanzados</td><td>OFF / OFF DRY</td><td>Salgo de la pasada (con/sin disparo)</td></tr>
+    <tr><td>RIFLE</td><td>Misil guiado lanzado</td><td>SHIFT</td><td>Corrige impacto (metros + cardinal)</td></tr>
+    <tr><td>GUNS GUNS GUNS</td><td>Disparando ametralladora</td><td>BDA</td><td>Evaluación de daños</td></tr>
+    <tr><td>WINCHESTER</td><td>Sin munición</td><td>BINGO</td><td>Combustible justo, me retiro</td></tr>
+    <tr><td>RTB</td><td>Vuelvo a base</td><td>TIC</td><td>Tropas amigas bajo fuego</td></tr>
+    <tr><td>CP</td><td>Punto de Contacto con el JTAC</td><td>BP</td><td>Posición de batalla (desde donde atacas)</td></tr>
+    <tr><td>DANGER CLOSE</td><td>Amigos muy cerca del blanco</td><td>WILCO</td><td>Recibido, lo haré</td></tr>
+    <tr><td>AFIRMA / NEGATIVO</td><td>Sí / No</td><td>STANDBY</td><td>Espera, ahora no puedo</td></tr>
+  </table>
+</section>
+
+</div>
+
+<footer>
+  <svg class="emblem"><use href="#emblem"/></svg>
+  <div><strong style="color:var(--ink-dim)">ArmaDos · Simulación Virtual</strong> — Manual CAS Helicópteros · Edición 1</div>
+  <div style="margin-top:6px;max-width:62ch;margin-inline:auto">Manual interno de apoyo aéreo cercano para Arma Reforger (ala rotatoria), con el ciclo completo de misión: briefing → despegue → zona → CAS → vuelta → debrief. Doctrina estándar OTAN adaptada al grupo: orden de 5 puntos, tipos de control, líneas 9-line, colación 4/6/8, correlación y brevity.</div>
+</footer>
+
+</body>
+</html>
