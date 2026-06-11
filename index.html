@@ -281,7 +281,7 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
   <span class="links">
     <a href="#mision">Misión</a><a href="#idea">Idea</a><a href="#briefing">Briefing</a>
     <a href="#radio">Radio</a><a href="#salida">Despegue</a><a href="#zona">Zona</a>
-    <a href="#secuencia">CAS</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tarjetas">Tarjetas</a>
+    <a href="#secuencia">CAS</a><a href="#cca5">CCA</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tarjetas">Tarjetas</a>
   </span>
 </div></nav>
 
@@ -647,9 +647,75 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
   </div>
 </section>
 
+<!-- ======= CCA 5-LINE ======= -->
+<section id="cca5" class="sheet">
+  <div class="shead"><span class="num">10</span><h2>CCA / 5-line</h2><span class="tag">Helicóptero · procedimiento corto</span></div>
+  <p class="lead"><strong>CCA</strong> significa <em>Close Combat Attack</em>. En el curso lo usaremos como una forma rápida de controlar un helicóptero cuando el objetivo es sencillo, la zona está entendida y el JTAC/monitor necesita pasar lo mínimo imprescindible sin montar una 9-line completa.</p>
+
+  <div class="callout warn" style="font-size:15px">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
+    <div><b>No es un atajo para disparar.</b> La 5-line no elimina <b>correlación</b>, <b>restricciones</b>, <b>ABORT</b> ni <b>CLEARED HOT</b>. Si el piloto no entiende el objetivo o hay riesgo para amigos, se para y se pasa a 9-line.</div>
+  </div>
+
+  <div class="cards c2">
+    <div class="card bk"><h3 style="font-size:16px">Cuándo usar 5-line</h3><p>Blanco único, zona simple, helicóptero cerca de una BP conocida, amigos bien marcados y el JTAC puede hablar claro. Ejemplo: técnico aislado al norte de un cruce, marcado con humo, con amigos al sur y ruta de salida norte.</p></div>
+    <div class="card bk"><h3 style="font-size:16px">Cuándo usar 9-line</h3><p>Varios blancos, zona urbana, amigos muy cerca, Danger Close, dudas de posición, piloto nuevo, mala visibilidad o restricciones delicadas. En caso de duda, 9-line. Es más lenta, pero ordena mejor la cabeza.</p></div>
+  </div>
+
+  <h3 class="subh">Las 5 líneas que dicta el JTAC</h3>
+  <table class="tbl wide">
+    <tr><th>Línea</th><th>Qué dice</th><th>Qué debe entender el piloto</th></tr>
+    <tr><td>1</td><td><b>Amigos / posición propia</b></td><td>Dónde está tierra y qué NO debe tocar. Si hay humo verde, es amigo.</td></tr>
+    <tr><td>2</td><td><b>Objetivo / ubicación</b></td><td>Qué hay que atacar y dónde está: cruce, casa, bosque, cuadrícula o referencia clara.</td></tr>
+    <tr><td>3</td><td><b>Marca / referencia</b></td><td>Cómo lo encontrará: humo rojo, trazadoras, talk-on, edificio, carretera, granero.</td></tr>
+    <tr><td>4</td><td><b>Restricciones</b></td><td>Lo que está prohibido: no disparar al sur, no sobrevolar pueblo, no cohetes, no entrar bajo X metros.</td></tr>
+    <tr><td>5</td><td><b>Egreso / control</b></td><td>Por dónde sale y quién le autoriza: norte a BP, espera IN, espera CLEARED HOT, ABORT en claro.</td></tr>
+  </table>
+
+  <div class="callout key">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+    <div><b>Lectura de vuelta mínima:</b> el piloto repite amigos, objetivo, restricciones y egreso. Si se equivoca en una restricción, el JTAC corrige antes de autorizar nada.</div>
+  </div>
+
+  <h3 class="subh">Ejemplo práctico · técnico aislado</h3>
+  <div class="radio long"><span class="ph">— CCA 5-LINE · MISMA SITUACIÓN, MÁS CORTA QUE LA 9-LINE —</span>
+<span class="jt">JTAC · LINCE</span> "Pantera, Lince, solicito CCA 5-line sobre técnico aislado. Avise listo para copiar."
+<span class="pil">PILOTO · PANTERA</span> "Lince, Pantera, listo para 5-line."
+<span class="jt">JTAC · LINCE</span> "Uno: amigos en linde sur del bosque, humo verde. Dos: objetivo técnico con ametralladora en cruce norte, cuadrícula cero-tres-cinco, cero-cuatro-ocho. Tres: marca humo rojo. Cuatro: ningún disparo hacia el sur, no sobrevolar el pueblo. Cinco: ataque oeste a este, egreso norte a BP Lago Oeste. Colacione amigos, objetivo, restricciones y egreso."
+<span class="pil">PILOTO · PANTERA</span> "Amigos linde sur con humo verde. Objetivo técnico con ametralladora en cruce norte, cero-tres-cinco cero-cuatro-ocho. Marca humo rojo. Ningún disparo hacia el sur, no sobrevuelo pueblo. Ataque oeste a este, egreso norte a BP Lago Oeste. Pantera."
+<span class="jt">JTAC · LINCE</span> "Pantera, Lince, colación correcta. Desde humo rojo, cincuenta metros al este, técnico junto al granero. Describa objetivo."
+<span class="pil">PILOTO · PANTERA</span> "TALLY técnico junto al granero, orientado norte-sur. Pantera."
+<span class="jt">JTAC · LINCE</span> "Pantera, Lince, correcto. Ese técnico es su objetivo. Reporte IN."
+<span class="pil">PILOTO · PANTERA</span> "IN desde el oeste, Pantera."
+<span class="jt">JTAC · LINCE</span> "Pantera, CLEARED HOT."
+<span class="pil">PILOTO · PANTERA</span> "GUNS GUNS GUNS, Pantera."
+<span class="pil">PILOTO · PANTERA</span> "OFF norte, vuelvo a BP, Pantera."
+<span class="jt">JTAC · LINCE</span> "Pantera, Lince, buenos impactos. Mantenga BP para BDA."</div>
+
+  <h3 class="subh">Ejercicios para días de entrenamiento</h3>
+  <div class="cards c3">
+    <div class="card"><p><strong>Ejercicio 1 · JTAC en 90 segundos.</strong> El monitor da una situación simple. El alumno prepara las 5 líneas y las dicta sin correr: amigos, objetivo, marca, restricciones, egreso.</p></div>
+    <div class="card"><p><strong>Ejercicio 2 · Piloto disciplinado.</strong> El piloto solo puede atacar si ha repetido bien amigos, objetivo, restricciones y egreso. Si duda, canta <b>SAY AGAIN</b> o <b>NO JOY</b>.</p></div>
+    <div class="card"><p><strong>Ejercicio 3 · ABORT real.</strong> En mitad de la entrada, el JTAC canta <b>ABORT ABORT ABORT</b>. El piloto corta la pasada, no dispara y vuelve a BP. Se evalúa reacción, no puntería.</p></div>
+  </div>
+
+  <h3 class="subh">Plantilla para anotar en entrenamiento</h3>
+  <div class="diagram">CCA 5-LINE
+1 Amigos / propia posición: ______________________________
+2 Objetivo / ubicación:   ______________________________
+3 Marca / referencia:     ______________________________
+4 Restricciones:          ______________________________
+5 Egreso / control:       ______________________________
+
+Piloto colaciona: amigos [ ] objetivo [ ] restricciones [ ] egreso [ ]
+Correlación: CONTACT [ ]  TALLY [ ]  NO JOY [ ]
+Autorización: CONTINUE [ ]  CLEARED HOT [ ]  ABORT [ ]
+BDA / resultado: ________________________________________</div>
+</section>
+
 <!-- ======= DANGER CLOSE ======= -->
 <section id="danger" class="sheet">
-  <div class="shead"><span class="num">10</span><h2>Danger Close</h2><span class="tag">Amigos muy cerca</span></div>
+  <div class="shead"><span class="num">11</span><h2>Danger Close</h2><span class="tag">Amigos muy cerca</span></div>
   <div class="callout warn" style="font-size:16px">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
     <div><b>Regla del grupo:</b> amigos a menos de <b>200 m</b> del objetivo = DANGER CLOSE.</div>
@@ -668,7 +734,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 
 <!-- ======= VUELTA A CASA ======= -->
 <section id="vuelta" class="sheet">
-  <div class="shead"><span class="num">11</span><h2>Vuelta a casa y debrief</h2><span class="tag">Fases 7–8</span></div>
+  <div class="shead"><span class="num">12</span><h2>Vuelta a casa y debrief</h2><span class="tag">Fases 7–8</span></div>
   <p class="lead">La misión no acaba con el último disparo: acaba cuando el helicóptero está en tierra y se ha aprendido algo.</p>
   <div class="cards c2">
     <div class="card bk"><h3 style="font-size:16px">Vuelta a base (RTB)</h3><p>El JTAC te libera (sin más objetivos, o por BINGO/WINCHESTER). <strong>Egreso por ruta segura</strong> y con máscara de terreno. Cambia a <strong>frecuencia Aeródromo</strong>, autoinfórmate y aterriza. <strong>Rearma y reposta</strong> si vais a volver.</p></div>
@@ -686,7 +752,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 
 <!-- ======= TRANSCRIPCIÓN COMPLETA ======= -->
 <section class="sheet">
-  <div class="shead"><span class="num">12</span><h2>Una misión entera, de radio a radio</h2><span class="tag">Ejemplo completo</span></div>
+  <div class="shead"><span class="num">13</span><h2>Una misión entera, de radio a radio</h2><span class="tag">Ejemplo completo</span></div>
   <p class="lead">Todo junto, de principio a fin. Léelo en voz alta en la formación: es exactamente cómo debería sonar una salida real.</p>
   <div class="radio long"><span class="ph">— FRECUENCIA 1 · AERÓDROMO —</span>
 <span class="pil">PILOTO · PANTERA</span> "Tráfico aeródromo, Pantera despegando hacia el norte."
@@ -744,7 +810,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 
 <!-- ======= VOLAR ======= -->
 <section id="volar" class="sheet">
-  <div class="shead"><span class="num">13</span><h2>Volar el Kiowa sin morir</h2><span class="tag">Supervivencia</span></div>
+  <div class="shead"><span class="num">14</span><h2>Volar el Kiowa sin morir</h2><span class="tag">Supervivencia</span></div>
   <p class="lead">El Kiowa es un <strong>explorador armado</strong>, no un tanque volador. <strong>Vive del terreno, no del blindaje.</strong></p>
   <div class="callout key">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h7l3-4 2 4h6M7 12v4M14 12l2 5"/><circle cx="6" cy="9" r="1.5"/></svg>
@@ -774,7 +840,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 
 <!-- ======= TARJETAS ======= -->
 <section id="tarjetas" class="sheet">
-  <div class="shead"><span class="num">14</span><h2>Tarjetas de bolsillo</h2><span class="tag">Recórtalas</span></div>
+  <div class="shead"><span class="num">15</span><h2>Tarjetas de bolsillo</h2><span class="tag">Recórtalas</span></div>
   <div class="pocket">
     <div class="pcard blue bk">
       <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h7l3-4 2 4h6M7 12v4M14 12l2 5"/></svg>Piloto / Copiloto</h3>
@@ -789,6 +855,8 @@ CHECK-IN: "[JTAC], [yo], check-in: un Kiowa,
            ABORT en claro."
 COPIAR:   SITREP→colaciono RESTRICCIONES · Game plan→colaciono
           Líneas→colaciono 4·6·8 + restricciones
+CCA 5:    recibo amigos · objetivo · marca · restricciones · egreso
+          colaciono lo crítico → correlación → IN → espero CLEARED HOT
 CORRELAR: CONTACT → TALLY (lo veo) / NO JOY (no lo veo)
 ATACAR:   "Dejando la BP, [yo]" → "IN desde el [dir], [yo]"
           → esperar CLEARED HOT → "ROCKETS, [yo]"/"GUNS×3, [yo]" → "OFF, [yo]"
@@ -811,6 +879,8 @@ NUNCA:    disparar sin CLEARED HOT · pasar la BP sin permiso ·
    1 BP __    4 Cota __   7 Marca __
    2 Rumbo __ 5 Objet. __ 8 Aliados __
    3 Dist __m 6 Cuadríc__ 9 Salida __
+   CCA 5 __ amigos · objetivo · marca · restr. · egreso
+          pido colación amigos/objetivo/restr./egreso
 5 Exijo colación 4·6·8 + restr. → "correcta"
 6 CORRELACIÓN: humo o talk-on (DEDO · 2+1 ·
    preguntas abiertas) → "el ___ es su objetivo"
@@ -838,6 +908,7 @@ NUNCA:    disparar sin CLEARED HOT · pasar la BP sin permiso ·
     <tr><td>WINCHESTER</td><td>Sin munición</td><td>BINGO</td><td>Combustible justo, me retiro</td></tr>
     <tr><td>RTB</td><td>Vuelvo a base</td><td>TIC</td><td>Tropas amigas bajo fuego</td></tr>
     <tr><td>CP</td><td>Punto de Contacto con el JTAC</td><td>BP</td><td>Posición de batalla (desde donde atacas)</td></tr>
+    <tr><td>CCA 5-LINE</td><td>Control rápido de helicóptero en 5 líneas</td><td>SAY AGAIN</td><td>Repita la última transmisión</td></tr>
     <tr><td>DANGER CLOSE</td><td>Amigos muy cerca del blanco</td><td>WILCO</td><td>Recibido, lo haré</td></tr>
     <tr><td>AFIRMA / NEGATIVO</td><td>Sí / No</td><td>STANDBY</td><td>Espera, ahora no puedo</td></tr>
   </table>
@@ -848,7 +919,7 @@ NUNCA:    disparar sin CLEARED HOT · pasar la BP sin permiso ·
 <footer>
   <svg class="emblem"><use href="#emblem"/></svg>
   <div><strong style="color:var(--ink-dim)">ArmaDos · Simulación Virtual</strong> — Manual CAS Helicópteros · Edición 1</div>
-  <div style="margin-top:6px;max-width:62ch;margin-inline:auto">Manual interno de apoyo aéreo cercano para Arma Reforger (ala rotatoria), con el ciclo completo de misión: briefing → despegue → zona → CAS → vuelta → debrief. Doctrina estándar OTAN adaptada al grupo: orden de 5 puntos, tipos de control, líneas 9-line, colación 4/6/8, correlación y brevity.</div>
+  <div style="margin-top:6px;max-width:62ch;margin-inline:auto">Manual interno de apoyo aéreo cercano para Arma Reforger (ala rotatoria), con el ciclo completo de misión: briefing → despegue → zona → CAS → CCA 5-line → vuelta → debrief. Doctrina estándar OTAN adaptada al grupo: orden de 5 puntos, tipos de control, líneas 9-line, CCA, colación 4/6/8, correlación y brevity.</div>
 </footer>
 
 </body>

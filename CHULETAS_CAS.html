@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tarjetas de bolsillo · CAS · ArmaDos</title>
-<meta name="description" content="Tarjetas de bolsillo para misiones CAS en Arma Reforger. Vocabulario radio, 9-Line, tipos de control, secuencia de ataque y reglas no negociables.">
+<meta name="description" content="Tarjetas de bolsillo para misiones CAS en Arma Reforger. Vocabulario radio, 9-Line, CCA 5-line, tipos de control, secuencia de ataque y reglas no negociables.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -203,7 +203,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <div class="kicker">Curso CAS · Arma Reforger</div>
   <h1>Tarjetas de bolsillo · alumno</h1>
   <p>Imprime en A4 horizontal (2 tarjetas por hoja, formato A5). Recorta por el contorno y plastifica. También se ven bien en el móvil durante misión.</p>
-  <div class="note">8 tarjetas · Tamaño A5 · Listas para imprimir</div>
+  <div class="note">9 tarjetas · Tamaño A5 · Listas para imprimir</div>
 </section>
 
 <!-- ====== GRID DE TARJETAS ====== -->
@@ -212,7 +212,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <!-- ============ 1. VOCABULARIO ============ -->
   <article class="card">
     <span class="bk"></span>
-    <div class="hd"><span class="num">01</span><h2>Vocabulario de radio</h2><span class="tag">15 esenciales</span></div>
+    <div class="hd"><span class="num">01</span><h2>Vocabulario de radio</h2><span class="tag">16 esenciales</span></div>
     <table class="tb">
       <thead><tr><th>Por radio</th><th>Significado</th></tr></thead>
       <tbody>
@@ -226,6 +226,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <tr><td>VISUAL</td><td>Veo al amigo</td></tr>
         <tr><td>BLIND</td><td>No veo al amigo</td></tr>
         <tr><td>CONTACT</td><td>Veo una referencia o contacto aún no asignado</td></tr>
+        <tr><td>CCA 5-LINE</td><td>Control rápido de helicóptero en 5 líneas</td></tr>
         <tr><td>IN / OFF</td><td>Entro al ataque / salgo de la pasada</td></tr>
         <tr><td>CLEARED HOT</td><td>Autorizado a disparar</td></tr>
         <tr><td>ABORT</td><td>Cancela el ataque ya</td></tr>
@@ -325,23 +326,57 @@ ABORT en claro."</span>
     </div>
   </article>
 
-  <!-- ============ 6. REGLAS ============ -->
+  <!-- ============ 6. CCA 5-LINE ============ -->
   <article class="card critical">
     <span class="bk"></span>
-    <div class="hd"><span class="num">06</span><h2>Reglas no negociables</h2><span class="tag">No se rompen</span></div>
+    <div class="hd"><span class="num">06</span><h2>CCA 5-line</h2><span class="tag">Helicóptero · rápido</span></div>
+    <table class="tb">
+      <thead><tr><th>L</th><th>Qué dicta el JTAC</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><b>Amigos / propia:</b> dónde está tierra y cómo se marca</td></tr>
+        <tr><td>2</td><td><b>Objetivo:</b> qué es y dónde está</td></tr>
+        <tr><td>3</td><td><b>Marca:</b> humo, trazadoras, talk-on o referencia</td></tr>
+        <tr><td>4</td><td><b>Restricciones:</b> lo prohibido</td></tr>
+        <tr><td>5</td><td><b>Egreso/control:</b> salida y autorización</td></tr>
+      </tbody>
+    </table>
+    <pre class="pre" style="margin-top:10px"><span class="jt">JTAC:</span> "Pantera, CCA 5-line.
+Amigos sur humo verde.
+Técnico cruce norte.
+Marca humo rojo.
+No disparo al sur.
+Ataque oeste-este,
+egreso norte. Colacione."
+
+<span class="pil">PIL:</span> "Amigos sur,
+técnico cruce norte,
+humo rojo, no disparo sur,
+egreso norte. Pantera."</pre>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">No sustituye</strong> TALLY, CLEARED HOT ni ABORT. Si hay duda, 9-Line completa.</p>
+    <pre class="pre" style="margin-top:8px">Anota:
+Amigos ____ Objetivo ____
+Marca _____ Restric. ____
+Egreso ____ BDA ________</pre>
+  </article>
+
+  <!-- ============ 7. REGLAS ============ -->
+  <article class="card critical">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">07</span><h2>Reglas no negociables</h2><span class="tag">No se rompen</span></div>
     <ol class="rules-list">
       <li>Sin <b>"CLEARED HOT"</b> NO se dispara. Nunca. Aunque el blanco esté cantado.</li>
       <li><b>"ABORT"</b> se obedece YA, sin discutir ni preguntar por qué. El motivo se explica en el debrief.</li>
       <li>Si el piloto pierde el blanco: <b>"NO JOY, OFF, vuelvo a la BP"</b> y aborta él solo.</li>
       <li>Amigos a menos de <b>200 m</b> del objetivo = DANGER CLOSE. Sin coordinación clara, no se dispara.</li>
-      <li>9-Line sin lectura de vuelta de <b>L4, L6 y restricciones</b> = no hay autorización válida.</li>
+      <li>9-Line sin lectura de vuelta de <b>L4, L6, L8 y restricciones</b> = no hay autorización válida.</li>
+      <li>CCA 5-line sin colación de restricciones y egreso = no hay ataque.</li>
     </ol>
   </article>
 
-  <!-- ============ 7. PATRONES DE ESPERA ============ -->
+  <!-- ============ 8. PATRONES DE ESPERA ============ -->
   <article class="card">
     <span class="bk"></span>
-    <div class="hd"><span class="num">07</span><h2>Patrones de espera</h2><span class="tag">Mientras esperas</span></div>
+    <div class="hd"><span class="num">08</span><h2>Patrones de espera</h2><span class="tag">Mientras esperas</span></div>
     <div class="patterns">
       <div class="pat">
         <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
@@ -378,10 +413,10 @@ ABORT en claro."</span>
     </table>
   </article>
 
-  <!-- ============ 8. MARCADO Y PERFILES ============ -->
+  <!-- ============ 9. MARCADO Y PERFILES ============ -->
   <article class="card">
     <span class="bk"></span>
-    <div class="hd"><span class="num">08</span><h2>Marcado y perfiles</h2><span class="tag">Elección rápida</span></div>
+    <div class="hd"><span class="num">09</span><h2>Marcado y perfiles</h2><span class="tag">Elección rápida</span></div>
     <table class="tb">
       <thead><tr><th>Marcado</th><th>Cuándo</th></tr></thead>
       <tbody>
@@ -405,7 +440,7 @@ ABORT en claro."</span>
 </div><!-- /grid -->
 
 <footer>
-  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.0
+  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.1
 </footer>
 
 <script>
