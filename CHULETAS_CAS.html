@@ -221,14 +221,14 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <tr><td>AFIRMATIVO / NEGATIVO</td><td>Sí / No (nunca "sí" o "no")</td></tr>
         <tr><td>REPITA <span class="alt">(say again)</span></td><td>Vuelve a decirlo</td></tr>
         <tr><td>ESPERE <span class="alt">(standby)</span></td><td>Aguarda</td></tr>
-        <tr><td>TALLY</td><td>Veo al enemigo</td></tr>
-        <tr><td>SIN CONTACTO <span class="alt">(no joy)</span></td><td>No veo al enemigo</td></tr>
+        <tr><td>TALLY</td><td>Veo el objetivo asignado</td></tr>
+        <tr><td>NO JOY</td><td>No veo el objetivo asignado</td></tr>
         <tr><td>VISUAL</td><td>Veo al amigo</td></tr>
         <tr><td>CIEGO <span class="alt">(blind)</span></td><td>No veo al amigo</td></tr>
-        <tr><td>CONTACTO</td><td>Detecto algo en radar / sensor</td></tr>
-        <tr><td>ENTRANDO / SALIENDO</td><td>Entro al ataque / salgo</td></tr>
-        <tr><td>ARMA CALIENTE <span class="alt">(cleared hot)</span></td><td>Autorizado a disparar</td></tr>
-        <tr><td>ABORTA</td><td>Cancela el ataque ya</td></tr>
+        <tr><td>CONTACT</td><td>Veo una referencia o contacto aún no asignado</td></tr>
+        <tr><td>IN / OFF</td><td>Entro al ataque / salgo de la pasada</td></tr>
+        <tr><td>CLEARED HOT</td><td>Autorizado a disparar</td></tr>
+        <tr><td>ABORT</td><td>Cancela el ataque ya</td></tr>
         <tr><td>SIN MUNICIÓN <span class="alt">(winchester)</span></td><td>Me quedé sin armas</td></tr>
         <tr><td>BINGO</td><td>Combustible mínimo, vuelvo a base</td></tr>
       </tbody>
@@ -260,7 +260,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <article class="card">
     <span class="bk"></span>
     <div class="hd"><span class="num">03</span><h2>Reporte de entrada</h2><span class="tag">Piloto al llegar</span></div>
-    <pre class="pre"><span class="jt">"Hammer, aquí Warhog-1,
+    <pre class="pre"><span class="jt">"Hammer, Warhog-1,
 reportando entrada."</span>
 
   <span class="sys">→</span> Posición: 5 millas al NO del CP
@@ -270,29 +270,29 @@ reportando entrada."</span>
   <span class="sys">→</span> Sensores: con designador,
         sin gafas nocturnas
   <span class="sys">→</span> Habilitaciones: Tipo 1, 2 y 3</pre>
-    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4">Orden fijo. No te saltes ninguno. Espera el SITREP del JTAC antes de pedir el 9-Line.</p>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4">Formato: al llamar, destinatario primero y emisor después. En colaciones o confirmaciones, repite lo crítico y cierra con tu indicativo.</p>
   </article>
 
   <!-- ============ 4. SECUENCIA ATAQUE ============ -->
   <article class="card critical">
     <span class="bk"></span>
     <div class="hd"><span class="num">04</span><h2>Secuencia de ataque</h2><span class="tag">Tipo 1 · coreografía</span></div>
-    <pre class="pre"><span class="pil">PIL:</span>  "Warhog-1, saliendo del IP
-       rumbo al blanco."
+    <pre class="pre"><span class="pil">PIL:</span>  "Saliendo del IP
+       rumbo al blanco, Warhog-1."
 <span class="sys">       → arrancando desde el IP</span>
 
 <span class="jt">JTAC:</span> "Continúa."
 <span class="sys">       → sigue acercándote</span>
 
-<span class="pil">PIL:</span>  "Warhog-1, ENTRANDO
-       desde el sur."
+<span class="pil">PIL:</span>  "IN desde el sur,
+       Warhog-1."
 <span class="sys">       → 30 s al lanzamiento</span>
 
-<span class="jt">JTAC:</span> <span class="key">"ARMA CALIENTE."</span>
+<span class="jt">JTAC:</span> <span class="key">"Warhog-1, CLEARED HOT."</span>
 <span class="sys">       → autorización final ★</span>
 
-<span class="pil">PIL:</span>  "Saliendo, arma asegurada,
-       rumbo este."
+<span class="pil">PIL:</span>  "OFF, arma asegurada,
+       rumbo este, Warhog-1."
 
 <span class="jt">JTAC:</span> "Buenos impactos.
        Espera evaluación de daños."</pre>
@@ -326,8 +326,8 @@ reportando entrada."</span>
     <span class="bk"></span>
     <div class="hd"><span class="num">06</span><h2>Reglas no negociables</h2><span class="tag">No se rompen</span></div>
     <ol class="rules-list">
-      <li>Sin <b>"ARMA CALIENTE"</b> NO se dispara. Nunca. Aunque el blanco esté cantado.</li>
-      <li><b>"ABORTA"</b> se obedece YA, sin discutir ni preguntar por qué. El motivo se explica en el debrief.</li>
+      <li>Sin <b>"CLEARED HOT"</b> NO se dispara. Nunca. Aunque el blanco esté cantado.</li>
+      <li><b>"ABORT"</b> se obedece YA, sin discutir ni preguntar por qué. El motivo se explica en el debrief.</li>
       <li>Si el piloto pierde el blanco: <b>"Sin contacto, dando la vuelta"</b> y aborta él solo, vuelve al IP.</li>
       <li>Amigos a menos de <b>600 m</b> sin coordinar = no se dispara. Punto.</li>
       <li>9-Line sin lectura de vuelta de <b>L4, L6 y restricciones</b> = no hay autorización válida.</li>
