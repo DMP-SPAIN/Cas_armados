@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarjetas de bolsillo · CAS · ArmaDos</title>
+<meta name="description" content="Tarjetas de bolsillo para misiones CAS en Arma Reforger. Vocabulario radio, 9-Line, tipos de control, secuencia de ataque y reglas no negociables.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c1310; --bg2:#0f1714; --surface:#151f1a; --surface2:#1b271f;
+  --ink:#e9efe9; --ink-dim:#9fb0a4; --ink-faint:#6f8074;
+  --line:rgba(160,190,170,.14); --line-strong:rgba(160,190,170,.28);
+  --amber:#ffb22e; --amber-deep:#e0921a;
+  --green:#7fb069; --green-bright:#9ed47f;
+  --red:#e5533c; --red-deep:#c13a26;
+  --blue:#5aa0e0;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:'Oswald',system-ui,sans-serif;
+  --body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:15px;line-height:1.55;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  background-image:
+    linear-gradient(rgba(127,176,105,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(127,176,105,.035) 1px,transparent 1px);
+  background-size:34px 34px;
+}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;letter-spacing:.02em;margin:0}
+strong{color:#fff;font-weight:600}
+
+/* ---- top bar ---- */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(10,17,14,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong);padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.topbar .brand{font-family:var(--disp);font-weight:700;letter-spacing:.08em;font-size:15px;color:#fff;display:flex;align-items:center;gap:10px}
+.topbar .brand .ic{width:28px;height:28px;border:1.5px solid var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--amber);font-size:12px;font-weight:700;letter-spacing:.05em}
+.topbar .spacer{flex:1}
+.topbar button{font-family:var(--disp);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:7px;background:transparent;color:var(--ink);border:1px solid var(--line-strong);cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .15s}
+.topbar button:hover{border-color:var(--amber);color:var(--amber);background:rgba(255,178,46,.06)}
+.topbar button.primary{background:var(--amber);color:#0c1310;border-color:var(--amber);font-weight:700}
+.topbar button.primary:hover{background:var(--amber-deep);border-color:var(--amber-deep);color:#0c1310}
+.topbar button svg{width:16px;height:16px}
+
+/* ---- intro ---- */
+.intro{max-width:980px;margin:0 auto;padding:30px 22px 10px;text-align:center}
+.intro .kicker{font-family:var(--disp);letter-spacing:.42em;font-size:12px;color:var(--amber);text-transform:uppercase}
+.intro h1{font-size:clamp(28px,5vw,42px);text-transform:uppercase;margin:8px 0 6px;letter-spacing:.02em}
+.intro p{color:var(--ink-dim);font-size:15px;margin:6px 0}
+.intro .note{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;margin-top:14px}
+
+/* ---- grid de chuletas ---- */
+.grid{max-width:980px;margin:30px auto;padding:0 22px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:760px){.grid{grid-template-columns:1fr;gap:16px}}
+
+/* ---- card ---- */
+.card{
+  background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;
+  padding:20px 22px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0,rgba(255,178,46,.05),transparent 60%);pointer-events:none}
+.card .hd{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;position:relative}
+.card .hd .num{font-family:var(--disp);font-weight:700;font-size:24px;color:var(--amber);line-height:1;letter-spacing:.05em}
+.card .hd h2{font-size:17px;text-transform:uppercase;letter-spacing:.04em;color:#fff}
+.card .hd .tag{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.12em;text-transform:uppercase}
+.card.critical{border-color:rgba(229,83,60,.45)}
+.card.critical .hd{border-bottom-color:rgba(229,83,60,.25)}
+.card.critical .hd .num{color:var(--red)}
+
+/* corner brackets */
+.card .bk::before,.card .bk::after{content:"";position:absolute;width:10px;height:10px;border:1.5px solid var(--amber);opacity:.4}
+.card .bk::before{top:5px;left:5px;border-right:0;border-bottom:0}
+.card .bk::after{bottom:5px;right:5px;border-left:0;border-top:0}
+
+/* ---- tabla compacta ---- */
+.tb{width:100%;border-collapse:collapse;font-size:13.5px}
+.tb th{text-align:left;font-family:var(--disp);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:11px;color:var(--amber);padding:6px 8px;background:var(--surface2);border-bottom:1px solid var(--line)}
+.tb td{padding:6px 8px;border-bottom:1px solid var(--line);color:var(--ink-dim);vertical-align:top}
+.tb td:first-child{color:var(--ink);font-weight:500;white-space:nowrap}
+.tb tr:last-child td{border-bottom:0}
+.tb .star{color:var(--red);font-weight:700;margin-left:3px}
+.tb .alt{color:var(--ink-faint);font-size:10.5px}
+
+/* ---- pre block (radio) ---- */
+.pre{margin:0;font-family:var(--mono);font-size:12px;line-height:1.65;color:var(--ink-dim);white-space:pre-wrap;background:#0a100d;border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:6px;padding:12px 14px}
+.pre .pil{color:var(--blue);font-weight:700}
+.pre .jt{color:var(--amber);font-weight:700}
+.pre .sys{color:var(--ink-faint);font-style:italic}
+.pre .key{color:var(--red);font-weight:700}
+
+/* ---- listas reglas ---- */
+.rules-list{margin:0;padding:0;list-style:none;counter-reset:r}
+.rules-list li{counter-increment:r;position:relative;padding:10px 0 10px 38px;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink-dim);line-height:1.5}
+.rules-list li:last-child{border-bottom:0}
+.rules-list li::before{
+  content:counter(r);position:absolute;left:0;top:10px;
+  width:26px;height:26px;border-radius:50%;border:1.5px solid var(--red);
+  color:var(--red);font-family:var(--disp);font-weight:700;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+}
+.rules-list b{color:#fff}
+
+/* ---- pocket triada (Tipo 1/2/3) ---- */
+.triada{display:grid;grid-template-columns:1fr;gap:10px}
+.tcard{border:1.5px solid;border-radius:8px;padding:10px 12px}
+.tcard h3{font-family:var(--disp);font-size:14px;text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.tcard p{margin:2px 0;font-size:12.5px;color:var(--ink-dim);line-height:1.4}
+.tcard.t1{border-color:rgba(127,176,105,.55)} .tcard.t1 h3{color:var(--green-bright)}
+.tcard.t2{border-color:rgba(255,178,46,.55)} .tcard.t2 h3{color:var(--amber)}
+.tcard.t3{border-color:rgba(229,83,60,.55)} .tcard.t3 h3{color:var(--red)}
+.tcard .dot{width:10px;height:10px;border-radius:50%}
+.tcard.t1 .dot{background:var(--green-bright)}
+.tcard.t2 .dot{background:var(--amber)}
+.tcard.t3 .dot{background:var(--red)}
+
+/* ---- patrones SVG ---- */
+.patterns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.pat{border:1px solid var(--line);border-radius:7px;padding:8px;text-align:center;background:#0a100d}
+.pat svg{width:100%;height:62px}
+.pat .name{font-family:var(--disp);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--amber);margin-top:4px}
+
+/* ---- footer ---- */
+footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px;text-align:center;color:var(--ink-faint);font-size:12px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
+
+/* ============= PRINT ============= */
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  :root{
+    --bg:#f4efe3; --bg2:#efe7d6; --surface:#fffaf0; --surface2:#eee2cb;
+    --ink:#1b1d18; --ink-dim:#4f5b50; --ink-faint:#778172;
+    --line:rgba(55,65,55,.18); --line-strong:rgba(55,65,55,.34);
+    --amber:#b46911; --amber-deep:#8f4e0c;
+    --green:#3f6d45; --green-bright:#4f7f50;
+    --red:#a83b2c; --red-deep:#7e281f;
+    --blue:#2d628b;
+  }
+  html,body{background:#fff;color:var(--ink);background-image:none}
+  body{font-family:Georgia,"Times New Roman",serif;font-size:10.5px;line-height:1.4}
+  h1,h2,h3,h4,.topbar .brand,.card .hd .num,.card .hd h2,.card .hd .tag,.tb th,.intro .kicker,footer,.pat .name,.tcard h3,.intro .note{font-family:"Segoe UI",Arial,sans-serif}
+  .topbar,.intro,footer{display:none !important}
+  .grid{max-width:100%;margin:0;padding:6mm;gap:6mm;grid-template-columns:1fr 1fr}
+  .card{
+    background:var(--surface);border:1.2px solid var(--line-strong);
+    border-radius:6px;padding:6mm 7mm;
+    height:128mm;
+    break-inside:avoid;
+    box-shadow:none;
+    overflow:hidden;
+  }
+  .card::before{display:none}
+  .card .hd{padding-bottom:2mm;margin-bottom:3mm;border-bottom:1px solid var(--line-strong)}
+  .card .hd .num{font-size:16px;color:var(--amber-deep)}
+  .card .hd h2{font-size:12px;color:#000}
+  .card .hd .tag{font-size:8px;color:var(--ink-faint)}
+  .card .bk::before,.card .bk::after{border-color:var(--amber-deep);opacity:.5}
+  .tb{font-size:9.3px}
+  .tb th{font-size:8.5px;padding:1.4mm 2mm;color:var(--amber-deep);background:var(--surface2)}
+  .tb td{padding:1.3mm 2mm}
+  .tb .alt{font-size:7.5px}
+  .pre{font-size:9px;line-height:1.45;padding:2.5mm 3mm;background:#162018;color:#f4efe3;border-color:#26382b;border-radius:3px}
+  .pre .pil{color:#8fce84}
+  .pre .jt{color:#ffba5b}
+  .pre .sys{color:#c9d6c6}
+  .pre .key{color:#ff8a72;font-weight:700}
+  .rules-list li{font-size:9.5px;padding:2mm 0 2mm 8mm;line-height:1.42}
+  .rules-list li::before{width:5mm;height:5mm;font-size:9px;top:1.6mm;border-color:var(--red-deep);color:var(--red-deep)}
+  .rules-list b{color:#000}
+  .tcard{padding:2mm 3mm;border-radius:3px}
+  .tcard h3{font-size:10px;margin-bottom:1.5mm}
+  .tcard p{font-size:8.7px;line-height:1.32;margin:0.6mm 0}
+  .triada{gap:2mm}
+  .patterns{gap:2mm;margin-bottom:2mm}
+  .pat{padding:1.8mm;background:var(--surface);border:1px solid var(--line)}
+  .pat svg{height:14mm}
+  .pat .name{font-size:8px;margin-top:1mm;color:var(--amber-deep)}
+  strong{color:#000}
+}
+@page{size:A4 landscape;margin:0}
+</style>
+</head>
+<body>
+
+<!-- ====== BARRA SUPERIOR ====== -->
+<div class="topbar">
+  <span class="brand"><span class="ic">CAS</span>ARMADOS · CHULETAS DE BOLSILLO</span>
+  <span class="spacer"></span>
+  <button onclick="window.print()" class="primary" title="Imprimir o guardar como PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+    Imprimir / PDF
+  </button>
+  <button onclick="downloadHTML()" title="Descargar este HTML completo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    Descargar HTML
+  </button>
+</div>
+
+<!-- ====== INTRO ====== -->
+<section class="intro">
+  <div class="kicker">Curso CAS · Arma Reforger</div>
+  <h1>Tarjetas de bolsillo · alumno</h1>
+  <p>Imprime en A4 horizontal (2 tarjetas por hoja, formato A5). Recorta por el contorno y plastifica. También se ven bien en el móvil durante misión.</p>
+  <div class="note">8 tarjetas · Tamaño A5 · Listas para imprimir</div>
+</section>
+
+<!-- ====== GRID DE TARJETAS ====== -->
+<div class="grid">
+
+  <!-- ============ 1. VOCABULARIO ============ -->
+  <article class="card">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">01</span><h2>Vocabulario de radio</h2><span class="tag">15 esenciales</span></div>
+    <table class="tb">
+      <thead><tr><th>Por radio</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td>RECIBIDO Y CUMPLO <span class="alt">(wilco)</span></td><td>Entendido y voy a cumplir</td></tr>
+        <tr><td>RECIBIDO <span class="alt">(roger)</span></td><td>Recibido (no implica cumplir)</td></tr>
+        <tr><td>AFIRMATIVO / NEGATIVO</td><td>Sí / No (nunca "sí" o "no")</td></tr>
+        <tr><td>REPITA <span class="alt">(say again)</span></td><td>Vuelve a decirlo</td></tr>
+        <tr><td>ESPERE <span class="alt">(standby)</span></td><td>Aguarda</td></tr>
+        <tr><td>TALLY</td><td>Veo al enemigo</td></tr>
+        <tr><td>SIN CONTACTO <span class="alt">(no joy)</span></td><td>No veo al enemigo</td></tr>
+        <tr><td>VISUAL</td><td>Veo al amigo</td></tr>
+        <tr><td>CIEGO <span class="alt">(blind)</span></td><td>No veo al amigo</td></tr>
+        <tr><td>CONTACTO</td><td>Detecto algo en radar / sensor</td></tr>
+        <tr><td>ENTRANDO / SALIENDO</td><td>Entro al ataque / salgo</td></tr>
+        <tr><td>ARMA CALIENTE <span class="alt">(cleared hot)</span></td><td>Autorizado a disparar</td></tr>
+        <tr><td>ABORTA</td><td>Cancela el ataque ya</td></tr>
+        <tr><td>SIN MUNICIÓN <span class="alt">(winchester)</span></td><td>Me quedé sin armas</td></tr>
+        <tr><td>BINGO</td><td>Combustible mínimo, vuelvo a base</td></tr>
+      </tbody>
+    </table>
+  </article>
+
+  <!-- ============ 2. 9-LINE ============ -->
+  <article class="card">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">02</span><h2>Briefing 9-Line</h2><span class="tag">El JTAC dicta</span></div>
+    <table class="tb">
+      <thead><tr><th>L</th><th>Qué dice</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Punto inicial (IP) desde donde el piloto arranca</td></tr>
+        <tr><td>2</td><td>Rumbo desde el IP al blanco (magnético)</td></tr>
+        <tr><td>3</td><td>Distancia desde el IP al blanco</td></tr>
+        <tr><td>4 <span class="star">★</span></td><td>Elevación del blanco sobre el nivel del mar</td></tr>
+        <tr><td>5</td><td>Descripción del blanco (tipo y postura)</td></tr>
+        <tr><td>6 <span class="star">★</span></td><td>Coordenadas (MGRS / cuadrícula)</td></tr>
+        <tr><td>7</td><td>Marcado (humo blanco, código láser, IR)</td></tr>
+        <tr><td>8 <span class="star">★</span></td><td>Posición de amigos más cercanos</td></tr>
+        <tr><td>9</td><td>Egreso · por dónde sale el piloto</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">★</strong> Líneas con lectura de vuelta obligatoria. Si <b>L8 &lt; 600 m</b>, anunciar <strong style="color:var(--red)">"danger close"</strong>.</p>
+  </article>
+
+  <!-- ============ 3. CHECK-IN PILOTO ============ -->
+  <article class="card">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">03</span><h2>Reporte de entrada</h2><span class="tag">Piloto al llegar</span></div>
+    <pre class="pre"><span class="jt">"Hammer, aquí Warhog-1,
+reportando entrada."</span>
+
+  <span class="sys">→</span> Posición: 5 millas al NO del CP
+  <span class="sys">→</span> Número y tipo: 2 × A-29
+  <span class="sys">→</span> Armamento: 4×Mk82, 2×AGM-65, cañón
+  <span class="sys">→</span> Tiempo en estación: 45 min
+  <span class="sys">→</span> Sensores: con designador,
+        sin gafas nocturnas
+  <span class="sys">→</span> Habilitaciones: Tipo 1, 2 y 3</pre>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4">Orden fijo. No te saltes ninguno. Espera el SITREP del JTAC antes de pedir el 9-Line.</p>
+  </article>
+
+  <!-- ============ 4. SECUENCIA ATAQUE ============ -->
+  <article class="card critical">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">04</span><h2>Secuencia de ataque</h2><span class="tag">Tipo 1 · coreografía</span></div>
+    <pre class="pre"><span class="pil">PIL:</span>  "Warhog-1, saliendo del IP
+       rumbo al blanco."
+<span class="sys">       → arrancando desde el IP</span>
+
+<span class="jt">JTAC:</span> "Continúa."
+<span class="sys">       → sigue acercándote</span>
+
+<span class="pil">PIL:</span>  "Warhog-1, ENTRANDO
+       desde el sur."
+<span class="sys">       → 30 s al lanzamiento</span>
+
+<span class="jt">JTAC:</span> <span class="key">"ARMA CALIENTE."</span>
+<span class="sys">       → autorización final ★</span>
+
+<span class="pil">PIL:</span>  "Saliendo, arma asegurada,
+       rumbo este."
+
+<span class="jt">JTAC:</span> "Buenos impactos.
+       Espera evaluación de daños."</pre>
+  </article>
+
+  <!-- ============ 5. TIPOS DE CONTROL ============ -->
+  <article class="card">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">05</span><h2>Tipos de control</h2><span class="tag">Lo decide el JTAC</span></div>
+    <div class="triada">
+      <div class="tcard t1">
+        <h3><span class="dot"></span>TIPO 1 · Por defecto</h3>
+        <p>JTAC ve <b>EL AVIÓN</b> y <b>EL BLANCO</b>.</p>
+        <p>Máxima seguridad. Autoriza pasada por pasada.</p>
+      </div>
+      <div class="tcard t2">
+        <h3><span class="dot"></span>TIPO 2 · Uno de los dos</h3>
+        <p>JTAC ve <b>el avión</b> O <b>el blanco</b>, no ambos.</p>
+        <p>Confía en sensores del piloto. Pasada por pasada.</p>
+      </div>
+      <div class="tcard t3">
+        <h3><span class="dot"></span>TIPO 3 · Ninguno</h3>
+        <p>JTAC <b>no ve nada</b>. Da <b>área + ventana de tiempo</b>.</p>
+        <p>El piloto ataca dentro de esos límites.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 6. REGLAS ============ -->
+  <article class="card critical">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">06</span><h2>Reglas no negociables</h2><span class="tag">No se rompen</span></div>
+    <ol class="rules-list">
+      <li>Sin <b>"ARMA CALIENTE"</b> NO se dispara. Nunca. Aunque el blanco esté cantado.</li>
+      <li><b>"ABORTA"</b> se obedece YA, sin discutir ni preguntar por qué. El motivo se explica en el debrief.</li>
+      <li>Si el piloto pierde el blanco: <b>"Sin contacto, dando la vuelta"</b> y aborta él solo, vuelve al IP.</li>
+      <li>Amigos a menos de <b>600 m</b> sin coordinar = no se dispara. Punto.</li>
+      <li>9-Line sin lectura de vuelta de <b>L4, L6 y restricciones</b> = no hay autorización válida.</li>
+    </ol>
+  </article>
+
+  <!-- ============ 7. PATRONES DE ESPERA ============ -->
+  <article class="card">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">07</span><h2>Patrones de espera</h2><span class="tag">Mientras esperas</span></div>
+    <div class="patterns">
+      <div class="pat">
+        <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="30" r="20" fill="none" stroke="#ffb22e" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <circle cx="40" cy="30" r="3" fill="#e5533c"/>
+          <polygon points="60,30 55,26 57,30 55,34" fill="#ffb22e"/>
+        </svg>
+        <div class="name">Circular</div>
+      </div>
+      <div class="pat">
+        <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 18 L60 18 A12 12 0 0 1 60 42 L20 42 A12 12 0 0 1 20 18 Z" fill="none" stroke="#ffb22e" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <circle cx="40" cy="30" r="3" fill="#e5533c"/>
+          <polygon points="40,18 36,22 40,20 44,22" fill="#ffb22e"/>
+        </svg>
+        <div class="name">Ovalado</div>
+      </div>
+      <div class="pat">
+        <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 30 Q20 12 35 22 Q50 32 50 30 Q50 12 65 22 Q65 48 50 38 Q35 28 35 30 Q35 48 20 38 Z" fill="none" stroke="#ffb22e" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <circle cx="28" cy="30" r="2.5" fill="#e5533c"/>
+          <circle cx="57" cy="30" r="2.5" fill="#e5533c"/>
+        </svg>
+        <div class="name">En ocho</div>
+      </div>
+    </div>
+    <table class="tb">
+      <thead><tr><th>Patrón</th><th>Cuándo</th></tr></thead>
+      <tbody>
+        <tr><td>Circular</td><td>Por defecto · sensor sobre el blanco</td></tr>
+        <tr><td>Ovalado</td><td>Con antiaérea · más predecible · fuera de amenaza</td></tr>
+        <tr><td>En ocho</td><td>Dos blancos · evitar mirar al sol</td></tr>
+      </tbody>
+    </table>
+  </article>
+
+  <!-- ============ 8. MARCADO Y PERFILES ============ -->
+  <article class="card">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">08</span><h2>Marcado y perfiles</h2><span class="tag">Elección rápida</span></div>
+    <table class="tb">
+      <thead><tr><th>Marcado</th><th>Cuándo</th></tr></thead>
+      <tbody>
+        <tr><td>Humo blanco (WP)</td><td>Visible a ojo · viento lo desplaza</td></tr>
+        <tr><td>Puntero infrarrojo</td><td>Solo con gafas nocturnas · inútil de día</td></tr>
+        <tr><td>Designador láser</td><td>Precisión absoluta · guía bombas LGB</td></tr>
+        <tr><td>Trazadora</td><td>Improvisado · revela posición</td></tr>
+      </tbody>
+    </table>
+    <table class="tb" style="margin-top:10px">
+      <thead><tr><th>Perfil de ataque</th><th>Ángulo</th></tr></thead>
+      <tbody>
+        <tr><td>Ángulo bajo (ametrallar)</td><td>10–20°</td></tr>
+        <tr><td>Ángulo medio (bomba libre)</td><td>20–45°</td></tr>
+        <tr><td>Ángulo alto (en picado)</td><td>45–60°</td></tr>
+        <tr><td>Horizontal (bomba guiada)</td><td>0°</td></tr>
+      </tbody>
+    </table>
+  </article>
+
+</div><!-- /grid -->
+
+<footer>
+  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.0
+</footer>
+
+<script>
+function downloadHTML(){
+  const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const blob = new Blob([html], {type: 'text/html;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'chuletas-cas-armados.html';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  }, 100);
+}
+</script>
+
+</body>
+</html>
