@@ -216,20 +216,20 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <table class="tb">
       <thead><tr><th>Por radio</th><th>Significado</th></tr></thead>
       <tbody>
-        <tr><td>RECIBIDO Y CUMPLO <span class="alt">(wilco)</span></td><td>Entendido y voy a cumplir</td></tr>
-        <tr><td>RECIBIDO <span class="alt">(roger)</span></td><td>Recibido (no implica cumplir)</td></tr>
-        <tr><td>AFIRMATIVO / NEGATIVO</td><td>Sí / No (nunca "sí" o "no")</td></tr>
-        <tr><td>REPITA <span class="alt">(say again)</span></td><td>Vuelve a decirlo</td></tr>
-        <tr><td>ESPERE <span class="alt">(standby)</span></td><td>Aguarda</td></tr>
+        <tr><td>WILCO</td><td>Recibido y cumpliré</td></tr>
+        <tr><td>ROGER</td><td>Recibido (no implica cumplir)</td></tr>
+        <tr><td>AFIRMA / NEGATIVO</td><td>Sí / No</td></tr>
+        <tr><td>SAY AGAIN</td><td>Repita la última transmisión</td></tr>
+        <tr><td>STANDBY</td><td>Espere, ahora no puedo responder</td></tr>
         <tr><td>TALLY</td><td>Veo el objetivo asignado</td></tr>
         <tr><td>NO JOY</td><td>No veo el objetivo asignado</td></tr>
         <tr><td>VISUAL</td><td>Veo al amigo</td></tr>
-        <tr><td>CIEGO <span class="alt">(blind)</span></td><td>No veo al amigo</td></tr>
+        <tr><td>BLIND</td><td>No veo al amigo</td></tr>
         <tr><td>CONTACT</td><td>Veo una referencia o contacto aún no asignado</td></tr>
         <tr><td>IN / OFF</td><td>Entro al ataque / salgo de la pasada</td></tr>
         <tr><td>CLEARED HOT</td><td>Autorizado a disparar</td></tr>
         <tr><td>ABORT</td><td>Cancela el ataque ya</td></tr>
-        <tr><td>SIN MUNICIÓN <span class="alt">(winchester)</span></td><td>Me quedé sin armas</td></tr>
+        <tr><td>WINCHESTER</td><td>Sin munición</td></tr>
         <tr><td>BINGO</td><td>Combustible mínimo, vuelvo a base</td></tr>
       </tbody>
     </table>
@@ -242,60 +242,60 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <table class="tb">
       <thead><tr><th>L</th><th>Qué dice</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>Punto inicial (IP) desde donde el piloto arranca</td></tr>
-        <tr><td>2</td><td>Rumbo desde el IP al blanco (magnético)</td></tr>
-        <tr><td>3</td><td>Distancia desde el IP al blanco</td></tr>
+        <tr><td>1</td><td>BP / posición de batalla desde donde atacará el helicóptero</td></tr>
+        <tr><td>2</td><td>Rumbo desde la BP al blanco</td></tr>
+        <tr><td>3</td><td>Distancia desde la BP al blanco</td></tr>
         <tr><td>4 <span class="star">★</span></td><td>Elevación del blanco sobre el nivel del mar</td></tr>
         <tr><td>5</td><td>Descripción del blanco (tipo y postura)</td></tr>
         <tr><td>6 <span class="star">★</span></td><td>Coordenadas (MGRS / cuadrícula)</td></tr>
-        <tr><td>7</td><td>Marcado (humo blanco, código láser, IR)</td></tr>
+        <tr><td>7</td><td>Marcado (humo, trazadoras, referencia visual o sin marca)</td></tr>
         <tr><td>8 <span class="star">★</span></td><td>Posición de amigos más cercanos</td></tr>
         <tr><td>9</td><td>Egreso · por dónde sale el piloto</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">★</strong> Líneas con lectura de vuelta obligatoria. Si <b>L8 &lt; 600 m</b>, anunciar <strong style="color:var(--red)">"danger close"</strong>.</p>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">★</strong> Líneas con lectura de vuelta obligatoria. En el grupo, amigos a menos de <b>200 m</b> del objetivo = <strong style="color:var(--red)">DANGER CLOSE</strong>.</p>
   </article>
 
   <!-- ============ 3. CHECK-IN PILOTO ============ -->
   <article class="card">
     <span class="bk"></span>
     <div class="hd"><span class="num">03</span><h2>Reporte de entrada</h2><span class="tag">Piloto al llegar</span></div>
-    <pre class="pre"><span class="jt">"Hammer, Warhog-1,
-reportando entrada."</span>
+    <pre class="pre"><span class="pil">"Lince, Pantera,
+en estación al sur del pueblo."</span>
 
-  <span class="sys">→</span> Posición: 5 millas al NO del CP
-  <span class="sys">→</span> Número y tipo: 2 × A-29
-  <span class="sys">→</span> Armamento: 4×Mk82, 2×AGM-65, cañón
-  <span class="sys">→</span> Tiempo en estación: 45 min
-  <span class="sys">→</span> Sensores: con designador,
-        sin gafas nocturnas
-  <span class="sys">→</span> Habilitaciones: Tipo 1, 2 y 3</pre>
+  <span class="sys">→</span> Posición: al sur del pueblo / sobre CP
+  <span class="sys">→</span> Número y tipo: 1 × Kiowa
+  <span class="sys">→</span> Armamento: cohetes Hydra + ametralladora .50
+  <span class="sys">→</span> Tiempo en estación: 25 min
+  <span class="sys">→</span> Estado: listo para instrucciones</pre>
     <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4">Formato: al llamar, destinatario primero y emisor después. En colaciones o confirmaciones, repite lo crítico y cierra con tu indicativo.</p>
   </article>
 
   <!-- ============ 4. SECUENCIA ATAQUE ============ -->
   <article class="card critical">
     <span class="bk"></span>
-    <div class="hd"><span class="num">04</span><h2>Secuencia de ataque</h2><span class="tag">Tipo 1 · coreografía</span></div>
-    <pre class="pre"><span class="pil">PIL:</span>  "Saliendo del IP
-       rumbo al blanco, Warhog-1."
-<span class="sys">       → arrancando desde el IP</span>
+    <div class="hd"><span class="num">04</span><h2>Secuencia de ataque</h2><span class="tag">Pasada · coreografía</span></div>
+    <pre class="pre"><span class="pil">PIL:</span>  "Dejando la BP,
+       Pantera."
+<span class="sys">       → salgo de posición de batalla</span>
 
-<span class="jt">JTAC:</span> "Continúa."
+<span class="jt">JTAC:</span> "Pantera, CONTINUE."
 <span class="sys">       → sigue acercándote</span>
 
 <span class="pil">PIL:</span>  "IN desde el sur,
-       Warhog-1."
+       Pantera."
 <span class="sys">       → 30 s al lanzamiento</span>
 
-<span class="jt">JTAC:</span> <span class="key">"Warhog-1, CLEARED HOT."</span>
+<span class="jt">JTAC:</span> <span class="key">"Pantera, CLEARED HOT."</span>
 <span class="sys">       → autorización final ★</span>
 
-<span class="pil">PIL:</span>  "OFF, arma asegurada,
-       rumbo este, Warhog-1."
+<span class="pil">PIL:</span>  "ROCKETS, Pantera."
 
-<span class="jt">JTAC:</span> "Buenos impactos.
-       Espera evaluación de daños."</pre>
+<span class="pil">PIL:</span>  "OFF, vuelvo a la BP,
+       Pantera."
+
+<span class="jt">JTAC:</span> "Pantera, buenos impactos.
+       Espere BDA."</pre>
   </article>
 
   <!-- ============ 5. TIPOS DE CONTROL ============ -->
@@ -304,14 +304,14 @@ reportando entrada."</span>
     <div class="hd"><span class="num">05</span><h2>Tipos de control</h2><span class="tag">Lo decide el JTAC</span></div>
     <div class="triada">
       <div class="tcard t1">
-        <h3><span class="dot"></span>TIPO 1 · Por defecto</h3>
-        <p>JTAC ve <b>EL AVIÓN</b> y <b>EL BLANCO</b>.</p>
-        <p>Máxima seguridad. Autoriza pasada por pasada.</p>
+        <h3><span class="dot"></span>TIPO 1 · Máxima seguridad</h3>
+        <p>JTAC ve <b>EL HELICÓPTERO</b> y <b>EL BLANCO</b>.</p>
+        <p>Riesgo alto o amigos cerca. Autoriza pasada por pasada.</p>
       </div>
       <div class="tcard t2">
-        <h3><span class="dot"></span>TIPO 2 · Uno de los dos</h3>
-        <p>JTAC ve <b>el avión</b> O <b>el blanco</b>, no ambos.</p>
-        <p>Confía en sensores del piloto. Pasada por pasada.</p>
+        <h3><span class="dot"></span>TIPO 2 · Normal</h3>
+        <p>JTAC ve <b>el helicóptero</b> O <b>el blanco</b>, no ambos.</p>
+        <p>El habitual en Reforger. Pasada por pasada.</p>
       </div>
       <div class="tcard t3">
         <h3><span class="dot"></span>TIPO 3 · Ninguno</h3>
@@ -328,8 +328,8 @@ reportando entrada."</span>
     <ol class="rules-list">
       <li>Sin <b>"CLEARED HOT"</b> NO se dispara. Nunca. Aunque el blanco esté cantado.</li>
       <li><b>"ABORT"</b> se obedece YA, sin discutir ni preguntar por qué. El motivo se explica en el debrief.</li>
-      <li>Si el piloto pierde el blanco: <b>"Sin contacto, dando la vuelta"</b> y aborta él solo, vuelve al IP.</li>
-      <li>Amigos a menos de <b>600 m</b> sin coordinar = no se dispara. Punto.</li>
+      <li>Si el piloto pierde el blanco: <b>"NO JOY, OFF, vuelvo a la BP"</b> y aborta él solo.</li>
+      <li>Amigos a menos de <b>200 m</b> del objetivo = DANGER CLOSE. Sin coordinación clara, no se dispara.</li>
       <li>9-Line sin lectura de vuelta de <b>L4, L6 y restricciones</b> = no hay autorización válida.</li>
     </ol>
   </article>
@@ -381,19 +381,19 @@ reportando entrada."</span>
     <table class="tb">
       <thead><tr><th>Marcado</th><th>Cuándo</th></tr></thead>
       <tbody>
-        <tr><td>Humo blanco (WP)</td><td>Visible a ojo · viento lo desplaza</td></tr>
-        <tr><td>Puntero infrarrojo</td><td>Solo con gafas nocturnas · inútil de día</td></tr>
-        <tr><td>Designador láser</td><td>Precisión absoluta · guía bombas LGB</td></tr>
-        <tr><td>Trazadora</td><td>Improvisado · revela posición</td></tr>
+        <tr><td>Humo rojo/naranja</td><td>Marca enemigo · confirma antes de disparar</td></tr>
+        <tr><td>Humo verde</td><td>Marca amigos · nunca se usa como blanco</td></tr>
+        <tr><td>Trazadoras</td><td>Útiles de urgencia · revelan la posición amiga</td></tr>
+        <tr><td>Talk-on</td><td>Referencia visual: cruce, casa, granero, bosque</td></tr>
       </tbody>
     </table>
     <table class="tb" style="margin-top:10px">
       <thead><tr><th>Perfil de ataque</th><th>Ángulo</th></tr></thead>
       <tbody>
-        <tr><td>Ángulo bajo (ametrallar)</td><td>10–20°</td></tr>
-        <tr><td>Ángulo medio (bomba libre)</td><td>20–45°</td></tr>
-        <tr><td>Ángulo alto (en picado)</td><td>45–60°</td></tr>
-        <tr><td>Horizontal (bomba guiada)</td><td>0°</td></tr>
+        <tr><td>BP cubierta</td><td>Observa desde terreno, sin exponerte</td></tr>
+        <tr><td>Pop-up corto</td><td>Asoma, identifica/dispara y vuelve a cubrirte</td></tr>
+        <tr><td>Pasada rockets/guns</td><td>Entra, suelta, rompe y canta OFF</td></tr>
+        <tr><td>Show of Force</td><td>Pasada baja sin disparar: CONTINUE DRY</td></tr>
       </tbody>
     </table>
   </article>
