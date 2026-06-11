@@ -281,7 +281,7 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
   <span class="links">
     <a href="#mision">Misión</a><a href="#idea">Idea</a><a href="#briefing">Briefing</a>
     <a href="#radio">Radio</a><a href="#salida">Despegue</a><a href="#zona">Zona</a>
-    <a href="#secuencia">CAS</a><a href="#cca5">CCA</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tarjetas">Tarjetas</a>
+    <a href="#secuencia">CAS</a><a href="#cca5">CCA</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tarjetas">Tarjetas</a><a href="MANUAL_INSTRUCTORES_CAS.html">Instructor</a>
   </span>
 </div></nav>
 
@@ -418,21 +418,32 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
     <div class="step"><div class="dot"><div class="b">C</div></div><div class="body">
       <h3>Comunicaciones y mando</h3><div class="why">Quién manda (líder de vuelo y JTAC), los <strong>callsigns</strong>, las <strong>2 frecuencias</strong> (Aeródromo y JTAC) y qué hacer <strong>si se cae la radio</strong>: la regla por defecto es seguir el último plan acordado y volver a la zona de espera.</div></div></div>
   </div>
+  <h3 class="subh">Checklist mínimo antes de despegar</h3>
+  <div class="cards c3">
+    <div class="card bk"><h3 style="font-size:15px">Aeronave</h3><p>Qué helicóptero sale, quién lidera, quién es punto, armamento real cargado, combustible/tiempo disponible y limitaciones. Si el Kiowa no lleva lo acordado, se avisa antes de rodar.</p></div>
+    <div class="card bk"><h3 style="font-size:15px">Zona</h3><p>CP de entrada, zona de espera, BP probable, terreno dominante, amenazas conocidas, posibles rutas de salida y zonas que no se pueden sobrevolar.</p></div>
+    <div class="card bk"><h3 style="font-size:15px">Control</h3><p>JTAC activo, orden de helicópteros, quién será shooter si hay varios, frecuencia de aeródromo, frecuencia JTAC, código de humos y qué se hará si se pierde radio.</p></div>
+  </div>
   <div class="callout key">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M21 12a9 9 0 1 1-6.2-8.5"/></svg>
-    <div><b>Antes de cerrar el briefing, comprobad que todos tienen apuntado:</b> callsigns · las 2 frecuencias · Punto de Contacto · zona de espera · código de humos. Si falta uno, no se despega.</div>
+    <div><b>Antes de cerrar el briefing, comprobad que todos tienen apuntado:</b> callsigns · las 2 frecuencias · Punto de Contacto · zona de espera · BP prevista · código de humos · armamento/tiempo · orden de vuelo. Si falta uno, no se despega.</div>
   </div>
 </section>
 
 <!-- ======= 04 RADIO ======= -->
 <section id="radio" class="sheet">
   <div class="shead"><span class="num">04</span><h2>Las radios y cómo se habla</h2><span class="tag">Comunicaciones</span></div>
-  <p class="lead">En ArmaDos <strong>no hay torre de control</strong>: te coordinas tú con los demás pilotos. Y usamos <strong>solo 2 frecuencias</strong>.</p>
-  <div class="cards c2">
+  <p class="lead">En ArmaDos <strong>no hay torre de control</strong>: te coordinas tú con los demás pilotos. El objetivo no es sonar bonito; es que nadie se cruce, nadie despegue encima de otro y el grupo llegue ordenado al Punto de Contacto.</p>
+  <div class="cards c3">
     <div class="card bk">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.6"/></svg>
       <h3>Frecuencia 1 · Aeródromo</h3><div class="role">Pilotos entre sí</div>
       <p>Despegues, aterrizajes y avisar por dónde vuelas. Aquí te <strong>autoinformas</strong>.</p>
+    </div>
+    <div class="card bk">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 8h10M7 12h6M7 16h8"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>
+      <h3>Interna de vuelo</h3><div class="role">Líder ↔ puntos</div>
+      <p>Confirmaciones cortas dentro de la formación. El líder habla fuera; los puntos responden dentro.</p>
     </div>
     <div class="card bk">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11h3l2-7 4 16 3-9h5"/></svg>
@@ -440,27 +451,59 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
       <p><strong>TODO</strong> el procedimiento de apoyo a la infantería ocurre aquí.</p>
     </div>
   </div>
-  <p>Hay <strong>radio corta</strong> (~2 km) y <strong>radio larga / de mochila</strong> (~40 km). Como el heli vuela lejos del JTAC, las dos frecuencias van en <strong>radio larga</strong>. El piloto pone la 1 en un canal y la 2 en otro, y va cambiando. Los números MHz se acuerdan en el briefing (ej.: Aeródromo 60, JTAC 65).</p>
+  <p>Hay <strong>radio corta</strong> (~2 km) y <strong>radio larga / de mochila</strong> (~40 km). Como el heli vuela lejos del JTAC, Aeródromo y JTAC van en <strong>radio larga</strong>. La <strong>interna de vuelo</strong> puede ir por radio corta, canal de grupo o voz directa, según cómo estéis jugando. Los números MHz se acuerdan en el briefing (ej.: Aeródromo 60, JTAC 65).</p>
   <h3 class="subh">Las 3 reglas de hablar por radio</h3>
   <div class="cards c3">
     <div class="card"><h3 style="font-size:15px">Formato radio</h3><p><strong>Llamada:</strong> destinatario, emisor y mensaje: «<strong>Lince, Pantera, en estación.</strong>» <strong>Órdenes cortas:</strong> destinatario y orden: «<strong>Pantera, CLEARED HOT.</strong>» <strong>Colación:</strong> repite lo crítico y cierra con tu indicativo: «<strong>Recibido, Pantera.</strong>»</p></div>
     <div class="card"><h3 style="font-size:15px">Colación</h3><p>Repetir lo crítico: dónde está el <strong>objetivo</strong>, dónde los <strong>amigos</strong> y las <strong>restricciones</strong>. El JTAC cierra: «colación correcta».</p></div>
     <div class="card"><h3 style="font-size:15px">Silencio radio</h3><p>Tras «IN», solo hablan el JTAC y el piloto hasta «OFF». <strong>Única excepción:</strong> cantar un peligro nuevo.</p></div>
   </div>
+  <h3 class="subh">Cuando vuelan varios helicópteros</h3>
+  <p style="color:var(--ink-dim);font-size:15px">Si sois dos, tres o cuatro helicópteros, no sois cuatro radios independientes: sois un <strong>vuelo</strong>. El líder usa el indicativo general hacia fuera y los demás son <strong>2, 3 y 4</strong>. Hacia Aeródromo o JTAC habla normalmente <strong>Pantera 1</strong> o simplemente <strong>Pantera</strong>. Los puntos confirman por interna con una palabra: «Dos», «Tres», «Cuatro».</p>
+  <div class="radio"><span class="pil">PANTERA 1</span> "Tráfico aeródromo, Pantera, vuelo de cuatro, arrancando en plataforma norte."
+<span class="pil">PANTERA 2</span> "Dos."
+<span class="pil">PANTERA 3</span> "Tres."
+<span class="pil">PANTERA 4</span> "Cuatro."</div>
+  <div class="callout key">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+    <div><b>Regla de formación:</b> el líder habla con Aeródromo/JTAC; los puntos hablan por interna salvo emergencia, pérdida de visual, conflicto de tráfico o peligro inmediato.</div>
+  </div>
 </section>
 
 <!-- ======= 05 DESPEGUE ======= -->
 <section id="salida" class="sheet">
   <div class="shead"><span class="num">05</span><h2>Despegue y salida del aeródromo</h2><span class="tag">Fases 2–3</span></div>
-  <p class="lead">Ya tienes el plan. Ahora, sin torre que te mande, eres tú quien avisa de lo que haces.</p>
+  <p class="lead">Ya tienes el plan. Ahora, sin torre que te mande, eres tú quien avisa de lo que haces. En helicóptero lo llamaremos <strong>rodaje</strong> de forma genérica, pero puede ser rodaje con ruedas, desplazamiento en estacionario o salida directa desde plataforma.</p>
   <ol style="color:var(--ink-dim);font-size:15px">
     <li><strong>Arma y reposta</strong> el Kiowa según el briefing. Comprueba que llevas lo acordado.</li>
     <li><strong>Arranca</strong> y haz tus comprobaciones (según el mod). Pon la frecuencia 1 (Aeródromo).</li>
-    <li><strong>Escucha</strong> que no haya nadie despegando o aterrizando, y <strong>autoinfórmate</strong>.</li>
-    <li><strong>Despega</strong> y, si sois dos, <strong>formad</strong>: el líder delante, el punto detrás y un poco escalonado, sin pegarse.</li>
+    <li><strong>Escucha</strong> que no haya nadie rodando, despegando, entrando en circuito o aterrizando.</li>
+    <li><strong>Autoinfórmate antes de moverte:</strong> quién eres, cuántos sois, desde dónde sales y qué harás.</li>
+    <li><strong>Rueda o trasládate</strong> a punto de espera / zona de salida sin cruzar pistas ni plataformas ocupadas.</li>
+    <li><strong>Despega</strong> y forma: el líder delante, los puntos detrás y escalonados, sin pegarse.</li>
   </ol>
-  <div class="radio"><span class="pil">PANTERA</span> "Tráfico aeródromo, Pantera, sección de dos, despegando hacia el norte."
-<span class="pil">PANTERA 2</span> "Dos, en el aire, contigo."</div>
+  <table class="tbl">
+    <tr><th>Momento</th><th>Llamada exterior recomendada</th><th>Respuesta interna</th></tr>
+    <tr><td>Arranque</td><td>«Tráfico aeródromo, Pantera, vuelo de cuatro, arrancando plataforma norte.»</td><td>«Dos» · «Tres» · «Cuatro»</td></tr>
+    <tr><td>Rodaje / traslado</td><td>«Pantera, vuelo de cuatro, rodando de plataforma norte a punto de salida este.»</td><td>«Dos en cola» · «Tres listo» · «Cuatro listo»</td></tr>
+    <tr><td>Despegue</td><td>«Pantera, vuelo de cuatro, despegando hacia el norte, salida por valle oeste.»</td><td>«Dos en el aire» · «Tres en el aire» · «Cuatro en el aire»</td></tr>
+    <tr><td>Entrada a circuito</td><td>«Pantera, vuelo de cuatro, entrando en circuito por el sur para toma en plataforma norte.»</td><td>«Dos visual» · «Tres visual» · «Cuatro visual»</td></tr>
+  </table>
+  <div class="radio"><span class="pil">PANTERA 1</span> "Tráfico aeródromo, Pantera, vuelo de cuatro, rodando de plataforma norte a punto de salida este."
+<span class="pil">PANTERA 2</span> "Dos."
+<span class="pil">PANTERA 3</span> "Tres."
+<span class="pil">PANTERA 4</span> "Cuatro."
+<span class="pil">PANTERA 1</span> "Tráfico aeródromo, Pantera, vuelo de cuatro, despegando hacia el norte, salida por valle oeste."</div>
+  <h3 class="subh">Circuito de tránsito simple</h3>
+  <p style="color:var(--ink-dim);font-size:15px">Para entrenar, usaremos un circuito sencillo alrededor del aeródromo: salida, tramo viento cruzado, viento en cola, base y final. En helicópteros podéis hacerlo más bajo y cerrado que un avión, pero sin cruzar por encima de la pista o la plataforma si hay otros aparatos operando.</p>
+  <div class="diagram">CIRCUITO BÁSICO
+Salida → Viento cruzado → Viento en cola → Base → Final → Toma
+
+Llamadas mínimas:
+1 "Pantera, saliendo hacia el norte."
+2 "Pantera, viento en cola izquierda para plataforma norte."
+3 "Pantera, final para plataforma norte."
+4 "Pantera, toma completada, libre de zona de aterrizaje."</div>
   <div class="callout tip">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
     <div><b>Regla simple:</b> escucha antes de mover el helicóptero; avisa antes de hacer algo que afecte a otros.</div>
@@ -506,6 +549,36 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
   </div>
   <h3 class="subh">Si voláis dos · soporte mutuo</h3>
   <p style="color:var(--ink-dim);font-size:15px">En una sección de dos, casi nunca atacan los dos a la vez. Se reparten el trabajo: uno es <strong>Shooter</strong> (ataca) y el otro <strong>Cover</strong> (lo cubre, vigila amenazas y la zona desde otra posición). Cuando el shooter sale, pueden cambiar de rol. Así siempre hay alguien mirando por el otro.</p>
+  <h3 class="subh">Varios helicópteros con un solo JTAC</h3>
+  <p style="color:var(--ink-dim);font-size:15px">En el curso trabajaremos así: <strong>un JTAC principal</strong> controla la red CAS y varios helicópteros esperan su turno. Aunque haya varios alumnos escuchando o practicando en tierra, solo el JTAC activo habla con el aire y solo él autoriza el disparo.</p>
+  <div class="cards c2">
+    <div class="card bk"><h3 style="font-size:16px">Quién habla con quién</h3><p><strong>Pantera 1</strong> habla en nombre del vuelo para check-in, esperas y reparto de trabajo. Cuando un aparato concreto va a atacar, el JTAC habla directamente con ese aparato: <strong>Pantera 2</strong>, <strong>Pantera 3</strong>, etc.</p></div>
+    <div class="card bk"><h3 style="font-size:16px">Quién dispara</h3><p>Una pasada = un shooter. Los demás quedan en BP, cover o espera. Cada <strong>CLEARED HOT</strong> va dirigido a un helicóptero concreto. Si no oyes tu número, no disparas.</p></div>
+  </div>
+  <table class="tbl">
+    <tr><th>Rol</th><th>Función</th><th>Radio habitual</th></tr>
+    <tr><td>JTAC activo</td><td>Controla el CAS, da líneas, correlación y autorización final</td><td>Habla con Pantera / shooter</td></tr>
+    <tr><td>Alumno observador</td><td>Escucha, apunta y aprende; puede pasar datos al JTAC si se le pide</td><td>No habla con el aire salvo turno asignado</td></tr>
+    <tr><td>Pantera 1</td><td>Líder del vuelo; organiza 2, 3 y 4</td><td>Habla con JTAC en nombre del vuelo</td></tr>
+    <tr><td>Shooter</td><td>Aparato que hará la pasada</td><td>Habla con JTAC durante su ataque</td></tr>
+    <tr><td>Cover / espera</td><td>Cubre, observa o mantiene BP</td><td>Interna, salvo peligro inmediato</td></tr>
+  </table>
+  <div class="radio long"><span class="ph">— UN JTAC · CUATRO HELICÓPTEROS —</span>
+<span class="jt">JTAC · LINCE</span> "Pantera, Lince, mantenga vuelo en BP Lago Oeste. Necesito un shooter para técnico al norte."
+<span class="pil">PANTERA 1</span> "Lince, Pantera. Pantera 2 será shooter, Pantera 1 cover. Pantera 3 y 4 mantienen BP."
+<span class="jt">JTAC · LINCE</span> "Pantera 2, Lince, avise listo para copiar 5-line."
+<span class="pil">PANTERA 2</span> "Lince, Pantera 2, listo para copiar."
+<span class="sys">(Lince trabaja solo con Pantera 2 hasta terminar la pasada)</span>
+<span class="pil">PANTERA 2</span> "IN desde el oeste, Pantera 2."
+<span class="jt">JTAC · LINCE</span> "Pantera 2, CLEARED HOT."
+<span class="pil">PANTERA 2</span> "GUNS GUNS GUNS, Pantera 2."
+<span class="pil">PANTERA 2</span> "OFF norte, Pantera 2."
+<span class="jt">JTAC · LINCE</span> "Pantera 2, buenos impactos. Pantera, prepare siguiente aparato si queda objetivo."
+<span class="pil">PANTERA 1</span> "Lince, Pantera. Pantera 3 listo como siguiente shooter."</div>
+  <div class="callout key">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M21 12a9 9 0 1 1-6.2-8.5"/></svg>
+    <div><b>Regla de oro:</b> un JTAC activo, un líder de vuelo, un shooter por pasada y un CLEARED HOT dirigido a un número concreto.</div>
+  </div>
   <div class="callout warn">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
     <div><b>Regla de cabina:</b> el que vuela NO escribe ni copia datos. Si vuelas solo, primero <b>escóndete</b> (estabiliza el heli tras cobertura) y luego hablas.</div>
@@ -559,15 +632,26 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 
     <div class="step"><div class="dot"><div class="b">3</div><div class="ln"></div></div><div class="body">
       <h3>Game Plan — «cómo será el ataque»</h3>
-      <p class="why"><strong>Una frase:</strong> tipo de control + arma.</p>
-      <div class="radio"><span class="jt">LINCE</span> "Pantera, Lince, game plan: Tipo 2, con cohetes."
-<span class="pil">PANTERA</span> "Tipo 2, cohetes, Pantera."</div>
+      <p class="why"><strong>Una frase:</strong> tipo de control + método + arma + restricción principal.</p>
+      <div class="radio"><span class="jt">LINCE</span> "Pantera, Lince, game plan: Tipo 2, ataque visual sobre marca, una pasada con cohetes, oeste a este. Mantenga BP hasta autorización."
+<span class="pil">PANTERA</span> "Tipo 2, visual sobre marca, una pasada con cohetes, oeste a este, mantengo BP. Pantera."</div>
+      <table class="tbl">
+        <tr><th>Pieza</th><th>Qué decide</th><th>Ejemplo corto</th></tr>
+        <tr><td>Tipo</td><td>Cómo controla el JTAC la seguridad</td><td>Tipo 2</td></tr>
+        <tr><td>Método</td><td>Si atacas por objetivo visto o por coordenada</td><td>Visual sobre marca</td></tr>
+        <tr><td>Arma</td><td>Qué se espera que uses</td><td>Cohetes / .50</td></tr>
+        <tr><td>Separación</td><td>Cómo no te mezclas con amigos u otros helos</td><td>Oeste-este, no disparo sur</td></tr>
+      </table>
       <table class="tbl">
         <tr><th>Tipo</th><th>El JTAC…</th><th>Cuándo</th></tr>
         <tr><td>Tipo 1</td><td>Te ve A TI <strong>y</strong> al objetivo</td><td>Riesgo alto / amigos muy cerca</td></tr>
         <tr><td>Tipo 2</td><td>Te ve a ti <strong>o</strong> al objetivo</td><td><strong>El normal (casi siempre)</strong></td></tr>
         <tr><td>Tipo 3</td><td>No necesita ver nada; autoriza en bloque</td><td>Zona sin amigos cerca: «límpialo»</td></tr>
       </table>
+      <div class="callout tip" style="font-size:14px">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+        <div><b>Para el curso:</b> normalmente usaremos ataque visual sobre marca o talk-on. El ataque por coordenada queda para objetivos estáticos y muy claros; si el piloto no puede confirmar el blanco, no se fuerza el disparo.</div>
+      </div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">4</div><div class="ln"></div></div><div class="body">
@@ -575,25 +659,29 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
       <p class="why">El JTAC las dice <strong>despacio, en bloques de 3, con pausa</strong>. Tú las copias.</p>
       <table class="tbl">
         <tr><th>#</th><th>Línea</th><th>En Reforger</th></tr>
-        <tr><td>1</td><td>BP</td><td>Desde dónde atacas: «BP la colina al oeste del lago»</td></tr>
+        <tr><td>1</td><td>BP</td><td>Zona desde donde esperas/atacas, no un punto exacto: «BP Lago Oeste, 300 m alrededor de la colina»</td></tr>
         <tr><td>2</td><td>Rumbo</td><td>Desde la BP. 3 cifras: «cero-nueve-cero»</td></tr>
         <tr><td>3</td><td>Distancia</td><td>Desde la BP, en metros</td></tr>
         <tr><td>4</td><td>Cota</td><td>Altura del terreno (o «N/A» si es llano)</td></tr>
         <tr><td>5</td><td>Qué es</td><td>«Técnico», «infantería en trinchera», «blindado BTR»</td></tr>
         <tr><td>6</td><td>Dónde está</td><td>Cuadrícula de 6 cifras, cifra a cifra</td></tr>
-        <tr><td>7</td><td>Marca</td><td>«Humo rojo», «trazadoras», «sin marca»</td></tr>
+        <tr><td>7</td><td>Marca</td><td>«Humo rojo», «trazadoras», referencia visual, talk-on o «sin marca»</td></tr>
         <tr><td>8</td><td>Aliados</td><td>Cardinal + metros desde el objetivo: «300 al sur»</td></tr>
         <tr><td>9</td><td>Salida</td><td>Por dónde te vas: «por el norte de vuelta a la BP»</td></tr>
       </table>
       <div class="callout key">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
-        <div><b>Código de humos:</b> <span class="dot-i r"></span>rojo/naranja = ENEMIGO · <span class="dot-i g"></span>verde = SOLO amigos. Correcciones desde un humo, en <b>metros y cardinal</b>: «desde el humo, 100 al norte».</div>
+        <div><b>Código de humos:</b> <span class="dot-i r"></span>rojo/naranja = ENEMIGO · <span class="dot-i g"></span>verde = SOLO amigos. El humo se tira cerca, pero sin tapar el blanco; mejor a un lado o detrás según el rumbo de ataque. Correcciones desde un humo, en <b>metros y cardinal</b>: «desde el humo, 100 al norte».</div>
+      </div>
+      <div class="callout warn" style="font-size:14px">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
+        <div><b>BP para helicópteros:</b> es una zona de trabajo con cobertura. Puedes maniobrar dentro de ella, pero no la abandonas para una pasada en movimiento hasta que el JTAC lo haya autorizado o te lo haya pedido.</div>
       </div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">5</div><div class="ln"></div></div><div class="body">
       <h3>Colación — «confirmo lo crítico»</h3>
-      <p class="why">Repites <strong>líneas 4, 6 y 8 + restricciones</strong>. Nada más.</p>
+      <p class="why">Repites <strong>líneas 4, 6 y 8 + restricciones</strong>. Si te han dado rumbo final, no sobrevuelo, límite lateral o permiso para abandonar BP, también lo repites.</p>
       <div class="radio"><span class="pil">PANTERA</span> "Cota 45, objetivo en cero-tres-cinco cero-cuatro-ocho, aliados 300 al sur, ningún disparo al sur. Pantera."
 <span class="jt">LINCE</span> "Colación correcta."</div>
     </div></div>
@@ -606,7 +694,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 <b>E</b>n una dirección (cardinal)   →  "hacia el norte"
 <b>D</b>istancia (metros)            →  "unos 200 metros"
 <b>O</b>bjeto que quieres que vea    →  "una casa baja con tejado rojo"</div>
-      <p style="font-size:14px;color:var(--ink-dim)">Trucos: de lo grande a lo pequeño · máximo 2 indicaciones y luego una pregunta · preguntas abiertas («¿qué orientación tiene la casa?»).</p>
+      <p style="font-size:14px;color:var(--ink-dim)">Trucos: de lo grande a lo pequeño · máximo 2 indicaciones y luego una pregunta · preguntas abiertas («describa el vehículo», «qué orientación tiene») para no meterle la respuesta al piloto.</p>
       <div class="radio"><span class="jt">LINCE</span> "Humo rojo en la zona."
 <span class="pil">PANTERA</span> "CONTACT con el humo, Pantera."
 <span class="jt">LINCE</span> "Desde el humo, 50 al este, junto al granero."
@@ -622,18 +710,22 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
         <div>Un enemigo que ves pero que <b>aún no te han asignado</b> es <b>CONTACT</b>, no TALLY. Solo es TALLY cuando el JTAC confirma que es TUYO.</div>
       </div>
+      <div class="callout key" style="font-size:14px">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+        <div><b>Buena correlación:</b> el JTAC no pregunta «¿ves el técnico junto al granero?» si el piloto aún no lo ha descrito. Primero pide descripción; después confirma «ese es su objetivo».</div>
+      </div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">7</div><div class="ln"></div></div><div class="body">
       <h3>El ataque</h3>
-      <p class="why">Secuencia cerrada. A partir de aquí, <strong>silencio radio</strong> para los demás.</p>
+      <p class="why">Secuencia cerrada. A partir de aquí, <strong>silencio radio</strong> para los demás. Solo habla el shooter, el JTAC y quien tenga un aviso de seguridad.</p>
       <div class="radio"><span class="pil">PANTERA</span> "Dejando la BP, Pantera"        <span class="sys">(si atacas en movimiento)</span>
 <span class="jt">LINCE</span> "Pantera, CONTINUE"              <span class="sys">(autoriza MANIOBRAR, no disparar)</span>
 <span class="pil">PANTERA</span> "IN desde el oeste, Pantera"     <span class="sys">(entro a atacar + por dónde)</span>
 <span class="jt">LINCE</span> "Pantera, CLEARED HOT"            <span class="sys">✅ PERMISO DE FUEGO</span>
 <span class="pil">PANTERA</span> "ROCKETS, Pantera" / "GUNS GUNS GUNS, Pantera"
 <span class="pil">PANTERA</span> "OFF, vuelvo a la BP, Pantera"</div>
-      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: <b>IN → esperas → CLEARED HOT → disparas → OFF.</b> Nunca te saltes el CLEARED HOT.</span></div>
+      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: <b>IN → esperas → CLEARED HOT → disparas → OFF.</b> Si pierdes blanco, amigo o geometría: <b>OFF DRY</b> y vuelves a BP.</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">8</div></div><div class="body">
@@ -660,6 +752,10 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
   <div class="cards c2">
     <div class="card bk"><h3 style="font-size:16px">Cuándo usar 5-line</h3><p>Blanco único, zona simple, helicóptero cerca de una BP conocida, amigos bien marcados y el JTAC puede hablar claro. Ejemplo: técnico aislado al norte de un cruce, marcado con humo, con amigos al sur y ruta de salida norte.</p></div>
     <div class="card bk"><h3 style="font-size:16px">Cuándo usar 9-line</h3><p>Varios blancos, zona urbana, amigos muy cerca, Danger Close, dudas de posición, piloto nuevo, mala visibilidad o restricciones delicadas. En caso de duda, 9-line. Es más lenta, pero ordena mejor la cabeza.</p></div>
+  </div>
+  <div class="callout tip" style="font-size:14px">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+    <div><b>Regla práctica:</b> 5-line sirve para acelerar lo que ya está claro, no para aclarar una situación confusa. Si el JTAC necesita explicar demasiado, cambia a 9-line.</div>
   </div>
 
   <h3 class="subh">Las 5 líneas que dicta el JTAC</h3>
@@ -853,6 +949,7 @@ EN RUTA:  bajo y con máscara → al CP cambia a frec 2
 CHECK-IN: "[JTAC], [yo], check-in: un Kiowa,
            [cohetes] y ametralladora .50. Tiempo en estación [min].
            ABORT en claro."
+BP:       zona con cobertura, no punto exacto · no la abandono sin autorización
 COPIAR:   SITREP→colaciono RESTRICCIONES · Game plan→colaciono
           Líneas→colaciono 4·6·8 + restricciones
 CCA 5:    recibo amigos · objetivo · marca · restricciones · egreso
@@ -874,7 +971,8 @@ NUNCA:    disparar sin CLEARED HOT · pasar la BP sin permiso ·
 1 CHECK-IN: recibo armas+tiempo → espera SEGURA
 2 SITREP: amenazas/objetivo/aliados/intención/
           RESTRICCIONES → pido colación
-3 GAME PLAN: Tipo ___ | arma ___
+3 GAME PLAN: Tipo ___ | método visual/coordenada ___ | arma ___
+          restricción principal ___ | shooter ___
 4 LÍNEAS (despacio, bloques de 3):
    1 BP __    4 Cota __   7 Marca __
    2 Rumbo __ 5 Objet. __ 8 Aliados __
@@ -908,9 +1006,11 @@ NUNCA:    disparar sin CLEARED HOT · pasar la BP sin permiso ·
     <tr><td>WINCHESTER</td><td>Sin munición</td><td>BINGO</td><td>Combustible justo, me retiro</td></tr>
     <tr><td>RTB</td><td>Vuelvo a base</td><td>TIC</td><td>Tropas amigas bajo fuego</td></tr>
     <tr><td>CP</td><td>Punto de Contacto con el JTAC</td><td>BP</td><td>Posición de batalla (desde donde atacas)</td></tr>
-    <tr><td>CCA 5-LINE</td><td>Control rápido de helicóptero en 5 líneas</td><td>SAY AGAIN</td><td>Repita la última transmisión</td></tr>
+    <tr><td>BOT / visual</td><td>Ataque sobre blanco o marca que el piloto confirma</td><td>BOC / coordenada</td><td>Ataque por coordenada acordada; usar solo si está muy claro</td></tr>
+    <tr><td>FAH</td><td>Rumbo final de ataque permitido</td><td>SAY AGAIN</td><td>Repita la última transmisión</td></tr>
+    <tr><td>CCA 5-LINE</td><td>Control rápido de helicóptero en 5 líneas</td><td>STANDBY</td><td>Espera, ahora no puedo</td></tr>
     <tr><td>DANGER CLOSE</td><td>Amigos muy cerca del blanco</td><td>WILCO</td><td>Recibido, lo haré</td></tr>
-    <tr><td>AFIRMA / NEGATIVO</td><td>Sí / No</td><td>STANDBY</td><td>Espera, ahora no puedo</td></tr>
+    <tr><td>AFIRMA / NEGATIVO</td><td>Sí / No</td><td>PUSH</td><td>Proceda según el plan cuando esté listo</td></tr>
   </table>
 </section>
 

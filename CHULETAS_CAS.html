@@ -243,18 +243,18 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <table class="tb">
       <thead><tr><th>L</th><th>Qué dice</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>BP / posición de batalla desde donde atacará el helicóptero</td></tr>
+        <tr><td>1</td><td>BP / zona de batalla desde donde espera y ataca el helicóptero</td></tr>
         <tr><td>2</td><td>Rumbo desde la BP al blanco</td></tr>
         <tr><td>3</td><td>Distancia desde la BP al blanco</td></tr>
         <tr><td>4 <span class="star">★</span></td><td>Elevación del blanco sobre el nivel del mar</td></tr>
         <tr><td>5</td><td>Descripción del blanco (tipo y postura)</td></tr>
         <tr><td>6 <span class="star">★</span></td><td>Coordenadas (MGRS / cuadrícula)</td></tr>
-        <tr><td>7</td><td>Marcado (humo, trazadoras, referencia visual o sin marca)</td></tr>
+        <tr><td>7</td><td>Marcado (humo, trazadoras, referencia visual, talk-on o sin marca)</td></tr>
         <tr><td>8 <span class="star">★</span></td><td>Posición de amigos más cercanos</td></tr>
         <tr><td>9</td><td>Egreso · por dónde sale el piloto</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">★</strong> Líneas con lectura de vuelta obligatoria. En el grupo, amigos a menos de <b>200 m</b> del objetivo = <strong style="color:var(--red)">DANGER CLOSE</strong>.</p>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">★</strong> Líneas con lectura de vuelta obligatoria. BP es una zona, no un punto. En el grupo, amigos a menos de <b>200 m</b> del objetivo = <strong style="color:var(--red)">DANGER CLOSE</strong>.</p>
   </article>
 
   <!-- ============ 3. CHECK-IN PILOTO ============ -->
@@ -273,7 +273,7 @@ ABORT en claro."</span>
   <span class="sys">→</span> Armamento: cohetes Hydra + ametralladora .50
   <span class="sys">→</span> Tiempo en estación: 25 min
   <span class="sys">→</span> Abort: en claro = ABORT ABORT ABORT</pre>
-    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4">Habla el piloto. Formato: destinatario primero, emisor después. En colaciones, repite lo crítico y cierra con tu indicativo.</p>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4">Habla el piloto. Formato: destinatario primero, emisor después. En colaciones, repite lo crítico y cierra con tu indicativo. No abandones BP salvo autorización o seguridad.</p>
   </article>
 
   <!-- ============ 4. SECUENCIA ATAQUE ============ -->
@@ -324,6 +324,10 @@ ABORT en claro."</span>
         <p>El piloto ataca dentro de esos límites.</p>
       </div>
     </div>
+    <pre class="pre" style="margin-top:10px">GAME PLAN:
+Tipo __ · método visual/coordenada __
+Arma __ · shooter __
+Restricción principal __</pre>
   </article>
 
   <!-- ============ 6. CCA 5-LINE ============ -->
@@ -370,6 +374,7 @@ Egreso ____ BDA ________</pre>
       <li>Amigos a menos de <b>200 m</b> del objetivo = DANGER CLOSE. Sin coordinación clara, no se dispara.</li>
       <li>9-Line sin lectura de vuelta de <b>L4, L6, L8 y restricciones</b> = no hay autorización válida.</li>
       <li>CCA 5-line sin colación de restricciones y egreso = no hay ataque.</li>
+      <li>BP = zona de trabajo. Si sales de ella para atacar, lo cantas y esperas control.</li>
     </ol>
   </article>
 
@@ -420,7 +425,7 @@ Egreso ____ BDA ________</pre>
     <table class="tb">
       <thead><tr><th>Marcado</th><th>Cuándo</th></tr></thead>
       <tbody>
-        <tr><td>Humo rojo/naranja</td><td>Marca enemigo · confirma antes de disparar</td></tr>
+        <tr><td>Humo rojo/naranja</td><td>Marca enemigo · cerca, sin tapar el blanco</td></tr>
         <tr><td>Humo verde</td><td>Marca amigos · nunca se usa como blanco</td></tr>
         <tr><td>Trazadoras</td><td>Útiles de urgencia · revelan la posición amiga</td></tr>
         <tr><td>Talk-on</td><td>Referencia visual: cruce, casa, granero, bosque</td></tr>
@@ -435,12 +440,16 @@ Egreso ____ BDA ________</pre>
         <tr><td>Show of Force</td><td>Pasada baja sin disparar: CONTINUE DRY</td></tr>
       </tbody>
     </table>
+    <pre class="pre" style="margin-top:10px">CORRELACIÓN:
+JTAC pide descripción.
+Piloto: CONTACT referencia / TALLY blanco.
+JTAC: "Ese ___ es su objetivo."</pre>
   </article>
 
 </div><!-- /grid -->
 
 <footer>
-  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.1
+  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.2
 </footer>
 
 <script>
