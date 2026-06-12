@@ -584,6 +584,7 @@ tr:last-child td{border-bottom:0}
       <a href="#aerodromo">Aeródromo</a>
       <a href="#circuito">Circuito</a>
       <a href="#jtac">JTAC</a>
+      <a href="#contingencias">Contingencias</a>
       <a href="#chuleta">Chuleta</a>
       <button class="print" onclick="window.print()">Imprimir</button>
     </div>
@@ -709,8 +710,9 @@ tr:last-child td{border-bottom:0}
         <div class="phase"><div class="time">10-25</div><div><b>Comunicaciones básicas.</b><br><span>Formato radio, colación corta, disciplina y palabras mínimas.</span></div><div class="owner">Todos</div></div>
         <div class="phase"><div class="time">25-45</div><div><b>Aeródromo.</b><br><span>Puesta en marcha, rodaje, espera, pista, despegue, circuito y salida.</span></div><div class="owner">FORD</div></div>
         <div class="phase"><div class="time">45-65</div><div><b>Salida a zona.</b><br><span>Formación básica, punto de contacto, zona de espera y orden interno.</span></div><div class="owner">FORD 1</div></div>
-        <div class="phase"><div class="time">65-85</div><div><b>Primer contacto JTAC.</b><br><span>Check-in básico, situación simple, restricciones y ejercicio seco.</span></div><div class="owner">LINCE</div></div>
-        <div class="phase"><div class="time">85-90</div><div><b>Debrief.</b><br><span>Qué ha salido bien, qué se corrige y qué viene en la siguiente sesión.</span></div><div class="owner">Instructor</div></div>
+        <div class="phase"><div class="time">65-78</div><div><b>Primer contacto JTAC.</b><br><span>Check-in básico, situación simple, restricciones y ejercicio seco.</span></div><div class="owner">LINCE</div></div>
+        <div class="phase"><div class="time">78-88</div><div><b>Contingencias.</b><br><span>Pérdida de visual, pérdida de radio, ABORT y reorganización del vuelo.</span></div><div class="owner">Instructor</div></div>
+        <div class="phase"><div class="time">88-90</div><div><b>Debrief.</b><br><span>Qué ha salido bien, qué se corrige y qué viene en la siguiente sesión.</span></div><div class="owner">Instructor</div></div>
       </div>
     </div>
   </section>
@@ -1002,8 +1004,89 @@ Final                    →  Toma o pasada</div>
     </div>
   </section>
 
+  <section id="contingencias" class="slide">
+    <div class="slide-head"><div class="num">15</div><h2>Contingencias básicas</h2><div class="tag">Cuando algo falla</div></div>
+    <div class="slide-body">
+      <div class="grid2">
+        <div class="box">
+          <h3>Pérdida de visual</h3>
+          <p>Si pierdes al líder o a tu punto, no maniobres a ciegas. Mantén rumbo/altura seguros, canta BLIND y espera instrucción.</p>
+          <div class="radio"><span class="ford">FORD 2:</span> "FORD 1, FORD 2, BLIND."
+<span class="ford">FORD 1:</span> "FORD 2, mantenga rumbo oeste y altura actual. Yo giro izquierda para recuperar visual."
+<span class="ford">FORD 2:</span> "Mantengo rumbo oeste y altura actual, FORD 2."</div>
+        </div>
+        <div class="box">
+          <h3>Pérdida de radio · NORDO</h3>
+          <p>Si no puedes transmitir o recibir, no entras al objetivo. Mantienes la última instrucción segura y vuelves a CP, BP o base según el briefing.</p>
+          <ul>
+            <li>No cruzar a zona objetivo.</li>
+            <li>No iniciar pasada.</li>
+            <li>No disparar.</li>
+            <li>Reunirse o RTB si no se recupera radio.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid2" style="margin-top:16px">
+        <div class="box">
+          <h3>Si cae FORD 1</h3>
+          <p>El grupo no continúa el CAS por inercia. Vuelve a espera, se reorganiza y se nombra líder nuevo. Para Día 1: FORD 3 puede asumir si el grupo está dividido por elementos.</p>
+        </div>
+        <div class="box">
+          <h3>Conflicto de tráfico</h3>
+          <p>Si dos helicópteros se acercan demasiado, el que detecta el peligro lo canta claro. Separación primero, procedimiento después.</p>
+          <div class="radio"><span class="ford">FORD 3:</span> "FORD, conflicto tráfico, abro norte."
+<span class="ford">FORD 1:</span> "Recibido, FORD mantiene espera. Reorganizamos."</div>
+        </div>
+      </div>
+      <div class="callout warn"><b>Regla:</b> ante duda, nadie entra al objetivo. Se vuelve a espera, se ordena el grupo y se repite.</div>
+    </div>
+  </section>
+
   <section class="slide">
-    <div class="slide-head"><div class="num">15</div><h2>Script completo del instructor</h2><div class="tag">Leer y practicar</div></div>
+    <div class="slide-head"><div class="num">16</div><h2>Drill ABORT</h2><div class="tag">Reflejo obligatorio</div></div>
+    <div class="slide-body">
+      <div class="grid2">
+        <div class="box">
+          <h3>Qué debe ocurrir</h3>
+          <ol>
+            <li>LINCE canta ABORT tres veces.</li>
+            <li>El shooter corta la pasada.</li>
+            <li>No dispara aunque vea el blanco.</li>
+            <li>Canta que aborta.</li>
+            <li>Vuelve a BP o zona segura.</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h3>Qué se evalúa</h3>
+          <p>No se evalúa puntería ni velocidad. Se evalúa obediencia inmediata, radio limpia y que el resto del grupo no empiece a hablar encima.</p>
+        </div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="ford">FORD 2:</span> "IN desde el oeste, FORD 2."
+<span class="lince">LINCE:</span> "FORD 2, ABORT, ABORT, ABORT."
+<span class="ford">FORD 2:</span> "Abortando, OFF al norte, FORD 2."
+<span class="ford">FORD 1 interna:</span> "FORD, mantener espera. FORD 2 aborta y vuelve."
+<span class="sys">Interna:</span> "2", "3", "4".</div>
+      <div class="callout ok"><b>Repetición recomendada:</b> hacerlo una vez avisado y otra vez sin avisar. El alumno debe reaccionar igual.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">17</div><h2>Fallos provocados</h2><div class="tag">Caos controlado</div></div>
+    <div class="slide-body">
+      <div class="grid3">
+        <div class="box"><h3>Ronda 1</h3><p>FORD 2 pierde visual. Debe cantar BLIND y esperar instrucción.</p></div>
+        <div class="box"><h3>Ronda 2</h3><p>LINCE canta ABORT durante una pasada seca. El shooter corta sin discutir.</p></div>
+        <div class="box"><h3>Ronda 3</h3><p>FORD 1 ordena cambio de frecuencia. Los puntos confirman por interna.</p></div>
+        <div class="box"><h3>Ronda 4</h3><p>El alumno no ve el objetivo. Debe cantar NO JOY y pedir repetición.</p></div>
+        <div class="box"><h3>Ronda 5</h3><p>FORD 3 asume el segundo elemento y mantiene a FORD 4 en espera.</p></div>
+        <div class="box"><h3>Ronda 6</h3><p>Reorganización completa: todos vuelven a BP y se reinicia el ejercicio.</p></div>
+      </div>
+      <div class="callout"><b>Uso del instructor:</b> no metas todos los fallos si el grupo va justo. Elige dos o tres y repítelos hasta que salgan limpios.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">18</div><h2>Script completo del instructor</h2><div class="tag">Leer y practicar</div></div>
     <div class="slide-body">
       <div class="radio"><span class="sys">FRECUENCIA AERÓDROMO</span>
 <span class="ford">FORD 1:</span> "Aeródromo, FORD 1, vuelo de cuatro helicópteros, solicito rodaje a punto de espera pista 27."
@@ -1032,7 +1115,7 @@ Final                    →  Toma o pasada</div>
   </section>
 
   <section id="chuleta" class="slide">
-    <div class="slide-head"><div class="num">16</div><h2>Chuleta de palabras</h2><div class="tag">Términos mínimos</div></div>
+    <div class="slide-head"><div class="num">19</div><h2>Chuleta de palabras</h2><div class="tag">Términos mínimos</div></div>
     <div class="slide-body">
       <table>
         <thead><tr><th>Palabra</th><th>Uso correcto</th><th>Ejemplo</th></tr></thead>
@@ -1052,7 +1135,7 @@ Final                    →  Toma o pasada</div>
   </section>
 
   <section class="slide">
-    <div class="slide-head"><div class="num">17</div><h2>Pizarra de misión</h2><div class="tag">Rellenar al empezar</div></div>
+    <div class="slide-head"><div class="num">20</div><h2>Pizarra de misión</h2><div class="tag">Rellenar al empezar</div></div>
     <div class="slide-body">
       <div class="scratch">
         <h3>Datos del día</h3>
@@ -1073,7 +1156,7 @@ Final                    →  Toma o pasada</div>
   </section>
 
   <section class="slide">
-    <div class="slide-head"><div class="num">18</div><h2>Checklist del instructor</h2><div class="tag">Seguir durante la sesión</div></div>
+    <div class="slide-head"><div class="num">21</div><h2>Checklist del instructor</h2><div class="tag">Seguir durante la sesión</div></div>
     <div class="slide-body">
       <div class="quick">
         <div class="quick-card">
@@ -1105,7 +1188,7 @@ Final                    →  Toma o pasada</div>
   </section>
 
   <section class="slide">
-    <div class="slide-head"><div class="num">19</div><h2>Evaluación rápida del alumno</h2><div class="tag">No examen</div></div>
+    <div class="slide-head"><div class="num">22</div><h2>Evaluación rápida del alumno</h2><div class="tag">No examen</div></div>
     <div class="slide-body">
       <table>
         <thead><tr><th>Área</th><th>Se considera correcto si...</th><th>Corrección típica</th></tr></thead>
@@ -1125,7 +1208,7 @@ Final                    →  Toma o pasada</div>
   </section>
 
   <section class="slide">
-    <div class="slide-head"><div class="num">20</div><h2>Cierre</h2><div class="tag">Debrief corto</div></div>
+    <div class="slide-head"><div class="num">23</div><h2>Cierre</h2><div class="tag">Debrief corto</div></div>
     <div class="slide-body">
       <div class="grid3">
         <div class="box"><h3>Qué salió bien</h3><p>Una cosa concreta. Ejemplo: "La salida de aeródromo fue ordenada".</p></div>

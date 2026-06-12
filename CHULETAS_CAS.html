@@ -306,6 +306,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 
 <nav class="mobile-quick" aria-label="Accesos rápidos móviles">
   <a href="#pizarra">Pizarra</a>
+  <a href="#contingencias">Emerg.</a>
   <a href="#nine-line-tool">9-Line</a>
   <a href="#five-line-tool">5-Line</a>
   <a href="#vocabulario">Radio</a>
@@ -344,6 +345,35 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
       <button onclick="window.print()">Imprimir / PDF</button>
     </div>
     <p class="minihelp">Los campos se guardan en este navegador. Úsalo como pizarra rápida para misión o como hoja rellenable antes de imprimir.</p>
+  </article>
+
+  <!-- ============ C. CONTINGENCIAS ============ -->
+  <article class="card wide critical" id="contingencias">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">C</span><h2>Contingencias rápidas</h2><span class="tag">Si algo falla</span></div>
+    <div class="toolgrid">
+      <div class="field big">
+        <label>BLIND · pierdo visual</label>
+        <div class="fill" contenteditable="true" data-card-key="blind-note" data-placeholder="Cantar BLIND, mantener rumbo/altura seguros y esperar instrucción. No cruzar por delante buscando visual."></div>
+      </div>
+      <div class="field big">
+        <label>NORDO · pierdo radio</label>
+        <div class="fill" contenteditable="true" data-card-key="nordo-note" data-placeholder="No entrar al objetivo. Mantener última instrucción segura. Volver a CP/BP/RTB según briefing."></div>
+      </div>
+      <div class="field big">
+        <label>ABORT</label>
+        <div class="fill" contenteditable="true" data-card-key="abort-note" data-placeholder="ABORT, ABORT, ABORT = cortar pasada ya, no disparar, OFF a zona segura."></div>
+      </div>
+      <div class="field big">
+        <label>Cae líder / caos</label>
+        <div class="fill" contenteditable="true" data-card-key="lead-down-note" data-placeholder="Volver a espera, reorganizar mando, nombrar líder nuevo. No continuar CAS por inercia."></div>
+      </div>
+    </div>
+    <pre class="pre" style="margin-top:12px"><span class="pil">FORD 2:</span> "FORD 1, FORD 2, BLIND."
+<span class="pil">FORD 1:</span> "FORD 2, mantenga rumbo oeste y altura actual."
+
+<span class="jt">LINCE:</span> "FORD 2, ABORT, ABORT, ABORT."
+<span class="pil">FORD 2:</span> "Abortando, OFF al norte, FORD 2."</pre>
   </article>
 
   <!-- ============ A. 9-LINE RELLENABLE ============ -->
