@@ -63,15 +63,14 @@ strong{color:#fff;font-weight:600}
   padding:20px 22px;position:relative;overflow:hidden;
   display:flex;flex-direction:column;
 }
-.card[id]{scroll-margin-top:88px}
+.card[id]{scroll-margin-top:118px}
 .grid>.card{order:20}
 .card.wide{grid-column:1/-1}
 #five-line-tool{order:1}
 #nine-line-tool{order:2}
 #kneeboard-tool{order:3}
 #tactical-map-tool{order:4}
-#pizarra{order:5}
-#vocabulario{order:6}
+#vocabulario{order:5}
 #contingencias{order:30}
 .card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0,rgba(255,178,46,.05),transparent 60%);pointer-events:none}
 .card .hd{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;position:relative}
@@ -121,6 +120,78 @@ strong{color:#fff;font-weight:600}
 .linebox{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:stretch;margin-bottom:8px}
 .linebox .ln{display:flex;align-items:center;justify-content:center;border:1px solid var(--line-strong);border-radius:7px;background:var(--surface2);font-family:var(--disp);font-size:18px;color:var(--amber)}
 .linebox .field{min-height:54px;padding:8px 10px}
+
+/* ---- piernografo A5 ---- */
+.kneeboard-card{align-items:center;background:linear-gradient(135deg,#111a14,#172219 58%,#0b120e)}
+.kneeboard-card::before{background:radial-gradient(80% 90% at 50% 0,rgba(127,176,105,.08),transparent 62%)}
+.kneeboard-shell{
+  position:relative;width:min(100%,760px);margin:0 auto;
+  border:1px solid rgba(255,178,46,.42);border-radius:12px;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.18) 0 44px,transparent 44px),
+    linear-gradient(180deg,#18241a,#10180f);
+  padding:18px 18px 18px 62px;
+  box-shadow:0 22px 50px rgba(0,0,0,.34),inset 0 0 0 1px rgba(255,255,255,.03);
+}
+.kneeboard-shell::before{
+  content:"";position:absolute;left:16px;top:26px;bottom:26px;width:16px;
+  background:
+    radial-gradient(circle at 50% 12px,rgba(233,239,233,.75) 0 4px,transparent 5px),
+    radial-gradient(circle at 50% 72px,rgba(233,239,233,.75) 0 4px,transparent 5px),
+    radial-gradient(circle at 50% 132px,rgba(233,239,233,.75) 0 4px,transparent 5px),
+    radial-gradient(circle at 50% 192px,rgba(233,239,233,.75) 0 4px,transparent 5px),
+    radial-gradient(circle at 50% 252px,rgba(233,239,233,.75) 0 4px,transparent 5px);
+  opacity:.75;
+}
+.kneeboard-title{
+  display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end;
+  border-bottom:2px solid rgba(255,178,46,.38);padding-bottom:10px;margin-bottom:12px;
+}
+.kneeboard-title h3{font-size:26px;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.kneeboard-title small{font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.14em;text-transform:uppercase}
+.kneeboard-title .a5tag{
+  border:1px solid var(--amber);border-radius:6px;color:#0c1310;background:var(--amber);
+  font-family:var(--disp);font-size:13px;font-weight:700;letter-spacing:.08em;padding:5px 8px;text-transform:uppercase;
+}
+.kneeboard-band{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px;
+}
+.kneeboard-box,.kneeboard-section{
+  border:1px solid rgba(160,190,170,.26);border-radius:7px;background:rgba(7,16,13,.72);
+}
+.kneeboard-box{padding:8px 9px;min-height:58px}
+.kneeboard-box label,.kneeboard-field label{
+  display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;
+}
+.kneeboard-box .fill,.kneeboard-field .fill{
+  min-height:20px;outline:none;color:#fff;font-weight:700;font-size:14px;line-height:1.3;
+}
+.kneeboard-box .fill:empty:before,.kneeboard-field .fill:empty:before{
+  content:attr(data-placeholder);color:rgba(233,239,233,.34);font-weight:500;
+}
+.kneeboard-box .fill:focus,.kneeboard-field .fill:focus{
+  background:rgba(255,178,46,.08);box-shadow:0 0 0 3px rgba(255,178,46,.08);border-radius:4px;
+}
+.kneeboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kneeboard-section{padding:10px}
+.kneeboard-section h4{
+  display:flex;align-items:center;gap:8px;margin-bottom:8px;
+  font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#fff;
+}
+.kneeboard-section h4::before{
+  content:"";width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px rgba(255,178,46,.12);
+}
+.kneeboard-field{
+  display:grid;grid-template-columns:112px 1fr;gap:8px;align-items:start;
+  border-top:1px solid rgba(160,190,170,.14);padding:7px 0;min-height:42px;
+}
+.kneeboard-field:first-of-type{border-top:0}
+.kneeboard-field.wide{grid-template-columns:1fr}
+.kneeboard-field.wide .fill{min-height:44px}
+.kneeboard-ruler{
+  margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,178,46,.34);
+  font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;
+}
 @media(max-width:900px){.toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr}.card.wide{grid-column:auto}}
 
@@ -209,6 +280,16 @@ strong{color:#fff;font-weight:600}
   .map-tools{gap:6px}
   .map-btn,.map-swatch{font-size:11px;min-height:38px;padding:8px 9px}
   .map-canvas-wrap{border-radius:9px}
+  .kneeboard-shell{padding:14px 10px 14px 38px;border-radius:10px}
+  .kneeboard-shell::before{left:11px;top:24px;bottom:24px}
+  .kneeboard-title{grid-template-columns:1fr;gap:6px}
+  .kneeboard-title h3{font-size:23px;line-height:1}
+  .kneeboard-title .a5tag{justify-self:start}
+  .kneeboard-band,.kneeboard-grid{grid-template-columns:1fr;gap:8px}
+  .kneeboard-box{min-height:62px}
+  .kneeboard-field{grid-template-columns:96px 1fr;gap:7px}
+  .kneeboard-field label{font-size:8.5px}
+  .kneeboard-box .fill,.kneeboard-field .fill{font-size:15px;min-height:25px}
   .mobile-dock{
     position:fixed;left:0;right:0;bottom:0;z-index:70;
     display:grid;grid-template-columns:1fr 1fr 1fr;
@@ -335,10 +416,6 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 <div class="topbar">
   <span class="brand"><span class="ic">CAS</span>ARMADOS · CHULETAS DE BOLSILLO</span>
   <span class="spacer"></span>
-  <button onclick="window.print()" class="primary" title="Imprimir o guardar como PDF">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
-    Imprimir / PDF
-  </button>
   <button onclick="downloadHTML()" title="Descargar este HTML completo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
     Descargar HTML
@@ -350,7 +427,6 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <a href="#nine-line-tool">9-Line</a>
   <a href="#kneeboard-tool">Pierna</a>
   <a href="#tactical-map-tool">Mapa</a>
-  <a href="#pizarra">Pizarra</a>
   <a href="#vocabulario">Radio</a>
   <a href="#contingencias">Emerg.</a>
   <a href="#reglas">Reglas</a>
@@ -360,35 +436,12 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 <section class="intro">
   <div class="kicker">Curso CAS · Arma Reforger</div>
   <h1>Tarjetas de bolsillo · alumno</h1>
-  <p>Herramienta de misión y chuletas de bolsillo. Primero tienes la CCA 5-Line y la 9-Line rellenables; después el piernografo de misión, el mapa táctico local, la pizarra, radio, reglas y tarjetas de consulta rápida.</p>
-  <div class="note">5-Line · 9-Line · Piernografo · Mapa táctico · Móvil / PDF / in-game</div>
+  <p>Herramienta de misión y chuletas de bolsillo. Primero tienes la CCA 5-Line y la 9-Line rellenables; después el piernografo A5 del piloto, el mapa táctico local, radio, reglas y tarjetas de consulta rápida.</p>
+  <div class="note">5-Line · 9-Line · Piernografo A5 · Mapa táctico · HTML / móvil / in-game</div>
 </section>
 
 <!-- ====== GRID DE TARJETAS ====== -->
 <div class="grid">
-
-  <!-- ============ 0. PIZARRA RELLENABLE ============ -->
-  <article class="card wide" id="pizarra">
-    <span class="bk"></span>
-    <div class="hd"><span class="num">00</span><h2>Pizarra táctica rellenable</h2><span class="tag">Herramienta in-game</span></div>
-    <div class="toolgrid">
-      <div class="field"><label>Indicativo aire</label><div class="fill" contenteditable="true" data-card-key="air" data-placeholder="Ej.: FORD 1 / PANTERA"></div></div>
-      <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="jtac" data-placeholder="Ej.: LINCE 1"></div></div>
-      <div class="field"><label>Frecuencia aeródromo</label><div class="fill" contenteditable="true" data-card-key="freq-airfield" data-placeholder="Ej.: 60.0"></div></div>
-      <div class="field"><label>Frecuencia JTAC</label><div class="fill" contenteditable="true" data-card-key="freq-jtac" data-placeholder="Ej.: 65.0"></div></div>
-      <div class="field"><label>CP entrada</label><div class="fill" contenteditable="true" data-card-key="cp" data-placeholder="Ej.: CP Oeste"></div></div>
-      <div class="field"><label>BP / espera</label><div class="fill" contenteditable="true" data-card-key="bp" data-placeholder="Ej.: Lago Oeste"></div></div>
-      <div class="field"><label>Ruta salida</label><div class="fill" contenteditable="true" data-card-key="egress-main" data-placeholder="Ej.: norte a BP"></div></div>
-      <div class="field"><label>Abort</label><div class="fill" contenteditable="true" data-card-key="abort" data-placeholder="ABORT ABORT ABORT"></div></div>
-    </div>
-    <div class="field big" style="margin-top:12px"><label>Notas rápidas de seguridad</label><div class="fill" contenteditable="true" data-card-key="safety-notes" data-placeholder="Restricciones, no-fire areas, amigos, amenazas, cambios de plan..."></div></div>
-    <div class="actions">
-      <button onclick="saveCards()">Guardar campos</button>
-      <button onclick="clearCards()">Limpiar campos</button>
-      <button onclick="window.print()">Imprimir / PDF</button>
-    </div>
-    <p class="minihelp">Los campos se guardan en este navegador. Úsalo como pizarra rápida para misión o como hoja rellenable antes de imprimir.</p>
-  </article>
 
   <!-- ============ C. CONTINGENCIAS ============ -->
   <article class="card wide critical" id="contingencias">
@@ -442,46 +495,76 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   </article>
 
   <!-- ============ K. PIERNOGRAFO ============ -->
-  <article class="card wide" id="kneeboard-tool">
+  <article class="card wide kneeboard-card" id="kneeboard-tool">
     <span class="bk"></span>
-    <div class="hd"><span class="num">K</span><h2>Piernografo de misión</h2><span class="tag">Datos para liderar</span></div>
-    <div class="toolgrid">
-      <div class="field"><label>Misión / zona</label><div class="fill" contenteditable="true" data-card-key="kb-mission" data-placeholder="Ej.: Operación FORD · Lago Oeste"></div></div>
-      <div class="field"><label>Hora / TOT</label><div class="fill" contenteditable="true" data-card-key="kb-tot" data-placeholder="TOT / ventana / hora local"></div></div>
-      <div class="field"><label>Mi indicativo</label><div class="fill" contenteditable="true" data-card-key="kb-my-callsign" data-placeholder="Ej.: FORD 2"></div></div>
-      <div class="field"><label>Rol</label><div class="fill" contenteditable="true" data-card-key="kb-role" data-placeholder="Líder / punto / shooter / cover"></div></div>
+    <div class="hd"><span class="num">K</span><h2>Piernografo A5 del piloto</h2><span class="tag">Bolsillo / in-game</span></div>
+    <div class="kneeboard-shell">
+      <div class="kneeboard-title">
+        <div>
+          <h3>CAS KNEEBOARD</h3>
+          <small>Arma Reforger · helicópteros armados · hoja personal</small>
+        </div>
+        <span class="a5tag">A5</span>
+      </div>
 
-      <div class="field"><label>Líder vuelo</label><div class="fill" contenteditable="true" data-card-key="kb-flight-lead" data-placeholder="Ej.: FORD 1"></div></div>
-      <div class="field"><label>Punto / compañero</label><div class="fill" contenteditable="true" data-card-key="kb-wingman" data-placeholder="Ej.: FORD 2"></div></div>
-      <div class="field"><label>Elemento 2</label><div class="fill" contenteditable="true" data-card-key="kb-element-two" data-placeholder="Ej.: FORD 3 / FORD 4"></div></div>
-      <div class="field"><label>Orden de shooters</label><div class="fill" contenteditable="true" data-card-key="kb-shooter-order" data-placeholder="Ej.: 2, 3, 1, 4"></div></div>
+      <div class="kneeboard-band">
+        <div class="kneeboard-box"><label>Misión / zona</label><div class="fill" contenteditable="true" data-card-key="kb-mission" data-placeholder="Operación FORD · Lago Oeste"></div></div>
+        <div class="kneeboard-box"><label>Mi indicativo</label><div class="fill" contenteditable="true" data-card-key="kb-my-callsign" data-placeholder="FORD 2"></div></div>
+        <div class="kneeboard-box"><label>Rol</label><div class="fill" contenteditable="true" data-card-key="kb-role" data-placeholder="Líder / punto / shooter"></div></div>
+        <div class="kneeboard-box"><label>Ventana / TOT</label><div class="fill" contenteditable="true" data-card-key="kb-tot" data-placeholder="Hora H / ventana"></div></div>
+      </div>
 
-      <div class="field"><label>Freq interna</label><div class="fill" contenteditable="true" data-card-key="kb-freq-internal" data-placeholder="Canal grupo / radio corta"></div></div>
-      <div class="field"><label>Freq aeródromo</label><div class="fill" contenteditable="true" data-card-key="kb-freq-airfield" data-placeholder="Ej.: 60.0"></div></div>
-      <div class="field"><label>Freq JTAC</label><div class="fill" contenteditable="true" data-card-key="kb-freq-jtac" data-placeholder="Ej.: 65.0"></div></div>
-      <div class="field"><label>Freq emergencia</label><div class="fill" contenteditable="true" data-card-key="kb-freq-emergency" data-placeholder="Guardia / backup / Discord"></div></div>
+      <div class="kneeboard-grid">
+        <section class="kneeboard-section">
+          <h4>Comunicaciones</h4>
+          <div class="kneeboard-field"><label>Interna vuelo</label><div class="fill" contenteditable="true" data-card-key="kb-freq-internal" data-placeholder="Canal grupo"></div></div>
+          <div class="kneeboard-field"><label>Aeródromo</label><div class="fill" contenteditable="true" data-card-key="kb-freq-airfield" data-placeholder="Frecuencia salida/entrada"></div></div>
+          <div class="kneeboard-field"><label>JTAC / FAC</label><div class="fill" contenteditable="true" data-card-key="kb-freq-jtac" data-placeholder="Frecuencia CAS"></div></div>
+          <div class="kneeboard-field"><label>Backup</label><div class="fill" contenteditable="true" data-card-key="kb-freq-emergency" data-placeholder="Canal reserva / Discord"></div></div>
+        </section>
 
-      <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-active" data-placeholder="Ej.: LINCE 1"></div></div>
-      <div class="field"><label>JTAC auxiliar</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-aux" data-placeholder="Ej.: LINCE 2"></div></div>
-      <div class="field"><label>Suelo / unidad amiga</label><div class="fill" contenteditable="true" data-card-key="kb-ground" data-placeholder="Indicativos suelo: LINCE, TORO, etc."></div></div>
-      <div class="field"><label>Código humos</label><div class="fill" contenteditable="true" data-card-key="kb-smoke" data-placeholder="Rojo enemigo · verde amigo"></div></div>
+        <section class="kneeboard-section">
+          <h4>Paquete aéreo</h4>
+          <div class="kneeboard-field"><label>Líder vuelo</label><div class="fill" contenteditable="true" data-card-key="kb-flight-lead" data-placeholder="FORD 1"></div></div>
+          <div class="kneeboard-field"><label>Elementos</label><div class="fill" contenteditable="true" data-card-key="kb-element-two" data-placeholder="FORD 1/2 · FORD 3/4"></div></div>
+          <div class="kneeboard-field"><label>Orden JTAC</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-flow" data-placeholder="1 habla · 2/3/4 esperan"></div></div>
+          <div class="kneeboard-field"><label>Orden ataque</label><div class="fill" contenteditable="true" data-card-key="kb-shooter-order" data-placeholder="2, 3, 1, 4"></div></div>
+        </section>
 
-      <div class="field"><label>CP entrada</label><div class="fill" contenteditable="true" data-card-key="kb-cp" data-placeholder="Ej.: CP Oeste"></div></div>
-      <div class="field"><label>BP / espera</label><div class="fill" contenteditable="true" data-card-key="kb-bp" data-placeholder="Ej.: Lago Oeste"></div></div>
-      <div class="field"><label>Ruta entrada</label><div class="fill" contenteditable="true" data-card-key="kb-route-in" data-placeholder="Valle oeste, bajo, no cruzar carretera"></div></div>
-      <div class="field"><label>Egreso / RTB</label><div class="fill" contenteditable="true" data-card-key="kb-egress" data-placeholder="Norte a BP / RTB por oeste"></div></div>
+        <section class="kneeboard-section">
+          <h4>Navegación</h4>
+          <div class="kneeboard-field"><label>Base / FARP</label><div class="fill" contenteditable="true" data-card-key="kb-base" data-placeholder="Aeródromo / punto rearm"></div></div>
+          <div class="kneeboard-field"><label>CP entrada</label><div class="fill" contenteditable="true" data-card-key="kb-cp" data-placeholder="CP Oeste"></div></div>
+          <div class="kneeboard-field"><label>BP / espera</label><div class="fill" contenteditable="true" data-card-key="kb-bp" data-placeholder="Lago Oeste"></div></div>
+          <div class="kneeboard-field"><label>Egreso / RTB</label><div class="fill" contenteditable="true" data-card-key="kb-egress" data-placeholder="Norte a BP / RTB oeste"></div></div>
+        </section>
 
-      <div class="field"><label>Armamento</label><div class="fill" contenteditable="true" data-card-key="kb-loadout" data-placeholder="Hydra, .50, humo, munición disponible"></div></div>
-      <div class="field"><label>Playtime</label><div class="fill" contenteditable="true" data-card-key="kb-playtime" data-placeholder="Tiempo en estación"></div></div>
-      <div class="field"><label>Bingo fuel</label><div class="fill" contenteditable="true" data-card-key="kb-bingo" data-placeholder="Combustible mínimo / RTB"></div></div>
-      <div class="field"><label>Rearme / repostaje</label><div class="fill" contenteditable="true" data-card-key="kb-rearm" data-placeholder="Dónde rearmar, repostar o reparar"></div></div>
+        <section class="kneeboard-section">
+          <h4>Trabajo CAS</h4>
+          <div class="kneeboard-field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-active" data-placeholder="LINCE 1"></div></div>
+          <div class="kneeboard-field"><label>Unidad amiga</label><div class="fill" contenteditable="true" data-card-key="kb-ground" data-placeholder="LINCE / TORO / posición"></div></div>
+          <div class="kneeboard-field"><label>Marcas</label><div class="fill" contenteditable="true" data-card-key="kb-smoke" data-placeholder="Humo rojo enemigo · verde amigo"></div></div>
+          <div class="kneeboard-field"><label>Armas</label><div class="fill" contenteditable="true" data-card-key="kb-loadout" data-placeholder="Cohetes / .50 / munición útil"></div></div>
+        </section>
 
-      <div class="field big"><label>Restricciones</label><div class="fill" contenteditable="true" data-card-key="kb-restrictions" data-placeholder="No disparar sur, no sobrevolar pueblo, no cruzar fase line..."></div></div>
-      <div class="field big"><label>Amenazas</label><div class="fill" contenteditable="true" data-card-key="kb-threats" data-placeholder="AA, MANPADS, técnico, zona caliente, altura peligrosa..."></div></div>
-      <div class="field big"><label>Amigos / referencia</label><div class="fill" contenteditable="true" data-card-key="kb-friendlies" data-placeholder="Posición amigos, marca, referencias visibles"></div></div>
-      <div class="field big"><label>Plan NORDO / emergencia</label><div class="fill" contenteditable="true" data-card-key="kb-nordo" data-placeholder="Si pierdo radio: última instrucción segura, BP, CP o RTB"></div></div>
+        <section class="kneeboard-section">
+          <h4>Apoyo y servicio</h4>
+          <div class="kneeboard-field"><label>Tiempo útil</label><div class="fill" contenteditable="true" data-card-key="kb-playtime" data-placeholder="Tiempo en estación / turnos"></div></div>
+          <div class="kneeboard-field"><label>Rearme</label><div class="fill" contenteditable="true" data-card-key="kb-rearm" data-placeholder="Dónde rearmar/reparar"></div></div>
+          <div class="kneeboard-field"><label>Daño / RTB</label><div class="fill" contenteditable="true" data-card-key="kb-rtb-state" data-placeholder="Cuándo cortar y volver"></div></div>
+          <div class="kneeboard-field"><label>Reserva</label><div class="fill" contenteditable="true" data-card-key="kb-reserve" data-placeholder="Humo / escolta / cobertura"></div></div>
+        </section>
+
+        <section class="kneeboard-section">
+          <h4>Seguridad</h4>
+          <div class="kneeboard-field wide"><label>Restricciones</label><div class="fill" contenteditable="true" data-card-key="kb-restrictions" data-placeholder="No disparar sur, no cruzar carretera, no sobrevolar pueblo..."></div></div>
+          <div class="kneeboard-field wide"><label>Amenazas</label><div class="fill" contenteditable="true" data-card-key="kb-threats" data-placeholder="Técnico, AA, zona caliente, altura peligrosa..."></div></div>
+          <div class="kneeboard-field wide"><label>NORDO / ABORT</label><div class="fill" contenteditable="true" data-card-key="kb-nordo" data-placeholder="Si pierdo radio: BP / CP / RTB. ABORT = cortar pasada."></div></div>
+        </section>
+      </div>
+
+      <div class="kneeboard-ruler">Uso: se rellena antes de despegar. La 5-Line/9-Line sigue siendo la orden CAS; esto es la hoja personal del piloto.</div>
     </div>
-    <p class="minihelp">Uso recomendado: rellenar antes de despegar y pasarlo por voz al grupo. No sustituye la 5-Line/9-Line; es la hoja de datos de misión del piloto.</p>
   </article>
 
   <!-- ============ M. MAPA TACTICO LOCAL ============ -->
@@ -558,7 +641,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <tr><td>CLEARED HOT</td><td>Autorizado a disparar</td></tr>
         <tr><td>ABORT</td><td>Cancela el ataque ya</td></tr>
         <tr><td>WINCHESTER</td><td>Sin munición</td></tr>
-        <tr><td>BINGO</td><td>Combustible mínimo, vuelvo a base</td></tr>
+        <tr><td>WINCHESTER / AMMO LOW</td><td>Sin munición útil / munición baja para continuar apoyo</td></tr>
       </tbody>
     </table>
   </article>
@@ -782,7 +865,7 @@ JTAC: "Ese ___ es su objetivo."</pre>
 </div>
 
 <footer>
-  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.3
+  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.4
 </footer>
 
 <script>
