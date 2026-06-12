@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuela CAS ArmadOS · Día 1 · Operación FORD</title>
+<meta name="description" content="Guía de sesión para el Día 1 de Escuela CAS ArmadOS: comunicaciones básicas, aeródromo, Grupo FORD y primer contacto JTAC.">
+<style>
+:root{
+  --bg:#0b1110;
+  --bg2:#101a17;
+  --panel:#17241f;
+  --panel2:#20322b;
+  --ink:#ecf2ed;
+  --muted:#a9b9ae;
+  --faint:#73847a;
+  --line:rgba(180,205,190,.18);
+  --line2:rgba(180,205,190,.32);
+  --green:#7fb069;
+  --green2:#a6d67d;
+  --amber:#f1aa3d;
+  --red:#df5a45;
+  --blue:#65a6d9;
+  --paper:#f5f0e6;
+  --mono:Consolas,"Courier New",monospace;
+  --sans:Inter,Segoe UI,Roboto,Arial,sans-serif;
+  --display:Impact,"Arial Narrow",Oswald,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 15% -5%,rgba(127,176,105,.18),transparent 34%),
+    radial-gradient(circle at 90% 0,rgba(101,166,217,.10),transparent 30%),
+    linear-gradient(135deg,var(--bg),#111915 62%,#090d0c);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.55;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:34px 34px;
+  mask-image:linear-gradient(to bottom,black,transparent 88%);
+}
+a{color:inherit}
+.top{
+  position:sticky;
+  top:0;
+  z-index:20;
+  border-bottom:1px solid var(--line);
+  background:rgba(10,16,14,.88);
+  backdrop-filter:blur(14px);
+}
+.top-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:210px;
+  font-family:var(--display);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.patch{
+  width:38px;
+  height:38px;
+  border:2px solid var(--amber);
+  color:var(--amber);
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:800;
+  box-shadow:0 0 0 4px rgba(241,170,61,.08);
+}
+.nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-left:auto;
+}
+.nav a,.print{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+  color:var(--muted);
+  padding:7px 10px;
+  border-radius:7px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.nav a:hover,.print:hover{border-color:var(--amber);color:var(--amber)}
+.print{cursor:pointer;font-family:inherit}
+.mission-board{
+  max-width:1180px;
+  margin:24px auto 0;
+  padding:0 18px;
+}
+.board-panel{
+  border:1px solid rgba(241,170,61,.36);
+  background:
+    linear-gradient(180deg,rgba(16,26,23,.96),rgba(10,16,14,.98)),
+    repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(255,255,255,.035) 32px);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 18px 50px rgba(0,0,0,.32), inset 0 0 0 1px rgba(255,255,255,.025);
+}
+.board-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:16px 18px;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(90deg,rgba(241,170,61,.16),rgba(127,176,105,.08),transparent);
+}
+.board-head h2{
+  font-family:var(--display);
+  font-size:34px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.board-head .tag{margin-left:auto}
+.board-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr .9fr;
+  gap:12px;
+  padding:16px;
+}
+.field{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  border-radius:9px;
+  min-height:74px;
+  padding:10px 12px;
+}
+.field.wide{grid-column:span 2}
+.field.full{grid-column:1/-1}
+.field label{
+  display:block;
+  color:var(--amber);
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:7px;
+}
+.editable{
+  min-height:24px;
+  outline:none;
+  color:#fff;
+  font-weight:700;
+  border-radius:5px;
+  padding:2px 0;
+}
+.editable:empty:before{
+  content:attr(data-placeholder);
+  color:rgba(236,242,237,.42);
+  font-weight:500;
+}
+.editable:focus{
+  background:rgba(241,170,61,.08);
+  box-shadow:0 0 0 4px rgba(241,170,61,.08);
+}
+.board-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:0 16px 16px;
+}
+.board-actions button{
+  border:1px solid var(--line2);
+  background:rgba(255,255,255,.04);
+  color:var(--muted);
+  border-radius:7px;
+  padding:8px 11px;
+  cursor:pointer;
+  font-family:var(--mono);
+  text-transform:uppercase;
+  font-size:11px;
+  font-weight:900;
+}
+.board-actions button:hover{border-color:var(--amber);color:var(--amber)}
+.hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:22px 18px 24px;
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) 360px;
+  gap:22px;
+  align-items:stretch;
+}
+.hero-card,.intel-card,.slide,.quick-card{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(32,50,43,.94),rgba(18,29,25,.96));
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+}
+.hero-card{
+  position:relative;
+  min-height:420px;
+  padding:34px;
+  overflow:hidden;
+  border-radius:12px;
+}
+.hero-card:after{
+  content:"FORD";
+  position:absolute;
+  right:-22px;
+  bottom:-42px;
+  font-family:var(--display);
+  font-size:180px;
+  letter-spacing:.02em;
+  color:rgba(255,255,255,.035);
+  line-height:.8;
+}
+.kicker{
+  color:var(--amber);
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:12px;
+  margin-bottom:14px;
+}
+h1,h2,h3{margin:0;line-height:1.05}
+h1{
+  max-width:760px;
+  font-family:var(--display);
+  font-size:clamp(42px,8vw,92px);
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+.subtitle{
+  max-width:720px;
+  margin-top:18px;
+  color:var(--muted);
+  font-size:18px;
+}
+.strip{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  max-width:780px;
+}
+.stat{
+  border:1px solid var(--line);
+  background:rgba(9,13,12,.5);
+  padding:12px;
+  border-radius:8px;
+}
+.stat b{
+  display:block;
+  color:#fff;
+  font-size:20px;
+  font-family:var(--display);
+  letter-spacing:.04em;
+}
+.stat span{color:var(--faint);font-size:12px;text-transform:uppercase;font-weight:700}
+.intel-card{
+  border-radius:12px;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.stamp{
+  align-self:flex-start;
+  border:2px solid var(--red);
+  color:var(--red);
+  transform:rotate(-4deg);
+  padding:7px 12px;
+  font-family:var(--mono);
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.intel-card h2{
+  font-family:var(--display);
+  font-size:38px;
+  text-transform:uppercase;
+}
+.intel-list{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.intel-list li{
+  border-top:1px solid var(--line);
+  padding:11px 0;
+  color:var(--muted);
+}
+.intel-list b{color:#fff}
+.deck{
+  max-width:1180px;
+  margin:0 auto;
+  padding:8px 18px 50px;
+  display:grid;
+  gap:22px;
+}
+.slide{
+  border-radius:12px;
+  overflow:hidden;
+}
+.slide-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:18px 22px;
+  background:linear-gradient(90deg,rgba(127,176,105,.20),rgba(255,255,255,.02));
+  border-bottom:1px solid var(--line);
+}
+.num{
+  width:44px;
+  height:44px;
+  border:1px solid var(--amber);
+  color:var(--amber);
+  display:grid;
+  place-items:center;
+  border-radius:8px;
+  font-family:var(--mono);
+  font-weight:900;
+}
+.slide-head h2{
+  font-family:var(--display);
+  text-transform:uppercase;
+  font-size:34px;
+  letter-spacing:.03em;
+}
+.tag{
+  margin-left:auto;
+  border:1px solid var(--line);
+  color:var(--muted);
+  padding:6px 9px;
+  border-radius:999px;
+  font-size:12px;
+  font-family:var(--mono);
+  text-transform:uppercase;
+}
+.slide-body{padding:22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.box{
+  border:1px solid var(--line);
+  background:rgba(9,13,12,.38);
+  border-radius:10px;
+  padding:16px;
+}
+.box h3{
+  color:#fff;
+  font-size:17px;
+  margin-bottom:9px;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+}
+.box p{margin:0;color:var(--muted)}
+.box ul{margin:8px 0 0 18px;padding:0;color:var(--muted)}
+.box li{margin:5px 0}
+.callout{
+  border-left:4px solid var(--amber);
+  background:rgba(241,170,61,.08);
+  padding:14px 16px;
+  margin-top:16px;
+  color:var(--muted);
+}
+.callout b{color:#fff}
+.warn{border-left-color:var(--red);background:rgba(223,90,69,.08)}
+.ok{border-left-color:var(--green2);background:rgba(127,176,105,.08)}
+.timeline{
+  display:grid;
+  gap:10px;
+}
+.phase{
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr) 210px;
+  align-items:center;
+  gap:12px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:rgba(9,13,12,.34);
+  padding:12px;
+}
+.phase .time{
+  color:var(--amber);
+  font-family:var(--mono);
+  font-weight:900;
+}
+.phase b{color:#fff}
+.phase span{color:var(--muted)}
+.phase .owner{
+  color:var(--faint);
+  font-size:12px;
+  text-transform:uppercase;
+  font-weight:800;
+  text-align:right;
+}
+.flow{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:8px;
+  align-items:stretch;
+}
+.node{
+  min-height:96px;
+  border:1px solid var(--line2);
+  background:rgba(127,176,105,.07);
+  border-radius:10px;
+  padding:12px;
+  position:relative;
+}
+.node:after{
+  content:">";
+  position:absolute;
+  right:-12px;
+  top:34px;
+  color:var(--amber);
+  font-family:var(--mono);
+  font-weight:900;
+}
+.node:last-child:after{display:none}
+.node b{
+  display:block;
+  color:#fff;
+  text-transform:uppercase;
+  font-size:13px;
+  margin-bottom:6px;
+}
+.node span{color:var(--muted);font-size:13px}
+.radio{
+  background:#09100d;
+  border:1px solid rgba(127,176,105,.28);
+  border-radius:10px;
+  padding:14px;
+  font-family:var(--mono);
+  white-space:pre-wrap;
+  color:#d8e5da;
+  font-size:14px;
+}
+.radio .ford{color:var(--blue);font-weight:900}
+.radio .lince{color:var(--green2);font-weight:900}
+.radio .tower{color:var(--amber);font-weight:900}
+.radio .sys{color:var(--faint)}
+.cards-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mini{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  border-radius:9px;
+  padding:12px;
+}
+.mini b{display:block;color:#fff;margin-bottom:5px}
+.mini span{color:var(--muted);font-size:13px}
+table{
+  width:100%;
+  border-collapse:collapse;
+  overflow:hidden;
+  border-radius:10px;
+  border:1px solid var(--line);
+}
+th,td{
+  padding:11px 12px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  vertical-align:top;
+}
+th{
+  background:rgba(127,176,105,.12);
+  color:#fff;
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:.06em;
+}
+td{color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.scratch{
+  background:linear-gradient(180deg,#fbf5e8,#e8dcc7);
+  color:#17241f;
+  border:0;
+  border-radius:12px;
+  padding:18px;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);
+}
+.scratch h3{color:#17241f;font-family:var(--display);font-size:26px;text-transform:uppercase}
+.scratch-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:12px;
+}
+.blank{
+  border-bottom:2px solid rgba(0,0,0,.28);
+  min-height:32px;
+  padding:6px 0;
+  font-family:var(--mono);
+}
+.quick{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:16px;
+}
+.quick-card{
+  border-radius:12px;
+  padding:18px;
+}
+.quick-card h3{
+  font-family:var(--display);
+  font-size:30px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.footer{
+  max-width:1180px;
+  margin:0 auto 40px;
+  color:var(--faint);
+  padding:0 18px;
+  font-size:12px;
+  text-align:center;
+}
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .board-grid{grid-template-columns:1fr 1fr}
+  .field.wide{grid-column:span 2}
+  .strip,.grid3,.cards-row,.flow{grid-template-columns:1fr 1fr}
+  .grid2,.quick{grid-template-columns:1fr}
+  .phase{grid-template-columns:1fr}
+  .phase .owner{text-align:left}
+  .node:after{display:none}
+}
+@media(max-width:640px){
+  .top-inner{align-items:flex-start;flex-direction:column}
+  .nav{margin-left:0}
+  .board-grid{grid-template-columns:1fr}
+  .field.wide{grid-column:1}
+  .strip,.grid3,.cards-row,.flow{grid-template-columns:1fr}
+  .hero-card{padding:24px}
+  .slide-head{align-items:flex-start;flex-direction:column}
+  .tag{margin-left:0}
+}
+@media print{
+  body{background:#fff;color:#111}
+  body:before,.top,.print{display:none}
+  .mission-board{max-width:none;padding:0;margin:0 0 12px}
+  .hero,.deck,.footer{max-width:none;padding:0;margin:0}
+  .hero{display:block}
+  .hero-card,.intel-card,.slide,.quick-card,.box,.node,.mini,.board-panel,.field{
+    background:#fff!important;
+    color:#111!important;
+    box-shadow:none!important;
+    border-color:#999!important;
+    break-inside:avoid;
+  }
+  .slide{margin:0 0 12px}
+  .slide-head{background:#eee!important}
+  .radio{background:#f4f4f4;color:#111}
+  .editable{color:#111}
+  .subtitle,.box p,.box li,.node span,.mini span,td{color:#333!important}
+}
+</style>
+</head>
+<body>
+<nav class="top">
+  <div class="top-inner">
+    <div class="brand"><div class="patch">CAS</div><div>Escuela CAS ArmadOS</div></div>
+    <div class="nav">
+      <a href="#intencion">Intención</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#radio">Radio</a>
+      <a href="#aerodromo">Aeródromo</a>
+      <a href="#jtac">JTAC</a>
+      <a href="#chuleta">Chuleta</a>
+      <button class="print" onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+</nav>
+
+<section class="mission-board" id="pizarra-top">
+  <div class="board-panel">
+    <div class="board-head">
+      <div class="patch">D1</div>
+      <h2>Pizarra de misión</h2>
+      <div class="tag">Editable antes de empezar</div>
+    </div>
+    <div class="board-grid">
+      <div class="field">
+        <label>Fecha / hora</label>
+        <div class="editable" contenteditable="true" data-key="fecha" data-placeholder="Ej.: Viernes 21:30"></div>
+      </div>
+      <div class="field">
+        <label>Instructor</label>
+        <div class="editable" contenteditable="true" data-key="instructor" data-placeholder="Nombre / callsign"></div>
+      </div>
+      <div class="field">
+        <label>Vuelo</label>
+        <div class="editable" contenteditable="true" data-key="vuelo" data-placeholder="Grupo FORD"></div>
+      </div>
+      <div class="field">
+        <label>Frecuencia aeródromo</label>
+        <div class="editable" contenteditable="true" data-key="freq-aerodromo" data-placeholder="Ej.: 60.0"></div>
+      </div>
+      <div class="field">
+        <label>Frecuencia JTAC</label>
+        <div class="editable" contenteditable="true" data-key="freq-jtac" data-placeholder="Ej.: 65.0"></div>
+      </div>
+      <div class="field">
+        <label>CP entrada</label>
+        <div class="editable" contenteditable="true" data-key="cp" data-placeholder="Ej.: CP Oeste"></div>
+      </div>
+      <div class="field wide">
+        <label>Zona de espera / BP escuela</label>
+        <div class="editable" contenteditable="true" data-key="espera" data-placeholder="Ej.: oeste del lago, no cruzar carretera norte"></div>
+      </div>
+      <div class="field">
+        <label>JTAC activo</label>
+        <div class="editable" contenteditable="true" data-key="jtac-activo" data-placeholder="LINCE 1"></div>
+      </div>
+      <div class="field wide">
+        <label>JTAC auxiliar / observadores</label>
+        <div class="editable" contenteditable="true" data-key="jtac-aux" data-placeholder="LINCE 2 auxiliar; LINCE 3+ observan"></div>
+      </div>
+      <div class="field">
+        <label>Circuito / salida</label>
+        <div class="editable" contenteditable="true" data-key="salida" data-placeholder="Ej.: salida oeste, circuito izquierda"></div>
+      </div>
+      <div class="field full">
+        <label>Notas rápidas de seguridad</label>
+        <div class="editable" contenteditable="true" data-key="seguridad" data-placeholder="Ej.: sin fuego real avanzado, ABORT en claro, no cruzar pista sin aviso"></div>
+      </div>
+    </div>
+    <div class="board-actions">
+      <button type="button" onclick="saveBoard()">Guardar pizarra</button>
+      <button type="button" onclick="clearBoard()">Limpiar campos</button>
+      <button type="button" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+</section>
+
+<header class="hero">
+  <section class="hero-card">
+    <div class="kicker">Orden de instrucción · Día 1</div>
+    <h1>Operación FORD: Puesta en Marcha</h1>
+    <p class="subtitle">Guía de sesión para explicar, practicar y seguir el primer día de Escuela CAS: comunicaciones básicas, movimiento en aeródromo, gestión del grupo aéreo y primer contacto sencillo con JTAC.</p>
+    <div class="strip">
+      <div class="stat"><b>60-90</b><span>minutos</span></div>
+      <div class="stat"><b>0</b><span>combate complejo</span></div>
+      <div class="stat"><b>1</b><span>vuelo escuela</span></div>
+      <div class="stat"><b>FORD</b><span>grupo aéreo</span></div>
+    </div>
+  </section>
+  <aside class="intel-card">
+    <div class="stamp">Training</div>
+    <h2>Brief rápido</h2>
+    <ul class="intel-list">
+      <li><b>Tipo:</b> sesión guiada, no misión de combate.</li>
+      <li><b>Prioridad:</b> procedimiento antes que acción.</li>
+      <li><b>Zona:</b> aeródromo, salida, punto de contacto y espera.</li>
+      <li><b>Tierra:</b> LINCE si hay JTAC disponible.</li>
+      <li><b>Final:</b> ejercicio seco de coordinación aire-tierra.</li>
+    </ul>
+  </aside>
+</header>
+
+<main class="deck">
+
+  <section id="intencion" class="slide">
+    <div class="slide-head"><div class="num">01</div><h2>Intención del día</h2><div class="tag">Lo que hay que entender</div></div>
+    <div class="slide-body">
+      <div class="grid2">
+        <div class="box">
+          <h3>Qué buscamos</h3>
+          <p>Crear una base común. Que todos sepan cómo hablar por radio, cómo moverse en aeródromo y cómo empezar a trabajar con un JTAC sin saturar la frecuencia.</p>
+        </div>
+        <div class="box">
+          <h3>Qué no buscamos</h3>
+          <p>No buscamos fuego real complejo, 9-line completa, Danger Close ni lucimiento individual. Eso llegará cuando el grupo tenga orden.</p>
+        </div>
+      </div>
+      <div class="callout ok"><b>Frase para abrir la sesión:</b> "Hoy no venimos a ganar una misión. Venimos a que, cuando empiece una misión de verdad, todos sepamos movernos y hablar igual."</div>
+    </div>
+  </section>
+
+  <section id="agenda" class="slide">
+    <div class="slide-head"><div class="num">02</div><h2>Agenda de instrucción</h2><div class="tag">60-90 min</div></div>
+    <div class="slide-body">
+      <div class="timeline">
+        <div class="phase"><div class="time">00-10</div><div><b>Briefing inicial.</b><br><span>Objetivo, normas, indicativos, frecuencias y dinámica del Grupo FORD.</span></div><div class="owner">Instructor</div></div>
+        <div class="phase"><div class="time">10-25</div><div><b>Comunicaciones básicas.</b><br><span>Formato radio, colación corta, disciplina y palabras mínimas.</span></div><div class="owner">Todos</div></div>
+        <div class="phase"><div class="time">25-45</div><div><b>Aeródromo.</b><br><span>Puesta en marcha, rodaje, espera, pista, despegue, circuito y salida.</span></div><div class="owner">FORD</div></div>
+        <div class="phase"><div class="time">45-65</div><div><b>Salida a zona.</b><br><span>Formación básica, punto de contacto, zona de espera y orden interno.</span></div><div class="owner">FORD 1</div></div>
+        <div class="phase"><div class="time">65-85</div><div><b>Primer contacto JTAC.</b><br><span>Check-in básico, situación simple, restricciones y ejercicio seco.</span></div><div class="owner">LINCE</div></div>
+        <div class="phase"><div class="time">85-90</div><div><b>Debrief.</b><br><span>Qué ha salido bien, qué se corrige y qué viene en la siguiente sesión.</span></div><div class="owner">Instructor</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="radio" class="slide">
+    <div class="slide-head"><div class="num">03</div><h2>Radio básica</h2><div class="tag">Regla de oro</div></div>
+    <div class="slide-body">
+      <div class="grid2">
+        <div class="box">
+          <h3>Formato estándar</h3>
+          <p><b>Destinatario, emisor, mensaje.</b></p>
+          <div class="radio"><span class="ford">FORD 1, FORD 2</span>, listo para rodar.
+<span class="lince">LINCE, FORD 1</span>, entrando por punto de contacto.
+<span class="ford">FORD 2, FORD 1</span>, mantenga formación.</div>
+        </div>
+        <div class="box">
+          <h3>Cómo debe sonar</h3>
+          <ul>
+            <li>Corto: una idea por transmisión.</li>
+            <li>Claro: sin historias largas.</li>
+            <li>Útil: posición, intención o confirmación.</li>
+            <li>Ordenado: no se pisa a otro.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout warn"><b>Corrección del instructor:</b> si alguien se alarga, cortar con calma: "Dame solo posición, intención y restricción."</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">04</div><h2>Gestión del Grupo FORD</h2><div class="tag">Vuelo organizado</div></div>
+    <div class="slide-body">
+      <div class="cards-row">
+        <div class="mini"><b>FORD 1</b><span>Líder. Habla hacia fuera con aeródromo o JTAC.</span></div>
+        <div class="mini"><b>FORD 2</b><span>Punto. Confirma por interna y mantiene formación.</span></div>
+        <div class="mini"><b>FORD 3/4</b><span>Escuchan, mantienen orden y responden cuando se les llame.</span></div>
+        <div class="mini"><b>LINCE</b><span>JTAC básico si está disponible. Controla el ejercicio CAS.</span></div>
+      </div>
+      <div class="callout ok"><b>Regla:</b> FORD habla como grupo. No son cuatro aparatos contando su vida por la frecuencia principal. Si el JTAC llama a FORD 2, entonces responde FORD 2.</div>
+      <div class="radio"><span class="tower">AERÓDROMO:</span> "FORD, autorizado rodaje a punto de espera."
+<span class="ford">FORD 1:</span> "FORD copia, rodamos a punto de espera."
+<span class="sys">Interna:</span> FORD 2, 3 y 4 confirman corto: "2", "3", "4".</div>
+    </div>
+  </section>
+
+  <section id="aerodromo" class="slide">
+    <div class="slide-head"><div class="num">05</div><h2>Aeródromo</h2><div class="tag">Salida ordenada</div></div>
+    <div class="slide-body">
+      <div class="flow">
+        <div class="node"><b>1. Arranque</b><span>Radio configurada, motor, sistemas y escucha.</span></div>
+        <div class="node"><b>2. Rodaje</b><span>Se informa antes de moverse.</span></div>
+        <div class="node"><b>3. Espera</b><span>Se reagrupa antes de pista.</span></div>
+        <div class="node"><b>4. Pista</b><span>Nadie entra ni cruza sin aviso.</span></div>
+        <div class="node"><b>5. Despegue</b><span>FORD 1 marca la salida.</span></div>
+        <div class="node"><b>6. Circuito</b><span>Salida limpia de zona.</span></div>
+      </div>
+      <div class="grid2" style="margin-top:16px">
+        <div class="box">
+          <h3>Frases mínimas</h3>
+          <div class="radio"><span class="ford">FORD 1:</span> "Aeródromo, FORD solicita puesta en marcha."
+<span class="ford">FORD 1:</span> "FORD inicia rodaje a punto de espera."
+<span class="ford">FORD 1:</span> "FORD entrando en pista para salida."
+<span class="ford">FORD 1:</span> "FORD en el aire, salida hacia oeste."</div>
+        </div>
+        <div class="box">
+          <h3>Prohibido</h3>
+          <ul>
+            <li>Rodar sin avisar.</li>
+            <li>Cruzar pista sin comunicarlo.</li>
+            <li>Despegar encima de otro.</li>
+            <li>Aterrizar sin informar tramo o final.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">06</div><h2>Salida a zona</h2><div class="tag">De base a CP</div></div>
+    <div class="slide-body">
+      <div class="grid3">
+        <div class="box"><h3>Formación</h3><p>Separación suficiente para no molestarse. FORD 1 marca rumbo y velocidad. Los puntos no adelantan ni se cruzan.</p></div>
+        <div class="box"><h3>Punto de contacto</h3><p>FORD 1 avisa al llegar al CP. Si hay JTAC, se cambia a la frecuencia indicada y se espera instrucción.</p></div>
+        <div class="box"><h3>Zona de espera</h3><p>El grupo queda en espera hasta que LINCE pida check-in o asigne un ejercicio. Nadie entra por libre.</p></div>
+      </div>
+      <div class="radio"><span class="ford">FORD 1:</span> "LINCE, FORD 1, entrando por CP Oeste con cuatro aparatos."
+<span class="lince">LINCE:</span> "FORD 1, LINCE, recibido. Mantenga Grupo FORD en espera al oeste del lago. Avise establecido."
+<span class="ford">FORD 1:</span> "FORD mantiene espera oeste del lago. Avisaremos establecido."</div>
+    </div>
+  </section>
+
+  <section id="jtac" class="slide">
+    <div class="slide-head"><div class="num">07</div><h2>Primer contacto JTAC</h2><div class="tag">Muy sencillo</div></div>
+    <div class="slide-body">
+      <div class="grid2">
+        <div class="box">
+          <h3>Check-in básico</h3>
+          <div class="radio"><span class="ford">FORD 1:</span> "LINCE, FORD 1, establecido en espera. Grupo FORD con cuatro aparatos, sin fuego real complejo, listo para instrucción."
+<span class="lince">LINCE:</span> "FORD 1, LINCE, recibido. Mantenga espera. Prepararemos ejercicio seco."</div>
+        </div>
+        <div class="box">
+          <h3>Qué debe escuchar el alumno</h3>
+          <ul>
+            <li>Dónde está el grupo.</li>
+            <li>Qué quiere LINCE.</li>
+            <li>Qué restricciones existen.</li>
+            <li>Quién va a actuar.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout"><b>Nota para el instructor:</b> no metas 9-line completa en el Día 1 salvo que el grupo vaya sobrado. Primero que entiendan CONTACT, TALLY, IN, OFF, CONTINUE, CLEARED HOT y ABORT.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">08</div><h2>Varios JTAC</h2><div class="tag">Un solo controlador</div></div>
+    <div class="slide-body">
+      <div class="grid3">
+        <div class="box">
+          <h3>LINCE 1 · Activo</h3>
+          <p>Es el único que habla con FORD por la red CAS. Da instrucciones, corrige, autoriza CONTINUE/CLEARED HOT o canta ABORT.</p>
+        </div>
+        <div class="box">
+          <h3>LINCE 2 · Auxiliar</h3>
+          <p>Ayuda al activo: apunta errores, vigila seguridad, prepara la siguiente referencia y avisa por interna si detecta riesgo.</p>
+        </div>
+        <div class="box">
+          <h3>LINCE 3+ · Observadores</h3>
+          <p>Escuchan, toman notas y no entran en la radio CAS salvo emergencia clara. Sirven para aprender sin saturar.</p>
+        </div>
+      </div>
+      <div class="callout warn"><b>Regla:</b> nunca hay dos JTAC dando órdenes al mismo helicóptero por la misma frecuencia. Si LINCE 1 controla, LINCE 2 no corrige a FORD directamente.</div>
+      <div class="radio"><span class="lince">LINCE 1:</span> "FORD 1, LINCE 1 será JTAC activo. LINCE 2 queda auxiliar, sin transmisión directa salvo emergencia."
+<span class="ford">FORD 1:</span> "Recibido, LINCE 1 activo, LINCE 2 auxiliar. FORD."
+<span class="lince">LINCE 2:</span> <span class="sys">(por interna)</span> "LINCE 1, ojo con FORD 2, se está abriendo demasiado al sur."
+<span class="lince">LINCE 1:</span> "FORD 2, LINCE 1, corrija al norte y mantenga espera."</div>
+      <div class="callout ok"><b>Rotación recomendada:</b> cada ejercicio seco cambia el JTAC activo: LINCE 1 controla la primera ronda, LINCE 2 controla la segunda y LINCE 3 observa hasta su turno.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">09</div><h2>Ejercicio seco</h2><div class="tag">Sin presión</div></div>
+    <div class="slide-body">
+      <div class="flow">
+        <div class="node"><b>Referencia</b><span>LINCE da un punto fácil.</span></div>
+        <div class="node"><b>CONTACT</b><span>FORD ve la referencia.</span></div>
+        <div class="node"><b>Talk-on</b><span>LINCE guía al blanco.</span></div>
+        <div class="node"><b>TALLY</b><span>FORD confirma objetivo.</span></div>
+        <div class="node"><b>IN</b><span>FORD entra a pasada.</span></div>
+        <div class="node"><b>OFF</b><span>Sale y vuelve a espera.</span></div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="lince">LINCE:</span> "FORD 2, LINCE, desde el cruce de carreteras, mire 200 metros al norte, casa aislada. Llame CONTACT."
+<span class="ford">FORD 2:</span> "CONTACT cruce y casa aislada."
+<span class="lince">LINCE:</span> "Desde la casa, 50 metros al este, vehículo junto al muro. Describa."
+<span class="ford">FORD 2:</span> "TALLY vehículo junto al muro."
+<span class="lince">LINCE:</span> "Ese vehículo es su objetivo. Reporte IN, pasada seca."
+<span class="ford">FORD 2:</span> "IN desde el oeste, pasada seca."
+<span class="lince">LINCE:</span> "CONTINUE DRY."
+<span class="ford">FORD 2:</span> "OFF, vuelvo a espera."</div>
+      <div class="callout warn"><b>Si algo no está claro:</b> FORD canta "NO JOY" o "OFF DRY". LINCE no fuerza el ataque. Se recoloca y se repite.</div>
+    </div>
+  </section>
+
+  <section id="chuleta" class="slide">
+    <div class="slide-head"><div class="num">10</div><h2>Chuleta de palabras</h2><div class="tag">Términos mínimos</div></div>
+    <div class="slide-body">
+      <table>
+        <thead><tr><th>Palabra</th><th>Uso correcto</th><th>Ejemplo</th></tr></thead>
+        <tbody>
+          <tr><td>CONTACT</td><td>Veo la referencia descrita: humo, cruce, casa, carretera.</td><td>"CONTACT con el cruce."</td></tr>
+          <tr><td>TALLY</td><td>Veo el objetivo enemigo asignado.</td><td>"TALLY vehículo junto al muro."</td></tr>
+          <tr><td>NO JOY</td><td>No veo el objetivo.</td><td>"NO JOY, solicito repetición."</td></tr>
+          <tr><td>VISUAL</td><td>Veo a un amigo.</td><td>"VISUAL amigos al sur."</td></tr>
+          <tr><td>IN</td><td>Estoy entrando a la pasada.</td><td>"IN desde el oeste."</td></tr>
+          <tr><td>CONTINUE</td><td>Puede seguir maniobrando. No autoriza disparo.</td><td>"FORD 2, CONTINUE."</td></tr>
+          <tr><td>CLEARED HOT</td><td>Autorización final de fuego. En Día 1 se puede explicar sin usar fuego real.</td><td>"FORD 2, CLEARED HOT."</td></tr>
+          <tr><td>OFF / OFF DRY</td><td>Salgo de pasada con o sin disparo.</td><td>"OFF DRY, vuelvo a espera."</td></tr>
+          <tr><td>ABORT</td><td>Corta la acción inmediatamente.</td><td>"ABORT, ABORT, ABORT."</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">11</div><h2>Pizarra de misión</h2><div class="tag">Rellenar al empezar</div></div>
+    <div class="slide-body">
+      <div class="scratch">
+        <h3>Datos del día</h3>
+        <div class="scratch-grid">
+          <div class="blank">Frecuencia aeródromo:</div>
+          <div class="blank">Frecuencia JTAC:</div>
+          <div class="blank">CP entrada:</div>
+          <div class="blank">Zona de espera:</div>
+          <div class="blank">Salida aeródromo:</div>
+          <div class="blank">Circuito/tránsito:</div>
+          <div class="blank">Instructor:</div>
+          <div class="blank">JTAC activo:</div>
+          <div class="blank">JTAC auxiliar:</div>
+        </div>
+      </div>
+      <div class="callout ok"><b>Uso recomendado:</b> enseña esta diapositiva al inicio y rellena verbalmente los datos. Si cambian frecuencias o zona de espera, se repite en voz alta.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">12</div><h2>Checklist del instructor</h2><div class="tag">Seguir durante la sesión</div></div>
+    <div class="slide-body">
+      <div class="quick">
+        <div class="quick-card">
+          <h3>Durante</h3>
+          <ul>
+            <li>Explicar objetivo: procedimiento, no combate.</li>
+            <li>Confirmar que todos conocen indicativo y frecuencia.</li>
+            <li>Nombrar un solo JTAC activo antes de hablar con FORD.</li>
+            <li>Hacer practicar formato radio antes de mover aparatos.</li>
+            <li>Corregir frases largas en el momento.</li>
+            <li>No meter 9-line completa si el grupo aún no controla lo básico.</li>
+            <li>Terminar con un ejercicio seco ordenado.</li>
+          </ul>
+        </div>
+        <div class="quick-card">
+          <h3>Evaluar</h3>
+          <ul>
+            <li>No se pisan en radio.</li>
+            <li>FORD 1 coordina al grupo.</li>
+            <li>Solo el JTAC activo da instrucciones a FORD.</li>
+            <li>El grupo se mueve en aeródromo sin caos.</li>
+            <li>CONTACT y TALLY se usan bien.</li>
+            <li>IN y OFF salen de forma natural.</li>
+            <li>ABORT se obedece sin discusión.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">13</div><h2>Cierre</h2><div class="tag">Debrief corto</div></div>
+    <div class="slide-body">
+      <div class="grid3">
+        <div class="box"><h3>Qué salió bien</h3><p>Una cosa concreta. Ejemplo: "La salida de aeródromo fue ordenada".</p></div>
+        <div class="box"><h3>Qué corregir</h3><p>Una cosa concreta. Ejemplo: "Las colaciones deben ser más cortas".</p></div>
+        <div class="box"><h3>Siguiente sesión</h3><p>Adelantar el foco: 5-line, BP, correlación o primer ataque controlado.</p></div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="sys">Guion de cierre:</span>
+"Hoy hemos trabajado comunicaciones, aeródromo y primer contacto con JTAC.
+Lo importante no era disparar, era ordenar el procedimiento.
+Para la siguiente sesión, quien venga debe traer claro: CONTACT, TALLY, IN, OFF y ABORT."</div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  ArmaDos · Escuela CAS · Día 1 · Operación FORD · Guía de sesión autocontenida
+</footer>
+<script>
+const boardPrefix = "armados-ford-dia1-";
+function saveBoard(){
+  document.querySelectorAll("[data-key]").forEach((el) => {
+    localStorage.setItem(boardPrefix + el.dataset.key, el.innerText.trim());
+  });
+}
+function loadBoard(){
+  document.querySelectorAll("[data-key]").forEach((el) => {
+    const value = localStorage.getItem(boardPrefix + el.dataset.key);
+    if(value) el.innerText = value;
+    el.addEventListener("input", saveBoard);
+  });
+}
+function clearBoard(){
+  document.querySelectorAll("[data-key]").forEach((el) => {
+    localStorage.removeItem(boardPrefix + el.dataset.key);
+    el.innerText = "";
+  });
+}
+loadBoard();
+</script>
+</body>
+</html>
