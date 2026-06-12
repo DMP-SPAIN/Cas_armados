@@ -46,14 +46,14 @@ strong{color:#fff;font-weight:600}
 .topbar button svg{width:16px;height:16px}
 
 /* ---- intro ---- */
-.intro{max-width:980px;margin:0 auto;padding:30px 22px 10px;text-align:center}
+.intro{max-width:1180px;margin:0 auto;padding:30px 22px 10px;text-align:center}
 .intro .kicker{font-family:var(--disp);letter-spacing:.42em;font-size:12px;color:var(--amber);text-transform:uppercase}
 .intro h1{font-size:clamp(28px,5vw,42px);text-transform:uppercase;margin:8px 0 6px;letter-spacing:.02em}
 .intro p{color:var(--ink-dim);font-size:15px;margin:6px 0}
 .intro .note{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;margin-top:14px}
 
 /* ---- grid de chuletas ---- */
-.grid{max-width:980px;margin:30px auto;padding:0 22px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid{max-width:1240px;margin:30px auto;padding:0 22px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
 @media(max-width:760px){.grid{grid-template-columns:1fr;gap:16px}}
 
 /* ---- card ---- */
@@ -62,6 +62,7 @@ strong{color:#fff;font-weight:600}
   padding:20px 22px;position:relative;overflow:hidden;
   display:flex;flex-direction:column;
 }
+.card.wide{grid-column:1/-1}
 .card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0,rgba(255,178,46,.05),transparent 60%);pointer-events:none}
 .card .hd{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;position:relative}
 .card .hd .num{font-family:var(--disp);font-weight:700;font-size:24px;color:var(--amber);line-height:1;letter-spacing:.05em}
@@ -91,6 +92,26 @@ strong{color:#fff;font-weight:600}
 .pre .jt{color:var(--amber);font-weight:700}
 .pre .sys{color:var(--ink-faint);font-style:italic}
 .pre .key{color:var(--red);font-weight:700}
+
+/* ---- herramienta rellenable ---- */
+.toolgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
+.toolgrid.two{grid-template-columns:repeat(2,1fr)}
+.toolgrid.three{grid-template-columns:repeat(3,1fr)}
+.field{border:1px solid var(--line-strong);background:#0a100d;border-radius:8px;padding:10px 12px;min-height:72px}
+.field.big{min-height:112px}
+.field label{display:block;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:7px}
+.field .fill{min-height:24px;outline:none;color:#fff;font-weight:700;font-size:15px;line-height:1.45}
+.field .fill:empty:before{content:attr(data-placeholder);color:rgba(233,239,233,.35);font-weight:500}
+.field .fill:focus{background:rgba(255,178,46,.08);box-shadow:0 0 0 4px rgba(255,178,46,.08);border-radius:4px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.actions button{font-family:var(--disp);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:7px;background:transparent;color:var(--ink);border:1px solid var(--line-strong);cursor:pointer}
+.actions button:hover{border-color:var(--amber);color:var(--amber)}
+.minihelp{font-size:12px;color:var(--ink-faint);margin:10px 0 0}
+.linebox{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:stretch;margin-bottom:8px}
+.linebox .ln{display:flex;align-items:center;justify-content:center;border:1px solid var(--line-strong);border-radius:7px;background:var(--surface2);font-family:var(--disp);font-size:18px;color:var(--amber)}
+.linebox .field{min-height:54px;padding:8px 10px}
+@media(max-width:900px){.toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr}.card.wide{grid-column:auto}}
 
 /* ---- listas reglas ---- */
 .rules-list{margin:0;padding:0;list-style:none;counter-reset:r}
@@ -143,6 +164,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   h1,h2,h3,h4,.topbar .brand,.card .hd .num,.card .hd h2,.card .hd .tag,.tb th,.intro .kicker,footer,.pat .name,.tcard h3,.intro .note{font-family:"Segoe UI",Arial,sans-serif}
   .topbar,.intro,footer{display:none !important}
   .grid{max-width:100%;margin:0;padding:6mm;gap:6mm;grid-template-columns:1fr 1fr}
+  .card.wide{grid-column:1/-1;height:auto;min-height:128mm}
   .card{
     background:var(--surface);border:1.2px solid var(--line-strong);
     border-radius:6px;padding:6mm 7mm;
@@ -178,6 +200,15 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   .pat svg{height:14mm}
   .pat .name{font-size:8px;margin-top:1mm;color:var(--amber-deep)}
   strong{color:#000}
+  .toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:repeat(2,1fr);gap:2.4mm}
+  .field{background:#fffaf0;border-color:var(--line-strong);border-radius:3px;min-height:13mm;padding:2mm 2.5mm}
+  .field.big{min-height:25mm}
+  .field label{font-size:7.5px;color:var(--amber-deep);margin-bottom:1mm}
+  .field .fill{font-size:9.5px;color:#000;min-height:8mm}
+  .actions,.minihelp{display:none}
+  .linebox{grid-template-columns:8mm 1fr;gap:1.5mm;margin-bottom:1.5mm}
+  .linebox .ln{font-size:10px;border-radius:2px}
+  .linebox .field{min-height:11mm;padding:1.5mm 2mm}
 }
 @page{size:A4 landscape;margin:0}
 </style>
@@ -202,12 +233,73 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 <section class="intro">
   <div class="kicker">Curso CAS · Arma Reforger</div>
   <h1>Tarjetas de bolsillo · alumno</h1>
-  <p>Imprime en A4 horizontal (2 tarjetas por hoja, formato A5). Recorta por el contorno y plastifica. También se ven bien en el móvil durante misión.</p>
-  <div class="note">9 tarjetas · Tamaño A5 · Listas para imprimir</div>
+  <p>Herramienta de misión y chuletas de bolsillo. Arriba tienes campos rellenables para copiar 9-Line, CCA 5-Line, frecuencias, BP, restricciones y BDA; debajo quedan las tarjetas de consulta rápida.</p>
+  <div class="note">Campos rellenables · Tarjetas grandes · Imprimir / móvil / PDF</div>
 </section>
 
 <!-- ====== GRID DE TARJETAS ====== -->
 <div class="grid">
+
+  <!-- ============ 0. PIZARRA RELLENABLE ============ -->
+  <article class="card wide">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">00</span><h2>Pizarra táctica rellenable</h2><span class="tag">Herramienta in-game</span></div>
+    <div class="toolgrid">
+      <div class="field"><label>Indicativo aire</label><div class="fill" contenteditable="true" data-card-key="air" data-placeholder="Ej.: FORD 1 / PANTERA"></div></div>
+      <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="jtac" data-placeholder="Ej.: LINCE 1"></div></div>
+      <div class="field"><label>Frecuencia aeródromo</label><div class="fill" contenteditable="true" data-card-key="freq-airfield" data-placeholder="Ej.: 60.0"></div></div>
+      <div class="field"><label>Frecuencia JTAC</label><div class="fill" contenteditable="true" data-card-key="freq-jtac" data-placeholder="Ej.: 65.0"></div></div>
+      <div class="field"><label>CP entrada</label><div class="fill" contenteditable="true" data-card-key="cp" data-placeholder="Ej.: CP Oeste"></div></div>
+      <div class="field"><label>BP / espera</label><div class="fill" contenteditable="true" data-card-key="bp" data-placeholder="Ej.: Lago Oeste"></div></div>
+      <div class="field"><label>Ruta salida</label><div class="fill" contenteditable="true" data-card-key="egress-main" data-placeholder="Ej.: norte a BP"></div></div>
+      <div class="field"><label>Abort</label><div class="fill" contenteditable="true" data-card-key="abort" data-placeholder="ABORT ABORT ABORT"></div></div>
+    </div>
+    <div class="field big" style="margin-top:12px"><label>Notas rápidas de seguridad</label><div class="fill" contenteditable="true" data-card-key="safety-notes" data-placeholder="Restricciones, no-fire areas, amigos, amenazas, cambios de plan..."></div></div>
+    <div class="actions">
+      <button onclick="saveCards()">Guardar campos</button>
+      <button onclick="clearCards()">Limpiar campos</button>
+      <button onclick="window.print()">Imprimir / PDF</button>
+    </div>
+    <p class="minihelp">Los campos se guardan en este navegador. Úsalo como pizarra rápida para misión o como hoja rellenable antes de imprimir.</p>
+  </article>
+
+  <!-- ============ A. 9-LINE RELLENABLE ============ -->
+  <article class="card wide critical">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">A</span><h2>9-Line rellenable</h2><span class="tag">Copiar durante misión</span></div>
+    <div class="toolgrid two">
+      <div>
+        <div class="linebox"><div class="ln">1</div><div class="field"><label>BP / posición inicial</label><div class="fill" contenteditable="true" data-card-key="nine-1" data-placeholder="BP, holding o punto de ataque"></div></div></div>
+        <div class="linebox"><div class="ln">2</div><div class="field"><label>Rumbo</label><div class="fill" contenteditable="true" data-card-key="nine-2" data-placeholder="Ej.: 090"></div></div></div>
+        <div class="linebox"><div class="ln">3</div><div class="field"><label>Distancia</label><div class="fill" contenteditable="true" data-card-key="nine-3" data-placeholder="Ej.: 1200 m"></div></div></div>
+        <div class="linebox"><div class="ln">4</div><div class="field"><label>Cota</label><div class="fill" contenteditable="true" data-card-key="nine-4" data-placeholder="Lectura de vuelta"></div></div></div>
+        <div class="linebox"><div class="ln">5</div><div class="field"><label>Objetivo</label><div class="fill" contenteditable="true" data-card-key="nine-5" data-placeholder="Tipo, postura, referencia"></div></div></div>
+      </div>
+      <div>
+        <div class="linebox"><div class="ln">6</div><div class="field"><label>Coordenadas</label><div class="fill" contenteditable="true" data-card-key="nine-6" data-placeholder="Lectura de vuelta"></div></div></div>
+        <div class="linebox"><div class="ln">7</div><div class="field"><label>Marca</label><div class="fill" contenteditable="true" data-card-key="nine-7" data-placeholder="Humo, láser, trazadora, talk-on"></div></div></div>
+        <div class="linebox"><div class="ln">8</div><div class="field"><label>Amigos</label><div class="fill" contenteditable="true" data-card-key="nine-8" data-placeholder="Lectura de vuelta"></div></div></div>
+        <div class="linebox"><div class="ln">9</div><div class="field"><label>Egreso</label><div class="fill" contenteditable="true" data-card-key="nine-9" data-placeholder="Ruta de salida / vuelta a BP"></div></div></div>
+        <div class="field"><label>Restricciones / observaciones</label><div class="fill" contenteditable="true" data-card-key="nine-remarks" data-placeholder="No disparar sur, no sobrevolar pueblo, amenaza AA, DANGER CLOSE..."></div></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ B. 5-LINE RELLENABLE ============ -->
+  <article class="card wide critical">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">B</span><h2>CCA 5-Line rellenable</h2><span class="tag">Rápida para helicóptero</span></div>
+    <div class="toolgrid">
+      <div class="field big"><label>1 · Amigos / propia</label><div class="fill" contenteditable="true" data-card-key="five-1" data-placeholder="Dónde están amigos y cómo se marcan"></div></div>
+      <div class="field big"><label>2 · Objetivo</label><div class="fill" contenteditable="true" data-card-key="five-2" data-placeholder="Qué es y dónde está"></div></div>
+      <div class="field big"><label>3 · Marca</label><div class="fill" contenteditable="true" data-card-key="five-3" data-placeholder="Humo, trazadoras, referencia, talk-on"></div></div>
+      <div class="field big"><label>4 · Restricciones</label><div class="fill" contenteditable="true" data-card-key="five-4" data-placeholder="No disparar hacia..., no cruzar..., no sobrevolar..."></div></div>
+      <div class="field big"><label>5 · Egreso / control</label><div class="fill" contenteditable="true" data-card-key="five-5" data-placeholder="Salida, BP, tipo de pasada, control"></div></div>
+      <div class="field big"><label>Readback mínimo</label><div class="fill" contenteditable="true" data-card-key="five-readback" data-placeholder="Amigos, objetivo, restricciones y egreso"></div></div>
+      <div class="field big"><label>BDA</label><div class="fill" contenteditable="true" data-card-key="five-bda" data-placeholder="Impactos, destruido, necesita segunda pasada..."></div></div>
+      <div class="field big"><label>Notas</label><div class="fill" contenteditable="true" data-card-key="five-notes" data-placeholder="Shooter, arma, entrada, amenaza, humo..."></div></div>
+    </div>
+  </article>
 
   <!-- ============ 1. VOCABULARIO ============ -->
   <article class="card">
@@ -466,6 +558,26 @@ function downloadHTML(){
     URL.revokeObjectURL(a.href);
   }, 100);
 }
+const cardPrefix = "armados-cas-cards-";
+function saveCards(){
+  document.querySelectorAll("[data-card-key]").forEach((el) => {
+    localStorage.setItem(cardPrefix + el.dataset.cardKey, el.innerText.trim());
+  });
+}
+function loadCards(){
+  document.querySelectorAll("[data-card-key]").forEach((el) => {
+    const value = localStorage.getItem(cardPrefix + el.dataset.cardKey);
+    if(value) el.innerText = value;
+    el.addEventListener("input", saveCards);
+  });
+}
+function clearCards(){
+  document.querySelectorAll("[data-card-key]").forEach((el) => {
+    localStorage.removeItem(cardPrefix + el.dataset.cardKey);
+    el.innerText = "";
+  });
+}
+loadCards();
 </script>
 
 </body>
