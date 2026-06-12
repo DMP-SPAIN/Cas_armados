@@ -582,6 +582,7 @@ tr:last-child td{border-bottom:0}
       <a href="#agenda">Agenda</a>
       <a href="#radio">Radio</a>
       <a href="#aerodromo">Aeródromo</a>
+      <a href="#circuito">Circuito</a>
       <a href="#jtac">JTAC</a>
       <a href="#chuleta">Chuleta</a>
       <button class="print" onclick="window.print()">Imprimir</button>
@@ -787,22 +788,68 @@ tr:last-child td{border-bottom:0}
     </div>
   </section>
 
+  <section id="circuito" class="slide">
+    <div class="slide-head"><div class="num">06</div><h2>Circuito de tránsito</h2><div class="tag">Patrón escuela</div></div>
+    <div class="slide-body">
+      <div class="grid2">
+        <div class="box">
+          <h3>Esquema simple</h3>
+          <div class="radio"><span class="sys">PISTA 27</span>
+Salida / viento en cara  →  Tramo cruzado  ↑
+Viento en cola           ←  Tramo base     ↓
+Final                    →  Toma o pasada</div>
+          <p>En helicóptero se puede volar más bajo y más cerrado que en ala fija, pero en escuela usaremos un circuito anunciado para que todos entiendan dónde está cada aparato.</p>
+        </div>
+        <div class="box">
+          <h3>Qué debe aprender el alumno</h3>
+          <ul>
+            <li>No se cruza pista sin avisar.</li>
+            <li>No se entra en final si hay otro aparato dentro.</li>
+            <li>Se anuncia tramo, intención y número de aparatos.</li>
+            <li>Si pierdes visual o dudas, mantienes posición y lo dices.</li>
+            <li>El líder ordena; los puntos confirman por interna.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="ford">FORD 1:</span> "Aeródromo, FORD, vuelo de cuatro helicópteros, entrando circuito izquierda pista 27."
+<span class="tower">AERÓDROMO:</span> "FORD, recibido. Notifique viento en cola."
+<span class="ford">FORD 1:</span> "Notificaremos viento en cola, FORD."
+<span class="sys">Interna:</span> FORD 2, 3 y 4 responden: "2", "3", "4".</div>
+      <div class="callout ok"><b>Regla de instrucción:</b> si el circuito se ensucia, se rompe el ejercicio, todos vuelven a espera y se repite. No se improvisa sobre la pista.</div>
+    </div>
+  </section>
+
   <section class="slide">
-    <div class="slide-head"><div class="num">06</div><h2>Salida a zona</h2><div class="tag">De base a CP</div></div>
+    <div class="slide-head"><div class="num">07</div><h2>Salida a zona</h2><div class="tag">De base a CP</div></div>
     <div class="slide-body">
       <div class="grid3">
         <div class="box"><h3>Formación</h3><p>Separación suficiente para no molestarse. FORD 1 marca rumbo y velocidad. Los puntos no adelantan ni se cruzan.</p></div>
         <div class="box"><h3>Punto de contacto</h3><p>FORD 1 avisa al llegar al CP. Si hay JTAC, se cambia a la frecuencia indicada y se espera instrucción.</p></div>
         <div class="box"><h3>Zona de espera</h3><p>El grupo queda en espera hasta que LINCE pida check-in o asigne un ejercicio. Nadie entra por libre.</p></div>
       </div>
+      <div class="grid2" style="margin-top:16px">
+        <div class="box">
+          <h3>Cambio de frecuencia</h3>
+          <p>El cambio lo pide o anuncia FORD 1. El resto del grupo no cambia por libre: confirma por interna y sigue al líder.</p>
+        </div>
+        <div class="box">
+          <h3>Orden de salida</h3>
+          <p>FORD 1 sale primero, FORD 2 le sigue. FORD 3 y FORD 4 salen como segundo elemento si hay cuatro aparatos. Nadie adelanta al elemento anterior.</p>
+        </div>
+      </div>
       <div class="radio"><span class="ford">FORD 1:</span> "LINCE, FORD 1, entrando por CP Oeste con cuatro aparatos."
 <span class="lince">LINCE:</span> "FORD 1, LINCE, recibido. Mantenga Grupo FORD en espera al oeste del lago. Avise establecido."
 <span class="ford">FORD 1:</span> "FORD mantiene espera oeste del lago. Avisaremos establecido."</div>
+      <div class="radio" style="margin-top:12px"><span class="ford">FORD 1:</span> "Aeródromo, FORD abandona zona por oeste, cambiamos a táctica."
+<span class="tower">AERÓDROMO:</span> "FORD, aprobado cambio."
+<span class="ford">FORD 1:</span> "Aprobado cambio, FORD."
+<span class="ford">FORD 1 interna:</span> "FORD, cambiar a táctica 65.0."
+<span class="sys">Interna:</span> "2", "3", "4".</div>
     </div>
   </section>
 
   <section id="jtac" class="slide">
-    <div class="slide-head"><div class="num">07</div><h2>Primer contacto JTAC</h2><div class="tag">Muy sencillo</div></div>
+    <div class="slide-head"><div class="num">08</div><h2>Primer contacto JTAC</h2><div class="tag">Muy sencillo</div></div>
     <div class="slide-body">
       <div class="grid2">
         <div class="box">
@@ -825,7 +872,24 @@ tr:last-child td{border-bottom:0}
   </section>
 
   <section class="slide">
-    <div class="slide-head"><div class="num">08</div><h2>Varios JTAC</h2><div class="tag">Un solo controlador</div></div>
+    <div class="slide-head"><div class="num">09</div><h2>Un JTAC y varios helicópteros</h2><div class="tag">Quién habla</div></div>
+    <div class="slide-body">
+      <div class="grid3">
+        <div class="box"><h3>Situación general</h3><p>LINCE habla con FORD 1. FORD 1 representa al grupo, reparte instrucciones y mantiene control de sus puntos.</p></div>
+        <div class="box"><h3>Trabajo por elementos</h3><p>Si se separa el grupo, FORD 3 puede gestionar el segundo elemento. FORD 4 sigue a FORD 3.</p></div>
+        <div class="box"><h3>Shooter</h3><p>Cuando un aparato concreto va a hacer la pasada, el JTAC puede hablar directamente con ese número hasta que termine.</p></div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="lince">LINCE:</span> "FORD 1, LINCE, mantenga FORD 3 y FORD 4 en espera. Trabajaremos primero con elemento uno."
+<span class="ford">FORD 1:</span> "Elemento dos mantiene espera. Trabaja elemento uno, FORD 1."
+<span class="ford">FORD 1 interna:</span> "FORD 3, mantén elemento dos al oeste."
+<span class="ford">FORD 3:</span> "FORD 3, elemento dos mantiene oeste."
+<span class="ford">FORD 4:</span> "4."</div>
+      <div class="callout warn"><b>No saturar:</b> FORD 2 y FORD 4 no hablan con LINCE salvo que LINCE los llame, estén actuando como shooter o exista una emergencia.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">10</div><h2>Varios JTAC</h2><div class="tag">Un solo controlador</div></div>
     <div class="slide-body">
       <div class="grid3">
         <div class="box">
@@ -851,7 +915,72 @@ tr:last-child td{border-bottom:0}
   </section>
 
   <section class="slide">
-    <div class="slide-head"><div class="num">09</div><h2>Ejercicio seco</h2><div class="tag">Sin presión</div></div>
+    <div class="slide-head"><div class="num">11</div><h2>Talk-on básico</h2><div class="tag">Guiar los ojos</div></div>
+    <div class="slide-body">
+      <div class="grid2">
+        <div class="box">
+          <h3>Estructura fácil</h3>
+          <ol>
+            <li>Referencia visible.</li>
+            <li>Dirección desde la referencia.</li>
+            <li>Distancia aproximada.</li>
+            <li>Descripción del objetivo.</li>
+            <li>Confirmación del piloto.</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h3>Regla para alumnos</h3>
+          <p>No digas TALLY hasta que veas el objetivo enemigo que LINCE te está asignando. Si solo ves la referencia, canta CONTACT. Si no ves nada, canta NO JOY.</p>
+        </div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="lince">LINCE:</span> "FORD 1, ¿contacta humo rojo al norte del lago?"
+<span class="ford">FORD 1:</span> "CONTACT humo rojo, FORD 1."
+<span class="lince">LINCE:</span> "Desde el humo, 100 metros este, vehículo junto al granero. Describa."
+<span class="ford">FORD 1:</span> "Vehículo oscuro junto al granero, orientado norte."
+<span class="lince">LINCE:</span> "Correcto. Ese vehículo es su objetivo."
+<span class="ford">FORD 1:</span> "TALLY objetivo, FORD 1."</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">12</div><h2>Ejercicio 1 · Radio en tierra</h2><div class="tag">Antes de despegar</div></div>
+    <div class="slide-body">
+      <div class="flow">
+        <div class="node"><b>Radio check</b><span>FORD 1 comprueba al grupo.</span></div>
+        <div class="node"><b>Rodaje</b><span>FORD 1 pide, puntos confirman.</span></div>
+        <div class="node"><b>Punto espera</b><span>Todos paran y se ordenan.</span></div>
+        <div class="node"><b>Cambio freq.</b><span>Se simula cambio a táctica.</span></div>
+        <div class="node"><b>Emergencia</b><span>Un alumno canta problema.</span></div>
+        <div class="node"><b>Reset</b><span>Se repite más limpio.</span></div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="ford">FORD 1 interna:</span> "FORD, comprobación radio."
+<span class="ford">FORD 2:</span> "2, alto y claro."
+<span class="ford">FORD 3:</span> "3, alto y claro."
+<span class="ford">FORD 4:</span> "4, alto y claro."
+<span class="ford">FORD 1:</span> "Aeródromo, FORD solicita rodaje a punto de espera pista 27."</div>
+      <div class="callout ok"><b>Objetivo:</b> que el grupo entienda el ritmo antes de meter vuelo, navegación o JTAC.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">13</div><h2>Ejercicio 2 · Circuito</h2><div class="tag">Orden visual</div></div>
+    <div class="slide-body">
+      <div class="grid3">
+        <div class="box"><h3>Ronda A</h3><p>Un solo helicóptero hace circuito completo. El resto observa y escucha radio.</p></div>
+        <div class="box"><h3>Ronda B</h3><p>Dos helicópteros en circuito, con separación amplia y llamadas de tramo.</p></div>
+        <div class="box"><h3>Ronda C</h3><p>Vuelo completo sale, reúne en CP y vuelve al circuito por orden.</p></div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="ford">FORD 1:</span> "FORD, entramos circuito izquierda pista 27. Mantener separación."
+<span class="ford">FORD 2:</span> "2."
+<span class="ford">FORD 3:</span> "3."
+<span class="ford">FORD 4:</span> "4."
+<span class="ford">FORD 1:</span> "Aeródromo, FORD en viento en cola pista 27, toma y despegue."</div>
+      <div class="callout warn"><b>Criterio de corte:</b> si dos aparatos pierden separación o no saben dónde están, se cancela la ronda y se vuelve a espera.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">14</div><h2>Ejercicio 3 · Contacto JTAC seco</h2><div class="tag">Sin presión</div></div>
     <div class="slide-body">
       <div class="flow">
         <div class="node"><b>Referencia</b><span>LINCE da un punto fácil.</span></div>
@@ -873,8 +1002,37 @@ tr:last-child td{border-bottom:0}
     </div>
   </section>
 
+  <section class="slide">
+    <div class="slide-head"><div class="num">15</div><h2>Script completo del instructor</h2><div class="tag">Leer y practicar</div></div>
+    <div class="slide-body">
+      <div class="radio"><span class="sys">FRECUENCIA AERÓDROMO</span>
+<span class="ford">FORD 1:</span> "Aeródromo, FORD 1, vuelo de cuatro helicópteros, solicito rodaje a punto de espera pista 27."
+<span class="tower">AERÓDROMO:</span> "FORD 1, autorizado rodaje a punto de espera pista 27."
+<span class="ford">FORD 1:</span> "Autorizado rodaje a punto de espera pista 27, FORD 1."
+<span class="ford">FORD 1 interna:</span> "FORD, rodamos a punto de espera pista 27."
+<span class="sys">Interna:</span> "2", "3", "4".
+
+<span class="sys">FRECUENCIA JTAC</span>
+<span class="ford">FORD 1:</span> "LINCE, FORD 1, vuelo de cuatro Kiowa, establecido en CP Oeste, listo para check-in."
+<span class="lince">LINCE:</span> "FORD 1, LINCE, recibido. Mantenga vuelo en espera al oeste del lago. No cruce carretera norte."
+<span class="ford">FORD 1:</span> "Mantengo vuelo en espera al oeste del lago, no cruzo carretera norte, FORD 1."
+<span class="ford">FORD 1 interna:</span> "FORD, espera oeste del lago, no cruzar carretera norte."
+<span class="sys">Interna:</span> "2", "3", "4".
+
+<span class="lince">LINCE:</span> "FORD 1, trabajaremos pasada seca sobre objetivo simulado. ¿Contacta humo rojo al norte del lago?"
+<span class="ford">FORD 1:</span> "CONTACT humo rojo, FORD 1."
+<span class="lince">LINCE:</span> "Desde el humo rojo, 100 metros este, vehículo junto a granero. Ese será objetivo simulado."
+<span class="ford">FORD 1:</span> "TALLY vehículo junto a granero, FORD 1."
+<span class="lince">LINCE:</span> "FORD 1, autorizado pasada seca de oeste a este. Avise IN."
+<span class="ford">FORD 1:</span> "IN desde el oeste, FORD 1."
+<span class="lince">LINCE:</span> "FORD 1, CLEARED DRY."
+<span class="ford">FORD 1:</span> "OFF DRY al norte, vuelvo a espera, FORD 1."</div>
+      <div class="callout ok"><b>Uso:</b> primero se lee tal cual. Luego se repite cambiando piloto, JTAC activo y shooter.</div>
+    </div>
+  </section>
+
   <section id="chuleta" class="slide">
-    <div class="slide-head"><div class="num">10</div><h2>Chuleta de palabras</h2><div class="tag">Términos mínimos</div></div>
+    <div class="slide-head"><div class="num">16</div><h2>Chuleta de palabras</h2><div class="tag">Términos mínimos</div></div>
     <div class="slide-body">
       <table>
         <thead><tr><th>Palabra</th><th>Uso correcto</th><th>Ejemplo</th></tr></thead>
@@ -894,7 +1052,7 @@ tr:last-child td{border-bottom:0}
   </section>
 
   <section class="slide">
-    <div class="slide-head"><div class="num">11</div><h2>Pizarra de misión</h2><div class="tag">Rellenar al empezar</div></div>
+    <div class="slide-head"><div class="num">17</div><h2>Pizarra de misión</h2><div class="tag">Rellenar al empezar</div></div>
     <div class="slide-body">
       <div class="scratch">
         <h3>Datos del día</h3>
@@ -915,7 +1073,7 @@ tr:last-child td{border-bottom:0}
   </section>
 
   <section class="slide">
-    <div class="slide-head"><div class="num">12</div><h2>Checklist del instructor</h2><div class="tag">Seguir durante la sesión</div></div>
+    <div class="slide-head"><div class="num">18</div><h2>Checklist del instructor</h2><div class="tag">Seguir durante la sesión</div></div>
     <div class="slide-body">
       <div class="quick">
         <div class="quick-card">
@@ -947,7 +1105,27 @@ tr:last-child td{border-bottom:0}
   </section>
 
   <section class="slide">
-    <div class="slide-head"><div class="num">13</div><h2>Cierre</h2><div class="tag">Debrief corto</div></div>
+    <div class="slide-head"><div class="num">19</div><h2>Evaluación rápida del alumno</h2><div class="tag">No examen</div></div>
+    <div class="slide-body">
+      <table>
+        <thead><tr><th>Área</th><th>Se considera correcto si...</th><th>Corrección típica</th></tr></thead>
+        <tbody>
+          <tr><td>Radio</td><td>Habla corto, llama primero al destinatario y cierra con indicativo.</td><td>Reducir a destinatario, mensaje e indicativo.</td></tr>
+          <tr><td>Grupo FORD</td><td>FORD 1 habla hacia fuera y los puntos responden por interna.</td><td>Cortar transmisiones innecesarias de 2/3/4.</td></tr>
+          <tr><td>Aeródromo</td><td>No cruza pista ni despega sin comunicar.</td><td>Volver a punto de espera y repetir.</td></tr>
+          <tr><td>Circuito</td><td>Anuncia tramo, mantiene separación y no invade final.</td><td>Ampliar circuito o salir a espera.</td></tr>
+          <tr><td>JTAC</td><td>Entiende espera, restricciones y quién es el JTAC activo.</td><td>Repetir restricción y confirmar colación.</td></tr>
+          <tr><td>Talk-on</td><td>Distingue CONTACT, TALLY y NO JOY.</td><td>Volver a referencia visible y guiar de nuevo.</td></tr>
+          <tr><td>Pasada seca</td><td>Canta IN, respeta autorización y canta OFF.</td><td>Repetir sin objetivo hasta que salga natural.</td></tr>
+          <tr><td>Seguridad</td><td>Obedece ABORT sin discutir.</td><td>Repetir ABORT como reflejo obligatorio.</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><b>Mensaje al alumno:</b> hoy no se evalúa puntería. Se evalúa orden, escucha, disciplina de radio y seguridad.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">20</div><h2>Cierre</h2><div class="tag">Debrief corto</div></div>
     <div class="slide-body">
       <div class="grid3">
         <div class="box"><h3>Qué salió bien</h3><p>Una cosa concreta. Ejemplo: "La salida de aeródromo fue ordenada".</p></div>
