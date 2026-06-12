@@ -44,6 +44,7 @@ strong{color:#fff;font-weight:600}
 .topbar button.primary{background:var(--amber);color:#0c1310;border-color:var(--amber);font-weight:700}
 .topbar button.primary:hover{background:var(--amber-deep);border-color:var(--amber-deep);color:#0c1310}
 .topbar button svg{width:16px;height:16px}
+.mobile-quick,.mobile-dock{display:none}
 
 /* ---- intro ---- */
 .intro{max-width:1180px;margin:0 auto;padding:30px 22px 10px;text-align:center}
@@ -112,6 +113,80 @@ strong{color:#fff;font-weight:600}
 .linebox .field{min-height:54px;padding:8px 10px}
 @media(max-width:900px){.toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr}.card.wide{grid-column:auto}}
+
+/* ---- modo móvil in-game ---- */
+@media(max-width:700px){
+  body{font-size:16px;padding-bottom:76px;background-size:28px 28px}
+  .topbar{padding:10px 12px;gap:8px}
+  .topbar .brand{font-size:12px;letter-spacing:.06em;min-width:0;flex:1}
+  .topbar .brand .ic{width:26px;height:26px;font-size:11px;flex:0 0 auto}
+  .topbar .spacer{display:none}
+  .topbar button{display:none}
+  .mobile-quick{
+    position:sticky;top:49px;z-index:45;
+    display:flex;gap:8px;overflow-x:auto;
+    padding:8px 12px;background:rgba(10,17,14,.94);
+    border-bottom:1px solid var(--line-strong);
+    scrollbar-width:none;
+  }
+  .mobile-quick::-webkit-scrollbar{display:none}
+  .mobile-quick a{
+    flex:0 0 auto;text-decoration:none;color:var(--ink);
+    border:1px solid var(--line-strong);border-radius:999px;
+    padding:8px 11px;font-family:var(--disp);font-size:13px;
+    letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.035)
+  }
+  .mobile-quick a:first-child{background:var(--amber);border-color:var(--amber);color:#0c1310;font-weight:700}
+  .intro{padding:18px 14px 6px;text-align:left}
+  .intro .kicker{font-size:10px;letter-spacing:.26em}
+  .intro h1{font-size:30px;line-height:1.05;margin:8px 0}
+  .intro p{font-size:14px;line-height:1.45}
+  .intro .note{font-size:10px;letter-spacing:.08em}
+  .grid{margin:18px auto;padding:0 10px;gap:12px}
+  .card[id]{scroll-margin-top:112px}
+  .card{border-radius:10px;padding:14px 12px}
+  .card .hd{gap:8px;margin-bottom:12px}
+  .card .hd .num{font-size:22px}
+  .card .hd h2{font-size:18px;line-height:1.05}
+  .card .hd .tag{display:none}
+  .toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr;gap:10px}
+  .field{min-height:76px;padding:12px;border-radius:10px}
+  .field.big{min-height:124px}
+  .field label{font-size:10px;margin-bottom:8px}
+  .field .fill{
+    min-height:34px;font-size:18px;line-height:1.35;
+    -webkit-user-select:text;user-select:text;
+    word-break:break-word;
+  }
+  .field .fill:focus{box-shadow:0 0 0 3px rgba(255,178,46,.18)}
+  .linebox{grid-template-columns:38px 1fr;gap:7px;margin-bottom:8px}
+  .linebox .ln{font-size:18px;border-radius:8px}
+  .linebox .field{min-height:66px}
+  .actions{display:none}
+  .minihelp{font-size:12px;line-height:1.4}
+  .tb{font-size:13px}
+  .tb th{font-size:10px}
+  .tb td{padding:7px 6px}
+  .tb td:first-child{white-space:normal}
+  .pre{font-size:12px;line-height:1.55;padding:11px 10px}
+  .patterns{grid-template-columns:1fr;gap:10px}
+  .pat svg{height:88px}
+  .mobile-dock{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(10,17,14,.96);border-top:1px solid var(--line-strong);
+    box-shadow:0 -12px 30px rgba(0,0,0,.35);
+  }
+  .mobile-dock button,.mobile-dock a{
+    min-height:46px;border-radius:9px;border:1px solid var(--line-strong);
+    background:rgba(255,255,255,.04);color:var(--ink);
+    font-family:var(--disp);font-size:13px;letter-spacing:.08em;
+    text-transform:uppercase;text-decoration:none;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .mobile-dock button:first-child{background:var(--amber);border-color:var(--amber);color:#0c1310;font-weight:700}
+}
 
 /* ---- listas reglas ---- */
 .rules-list{margin:0;padding:0;list-style:none;counter-reset:r}
@@ -229,6 +304,14 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   </button>
 </div>
 
+<nav class="mobile-quick" aria-label="Accesos rápidos móviles">
+  <a href="#pizarra">Pizarra</a>
+  <a href="#nine-line-tool">9-Line</a>
+  <a href="#five-line-tool">5-Line</a>
+  <a href="#vocabulario">Radio</a>
+  <a href="#reglas">Reglas</a>
+</nav>
+
 <!-- ====== INTRO ====== -->
 <section class="intro">
   <div class="kicker">Curso CAS · Arma Reforger</div>
@@ -241,7 +324,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 <div class="grid">
 
   <!-- ============ 0. PIZARRA RELLENABLE ============ -->
-  <article class="card wide">
+  <article class="card wide" id="pizarra">
     <span class="bk"></span>
     <div class="hd"><span class="num">00</span><h2>Pizarra táctica rellenable</h2><span class="tag">Herramienta in-game</span></div>
     <div class="toolgrid">
@@ -264,7 +347,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   </article>
 
   <!-- ============ A. 9-LINE RELLENABLE ============ -->
-  <article class="card wide critical">
+  <article class="card wide critical" id="nine-line-tool">
     <span class="bk"></span>
     <div class="hd"><span class="num">A</span><h2>9-Line rellenable</h2><span class="tag">Copiar durante misión</span></div>
     <div class="toolgrid two">
@@ -286,7 +369,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   </article>
 
   <!-- ============ B. 5-LINE RELLENABLE ============ -->
-  <article class="card wide critical">
+  <article class="card wide critical" id="five-line-tool">
     <span class="bk"></span>
     <div class="hd"><span class="num">B</span><h2>CCA 5-Line rellenable</h2><span class="tag">Rápida para helicóptero</span></div>
     <div class="toolgrid">
@@ -302,7 +385,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   </article>
 
   <!-- ============ 1. VOCABULARIO ============ -->
-  <article class="card">
+  <article class="card" id="vocabulario">
     <span class="bk"></span>
     <div class="hd"><span class="num">01</span><h2>Vocabulario de radio</h2><span class="tag">16 esenciales</span></div>
     <table class="tb">
@@ -423,7 +506,7 @@ Restricción principal __</pre>
   </article>
 
   <!-- ============ 6. CCA 5-LINE ============ -->
-  <article class="card critical">
+  <article class="card critical" id="reglas">
     <span class="bk"></span>
     <div class="hd"><span class="num">06</span><h2>CCA 5-line</h2><span class="tag">Helicóptero · rápido</span></div>
     <table class="tb">
@@ -539,6 +622,12 @@ JTAC: "Ese ___ es su objetivo."</pre>
   </article>
 
 </div><!-- /grid -->
+
+<div class="mobile-dock" aria-label="Acciones móviles">
+  <button onclick="saveCards()">Guardar</button>
+  <button onclick="clearCards()">Limpiar</button>
+  <a href="#pizarra">Arriba</a>
+</div>
 
 <footer>
   ArmaDos · Curso CAS · Tarjetas de bolsillo v1.2
