@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tarjetas de bolsillo · CAS · ArmaDos</title>
-<meta name="description" content="Tarjetas de bolsillo para misiones CAS en Arma Reforger. Vocabulario radio, 9-Line, CCA 5-line, tipos de control, secuencia de ataque y reglas no negociables.">
+<meta name="description" content="Tarjetas de bolsillo para misiones CAS en Arma Reforger. 5-Line, 9-Line, piernografo, mapa táctico local, vocabulario radio, secuencia de ataque y reglas no negociables.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -63,7 +63,16 @@ strong{color:#fff;font-weight:600}
   padding:20px 22px;position:relative;overflow:hidden;
   display:flex;flex-direction:column;
 }
+.card[id]{scroll-margin-top:88px}
+.grid>.card{order:20}
 .card.wide{grid-column:1/-1}
+#five-line-tool{order:1}
+#nine-line-tool{order:2}
+#kneeboard-tool{order:3}
+#tactical-map-tool{order:4}
+#pizarra{order:5}
+#vocabulario{order:6}
+#contingencias{order:30}
 .card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0,rgba(255,178,46,.05),transparent 60%);pointer-events:none}
 .card .hd{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;position:relative}
 .card .hd .num{font-family:var(--disp);font-weight:700;font-size:24px;color:var(--amber);line-height:1;letter-spacing:.05em}
@@ -101,6 +110,7 @@ strong{color:#fff;font-weight:600}
 .field{border:1px solid var(--line-strong);background:#0a100d;border-radius:8px;padding:10px 12px;min-height:72px}
 .field.big{min-height:112px}
 .field label{display:block;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:7px}
+.field p{margin:0;color:var(--ink);font-weight:700;font-size:15px;line-height:1.45}
 .field .fill{min-height:24px;outline:none;color:#fff;font-weight:700;font-size:15px;line-height:1.45}
 .field .fill:empty:before{content:attr(data-placeholder);color:rgba(233,239,233,.35);font-weight:500}
 .field .fill:focus{background:rgba(255,178,46,.08);box-shadow:0 0 0 4px rgba(255,178,46,.08);border-radius:4px}
@@ -113,6 +123,30 @@ strong{color:#fff;font-weight:600}
 .linebox .field{min-height:54px;padding:8px 10px}
 @media(max-width:900px){.toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr}.card.wide{grid-column:auto}}
+
+/* ---- mapa tactico local ---- */
+.map-tools{display:flex;gap:8px;flex-wrap:wrap;position:relative;margin-bottom:10px}
+.map-tools.compact{align-items:center;margin-top:10px}
+.map-btn,.map-swatch{
+  min-height:34px;border:1px solid var(--line-strong);border-radius:7px;
+  background:#0a100d;color:var(--ink);font-family:var(--disp);font-size:12px;
+  letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;cursor:pointer;
+}
+.map-btn:hover,.map-swatch:hover{border-color:var(--amber);color:var(--amber)}
+.map-btn.active,.map-swatch.active{background:var(--amber);border-color:var(--amber);color:#0c1310;font-weight:700}
+.map-btn.danger:hover{border-color:var(--red);color:var(--red)}
+.map-swatch{display:flex;align-items:center;gap:7px}
+.map-swatch::before{content:"";width:13px;height:13px;border-radius:50%;background:var(--sw);border:1px solid rgba(255,255,255,.45)}
+.map-canvas-wrap{
+  position:relative;border:1px solid var(--line-strong);border-radius:10px;
+  background:#07100d;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
+}
+#tacticalCanvas{
+  display:block;width:100%;height:auto;aspect-ratio:12/7;
+  touch-action:none;cursor:crosshair;background:#07100d;
+}
+.map-hint{font-size:12px;color:var(--ink-faint);margin:10px 0 0;position:relative}
+.map-status{font-family:var(--mono);font-size:11px;color:var(--green-bright);margin-left:auto;align-self:center}
 
 /* ---- modo móvil in-game ---- */
 @media(max-width:700px){
@@ -153,6 +187,7 @@ strong{color:#fff;font-weight:600}
   .field{min-height:76px;padding:12px;border-radius:10px}
   .field.big{min-height:124px}
   .field label{font-size:10px;margin-bottom:8px}
+  .field p{font-size:18px;line-height:1.35}
   .field .fill{
     min-height:34px;font-size:18px;line-height:1.35;
     -webkit-user-select:text;user-select:text;
@@ -171,6 +206,9 @@ strong{color:#fff;font-weight:600}
   .pre{font-size:12px;line-height:1.55;padding:11px 10px}
   .patterns{grid-template-columns:1fr;gap:10px}
   .pat svg{height:88px}
+  .map-tools{gap:6px}
+  .map-btn,.map-swatch{font-size:11px;min-height:38px;padding:8px 9px}
+  .map-canvas-wrap{border-radius:9px}
   .mobile-dock{
     position:fixed;left:0;right:0;bottom:0;z-index:70;
     display:grid;grid-template-columns:1fr 1fr 1fr;
@@ -279,8 +317,11 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   .field{background:#fffaf0;border-color:var(--line-strong);border-radius:3px;min-height:13mm;padding:2mm 2.5mm}
   .field.big{min-height:25mm}
   .field label{font-size:7.5px;color:var(--amber-deep);margin-bottom:1mm}
+  .field p{font-size:9.5px;color:#000;line-height:1.35}
   .field .fill{font-size:9.5px;color:#000;min-height:8mm}
-  .actions,.minihelp{display:none}
+  .actions,.minihelp,.map-tools,.map-hint,.map-status{display:none}
+  .map-canvas-wrap{border-color:var(--line-strong);border-radius:3px}
+  #tacticalCanvas{aspect-ratio:12/7}
   .linebox{grid-template-columns:8mm 1fr;gap:1.5mm;margin-bottom:1.5mm}
   .linebox .ln{font-size:10px;border-radius:2px}
   .linebox .field{min-height:11mm;padding:1.5mm 2mm}
@@ -305,11 +346,13 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 </div>
 
 <nav class="mobile-quick" aria-label="Accesos rápidos móviles">
-  <a href="#pizarra">Pizarra</a>
-  <a href="#contingencias">Emerg.</a>
-  <a href="#nine-line-tool">9-Line</a>
   <a href="#five-line-tool">5-Line</a>
+  <a href="#nine-line-tool">9-Line</a>
+  <a href="#kneeboard-tool">Pierna</a>
+  <a href="#tactical-map-tool">Mapa</a>
+  <a href="#pizarra">Pizarra</a>
   <a href="#vocabulario">Radio</a>
+  <a href="#contingencias">Emerg.</a>
   <a href="#reglas">Reglas</a>
 </nav>
 
@@ -317,8 +360,8 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 <section class="intro">
   <div class="kicker">Curso CAS · Arma Reforger</div>
   <h1>Tarjetas de bolsillo · alumno</h1>
-  <p>Herramienta de misión y chuletas de bolsillo. Arriba tienes campos rellenables para copiar 9-Line, CCA 5-Line, frecuencias, BP, restricciones y BDA; debajo quedan las tarjetas de consulta rápida.</p>
-  <div class="note">Campos rellenables · Tarjetas grandes · Imprimir / móvil / PDF</div>
+  <p>Herramienta de misión y chuletas de bolsillo. Primero tienes la CCA 5-Line y la 9-Line rellenables; después el piernografo de misión, el mapa táctico local, la pizarra, radio, reglas y tarjetas de consulta rápida.</p>
+  <div class="note">5-Line · 9-Line · Piernografo · Mapa táctico · Móvil / PDF / in-game</div>
 </section>
 
 <!-- ====== GRID DE TARJETAS ====== -->
@@ -354,19 +397,19 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <div class="toolgrid">
       <div class="field big">
         <label>BLIND · pierdo visual</label>
-        <div class="fill" contenteditable="true" data-card-key="blind-note" data-placeholder="Cantar BLIND, mantener rumbo/altura seguros y esperar instrucción. No cruzar por delante buscando visual."></div>
+        <p>Cantar BLIND, mantener rumbo/altura seguros y esperar instrucción. No cruzar por delante buscando visual.</p>
       </div>
       <div class="field big">
         <label>NORDO · pierdo radio</label>
-        <div class="fill" contenteditable="true" data-card-key="nordo-note" data-placeholder="No entrar al objetivo. Mantener última instrucción segura. Volver a CP/BP/RTB según briefing."></div>
+        <p>No entrar al objetivo. Mantener última instrucción segura. Volver a CP/BP/RTB según briefing.</p>
       </div>
       <div class="field big">
         <label>ABORT</label>
-        <div class="fill" contenteditable="true" data-card-key="abort-note" data-placeholder="ABORT, ABORT, ABORT = cortar pasada ya, no disparar, OFF a zona segura."></div>
+        <p>ABORT, ABORT, ABORT = cortar pasada ya, no disparar, OFF a zona segura.</p>
       </div>
       <div class="field big">
         <label>Cae líder / caos</label>
-        <div class="fill" contenteditable="true" data-card-key="lead-down-note" data-placeholder="Volver a espera, reorganizar mando, nombrar líder nuevo. No continuar CAS por inercia."></div>
+        <p>Volver a espera, reorganizar mando, nombrar líder nuevo. No continuar CAS por inercia.</p>
       </div>
     </div>
     <pre class="pre" style="margin-top:12px"><span class="pil">FORD 2:</span> "FORD 1, FORD 2, BLIND."
@@ -396,6 +439,85 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <div class="field"><label>Restricciones / observaciones</label><div class="fill" contenteditable="true" data-card-key="nine-remarks" data-placeholder="No disparar sur, no sobrevolar pueblo, amenaza AA, DANGER CLOSE..."></div></div>
       </div>
     </div>
+  </article>
+
+  <!-- ============ K. PIERNOGRAFO ============ -->
+  <article class="card wide" id="kneeboard-tool">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">K</span><h2>Piernografo de misión</h2><span class="tag">Datos para liderar</span></div>
+    <div class="toolgrid">
+      <div class="field"><label>Misión / zona</label><div class="fill" contenteditable="true" data-card-key="kb-mission" data-placeholder="Ej.: Operación FORD · Lago Oeste"></div></div>
+      <div class="field"><label>Hora / TOT</label><div class="fill" contenteditable="true" data-card-key="kb-tot" data-placeholder="TOT / ventana / hora local"></div></div>
+      <div class="field"><label>Mi indicativo</label><div class="fill" contenteditable="true" data-card-key="kb-my-callsign" data-placeholder="Ej.: FORD 2"></div></div>
+      <div class="field"><label>Rol</label><div class="fill" contenteditable="true" data-card-key="kb-role" data-placeholder="Líder / punto / shooter / cover"></div></div>
+
+      <div class="field"><label>Líder vuelo</label><div class="fill" contenteditable="true" data-card-key="kb-flight-lead" data-placeholder="Ej.: FORD 1"></div></div>
+      <div class="field"><label>Punto / compañero</label><div class="fill" contenteditable="true" data-card-key="kb-wingman" data-placeholder="Ej.: FORD 2"></div></div>
+      <div class="field"><label>Elemento 2</label><div class="fill" contenteditable="true" data-card-key="kb-element-two" data-placeholder="Ej.: FORD 3 / FORD 4"></div></div>
+      <div class="field"><label>Orden de shooters</label><div class="fill" contenteditable="true" data-card-key="kb-shooter-order" data-placeholder="Ej.: 2, 3, 1, 4"></div></div>
+
+      <div class="field"><label>Freq interna</label><div class="fill" contenteditable="true" data-card-key="kb-freq-internal" data-placeholder="Canal grupo / radio corta"></div></div>
+      <div class="field"><label>Freq aeródromo</label><div class="fill" contenteditable="true" data-card-key="kb-freq-airfield" data-placeholder="Ej.: 60.0"></div></div>
+      <div class="field"><label>Freq JTAC</label><div class="fill" contenteditable="true" data-card-key="kb-freq-jtac" data-placeholder="Ej.: 65.0"></div></div>
+      <div class="field"><label>Freq emergencia</label><div class="fill" contenteditable="true" data-card-key="kb-freq-emergency" data-placeholder="Guardia / backup / Discord"></div></div>
+
+      <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-active" data-placeholder="Ej.: LINCE 1"></div></div>
+      <div class="field"><label>JTAC auxiliar</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-aux" data-placeholder="Ej.: LINCE 2"></div></div>
+      <div class="field"><label>Suelo / unidad amiga</label><div class="fill" contenteditable="true" data-card-key="kb-ground" data-placeholder="Indicativos suelo: LINCE, TORO, etc."></div></div>
+      <div class="field"><label>Código humos</label><div class="fill" contenteditable="true" data-card-key="kb-smoke" data-placeholder="Rojo enemigo · verde amigo"></div></div>
+
+      <div class="field"><label>CP entrada</label><div class="fill" contenteditable="true" data-card-key="kb-cp" data-placeholder="Ej.: CP Oeste"></div></div>
+      <div class="field"><label>BP / espera</label><div class="fill" contenteditable="true" data-card-key="kb-bp" data-placeholder="Ej.: Lago Oeste"></div></div>
+      <div class="field"><label>Ruta entrada</label><div class="fill" contenteditable="true" data-card-key="kb-route-in" data-placeholder="Valle oeste, bajo, no cruzar carretera"></div></div>
+      <div class="field"><label>Egreso / RTB</label><div class="fill" contenteditable="true" data-card-key="kb-egress" data-placeholder="Norte a BP / RTB por oeste"></div></div>
+
+      <div class="field"><label>Armamento</label><div class="fill" contenteditable="true" data-card-key="kb-loadout" data-placeholder="Hydra, .50, humo, munición disponible"></div></div>
+      <div class="field"><label>Playtime</label><div class="fill" contenteditable="true" data-card-key="kb-playtime" data-placeholder="Tiempo en estación"></div></div>
+      <div class="field"><label>Bingo fuel</label><div class="fill" contenteditable="true" data-card-key="kb-bingo" data-placeholder="Combustible mínimo / RTB"></div></div>
+      <div class="field"><label>Rearme / repostaje</label><div class="fill" contenteditable="true" data-card-key="kb-rearm" data-placeholder="Dónde rearmar, repostar o reparar"></div></div>
+
+      <div class="field big"><label>Restricciones</label><div class="fill" contenteditable="true" data-card-key="kb-restrictions" data-placeholder="No disparar sur, no sobrevolar pueblo, no cruzar fase line..."></div></div>
+      <div class="field big"><label>Amenazas</label><div class="fill" contenteditable="true" data-card-key="kb-threats" data-placeholder="AA, MANPADS, técnico, zona caliente, altura peligrosa..."></div></div>
+      <div class="field big"><label>Amigos / referencia</label><div class="fill" contenteditable="true" data-card-key="kb-friendlies" data-placeholder="Posición amigos, marca, referencias visibles"></div></div>
+      <div class="field big"><label>Plan NORDO / emergencia</label><div class="fill" contenteditable="true" data-card-key="kb-nordo" data-placeholder="Si pierdo radio: última instrucción segura, BP, CP o RTB"></div></div>
+    </div>
+    <p class="minihelp">Uso recomendado: rellenar antes de despegar y pasarlo por voz al grupo. No sustituye la 5-Line/9-Line; es la hoja de datos de misión del piloto.</p>
+  </article>
+
+  <!-- ============ M. MAPA TACTICO LOCAL ============ -->
+  <article class="card wide" id="tactical-map-tool">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">M</span><h2>Mapa táctico local</h2><span class="tag">Dibujo / briefing</span></div>
+    <div class="map-tools" aria-label="Herramientas de dibujo">
+      <button type="button" class="map-btn active" data-tool="pen">Lápiz</button>
+      <button type="button" class="map-btn" data-tool="line">Línea</button>
+      <button type="button" class="map-btn" data-tool="arrow">Flecha</button>
+      <button type="button" class="map-btn" data-tool="erase">Borrar</button>
+      <button type="button" class="map-btn" data-tool="text">Texto</button>
+      <button type="button" class="map-btn" data-stamp="AMIGO">Amigo</button>
+      <button type="button" class="map-btn" data-stamp="ENEMIGO">Enemigo</button>
+      <button type="button" class="map-btn" data-stamp="JTAC">JTAC</button>
+      <button type="button" class="map-btn" data-stamp="BP">BP</button>
+      <button type="button" class="map-btn" data-stamp="CP">CP</button>
+      <button type="button" class="map-btn" data-stamp="HUMO">Humo</button>
+      <button type="button" class="map-btn" data-stamp="OBJ">Objetivo</button>
+    </div>
+    <div class="map-canvas-wrap">
+      <canvas id="tacticalCanvas" width="1200" height="700" aria-label="Mapa táctico editable"></canvas>
+    </div>
+    <div class="map-tools compact" aria-label="Acciones del mapa">
+      <button type="button" class="map-swatch active" data-color="#ffb22e" style="--sw:#ffb22e">Ámbar</button>
+      <button type="button" class="map-swatch" data-color="#7fb069" style="--sw:#7fb069">Verde</button>
+      <button type="button" class="map-swatch" data-color="#e5533c" style="--sw:#e5533c">Rojo</button>
+      <button type="button" class="map-swatch" data-color="#5aa0e0" style="--sw:#5aa0e0">Azul</button>
+      <button type="button" class="map-swatch" data-color="#e9efe9" style="--sw:#e9efe9">Blanco</button>
+      <button type="button" class="map-btn" id="mapUndo">Deshacer</button>
+      <button type="button" class="map-btn" id="mapSave">Guardar mapa</button>
+      <button type="button" class="map-btn" id="mapExport">Exportar PNG</button>
+      <button type="button" class="map-btn danger" id="mapClear">Limpiar</button>
+      <span class="map-status" id="mapStatus" aria-live="polite"></span>
+    </div>
+    <p class="map-hint">Uso: dibuja rutas, BP, CP, objetivo, amigos, humo y ejes de entrada/salida. Se guarda solo en este navegador; para compartirlo con el grupo, exporta PNG y súbelo al canal de la misión.</p>
   </article>
 
   <!-- ============ B. 5-LINE RELLENABLE ============ -->
@@ -656,11 +778,11 @@ JTAC: "Ese ___ es su objetivo."</pre>
 <div class="mobile-dock" aria-label="Acciones móviles">
   <button onclick="saveCards()">Guardar</button>
   <button onclick="clearCards()">Limpiar</button>
-  <a href="#pizarra">Arriba</a>
+  <a href="#five-line-tool">Arriba</a>
 </div>
 
 <footer>
-  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.2
+  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.3
 </footer>
 
 <script>
@@ -696,7 +818,325 @@ function clearCards(){
     el.innerText = "";
   });
 }
+const tacticalMapKey = "armados-cas-tactical-map-v1";
+function setupTacticalMap(){
+  const canvas = document.getElementById("tacticalCanvas");
+  if(!canvas || !canvas.getContext) return;
+
+  const ctx = canvas.getContext("2d");
+  const status = document.getElementById("mapStatus");
+  const width = canvas.width;
+  const height = canvas.height;
+  let tool = "pen";
+  let color = "#ffb22e";
+  let stamp = "";
+  let drawing = false;
+  let start = null;
+  let last = null;
+  let snapshot = null;
+  const history = [];
+
+  function setStatus(text){
+    if(!status) return;
+    status.textContent = text;
+    window.clearTimeout(setStatus.timer);
+    setStatus.timer = window.setTimeout(() => { status.textContent = ""; }, 1800);
+  }
+
+  function roundedRect(x, y, w, h, r){
+    ctx.beginPath();
+    if(ctx.roundRect){
+      ctx.roundRect(x, y, w, h, r);
+      return;
+    }
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+  }
+
+  function drawBaseMap(){
+    ctx.save();
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = "#07100d";
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.strokeStyle = "rgba(127,176,105,.18)";
+    ctx.lineWidth = 1;
+    for(let x = 0; x <= width; x += 50){
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+      ctx.stroke();
+    }
+    for(let y = 0; y <= height; y += 50){
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+      ctx.stroke();
+    }
+
+    ctx.strokeStyle = "rgba(255,178,46,.28)";
+    ctx.lineWidth = 1.5;
+    for(let x = 0; x <= width; x += 200){
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+      ctx.stroke();
+    }
+    for(let y = 0; y <= height; y += 200){
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+      ctx.stroke();
+    }
+
+    ctx.fillStyle = "rgba(233,239,233,.42)";
+    ctx.font = "12px JetBrains Mono, monospace";
+    for(let x = 0; x <= width; x += 200) ctx.fillText(String(x), x + 6, 18);
+    for(let y = 200; y <= height; y += 200) ctx.fillText(String(y), 8, y - 6);
+
+    ctx.fillStyle = "rgba(255,178,46,.12)";
+    ctx.fillRect(width / 2 - 1, 0, 2, height);
+    ctx.fillRect(0, height / 2 - 1, width, 2);
+    ctx.restore();
+  }
+
+  function saveMap(showMessage = true){
+    try{
+      localStorage.setItem(tacticalMapKey, canvas.toDataURL("image/png"));
+      if(showMessage) setStatus("Mapa guardado");
+    }catch(_err){
+      setStatus("Sin espacio local");
+    }
+  }
+
+  function loadMap(){
+    drawBaseMap();
+    const saved = localStorage.getItem(tacticalMapKey);
+    if(!saved) return;
+    const img = new Image();
+    img.onload = () => ctx.drawImage(img, 0, 0, width, height);
+    img.onerror = drawBaseMap;
+    img.src = saved;
+  }
+
+  function pushHistory(){
+    try{
+      history.push(canvas.toDataURL("image/png"));
+      if(history.length > 30) history.shift();
+    }catch(_err){}
+  }
+
+  function restoreDataUrl(dataUrl){
+    const img = new Image();
+    img.onload = () => {
+      ctx.clearRect(0, 0, width, height);
+      ctx.drawImage(img, 0, 0, width, height);
+      saveMap(false);
+      setStatus("Deshecho");
+    };
+    img.src = dataUrl;
+  }
+
+  function pointFromEvent(event){
+    const rect = canvas.getBoundingClientRect();
+    return {
+      x: (event.clientX - rect.left) * width / rect.width,
+      y: (event.clientY - rect.top) * height / rect.height
+    };
+  }
+
+  function drawSegment(a, b, mode){
+    ctx.save();
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = mode === "erase" ? "#07100d" : color;
+    ctx.lineWidth = mode === "erase" ? 30 : 4;
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawArrow(a, b){
+    drawSegment(a, b, "line");
+    const angle = Math.atan2(b.y - a.y, b.x - a.x);
+    const size = 18;
+    ctx.save();
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(b.x, b.y);
+    ctx.lineTo(b.x - size * Math.cos(angle - Math.PI / 6), b.y - size * Math.sin(angle - Math.PI / 6));
+    ctx.lineTo(b.x - size * Math.cos(angle + Math.PI / 6), b.y - size * Math.sin(angle + Math.PI / 6));
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawTextAt(point, text){
+    ctx.save();
+    ctx.font = "700 24px Inter, Arial, sans-serif";
+    ctx.textBaseline = "middle";
+    const label = text.trim().slice(0, 34);
+    const metrics = ctx.measureText(label);
+    const boxWidth = Math.max(70, metrics.width + 24);
+    const boxHeight = 38;
+    ctx.fillStyle = "rgba(7,16,13,.82)";
+    roundedRect(point.x - 8, point.y - boxHeight / 2, boxWidth, boxHeight, 8);
+    ctx.fill();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillStyle = color;
+    ctx.fillText(label, point.x + 5, point.y + 1);
+    ctx.restore();
+  }
+
+  function drawStamp(point, label){
+    const text = label.toUpperCase();
+    ctx.save();
+    ctx.font = "700 22px Inter, Arial, sans-serif";
+    ctx.textBaseline = "middle";
+    const metrics = ctx.measureText(text);
+    const boxWidth = Math.max(74, metrics.width + 28);
+    const boxHeight = 44;
+    ctx.fillStyle = "rgba(7,16,13,.88)";
+    roundedRect(point.x - boxWidth / 2, point.y - boxHeight / 2, boxWidth, boxHeight, 8);
+    ctx.fill();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3;
+    ctx.stroke();
+    ctx.fillStyle = color;
+    ctx.fillText(text, point.x - metrics.width / 2, point.y + 1);
+    ctx.beginPath();
+    ctx.arc(point.x, point.y + boxHeight / 2 + 12, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function setActiveTool(button){
+    document.querySelectorAll("#tactical-map-tool [data-tool], #tactical-map-tool [data-stamp]").forEach((el) => el.classList.remove("active"));
+    button.classList.add("active");
+  }
+
+  document.querySelectorAll("#tactical-map-tool [data-tool]").forEach((button) => {
+    button.addEventListener("click", () => {
+      tool = button.dataset.tool;
+      stamp = "";
+      setActiveTool(button);
+    });
+  });
+
+  document.querySelectorAll("#tactical-map-tool [data-stamp]").forEach((button) => {
+    button.addEventListener("click", () => {
+      stamp = button.dataset.stamp;
+      tool = "stamp";
+      setActiveTool(button);
+    });
+  });
+
+  document.querySelectorAll("#tactical-map-tool [data-color]").forEach((button) => {
+    button.addEventListener("click", () => {
+      color = button.dataset.color;
+      document.querySelectorAll("#tactical-map-tool [data-color]").forEach((el) => el.classList.remove("active"));
+      button.classList.add("active");
+    });
+  });
+
+  canvas.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    const point = pointFromEvent(event);
+
+    if(stamp){
+      pushHistory();
+      drawStamp(point, stamp);
+      saveMap(false);
+      return;
+    }
+
+    if(tool === "text"){
+      const text = window.prompt("Texto para el mapa:");
+      if(text && text.trim()){
+        pushHistory();
+        drawTextAt(point, text);
+        saveMap(false);
+      }
+      return;
+    }
+
+    drawing = true;
+    start = point;
+    last = point;
+    pushHistory();
+    if(tool === "line" || tool === "arrow") snapshot = ctx.getImageData(0, 0, width, height);
+    canvas.setPointerCapture(event.pointerId);
+  });
+
+  canvas.addEventListener("pointermove", (event) => {
+    if(!drawing) return;
+    event.preventDefault();
+    const point = pointFromEvent(event);
+
+    if(tool === "pen" || tool === "erase"){
+      drawSegment(last, point, tool);
+      last = point;
+      return;
+    }
+
+    if(snapshot) ctx.putImageData(snapshot, 0, 0);
+    if(tool === "line") drawSegment(start, point, "line");
+    if(tool === "arrow") drawArrow(start, point);
+  });
+
+  function finishPointer(event){
+    if(!drawing) return;
+    event.preventDefault();
+    const point = pointFromEvent(event);
+    if(snapshot) ctx.putImageData(snapshot, 0, 0);
+    if(tool === "line") drawSegment(start, point, "line");
+    if(tool === "arrow") drawArrow(start, point);
+    drawing = false;
+    snapshot = null;
+    saveMap(false);
+    try{ canvas.releasePointerCapture(event.pointerId); }catch(_err){}
+  }
+
+  canvas.addEventListener("pointerup", finishPointer);
+  canvas.addEventListener("pointercancel", finishPointer);
+
+  document.getElementById("mapUndo")?.addEventListener("click", () => {
+    const previous = history.pop();
+    if(previous) restoreDataUrl(previous);
+  });
+  document.getElementById("mapSave")?.addEventListener("click", () => saveMap(true));
+  document.getElementById("mapExport")?.addEventListener("click", () => {
+    const a = document.createElement("a");
+    a.href = canvas.toDataURL("image/png");
+    a.download = "mapa-tactico-cas.png";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setStatus("PNG exportado");
+  });
+  document.getElementById("mapClear")?.addEventListener("click", () => {
+    if(!window.confirm("Limpiar el mapa táctico de este navegador?")) return;
+    pushHistory();
+    localStorage.removeItem(tacticalMapKey);
+    drawBaseMap();
+    setStatus("Mapa limpio");
+  });
+
+  loadMap();
+}
 loadCards();
+setupTacticalMap();
 </script>
 
 </body>
