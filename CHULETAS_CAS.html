@@ -70,7 +70,8 @@ strong{color:#fff;font-weight:600}
 #nine-line-tool{order:2}
 #kneeboard-tool{order:3}
 #tactical-map-tool{order:4}
-#vocabulario{order:5}
+#jtac-tool{order:5}
+#vocabulario{order:6}
 #contingencias{order:30}
 .card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0,rgba(255,178,46,.05),transparent 60%);pointer-events:none}
 .card .hd{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;position:relative}
@@ -427,6 +428,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <a href="#nine-line-tool">9-Line</a>
   <a href="#kneeboard-tool">Pierna</a>
   <a href="#tactical-map-tool">Mapa</a>
+  <a href="#jtac-tool">JTAC</a>
   <a href="#vocabulario">Radio</a>
   <a href="#contingencias">Emerg.</a>
   <a href="#reglas">Reglas</a>
@@ -436,8 +438,8 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 <section class="intro">
   <div class="kicker">Curso CAS · Arma Reforger</div>
   <h1>Tarjetas de bolsillo · alumno</h1>
-  <p>Herramienta de misión y chuletas de bolsillo. Primero tienes la CCA 5-Line y la 9-Line rellenables; después el piernografo A5 del piloto, el mapa táctico local, radio, reglas y tarjetas de consulta rápida.</p>
-  <div class="note">5-Line · 9-Line · Piernografo A5 · Mapa táctico · HTML / móvil / in-game</div>
+  <p>Herramienta de misión y chuletas de bolsillo. Primero tienes la CCA 5-Line y la 9-Line rellenables; después el piernografo A5 del piloto, el mapa táctico local, la herramienta JTAC, radio, reglas y tarjetas de consulta rápida.</p>
+  <div class="note">5-Line · 9-Line · Piernografo A5 · Mapa táctico · JTAC · HTML / móvil / in-game</div>
 </section>
 
 <!-- ====== GRID DE TARJETAS ====== -->
@@ -490,8 +492,12 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <div class="linebox"><div class="ln">8</div><div class="field"><label>Amigos</label><div class="fill" contenteditable="true" data-card-key="nine-8" data-placeholder="Lectura de vuelta"></div></div></div>
         <div class="linebox"><div class="ln">9</div><div class="field"><label>Egreso</label><div class="fill" contenteditable="true" data-card-key="nine-9" data-placeholder="Ruta de salida / vuelta a BP"></div></div></div>
         <div class="field"><label>Restricciones / observaciones</label><div class="fill" contenteditable="true" data-card-key="nine-remarks" data-placeholder="No disparar sur, no sobrevolar pueblo, amenaza AA, DANGER CLOSE..."></div></div>
+        <div class="field"><label>Game plan / arma JTAC</label><div class="fill" contenteditable="true" data-card-key="nine-gameplan-weapon" data-placeholder="Tipo 2 · cohetes · ataque oeste-este · una pasada"></div></div>
       </div>
     </div>
+    <p class="minihelp">El arma no es una de las 9 líneas clásicas. El JTAC la debe dejar clara en el game plan o en observaciones: tipo de control, arma/efecto solicitado, dirección de ataque y restricciones. El piloto la colaciona antes de entrar.</p>
+    <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "Game plan: Tipo 2, cohetes, una pasada oeste-este."
+<span class="pil">FORD 1:</span> "Tipo 2, cohetes, una pasada oeste-este, FORD 1."</pre>
   </article>
 
   <!-- ============ K. PIERNOGRAFO ============ -->
@@ -544,7 +550,8 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
           <div class="kneeboard-field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-active" data-placeholder="LINCE 1"></div></div>
           <div class="kneeboard-field"><label>Unidad amiga</label><div class="fill" contenteditable="true" data-card-key="kb-ground" data-placeholder="LINCE / TORO / posición"></div></div>
           <div class="kneeboard-field"><label>Marcas</label><div class="fill" contenteditable="true" data-card-key="kb-smoke" data-placeholder="Humo rojo enemigo · verde amigo"></div></div>
-          <div class="kneeboard-field"><label>Armas</label><div class="fill" contenteditable="true" data-card-key="kb-loadout" data-placeholder="Cohetes / .50 / munición útil"></div></div>
+          <div class="kneeboard-field"><label>Armas disponibles</label><div class="fill" contenteditable="true" data-card-key="kb-loadout" data-placeholder="Cohetes / .50 / munición útil"></div></div>
+          <div class="kneeboard-field"><label>Arma JTAC</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-weapon" data-placeholder="Lo que pide tierra: cohetes / .50 / no disparar"></div></div>
         </section>
 
         <section class="kneeboard-section">
@@ -603,6 +610,40 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <p class="map-hint">Uso: dibuja rutas, BP, CP, objetivo, amigos, humo y ejes de entrada/salida. Se guarda solo en este navegador; para compartirlo con el grupo, exporta PNG y súbelo al canal de la misión.</p>
   </article>
 
+  <!-- ============ J. HERRAMIENTA JTAC ============ -->
+  <article class="card wide critical" id="jtac-tool">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">J</span><h2>Herramienta JTAC · Día 1</h2><span class="tag">LINCE / control básico</span></div>
+    <div class="toolgrid">
+      <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="jtac-active" data-placeholder="LINCE 1"></div></div>
+      <div class="field"><label>Vuelo controlado</label><div class="fill" contenteditable="true" data-card-key="jtac-flight" data-placeholder="FORD 1 / FORD 2 shooter"></div></div>
+      <div class="field"><label>Frecuencia CAS</label><div class="fill" contenteditable="true" data-card-key="jtac-freq" data-placeholder="65.0 / canal táctico"></div></div>
+      <div class="field"><label>Zona de espera</label><div class="fill" contenteditable="true" data-card-key="jtac-hold" data-placeholder="Oeste del lago / BP"></div></div>
+
+      <div class="field big"><label>Situación amiga</label><div class="fill" contenteditable="true" data-card-key="jtac-friendlies" data-placeholder="LINCE al sur del bosque, 300 m al sur del objetivo"></div></div>
+      <div class="field big"><label>Objetivo / referencia</label><div class="fill" contenteditable="true" data-card-key="jtac-target" data-placeholder="Vehículo junto al granero / casa aislada / cruce"></div></div>
+      <div class="field big"><label>Marca / talk-on</label><div class="fill" contenteditable="true" data-card-key="jtac-mark" data-placeholder="Humo rojo, desde humo 100 m este, junto al muro"></div></div>
+      <div class="field big"><label>Restricción principal</label><div class="fill" contenteditable="true" data-card-key="jtac-restriction" data-placeholder="No disparar hacia el sur / no cruzar carretera norte"></div></div>
+
+      <div class="field"><label>Game plan</label><div class="fill" contenteditable="true" data-card-key="jtac-gameplan" data-placeholder="Tipo 2 · cohetes · una pasada · oeste-este"></div></div>
+      <div class="field"><label>Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="jtac-weapon-effect" data-placeholder="Cohetes / .50 / supresión / pasada seca"></div></div>
+      <div class="field"><label>Autorización</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="CONTINUE DRY / CLEARED HOT / ABORT"></div></div>
+      <div class="field"><label>BDA / cierre</label><div class="fill" contenteditable="true" data-card-key="jtac-bda" data-placeholder="Efectos positivos, objetivo neutralizado, RTB"></div></div>
+    </div>
+    <p class="minihelp">Uso JTAC: primero seguridad y espera; luego game plan con arma/efecto; después talk-on, TALLY, IN, CONTINUE/CLEARED HOT y BDA. Si el piloto no ve o no colaciona lo importante, no se autoriza.</p>
+    <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "FORD 1, LINCE, mantenga vuelo en espera oeste del lago. No cruce carretera norte."
+<span class="pil">FORD 1:</span> "Mantengo espera oeste del lago, no cruzo carretera norte, FORD 1."
+<span class="jt">LINCE:</span> "Game plan: Tipo 2, cohetes, una pasada oeste-este. Objetivo simulado: vehículo junto al granero."
+<span class="pil">FORD 1:</span> "Tipo 2, cohetes, una pasada oeste-este, vehículo junto al granero, FORD 1."
+<span class="jt">LINCE:</span> "Desde humo rojo, 100 metros este. Avise TALLY."
+<span class="pil">FORD 1:</span> "TALLY vehículo junto al granero."
+<span class="jt">LINCE:</span> "FORD 1, proceda. Avise IN."
+<span class="pil">FORD 1:</span> "IN desde el oeste, FORD 1."
+<span class="jt">LINCE:</span> "FORD 1, CLEARED HOT."
+<span class="pil">FORD 1:</span> "OFF al norte, FORD 1."
+<span class="jt">LINCE:</span> "Efectos observados. Vuelva a espera."</pre>
+  </article>
+
   <!-- ============ B. 5-LINE RELLENABLE ============ -->
   <article class="card wide critical" id="five-line-tool">
     <span class="bk"></span>
@@ -613,10 +654,12 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
       <div class="field big"><label>3 · Marca</label><div class="fill" contenteditable="true" data-card-key="five-3" data-placeholder="Humo, trazadoras, referencia, talk-on"></div></div>
       <div class="field big"><label>4 · Restricciones</label><div class="fill" contenteditable="true" data-card-key="five-4" data-placeholder="No disparar hacia..., no cruzar..., no sobrevolar..."></div></div>
       <div class="field big"><label>5 · Egreso / control</label><div class="fill" contenteditable="true" data-card-key="five-5" data-placeholder="Salida, BP, tipo de pasada, control"></div></div>
+      <div class="field big"><label>Arma / efecto JTAC</label><div class="fill" contenteditable="true" data-card-key="five-weapon" data-placeholder="Cohetes, .50, supresión, destrucción, marcar sin disparar..."></div></div>
       <div class="field big"><label>Readback mínimo</label><div class="fill" contenteditable="true" data-card-key="five-readback" data-placeholder="Amigos, objetivo, restricciones y egreso"></div></div>
       <div class="field big"><label>BDA</label><div class="fill" contenteditable="true" data-card-key="five-bda" data-placeholder="Impactos, destruido, necesita segunda pasada..."></div></div>
       <div class="field big"><label>Notas</label><div class="fill" contenteditable="true" data-card-key="five-notes" data-placeholder="Shooter, arma, entrada, amenaza, humo..."></div></div>
     </div>
+    <p class="minihelp">En helicóptero, si se usa CCA 5-Line, el arma suele darse como game plan breve o como aclaración adicional. Ejemplo: "Tipo 2, cohetes, una pasada, oeste-este".</p>
   </article>
 
   <!-- ============ 1. VOCABULARIO ============ -->
@@ -637,10 +680,10 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <tr><td>BLIND</td><td>No veo al amigo</td></tr>
         <tr><td>CONTACT</td><td>Veo una referencia o contacto aún no asignado</td></tr>
         <tr><td>CCA 5-LINE</td><td>Control rápido de helicóptero en 5 líneas</td></tr>
+        <tr><td>GAME PLAN</td><td>Plan de ataque: tipo de control, arma/efecto, dirección, restricciones</td></tr>
         <tr><td>IN / OFF</td><td>Entro al ataque / salgo de la pasada</td></tr>
         <tr><td>CLEARED HOT</td><td>Autorizado a disparar</td></tr>
         <tr><td>ABORT</td><td>Cancela el ataque ya</td></tr>
-        <tr><td>WINCHESTER</td><td>Sin munición</td></tr>
         <tr><td>WINCHESTER / AMMO LOW</td><td>Sin munición útil / munición baja para continuar apoyo</td></tr>
       </tbody>
     </table>
@@ -865,7 +908,7 @@ JTAC: "Ese ___ es su objetivo."</pre>
 </div>
 
 <footer>
-  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.4
+  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.6
 </footer>
 
 <script>

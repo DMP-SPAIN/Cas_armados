@@ -584,6 +584,7 @@ tr:last-child td{border-bottom:0}
       <a href="#aerodromo">Aeródromo</a>
       <a href="#circuito">Circuito</a>
       <a href="#jtac">JTAC</a>
+      <a href="#jtac-tools">JTAC tools</a>
       <a href="#contingencias">Contingencias</a>
       <a href="#chuleta">Chuleta</a>
       <button class="print" onclick="window.print()">Imprimir</button>
@@ -647,7 +648,6 @@ tr:last-child td{border-bottom:0}
     <div class="board-actions">
       <button type="button" onclick="saveBoard()">Guardar pizarra</button>
       <button type="button" onclick="clearBoard()">Limpiar campos</button>
-      <button type="button" onclick="window.print()">Imprimir / PDF</button>
     </div>
   </div>
 </section>
@@ -873,6 +873,55 @@ Final                    →  Toma o pasada</div>
     </div>
   </section>
 
+  <section id="jtac-tools" class="slide">
+    <div class="slide-head"><div class="num">08B</div><h2>Herramienta JTAC · Día 1</h2><div class="tag">Qué prepara LINCE</div></div>
+    <div class="slide-body">
+      <div class="grid3">
+        <div class="box">
+          <h3>Antes de transmitir</h3>
+          <ul>
+            <li>Quién controla: LINCE 1 activo.</li>
+            <li>Dónde espera FORD: CP/BP claro.</li>
+            <li>Dónde están amigos y qué zona no se cruza.</li>
+            <li>Qué referencia usará: humo, cruce, casa, granero.</li>
+            <li>Qué arma/efecto quiere: pasada seca, cohetes, .50 o solo observación.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Lo que debe decir LINCE</h3>
+          <ol>
+            <li>Espera y restricción.</li>
+            <li>Game plan: tipo, arma/efecto, dirección.</li>
+            <li>Talk-on: referencia, dirección, distancia, objetivo.</li>
+            <li>Confirmación: CONTACT / TALLY.</li>
+            <li>Autorización: CONTINUE DRY, CLEARED DRY o CLEARED HOT.</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h3>Lo que exige al piloto</h3>
+          <ul>
+            <li>Colacionar restricción y arma/efecto.</li>
+            <li>No decir TALLY si solo ve una referencia.</li>
+            <li>Cantar IN antes de la pasada.</li>
+            <li>Cantar OFF al salir.</li>
+            <li>Abortar sin discutir si LINCE canta ABORT.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="lince">LINCE:</span> "FORD 1, LINCE, mantenga espera oeste del lago. Restricción: no cruce carretera norte."
+<span class="ford">FORD 1:</span> "Mantengo espera oeste del lago, no cruzo carretera norte, FORD 1."
+<span class="lince">LINCE:</span> "Game plan: Tipo 2, pasada seca, una entrada oeste-este. Objetivo simulado junto al granero."
+<span class="ford">FORD 1:</span> "Tipo 2, pasada seca, entrada oeste-este, objetivo simulado junto al granero."
+<span class="lince">LINCE:</span> "Desde humo rojo, 100 metros este, vehículo junto al granero. Avise TALLY."
+<span class="ford">FORD 1:</span> "TALLY vehículo junto al granero."
+<span class="lince">LINCE:</span> "FORD 1, proceda. Avise IN."
+<span class="ford">FORD 1:</span> "IN desde el oeste, FORD 1."
+<span class="lince">LINCE:</span> "FORD 1, CLEARED DRY."
+<span class="ford">FORD 1:</span> "OFF DRY al norte, vuelvo a espera, FORD 1."</div>
+      <div class="callout ok"><b>Clave de día 1:</b> el JTAC aprende a mandar seguridad y claridad; el piloto aprende a escuchar, colacionar y no entrar si no entiende arma, objetivo o restricción.</div>
+    </div>
+  </section>
+
   <section class="slide">
     <div class="slide-head"><div class="num">09</div><h2>Un JTAC y varios helicópteros</h2><div class="tag">Quién habla</div></div>
     <div class="slide-body">
@@ -994,6 +1043,8 @@ Final                    →  Toma o pasada</div>
       </div>
       <div class="radio" style="margin-top:16px"><span class="lince">LINCE:</span> "FORD 2, LINCE, desde el cruce de carreteras, mire 200 metros al norte, casa aislada. Llame CONTACT."
 <span class="ford">FORD 2:</span> "CONTACT cruce y casa aislada."
+<span class="lince">LINCE:</span> "Game plan: Tipo 2, pasada seca, una entrada oeste-este."
+<span class="ford">FORD 2:</span> "Tipo 2, pasada seca, una entrada oeste-este."
 <span class="lince">LINCE:</span> "Desde la casa, 50 metros al este, vehículo junto al muro. Describa."
 <span class="ford">FORD 2:</span> "TALLY vehículo junto al muro."
 <span class="lince">LINCE:</span> "Ese vehículo es su objetivo. Reporte IN, pasada seca."
@@ -1104,6 +1155,8 @@ Final                    →  Toma o pasada</div>
 
 <span class="lince">LINCE:</span> "FORD 1, trabajaremos pasada seca sobre objetivo simulado. ¿Contacta humo rojo al norte del lago?"
 <span class="ford">FORD 1:</span> "CONTACT humo rojo, FORD 1."
+<span class="lince">LINCE:</span> "Game plan: Tipo 2, pasada seca, una entrada oeste-este. Restricción: no cruzar carretera norte."
+<span class="ford">FORD 1:</span> "Tipo 2, pasada seca, entrada oeste-este, no cruzo carretera norte, FORD 1."
 <span class="lince">LINCE:</span> "Desde el humo rojo, 100 metros este, vehículo junto a granero. Ese será objetivo simulado."
 <span class="ford">FORD 1:</span> "TALLY vehículo junto a granero, FORD 1."
 <span class="lince">LINCE:</span> "FORD 1, autorizado pasada seca de oeste a este. Avise IN."
@@ -1146,6 +1199,7 @@ Final                    →  Toma o pasada</div>
           <div class="blank">Zona de espera:</div>
           <div class="blank">Salida aeródromo:</div>
           <div class="blank">Circuito/tránsito:</div>
+          <div class="blank">Arma/efecto ejercicio:</div>
           <div class="blank">Instructor:</div>
           <div class="blank">JTAC activo:</div>
           <div class="blank">JTAC auxiliar:</div>
