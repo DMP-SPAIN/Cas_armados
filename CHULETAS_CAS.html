@@ -481,7 +481,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <div class="toolgrid two">
       <div>
         <div class="linebox"><div class="ln">1</div><div class="field"><label>BP / posición inicial</label><div class="fill" contenteditable="true" data-card-key="nine-1" data-placeholder="BP, holding o punto de ataque"></div></div></div>
-        <div class="linebox"><div class="ln">2</div><div class="field"><label>Rumbo</label><div class="fill" contenteditable="true" data-card-key="nine-2" data-placeholder="Ej.: 090"></div></div></div>
+        <div class="linebox"><div class="ln">2</div><div class="field"><label>Rumbo / offset</label><div class="fill" contenteditable="true" data-card-key="nine-2" data-placeholder="Ej.: 090 · sin offset / offset derecha"></div></div></div>
         <div class="linebox"><div class="ln">3</div><div class="field"><label>Distancia</label><div class="fill" contenteditable="true" data-card-key="nine-3" data-placeholder="Ej.: 1200 m"></div></div></div>
         <div class="linebox"><div class="ln">4</div><div class="field"><label>Cota</label><div class="fill" contenteditable="true" data-card-key="nine-4" data-placeholder="Lectura de vuelta"></div></div></div>
         <div class="linebox"><div class="ln">5</div><div class="field"><label>Objetivo</label><div class="fill" contenteditable="true" data-card-key="nine-5" data-placeholder="Tipo, postura, referencia"></div></div></div>
@@ -491,11 +491,11 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <div class="linebox"><div class="ln">7</div><div class="field"><label>Marca</label><div class="fill" contenteditable="true" data-card-key="nine-7" data-placeholder="Humo, láser, trazadora, talk-on"></div></div></div>
         <div class="linebox"><div class="ln">8</div><div class="field"><label>Amigos</label><div class="fill" contenteditable="true" data-card-key="nine-8" data-placeholder="Lectura de vuelta"></div></div></div>
         <div class="linebox"><div class="ln">9</div><div class="field"><label>Egreso</label><div class="fill" contenteditable="true" data-card-key="nine-9" data-placeholder="Ruta de salida / vuelta a BP"></div></div></div>
-        <div class="field"><label>Restricciones / observaciones</label><div class="fill" contenteditable="true" data-card-key="nine-remarks" data-placeholder="No disparar sur, no sobrevolar pueblo, amenaza AA, DANGER CLOSE..."></div></div>
+        <div class="field"><label>Restricciones / remarks</label><div class="fill" contenteditable="true" data-card-key="nine-remarks" data-placeholder="FAH, altura, no disparar sur, no sobrevolar pueblo, amenaza AA..."></div></div>
         <div class="field"><label>Game plan / arma JTAC</label><div class="fill" contenteditable="true" data-card-key="nine-gameplan-weapon" data-placeholder="Tipo 2 · cohetes · ataque oeste-este · una pasada"></div></div>
       </div>
     </div>
-    <p class="minihelp">El arma no es una de las 9 líneas clásicas. El JTAC la debe dejar clara en el game plan o en observaciones: tipo de control, arma/efecto solicitado, dirección de ataque y restricciones. El piloto la colaciona antes de entrar.</p>
+    <p class="minihelp">El arma no es una de las 9 líneas clásicas. El JTAC la deja clara en game plan o remarks: tipo de control, arma/efecto, dirección, offset/FAH y restricciones. El piloto colaciona lo crítico antes de entrar.</p>
     <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "Game plan: Tipo 2, cohetes, una pasada oeste-este."
 <span class="pil">FORD 1:</span> "Tipo 2, cohetes, una pasada oeste-este, FORD 1."</pre>
   </article>
@@ -627,10 +627,10 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 
       <div class="field"><label>Game plan</label><div class="fill" contenteditable="true" data-card-key="jtac-gameplan" data-placeholder="Tipo 2 · cohetes · una pasada · oeste-este"></div></div>
       <div class="field"><label>Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="jtac-weapon-effect" data-placeholder="Cohetes / .50 / supresión / pasada seca"></div></div>
-      <div class="field"><label>Autorización</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="CONTINUE DRY / CLEARED HOT / ABORT"></div></div>
-      <div class="field"><label>BDA / cierre</label><div class="fill" contenteditable="true" data-card-key="jtac-bda" data-placeholder="Efectos positivos, objetivo neutralizado, RTB"></div></div>
+      <div class="field"><label>Autorización</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="CONTINUE / CONTINUE DRY / CLEARED HOT / CLEARED TO ENGAGE / ABORT"></div></div>
+      <div class="field"><label>BDA / cierre</label><div class="fill" contenteditable="true" data-card-key="jtac-bda" data-placeholder="Si lo veo: exitoso/no exitoso, daño confirmado, RTB"></div></div>
     </div>
-    <p class="minihelp">Uso JTAC: primero seguridad y espera; luego game plan con arma/efecto; después talk-on, TALLY, IN, CONTINUE/CLEARED HOT y BDA. Si el piloto no ve o no colaciona lo importante, no se autoriza.</p>
+    <p class="minihelp">Uso JTAC: primero seguridad y espera; luego game plan con arma/efecto; después talk-on, TALLY, IN, CONTINUE/CLEARED HOT y BDA. <b>CLEARED</b> solo para armas; si no ves el daño, no lo inventes.</p>
     <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "FORD 1, LINCE, mantenga vuelo en espera oeste del lago. No cruce carretera norte."
 <span class="pil">FORD 1:</span> "Mantengo espera oeste del lago, no cruzo carretera norte, FORD 1."
 <span class="jt">LINCE:</span> "Game plan: Tipo 2, cohetes, una pasada oeste-este. Objetivo simulado: vehículo junto al granero."
@@ -665,7 +665,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <!-- ============ 1. VOCABULARIO ============ -->
   <article class="card" id="vocabulario">
     <span class="bk"></span>
-    <div class="hd"><span class="num">01</span><h2>Vocabulario de radio</h2><span class="tag">16 esenciales</span></div>
+    <div class="hd"><span class="num">01</span><h2>Vocabulario de radio</h2><span class="tag">20 esenciales</span></div>
     <table class="tb">
       <thead><tr><th>Por radio</th><th>Significado</th></tr></thead>
       <tbody>
@@ -682,8 +682,12 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <tr><td>CCA 5-LINE</td><td>Control rápido de helicóptero en 5 líneas</td></tr>
         <tr><td>GAME PLAN</td><td>Plan de ataque: tipo de control, arma/efecto, dirección, restricciones</td></tr>
         <tr><td>IN / OFF</td><td>Entro al ataque / salgo de la pasada</td></tr>
+        <tr><td>CONTINUE</td><td>Siga maniobrando; todavía no autoriza fuego</td></tr>
         <tr><td>CLEARED HOT</td><td>Autorizado a disparar</td></tr>
+        <tr><td>CLEARED TO ENGAGE</td><td>Tipo 3: autorizado a atacar dentro de límites concretos</td></tr>
         <tr><td>ABORT</td><td>Cancela el ataque ya</td></tr>
+        <tr><td>OFFSET / FAH</td><td>Lado permitido / rumbo final de ataque permitido</td></tr>
+        <tr><td>BDA</td><td>Resultado observado del ataque; si no se ve, no se inventa</td></tr>
         <tr><td>WINCHESTER / AMMO LOW</td><td>Sin munición útil / munición baja para continuar apoyo</td></tr>
       </tbody>
     </table>
@@ -697,10 +701,10 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
       <thead><tr><th>L</th><th>Qué dice</th></tr></thead>
       <tbody>
         <tr><td>1</td><td>BP / zona de batalla desde donde espera y ataca el helicóptero</td></tr>
-        <tr><td>2</td><td>Rumbo desde la BP al blanco</td></tr>
+        <tr><td>2</td><td>Rumbo desde la BP al blanco + offset si hay zona prohibida</td></tr>
         <tr><td>3</td><td>Distancia desde la BP al blanco</td></tr>
         <tr><td>4 <span class="star">★</span></td><td>Elevación del blanco sobre el nivel del mar</td></tr>
-        <tr><td>5</td><td>Descripción del blanco (tipo y postura)</td></tr>
+        <tr><td>5</td><td>Descripción del blanco: tipo, orientación y referencia visible</td></tr>
         <tr><td>6 <span class="star">★</span></td><td>Coordenadas (MGRS / cuadrícula)</td></tr>
         <tr><td>7</td><td>Marcado (humo, trazadoras, referencia visual, talk-on o sin marca)</td></tr>
         <tr><td>8 <span class="star">★</span></td><td>Posición de amigos más cercanos</td></tr>
@@ -714,13 +718,15 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <article class="card">
     <span class="bk"></span>
     <div class="hd"><span class="num">03</span><h2>Reporte de entrada</h2><span class="tag">Piloto al llegar</span></div>
-    <pre class="pre"><span class="pil">PILOTO:
+<pre class="pre"><span class="pil">PILOTO:
 "Lince, Pantera,
-check-in: un Kiowa,
-14 Hydra, .50,
+misión Ford-01, un Kiowa,
+establecido BP Lago Oeste,
+14 Hydra y .50,
 tiempo en estación 25 min.
 ABORT en claro."</span>
 
+  <span class="sys">→</span> Misión/indicativo: Ford-01 / Pantera
   <span class="sys">→</span> Posición: establecido en BP / sobre CP
   <span class="sys">→</span> Número y tipo: 1 × Kiowa
   <span class="sys">→</span> Armamento: cohetes Hydra + ametralladora .50
@@ -738,14 +744,14 @@ ABORT en claro."</span>
 <span class="sys">       → salgo de posición de batalla</span>
 
 <span class="jt">JTAC:</span> "Pantera, CONTINUE."
-<span class="sys">       → sigue acercándote</span>
+<span class="sys">       → sigue acercándote, todavía sin fuego</span>
 
 <span class="pil">PIL:</span>  "IN desde el sur,
        Pantera."
 <span class="sys">       → 30 s al lanzamiento</span>
 
 <span class="jt">JTAC:</span> <span class="key">"Pantera, CLEARED HOT."</span>
-<span class="sys">       → autorización final ★</span>
+<span class="sys">       → autorización de armas para ESTA pasada ★</span>
 
 <span class="pil">PIL:</span>  "ROCKETS, Pantera."
 
@@ -767,20 +773,21 @@ ABORT en claro."</span>
         <p>Riesgo alto o amigos cerca. Autoriza pasada por pasada.</p>
       </div>
       <div class="tcard t2">
-        <h3><span class="dot"></span>TIPO 2 · Normal</h3>
-        <p>JTAC ve <b>el helicóptero</b> O <b>el blanco</b>, no ambos.</p>
-        <p>El habitual en Reforger. Pasada por pasada.</p>
+        <h3><span class="dot"></span>TIPO 2 · Normal escuela</h3>
+        <p>JTAC controla cada ataque aunque no vea a la vez <b>helicóptero</b>, <b>blanco</b> o <b>marca</b>.</p>
+        <p>El habitual en Reforger. Cada pasada necesita su control.</p>
       </div>
       <div class="tcard t3">
-        <h3><span class="dot"></span>TIPO 3 · Ninguno</h3>
-        <p>JTAC <b>no ve nada</b>. Da <b>área + ventana de tiempo</b>.</p>
-        <p>El piloto ataca dentro de esos límites.</p>
+        <h3><span class="dot"></span>TIPO 3 · Límites cerrados</h3>
+        <p>JTAC autoriza varios ataques dentro de <b>área, tiempo, arma y restricciones</b>.</p>
+        <p>Se autoriza con <b>CLEARED TO ENGAGE</b>, no con frases ambiguas.</p>
       </div>
     </div>
     <pre class="pre" style="margin-top:10px">GAME PLAN:
 Tipo __ · método visual/coordenada __
 Arma __ · shooter __
-Restricción principal __</pre>
+Restricción principal __
+Tipo 3: límites __ / CLEARED TO ENGAGE __</pre>
   </article>
 
   <!-- ============ 6. CCA 5-LINE ============ -->
@@ -809,7 +816,7 @@ egreso norte. Colacione."
 técnico cruce norte,
 humo rojo, no disparo sur,
 egreso norte. Pantera."</pre>
-    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">No sustituye</strong> TALLY, CLEARED HOT ni ABORT. Si hay duda, 9-Line completa.</p>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">No sustituye</strong> TALLY, CLEARED HOT ni ABORT. Si hay duda, 9-Line completa. BDA: reporta solo lo observado.</p>
     <pre class="pre" style="margin-top:8px">Anota:
 Amigos ____ Objetivo ____
 Marca _____ Restric. ____
@@ -822,11 +829,13 @@ Egreso ____ BDA ________</pre>
     <div class="hd"><span class="num">07</span><h2>Reglas no negociables</h2><span class="tag">No se rompen</span></div>
     <ol class="rules-list">
       <li>Sin <b>"CLEARED HOT"</b> NO se dispara. Nunca. Aunque el blanco esté cantado.</li>
+      <li><b>CLEARED</b> solo se usa para autorizar armas. Pasada seca = <b>CONTINUE DRY</b>.</li>
       <li><b>"ABORT"</b> se obedece YA, sin discutir ni preguntar por qué. El motivo se explica en el debrief.</li>
       <li>Si el piloto pierde el blanco: <b>"NO JOY, OFF, vuelvo a la BP"</b> y aborta él solo.</li>
       <li>Amigos a menos de <b>200 m</b> del objetivo = DANGER CLOSE. Sin coordinación clara, no se dispara.</li>
       <li>9-Line sin lectura de vuelta de <b>L4, L6, L8 y restricciones</b> = no hay autorización válida.</li>
       <li>CCA 5-line sin colación de restricciones y egreso = no hay ataque.</li>
+      <li>BDA sin visual = "no observado". No se inventan daños para cerrar rápido.</li>
       <li>BP = zona de trabajo. Si sales de ella para atacar, lo cantas y esperas control.</li>
     </ol>
   </article>

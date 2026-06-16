@@ -551,6 +551,7 @@ tr:last-child td{border-bottom:0}
   .hero-card{padding:24px}
   .slide-head{align-items:flex-start;flex-direction:column}
   .tag{margin-left:0}
+  th,td{padding:9px 8px;overflow-wrap:anywhere}
 }
 @media print{
   body{background:#fff;color:#111}
@@ -894,7 +895,7 @@ Final                    →  Toma o pasada</div>
             <li>Game plan: tipo, arma/efecto, dirección.</li>
             <li>Talk-on: referencia, dirección, distancia, objetivo.</li>
             <li>Confirmación: CONTACT / TALLY.</li>
-            <li>Autorización: CONTINUE DRY, CLEARED DRY o CLEARED HOT.</li>
+            <li>Autorización: CONTINUE / CONTINUE DRY para maniobrar; CLEARED HOT solo si se autoriza fuego.</li>
           </ol>
         </div>
         <div class="box">
@@ -916,7 +917,7 @@ Final                    →  Toma o pasada</div>
 <span class="ford">FORD 1:</span> "TALLY vehículo junto al granero."
 <span class="lince">LINCE:</span> "FORD 1, proceda. Avise IN."
 <span class="ford">FORD 1:</span> "IN desde el oeste, FORD 1."
-<span class="lince">LINCE:</span> "FORD 1, CLEARED DRY."
+<span class="lince">LINCE:</span> "FORD 1, CONTINUE DRY."
 <span class="ford">FORD 1:</span> "OFF DRY al norte, vuelvo a espera, FORD 1."</div>
       <div class="callout ok"><b>Clave de día 1:</b> el JTAC aprende a mandar seguridad y claridad; el piloto aprende a escuchar, colacionar y no entrar si no entiende arma, objetivo o restricción.</div>
     </div>
@@ -1159,9 +1160,9 @@ Final                    →  Toma o pasada</div>
 <span class="ford">FORD 1:</span> "Tipo 2, pasada seca, entrada oeste-este, no cruzo carretera norte, FORD 1."
 <span class="lince">LINCE:</span> "Desde el humo rojo, 100 metros este, vehículo junto a granero. Ese será objetivo simulado."
 <span class="ford">FORD 1:</span> "TALLY vehículo junto a granero, FORD 1."
-<span class="lince">LINCE:</span> "FORD 1, autorizado pasada seca de oeste a este. Avise IN."
+<span class="lince">LINCE:</span> "FORD 1, proceda pasada seca de oeste a este. Avise IN."
 <span class="ford">FORD 1:</span> "IN desde el oeste, FORD 1."
-<span class="lince">LINCE:</span> "FORD 1, CLEARED DRY."
+<span class="lince">LINCE:</span> "FORD 1, CONTINUE DRY."
 <span class="ford">FORD 1:</span> "OFF DRY al norte, vuelvo a espera, FORD 1."</div>
       <div class="callout ok"><b>Uso:</b> primero se lee tal cual. Luego se repite cambiando piloto, JTAC activo y shooter.</div>
     </div>
@@ -1178,8 +1179,8 @@ Final                    →  Toma o pasada</div>
           <tr><td>NO JOY</td><td>No veo el objetivo.</td><td>"NO JOY, solicito repetición."</td></tr>
           <tr><td>VISUAL</td><td>Veo a un amigo.</td><td>"VISUAL amigos al sur."</td></tr>
           <tr><td>IN</td><td>Estoy entrando a la pasada.</td><td>"IN desde el oeste."</td></tr>
-          <tr><td>CONTINUE</td><td>Puede seguir maniobrando. No autoriza disparo.</td><td>"FORD 2, CONTINUE."</td></tr>
-          <tr><td>CLEARED HOT</td><td>Autorización final de fuego. En Día 1 se puede explicar sin usar fuego real.</td><td>"FORD 2, CLEARED HOT."</td></tr>
+          <tr><td>CONTINUE / CONTINUE DRY</td><td>Puede seguir maniobrando. No autoriza disparo; DRY confirma pasada seca.</td><td>"FORD 2, CONTINUE DRY."</td></tr>
+          <tr><td>CLEARED HOT</td><td>Autorización de armas para esa pasada. En Día 1 se explica, pero no se usa para pasadas secas.</td><td>"FORD 2, CLEARED HOT."</td></tr>
           <tr><td>OFF / OFF DRY</td><td>Salgo de pasada con o sin disparo.</td><td>"OFF DRY, vuelvo a espera."</td></tr>
           <tr><td>ABORT</td><td>Corta la acción inmediatamente.</td><td>"ABORT, ABORT, ABORT."</td></tr>
         </tbody>

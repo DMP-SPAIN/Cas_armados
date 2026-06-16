@@ -167,6 +167,10 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
 @media(max-width:720px){
   .rules,.cards.c3,.cards.c2,.taxi,.pocket{grid-template-columns:1fr}
   nav.topbar .links{display:none}
+  .tbl{font-size:13px}
+  .tbl th,.tbl td{padding:8px;overflow-wrap:anywhere}
+  .tbl td:first-child{white-space:normal}
+  .tbl.brev td:nth-child(3){font-family:var(--mono);color:var(--amber);font-size:13px;font-weight:500;white-space:normal}
 }
 @media print{
   *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
@@ -629,24 +633,33 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 <!-- ======= SECUENCIA ======= -->
 <section id="secuencia" class="sheet">
   <div class="shead"><span class="num">09</span><h2>La secuencia CAS</h2><span class="tag">Fase 6 · el corazón</span></div>
-  <p class="lead">Ocho pasos. <strong>El orden importa.</strong> Hilo conductor: la escuadra <strong>Lince</strong> está clavada por un <strong>técnico</strong> (camioneta con ametralladora) y trabaja con el Kiowa <strong>Pantera</strong>.</p>
+  <p class="lead">El CAS se ordena en tres bloques: <strong>check-in</strong>, <strong>brief/control del ataque</strong> y <strong>BDA</strong>. Para entrenarlo sin saltos lo desglosamos en ocho pasos. Hilo conductor: la escuadra <strong>Lince</strong> está clavada por un <strong>técnico</strong> y trabaja con el Kiowa <strong>Pantera</strong>.</p>
   <div class="steps">
 
     <div class="step"><div class="dot"><div class="b">1</div><div class="ln"></div></div><div class="body">
       <h3>Check-in — «quién soy y qué llevo»</h3>
-      <p class="why"><strong>Cómo:</strong> 5 datos → dónde estás · quién/cuántos sois · qué armas llevas · cuánto tiempo aguantas · cómo se aborta.</p>
+      <p class="why"><strong>Cómo:</strong> misión/indicativo · número y tipo · posición o BP · armas · tiempo en estación · código o palabra de abortar.</p>
       <div class="radio"><span class="pil">PANTERA</span> "Lince, Pantera, establecido BP Lago Oeste, listo check-in."
 <span class="jt">LINCE</span> "Pantera, Lince, adelante check-in."
-<span class="pil">PANTERA</span> "Lince, Pantera, check-in: un Kiowa, 14 cohetes Hydra, ametralladora .50, tiempo en estación 25 minutos. ABORT en claro. Listo para trabajo."
+<span class="pil">PANTERA</span> "Lince, Pantera, misión Ford-01, un Kiowa, establecido BP Lago Oeste, 14 cohetes Hydra y ametralladora .50. Tiempo en estación 25 minutos. ABORT en claro."
 <span class="jt">LINCE</span> "Pantera, Lince, recibido check-in. Copie SITREP."</div>
       <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: di <b>qué llevas y cuánto tiempo te queda</b>.</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">2</div><div class="ln"></div></div><div class="body">
       <h3>SITREP — «qué pasa en la zona»</h3>
-      <p class="why"><strong>Lo dice el JTAC:</strong> Amenazas · Objetivo · Aliados · Intención · Restricciones.</p>
-      <div class="radio"><span class="jt">LINCE</span> "Pantera, Lince, SITREP: TIC, repito TIC. Técnico con ametralladora en el cruce norte, activo, nos tiene fijados. Somos 8 en la linde sur del bosque. Intención: destruir el técnico para avanzar. Restricción: ningún disparo hacia el sur. Colacione."
+      <p class="why"><strong>Lo dice el JTAC:</strong> objetivo y enemigo · amenazas al aire · amigos · fuegos propios · quién autoriza · arma/efecto pedido · restricciones · peligros.</p>
+      <div class="radio"><span class="jt">LINCE</span> "Pantera, Lince, SITREP: TIC. Técnico con ametralladora en el cruce norte, activo, nos tiene fijados. Sin AA vista. Somos 8 en la linde sur del bosque. Sin morteros propios activos. Lince solicita destruir el técnico con cohetes o .50. Restricción: ningún disparo hacia el sur. Sin cables ni torres en la zona. Colacione restricción."
 <span class="pil">PANTERA</span> "Ningún disparo hacia el sur, Pantera."</div>
+      <table class="tbl">
+        <tr><th>Dato</th><th>Qué tiene que dejar claro</th></tr>
+        <tr><td>Enemigo</td><td>Qué es, qué hace y desde dónde amenaza.</td></tr>
+        <tr><td>Amenazas al aire</td><td>AA, MANPADS, vehículos armados, torres, cables o terreno que pueda matar al helicóptero.</td></tr>
+        <tr><td>Amigos</td><td>Situación de la unidad apoyada; no siempre coincide con la posición exacta del JTAC.</td></tr>
+        <tr><td>Fuegos propios</td><td>Morteros, artillería o trazadoras que puedan cruzarse con la pasada.</td></tr>
+        <tr><td>Autorización</td><td>Quién pide el efecto y qué efecto quiere: suprimir, destruir, fijar o observar.</td></tr>
+        <tr><td>Restricciones</td><td>Lo que no se puede hacer: rumbo prohibido, altura, no sobrevuelo, no disparo hacia amigos.</td></tr>
+      </table>
       <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span><b>TIC</b> = tropas amigas bajo fuego = máxima urgencia. <b>Colaciona las restricciones</b>: son sagradas.</span></div>
     </div></div>
 
@@ -664,13 +677,13 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
       </table>
       <table class="tbl">
         <tr><th>Tipo</th><th>El JTAC…</th><th>Cuándo</th></tr>
-        <tr><td>Tipo 1</td><td>Te ve A TI <strong>y</strong> al objetivo</td><td>Riesgo alto / amigos muy cerca</td></tr>
-        <tr><td>Tipo 2</td><td>Te ve a ti <strong>o</strong> al objetivo</td><td><strong>El normal (casi siempre)</strong></td></tr>
-        <tr><td>Tipo 3</td><td>No necesita ver nada; autoriza en bloque</td><td>Zona sin amigos cerca: «límpialo»</td></tr>
+        <tr><td>Tipo 1</td><td>Debe verte a ti <strong>y</strong> ver el objetivo antes de cada ataque</td><td>Riesgo alto, amigos cerca, duda de geometría o poca confianza</td></tr>
+        <tr><td>Tipo 2</td><td>Controla cada ataque, aunque no vea a la vez helicóptero, blanco o marca</td><td><strong>El normal en entrenamiento</strong>: BP, terreno, humo o talk-on</td></tr>
+        <tr><td>Tipo 3</td><td>Autoriza varios ataques dentro de límites concretos</td><td>Zona clara, límites cerrados y sin amigos comprometidos</td></tr>
       </table>
       <div class="callout tip" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
-        <div><b>Para el curso:</b> normalmente usaremos ataque visual sobre marca o talk-on. El ataque por coordenada queda para objetivos estáticos y muy claros; si el piloto no puede confirmar el blanco, no se fuerza el disparo.</div>
+        <div><b>Para el curso:</b> normalmente usaremos Tipo 2, ataque visual sobre marca o talk-on. Tipo 3 solo se entrena con límites muy claros y se autoriza con <b>CLEARED TO ENGAGE</b>, no con un «dispara a lo que veas» ambiguo.</div>
       </div>
     </div></div>
 
@@ -680,28 +693,35 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
       <table class="tbl">
         <tr><th>#</th><th>Línea</th><th>En Reforger</th></tr>
         <tr><td>1</td><td>BP</td><td>Zona desde donde esperas/atacas, no un punto exacto: «BP Lago Oeste, 300 m alrededor de la colina»</td></tr>
-        <tr><td>2</td><td>Rumbo</td><td>Desde la BP. 3 cifras: «cero-nueve-cero»</td></tr>
+        <tr><td>2</td><td>Rumbo / offset</td><td>Desde el centro de la BP al objetivo. Si hace falta: «offset derecha/izquierda» para no cruzar una zona prohibida</td></tr>
         <tr><td>3</td><td>Distancia</td><td>Desde la BP, en metros</td></tr>
-        <tr><td>4</td><td>Cota</td><td>Altura del terreno (o «N/A» si es llano)</td></tr>
-        <tr><td>5</td><td>Qué es</td><td>«Técnico», «infantería en trinchera», «blindado BTR»</td></tr>
-        <tr><td>6</td><td>Dónde está</td><td>Cuadrícula de 6 cifras, cifra a cifra</td></tr>
-        <tr><td>7</td><td>Marca</td><td>«Humo rojo», «trazadoras», referencia visual, talk-on o «sin marca»</td></tr>
-        <tr><td>8</td><td>Aliados</td><td>Cardinal + metros desde el objetivo: «300 al sur»</td></tr>
-        <tr><td>9</td><td>Salida</td><td>Por dónde te vas: «por el norte de vuelta a la BP»</td></tr>
+        <tr><td>4</td><td>Cota</td><td>Altura del terreno si aporta algo. En procedimiento real va en pies; en Reforger vale cota de mapa o «N/A»</td></tr>
+        <tr><td>5</td><td>Descripción</td><td>Objeto + orientación + referencia de terreno: «técnico en cruce, morro al norte, junto al granero»</td></tr>
+        <tr><td>6</td><td>Localización</td><td>Cuadrícula de 6 cifras, cifra a cifra</td></tr>
+        <tr><td>7</td><td>Marca</td><td>Humo, trazadoras, IR, referencia visual, talk-on o «sin marca»</td></tr>
+        <tr><td>8</td><td>Aliados</td><td>Cardinal + metros desde el objetivo: «300 al sur». Es la posición de los amigos, no necesariamente la del JTAC</td></tr>
+        <tr><td>9</td><td>Egreso</td><td>Por dónde sales y a dónde vuelves: «egreso norte, vuelva a BP Lago Oeste»</td></tr>
+      </table>
+      <table class="tbl">
+        <tr><th>Remarks útiles</th><th>Para qué sirven</th></tr>
+        <tr><td>FAH / rumbo final</td><td>Limita desde qué dirección puede atacar. Uno solo controla más; un sector da más flexibilidad.</td></tr>
+        <tr><td>Altura / no sobrevuelo</td><td>Evita cables, fuego propio, pueblo, amigos o zona de amenaza.</td></tr>
+        <tr><td>Otros fuegos</td><td>Morteros, artillería o supresión en curso para separar trayectorias.</td></tr>
+        <tr><td>Reporte BP inbound / IN</td><td>Obliga al piloto a cantar cuándo abandona espera y cuándo entra a atacar.</td></tr>
       </table>
       <div class="callout key">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
-        <div><b>Código de humos:</b> <span class="dot-i r"></span>rojo/naranja = ENEMIGO · <span class="dot-i g"></span>verde = SOLO amigos. El humo se tira cerca, pero sin tapar el blanco; mejor a un lado o detrás según el rumbo de ataque. Correcciones desde un humo, en <b>metros y cardinal</b>: «desde el humo, 100 al norte».</div>
+        <div><b>Código de humos:</b> <span class="dot-i r"></span>rojo/naranja = ENEMIGO · <span class="dot-i g"></span>verde = SOLO amigos. El humo se tira cerca, pero sin tapar el blanco; mejor a un lado o detrás según el rumbo de ataque. Si el humo se desplaza, tapa el blanco o falla, no se fuerza: se pasa a <b>talk-on</b>. No marques un objetivo ya destruido.</div>
       </div>
       <div class="callout warn" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
-        <div><b>BP para helicópteros:</b> es una zona de trabajo con cobertura. Puedes maniobrar dentro de ella, pero no la abandonas para una pasada en movimiento hasta que el JTAC lo haya autorizado o te lo haya pedido.</div>
+        <div><b>BP para helicópteros:</b> es una zona de trabajo con cobertura dentro del alcance efectivo del arma. Puedes maniobrar dentro de ella, pero no la abandonas para una pasada en movimiento hasta que el JTAC lo haya autorizado o te lo haya pedido.</div>
       </div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">5</div><div class="ln"></div></div><div class="body">
       <h3>Colación — «confirmo lo crítico»</h3>
-      <p class="why">Repites <strong>líneas 4, 6 y 8 + restricciones</strong>. Si te han dado rumbo final, no sobrevuelo, límite lateral o permiso para abandonar BP, también lo repites.</p>
+      <p class="why">Como mínimo se colacionan <strong>línea 4, línea 6 y restricciones</strong>. En este curso añadimos siempre <strong>línea 8</strong> porque saber dónde están los amigos es más importante que ahorrar tres segundos.</p>
       <div class="radio"><span class="pil">PANTERA</span> "Cota 45, objetivo en cero-tres-cinco cero-cuatro-ocho, aliados 300 al sur, ningún disparo al sur. Pantera."
 <span class="jt">LINCE</span> "Colación correcta."</div>
     </div></div>
@@ -745,15 +765,30 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 <span class="jt">LINCE</span> "Pantera, CLEARED HOT"            <span class="sys">✅ PERMISO DE FUEGO</span>
 <span class="pil">PANTERA</span> "ROCKETS, Pantera" / "GUNS GUNS GUNS, Pantera"
 <span class="pil">PANTERA</span> "OFF, vuelvo a la BP, Pantera"</div>
+      <table class="tbl">
+        <tr><th>Llamada</th><th>Significa</th></tr>
+        <tr><td>ABORT</td><td>Corta la pasada. No hay permiso de fuego.</td></tr>
+        <tr><td>CONTINUE</td><td>Puede seguir la geometría, pero aún no puede disparar.</td></tr>
+        <tr><td>CLEARED HOT</td><td>Puede soltar fuego en esa pasada concreta.</td></tr>
+        <tr><td>CLEARED TO ENGAGE</td><td>Solo Tipo 3: puede atacar dentro de los límites marcados hasta reportar ataque completo.</td></tr>
+      </table>
+      <div class="callout warn" style="font-size:14px">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
+        <div>La palabra <b>CLEARED</b> solo se usa cuando se autoriza empleo de armas. Para todo lo demás usa «continue», «proceda», «mantenga» o «standby».</div>
+      </div>
       <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: <b>IN → esperas → CLEARED HOT → disparas → OFF.</b> Si pierdes blanco, amigo o geometría: <b>OFF DRY</b> y vuelves a BP.</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">8</div></div><div class="body">
       <h3>BDA — «¿funcionó?»</h3>
-      <p class="why">Quien mejor vea la zona reporta: arma usada · daño · qué queda. Decide si hay otra pasada.</p>
-      <div class="radio"><span class="jt">LINCE</span> "Pantera, Lince, efectos positivos, técnico destruido. ¿Algo más?"
+      <p class="why">Quien mejor vea la zona reporta el resultado. Regla simple: <strong>si no lo ves, no lo inventes</strong>. Como mínimo: ataque exitoso o no exitoso.</p>
+      <div class="radio"><span class="jt">LINCE</span> "Pantera, Lince, BDA: Ford-01, técnico en cero-tres-cinco cero-cuatro-ocho, ataque exitoso, objetivo destruido."
 <span class="pil">PANTERA</span> "Veo dos a pie huyendo al norte."
 <span class="jt">LINCE</span> "Pantera, Lince, recibido. Mantenga vigilancia al norte."</div>
+      <div class="callout tip" style="font-size:14px">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+        <div><b>BDA corto:</b> misión/objetivo · resultado · observación útil. Si hace falta otra pasada, se vuelve a control, correlación y autorización; no se dispara por inercia.</div>
+      </div>
     </div></div>
 
   </div>
@@ -882,22 +917,22 @@ BDA / resultado: ________________________________________</div>
 
 <span class="pil">PILOTO · PANTERA</span> "Lince, Pantera, establecido BP Lago Oeste, listo check-in."
 <span class="jt">JTAC · LINCE</span> "Pantera, Lince, adelante check-in."
-<span class="pil">PILOTO · PANTERA</span> "Lince, Pantera, check-in: un Kiowa, 14 cohetes Hydra, ametralladora .50, tiempo en estación 25 minutos. ABORT en claro. Listo para trabajo."
+<span class="pil">PILOTO · PANTERA</span> "Lince, Pantera, misión Ford-01, un Kiowa, establecido BP Lago Oeste, 14 cohetes Hydra y ametralladora .50. Tiempo en estación 25 minutos. ABORT en claro."
 <span class="jt">JTAC · LINCE</span> "Pantera, Lince, recibido check-in. Copie SITREP."
 
-<span class="jt">JTAC · LINCE</span> "TIC, repito TIC. Técnico con ametralladora en el cruce norte, activo, nos tiene fijados. Somos 8 en la linde sur del bosque. Intención: destruir el técnico para avanzar. Restricción: ningún disparo hacia el sur. Colacione restricción."
+<span class="jt">JTAC · LINCE</span> "TIC. Técnico con ametralladora en el cruce norte, activo, nos tiene fijados. Sin AA vista. Somos 8 en la linde sur del bosque. Sin morteros propios activos. Lince solicita destruir el técnico con cohetes o .50. Restricción: ningún disparo hacia el sur. Sin cables ni torres en zona. Colacione restricción."
 <span class="pil">PILOTO · PANTERA</span> "Restricción copiada: ningún disparo hacia el sur. Pantera."
 <span class="jt">JTAC · LINCE</span> "Pantera, Lince, correcto. Game plan: Tipo 2, una pasada con cohetes desde el oeste. Mantenga BP hasta autorización."
 <span class="pil">PILOTO · PANTERA</span> "Tipo 2, una pasada con cohetes desde el oeste, mantengo BP hasta autorización. Pantera."
 <span class="jt">JTAC · LINCE</span> "Pantera, Lince, avise listo para copiar 9-line."
 <span class="pil">PILOTO · PANTERA</span> "Listo para copiar 9-line, Pantera."
 
-<span class="jt">JTAC · LINCE</span> "BP Lago Oeste. Rumbo cero-nueve-cero. Distancia mil doscientos metros.
+<span class="jt">JTAC · LINCE</span> "BP Lago Oeste. Rumbo cero-nueve-cero, sin offset. Distancia mil doscientos metros.
         — pausa —
-        Cota cuatro-cinco. Objetivo técnico con ametralladora. Posición cero-tres-cinco, cero-cuatro-ocho.
+        Cota cuatro-cinco. Objetivo técnico con ametralladora en cruce, morro al norte, junto al granero. Posición cero-tres-cinco, cero-cuatro-ocho.
         — pausa —
         Marca humo rojo. Aliados 300 metros al sur. Egreso norte, vuelta a BP."
-<span class="jt">JTAC · LINCE</span> "Observaciones: ataque oeste a este, no sobrevolar el pueblo, ningún disparo al sur. Colacione cota, posición, amigos y restricciones."
+<span class="jt">JTAC · LINCE</span> "Observaciones: FAH oeste a este, no sobrevolar el pueblo, ningún disparo al sur. Colacione cota, posición, amigos y restricciones."
 <span class="pil">PILOTO · PANTERA</span> "Cota cuatro-cinco, objetivo en cero-tres-cinco cero-cuatro-ocho, amigos 300 al sur, ataque oeste a este, no sobrevuelo el pueblo, ningún disparo al sur. Pantera."
 <span class="jt">JTAC · LINCE</span> "Pantera, Lince, colación correcta. Marcando con humo rojo."
 <span class="sys">(Lince lanza humo rojo cerca del objetivo)</span>
@@ -915,7 +950,7 @@ BDA / resultado: ________________________________________</div>
 <span class="pil">PILOTO · PANTERA</span> "OFF norte, vuelvo a BP, Pantera."
 <span class="jt">JTAC · LINCE</span> "Pantera, Lince, buenos impactos. Mantenga BP para BDA."
 <span class="pil">PILOTO · PANTERA</span> "Mantengo BP, Pantera."
-<span class="jt">JTAC · LINCE</span> "Pantera, Lince, BDA: técnico destruido, dos enemigos huyen al norte. ¿Los tiene?"
+<span class="jt">JTAC · LINCE</span> "Pantera, Lince, BDA: Ford-01, técnico en cero-tres-cinco cero-cuatro-ocho, ataque exitoso, objetivo destruido. Veo dos enemigos huyendo al norte. ¿Los tiene?"
 <span class="pil">PILOTO · PANTERA</span> "TALLY dos enemigos al norte, sin disparo, Pantera."
 <span class="jt">JTAC · LINCE</span> "Pantera, Lince, no ataque. Infantería lo asume. Sin más objetivos. Autorizado RTB."
 <span class="pil">PILOTO · PANTERA</span> "Recibido, no ataco, RTB vía sur. Cambio a Aeródromo, Pantera."
@@ -966,9 +1001,9 @@ DESPEGUE: escucha → autoinfórmate → despega → forma
 EN RUTA:  bajo y con máscara → al CP cambia a frec 2
           "Lince, Pantera, entrando por CP Oeste"
 
-CHECK-IN: "[JTAC], [yo], check-in: un Kiowa,
-           [cohetes] y ametralladora .50. Tiempo en estación [min].
-           ABORT en claro."
+CHECK-IN: "[JTAC], [yo], misión __, un Kiowa,
+           BP/posición __, [cohetes] y .50.
+           Tiempo en estación [min]. ABORT en claro."
 BP:       zona con cobertura, no punto exacto · no la abandono sin autorización
 COPIAR:   SITREP→colaciono RESTRICCIONES · Game plan→colaciono
           Líneas→colaciono 4·6·8 + restricciones
@@ -989,22 +1024,24 @@ NUNCA:    disparar sin CLEARED HOT · pasar la BP sin permiso ·
           fija callsigns·2 frecuencias·CP·espera·humos
 
 1 CHECK-IN: recibo armas+tiempo → espera SEGURA
-2 SITREP: amenazas/objetivo/aliados/intención/
-          RESTRICCIONES → pido colación
+2 SITREP: enemigo · amenazas al aire · amigos · fuegos propios ·
+          autorización/efecto · RESTRICCIONES · peligros → colación
 3 GAME PLAN: Tipo ___ | método visual/coordenada ___ | arma ___
-          restricción principal ___ | shooter ___
+          restricción principal ___ | shooter ___ | Tipo 3 solo con límites
 4 LÍNEAS (despacio, bloques de 3):
    1 BP __    4 Cota __   7 Marca __
-   2 Rumbo __ 5 Objet. __ 8 Aliados __
+   2 Rumbo/offset __ 5 Objet. __ 8 Aliados __
    3 Dist __m 6 Cuadríc__ 9 Salida __
+   Remarks: FAH __ altura/no sobrevuelo __ otros fuegos __
    CCA 5 __ amigos · objetivo · marca · restr. · egreso
           pido colación amigos/objetivo/restr./egreso
 5 Exijo colación 4·6·8 + restr. → "correcta"
 6 CORRELACIÓN: humo o talk-on (DEDO · 2+1 ·
    preguntas abiertas) → "el ___ es su objetivo"
-7 "IN" → geometría → CLEARED HOT (o ABORT)
+7 "IN" → geometría → CONTINUE / CLEARED HOT / ABORT
+   CLEARED solo si autorizas armas · Tipo 3: CLEARED TO ENGAGE
    Danger Close → "iniciales __ __" antes
-8 BDA → ¿otra pasada o RTB? → liberar y debrief</pre>
+8 BDA: si no lo ves, no lo inventes → otra pasada / RTB / debrief</pre>
     </div>
     <div class="pcard green bk">
       <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>La misión en una línea</h3>
@@ -1018,6 +1055,7 @@ NUNCA:    disparar sin CLEARED HOT · pasar la BP sin permiso ·
     <tr><th>Palabra</th><th>Significa</th><th>Palabra</th><th>Significa</th></tr>
     <tr><td>VISUAL/BLIND</td><td>Veo/no veo a un amigo</td><td>CONTINUE</td><td>Sigue, aún sin permiso de fuego</td></tr>
     <tr><td>TALLY/NO JOY</td><td>Veo/no veo mi objetivo</td><td>CLEARED HOT</td><td>Autorizado a disparar esta pasada</td></tr>
+    <tr><td>OFFSET</td><td>Lado permitido respecto al rumbo BP-objetivo</td><td>CLEARED TO ENGAGE</td><td>Tipo 3: ataque dentro de límites</td></tr>
     <tr><td>CONTACT</td><td>Veo la referencia descrita</td><td>CONTINUE DRY</td><td>Pasada sin disparar</td></tr>
     <tr><td>IN</td><td>Entro a atacar (+ dirección)</td><td>ABORT ×3</td><td>Corta el ataque YA</td></tr>
     <tr><td>ROCKETS</td><td>Cohetes lanzados</td><td>OFF / OFF DRY</td><td>Salgo de la pasada (con/sin disparo)</td></tr>

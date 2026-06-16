@@ -680,8 +680,11 @@
           <li><strong>IN:</strong> entrando a la pasada.</li>
           <li><strong>OFF:</strong> saliendo de la pasada.</li>
           <li><strong>CONTINUE:</strong> puede seguir maniobrando, pero todavía no puede disparar.</li>
+          <li><strong>CONTINUE DRY:</strong> puede hacer la pasada seca; no hay empleo de armas.</li>
           <li><strong>CLEARED HOT:</strong> autorización final de fuego para esa pasada.</li>
+          <li><strong>CLEARED TO ENGAGE:</strong> solo Tipo 3; autoriza ataques dentro de límites definidos.</li>
           <li><strong>ABORT:</strong> cancelar inmediatamente.</li>
+          <li><strong>BDA:</strong> resultado observado; si no se ve, no se inventa.</li>
           <li><strong>GUNS:</strong> usando ametralladora.</li>
           <li><strong>ROCKETS:</strong> lanzando cohetes.</li>
         </ul>
@@ -706,14 +709,14 @@
             <li>El instructor lee una situación y el alumno responde con el término correcto.</li>
             <li>Ejemplo: "El piloto entra a la pasada" respuesta esperada: IN.</li>
             <li>Ejemplo: "El ataque se cancela ya" respuesta esperada: ABORT.</li>
-          <li>Haz una mini secuencia completa: CONTACT con referencia, TALLY del objetivo, IN, CLEARED HOT, GUNS o ROCKETS, OFF.</li>
+          <li>Haz una mini secuencia completa: CONTACT con referencia, TALLY del objetivo, IN, CLEARED HOT dirigido al shooter, GUNS o ROCKETS, OFF.</li>
           <li>Ordena un ABORT en mitad de la secuencia. El piloto debe cortar la acción inmediatamente.</li>
         </ol>
           <div class="radio-line"><strong>JTAC:</strong> "Ese técnico es su objetivo. Reporte IN."</div>
           <div class="radio-line"><strong>Piloto:</strong> "IN desde el oeste."</div>
-          <div class="radio-line"><strong>JTAC:</strong> "CLEARED HOT."</div>
+          <div class="radio-line"><strong>JTAC:</strong> "Pantera, CLEARED HOT."</div>
           <div class="radio-line"><strong>Piloto:</strong> "GUNS GUNS GUNS... OFF."</div>
-          <div class="radio-line"><strong>JTAC:</strong> "ABORT, ABORT, amigos cerca."</div>
+          <div class="radio-line"><strong>JTAC:</strong> "Pantera, ABORT, ABORT, ABORT, amigos cerca."</div>
           <div class="radio-line"><strong>Piloto:</strong> "ABORT recibido, salgo OFF."</div>
         </div>
       </article>
@@ -818,7 +821,7 @@
           <li>Tierra/JTAC da objetivo y posición amiga.</li>
           <li>Piloto confirma.</li>
           <li>Piloto anuncia IN.</li>
-          <li>JTAC autoriza: "CLEARED HOT".</li>
+          <li>JTAC autoriza al shooter: "Pantera, CLEARED HOT".</li>
           <li>Piloto dispara y anuncia GUNS.</li>
           <li>Piloto sale y anuncia OFF.</li>
           <li>Tierra corrige si hace falta.</li>
@@ -844,14 +847,14 @@
           <ol>
             <li>Empieza con un objetivo fijo y visible, sin amigos cerca.</li>
             <li>El piloto entra a observar, no a disparar.</li>
-          <li>El JTAC/FAC confirma el objetivo, espera IN y autoriza CLEARED HOT.</li>
+          <li>El JTAC/FAC confirma el objetivo, espera IN y autoriza CLEARED HOT dirigido al shooter.</li>
             <li>El piloto hace una sola pasada y sale.</li>
             <li>Tierra corrige: corto, largo, izquierda, derecha o buen impacto.</li>
             <li>Repite la pasada solo si la comunicación fue clara.</li>
           </ol>
           <div class="radio-line"><strong>JTAC:</strong> "Infantería junto al muro, amigos al sur. Ese es su objetivo. Reporte IN."</div>
           <div class="radio-line"><strong>Piloto:</strong> "IN desde el oeste."</div>
-          <div class="radio-line"><strong>JTAC:</strong> "CLEARED HOT."</div>
+          <div class="radio-line"><strong>JTAC:</strong> "Pantera, CLEARED HOT."</div>
           <div class="radio-line"><strong>Piloto:</strong> "GUNS GUNS GUNS. OFF hacia el sur."</div>
           <div class="radio-line"><strong>JTAC:</strong> "Impacto corto. Corrige un poco más al norte."</div>
           <p class="note"><strong>Mínimo para pasar:</strong> nadie dispara sin autorización y la salida se comunica.</p>
@@ -867,7 +870,7 @@
         <ul>
           <li>Seleccionar un objetivo adecuado.</li>
           <li>Confirmar que los amigos no están pegados al objetivo.</li>
-          <li>Autorizar CLEARED HOT cuando el piloto esté IN y el objetivo esté confirmado.</li>
+          <li>Autorizar CLEARED HOT dirigido al shooter cuando el piloto esté IN y el objetivo esté confirmado.</li>
           <li>Evaluar impacto y corregir.</li>
           <li>Repetir solo si tiene sentido.</li>
         </ul>
@@ -890,12 +893,12 @@
             <li>Usa un objetivo más separado: vehículo, edificio vacío o posición enemiga aislada.</li>
             <li>Pide al JTAC/FAC que diga en voz alta dónde están los amigos antes de autorizar.</li>
             <li>El piloto entra, confirma visual y espera autorización.</li>
-            <li>El JTAC/FAC autoriza CLEARED HOT solo si el objetivo está claro.</li>
+            <li>El JTAC/FAC autoriza CLEARED HOT solo si el objetivo está claro y lo dirige al shooter.</li>
             <li>Después del impacto, tierra evalúa si hace falta reataque o si se cierra el objetivo.</li>
           </ol>
           <div class="radio-line"><strong>JTAC:</strong> "Amigos al sur de la carretera, objetivo vehículo al norte, separado. Ese vehículo es su objetivo. Reporte IN."</div>
           <div class="radio-line"><strong>Piloto:</strong> "IN desde el este."</div>
-          <div class="radio-line"><strong>JTAC:</strong> "CLEARED HOT."</div>
+          <div class="radio-line"><strong>JTAC:</strong> "Pantera, CLEARED HOT."</div>
           <div class="radio-line"><strong>Piloto:</strong> "ROCKETS. OFF hacia el oeste."</div>
           <div class="radio-line"><strong>JTAC:</strong> "Impacto largo. No reataques. Espera corrección."</div>
           <p class="note"><strong>Mínimo para pasar:</strong> el alumno sabe negar el disparo si no hay separación clara.</p>
@@ -934,7 +937,7 @@
           </ol>
           <div class="radio-line"><strong>JTAC:</strong> "Impacto a la izquierda del objetivo. Corrige derecha, misma distancia."</div>
           <div class="radio-line"><strong>Piloto:</strong> "Recibido, corrijo derecha, misma distancia. Preparado para reataque."</div>
-          <div class="radio-line"><strong>JTAC:</strong> "Reataque aprobado. Reporte IN y espere CLEARED HOT."</div>
+          <div class="radio-line"><strong>JTAC:</strong> "Reataque aprobado. Reporte IN y espere CLEARED HOT de su indicativo."</div>
           <p class="note"><strong>Mínimo para pasar:</strong> el segundo ataque debe aplicar la corrección, no repetir por inercia.</p>
         </div>
       </article>
@@ -985,7 +988,7 @@
             <li>El líder de tierra pide CAS al JTAC/FAC.</li>
             <li>El JTAC/FAC ordena la información y llama al piloto.</li>
             <li>El piloto entra a observar, canta CONTACT con la referencia y TALLY cuando tenga el objetivo confirmado.</li>
-            <li>El JTAC/FAC autoriza CLEARED HOT si procede.</li>
+            <li>El JTAC/FAC autoriza CLEARED HOT si procede, siempre dirigido al shooter.</li>
             <li>Después del ataque, tierra informa resultado y decide si avanza, pide reataque o cancela.</li>
             <li>El instructor detiene la práctica y hace revisión corta.</li>
           </ol>
@@ -997,7 +1000,7 @@
           <div class="radio-line"><strong>Piloto:</strong> "TALLY técnico junto al muro."</div>
           <div class="radio-line"><strong>JTAC:</strong> "Ese técnico es su objetivo. Reporte IN."</div>
           <div class="radio-line"><strong>Piloto:</strong> "IN desde oeste."</div>
-          <div class="radio-line"><strong>JTAC:</strong> "CLEARED HOT."</div>
+          <div class="radio-line"><strong>JTAC:</strong> "Pantera, CLEARED HOT."</div>
           <div class="radio-line"><strong>Piloto:</strong> "GUNS GUNS GUNS. OFF hacia oeste."</div>
           <div class="radio-line"><strong>Tierra:</strong> "Buen impacto. Unidad avanza. CAS en espera."</div>
         </div>
