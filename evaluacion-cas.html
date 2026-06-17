@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proceso evaluativo CAS/JTAC · ArmadOS</title>
 <meta name="description" content="Hoja de trabajo evaluativa CAS/JTAC para Grupo ArmadOS: alumnos, sesiones, estados A/M/R, evidencia y siguiente ejercicio.">
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -102,6 +103,18 @@ h1,h2,h3,p{margin:0}
 }
 .btn:hover,.btn:focus-visible{outline:0;border-color:var(--amber);color:var(--amber);background:rgba(255,178,46,.07)}
 .btn.primary{border-color:rgba(158,212,127,.55);color:var(--green)}
+.edit-only{display:none!important}
+body.is-editing .edit-only{display:inline-flex!important}
+body.is-editing label.edit-only{display:inline-flex!important}
+body.is-editing .view-only{display:none!important}
+body.is-readonly .meta-field input,
+body.is-readonly .student-input,
+body.is-readonly .callsign-input{
+  pointer-events:none;color:var(--ink);
+}
+body.is-readonly .student-input::placeholder,
+body.is-readonly .callsign-input::placeholder{color:transparent}
+body.is-readonly .cell-btn{cursor:pointer}
 .matrix-wrap{overflow:auto}
 table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:0}
 .matrix th{
@@ -158,13 +171,14 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
 }
 .editor textarea:focus{outline:0;border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,178,46,.08)}
 .hint{border:1px solid var(--line);padding:11px;color:var(--muted);font-size:12px}
+.readonly-status{display:flex;align-items:center;gap:10px;font-family:var(--disp);text-transform:uppercase;letter-spacing:.06em}
+.readonly-box{border:1px solid var(--line);padding:11px;color:var(--ink);font-size:13px;min-height:56px;white-space:pre-wrap}
+.readonly-box.empty{color:var(--faint);font-style:italic}
 .empty-panel{padding:18px;color:var(--muted)}
 .save-status{align-self:center;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
 .lock-screen{
-  min-height:100vh;display:grid;place-items:center;padding:22px;
-  background:
-    radial-gradient(90% 60% at 50% 0,rgba(127,176,105,.08),transparent 55%),
-    var(--bg);
+  position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:22px;
+  background:rgba(3,8,6,.86);backdrop-filter:blur(8px);
 }
 .lock-card{
   width:min(100%,420px);border:1px solid var(--line2);background:rgba(17,26,21,.96);padding:24px;
@@ -204,34 +218,35 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
 </style>
 </head>
 <body>
-<section class="lock-screen" id="lockScreen">
+<section class="lock-screen" id="lockScreen" hidden>
   <div class="lock-card">
-    <h1 id="lockTitle">Acceso evaluación</h1>
-    <p id="lockText">Introduce la clave local para abrir la hoja.</p>
+    <h1 id="lockTitle">Modo instructor</h1>
+    <p id="lockText">Introduce la clave para editar la hoja y guardar cambios.</p>
     <label>Clave
-      <input id="pinInput" type="password" autocomplete="current-password" autofocus>
+      <input id="pinInput" type="password" autocomplete="current-password">
     </label>
     <label>Token GitHub para guardar online
-      <input id="githubTokenInput" type="password" autocomplete="off" placeholder="Opcional para solo lectura/local">
+      <input id="githubTokenInput" type="password" autocomplete="off" placeholder="Opcional; necesario para guardar online">
     </label>
     <div class="lock-actions">
       <button class="btn primary" type="button" id="unlockBtn">Entrar</button>
+      <button class="btn" type="button" id="cancelUnlockBtn">Cancelar</button>
     </div>
-    <div class="lock-note">La clave bloquea la interfaz en este navegador. El token no se guarda: solo se usa para escribir el JSON en GitHub.</div>
+    <div class="lock-note">Los alumnos pueden ver esta misma página sin clave. La clave solo activa edición; el token no se guarda y solo se usa para escribir el JSON en GitHub.</div>
   </div>
 </section>
 
-<main class="shell" id="appShell" hidden>
+<main class="shell" id="appShell">
   <header class="topbar">
     <div class="menu-mark">≡</div>
     <div class="title-block">
       <h1>Proceso evaluativo CAS</h1>
       <div class="sub">Grupo ArmadOS | Arma Reforger CAS School</div>
     </div>
-    <div class="meta-field"><label for="courseInput">Curso</label><input id="courseInput" value="CAS 01-24"></div>
-    <div class="meta-field"><label for="instructorInput">Instructor</label><input id="instructorInput" value="Instr. Alfa"></div>
-    <div class="meta-field"><label for="dateInput">Fecha</label><input id="dateInput" value="24 MAY 2024"></div>
-    <div class="meta-field"><label for="versionInput">Versión</label><input id="versionInput" value="1.0"></div>
+    <div class="meta-field"><label for="courseInput">Curso</label><input id="courseInput"></div>
+    <div class="meta-field"><label for="instructorInput">Instructor</label><input id="instructorInput"></div>
+    <div class="meta-field"><label for="dateInput">Fecha</label><input id="dateInput"></div>
+    <div class="meta-field"><label for="versionInput">Versión</label><input id="versionInput"></div>
     <div class="view-box"><span class="view-label">Vista</span><select class="view-select" aria-label="Vista"><option>Matriz de evaluación</option></select></div>
   </header>
 
@@ -241,7 +256,7 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
     <div class="legend-item"><span class="badge mejora">M</span> Mejora</div>
     <div class="legend-item"><span class="badge repetir">R</span> Repetir</div>
     <div class="legend-item"><span class="badge blank">·</span> Sin evaluar</div>
-    <div class="legend-note">Clic en una celda para cambiar estado. Selecciona la celda para escribir evidencia.</div>
+    <div class="legend-note">Alumnos: clic para ver detalle. Instructor: editar para cambiar estados y guardar.</div>
   </section>
 
   <section class="workbench" aria-label="Hoja evaluativa">
@@ -258,13 +273,14 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
           <p id="activeSessionGoal">Carga del curso</p>
         </div>
         <div class="actions">
-          <button class="btn primary" type="button" id="addStudentBtn">+ Alumno</button>
-          <button class="btn primary" type="button" id="saveBtn">Guardar</button>
-          <button class="btn" type="button" id="exportJsonBtn">Exportar JSON</button>
-          <label class="btn" for="importJsonInput">Importar JSON</label>
+          <button class="btn primary view-only" type="button" id="editBtn">Editar</button>
+          <button class="btn primary edit-only" type="button" id="addStudentBtn">+ Alumno</button>
+          <button class="btn primary edit-only" type="button" id="saveBtn">Guardar</button>
+          <button class="btn edit-only" type="button" id="exportJsonBtn">Exportar JSON</button>
+          <label class="btn edit-only" for="importJsonInput">Importar JSON</label>
           <input id="importJsonInput" type="file" accept="application/json,.json" hidden>
-          <button class="btn" type="button" id="lockBtn">Bloquear</button>
-          <span class="save-status" id="saveStatus">Sin guardar</span>
+          <button class="btn edit-only" type="button" id="lockBtn">Cerrar edición</button>
+          <span class="save-status" id="saveStatus">Lectura pública</span>
         </div>
       </div>
       <div class="matrix-wrap">
@@ -297,6 +313,7 @@ const githubSave = {
   branches:['main','gh-pages']
 };
 let githubToken = '';
+let isEditing = false;
 
 const sessions = [
   { id:'s1', no:'01', name:'Sesión 1', short:'Comunicaciones', goal:'Base común: radio, circuitos, 9-line y control terminal básico.' },
@@ -432,23 +449,34 @@ async function loadRepoState(){
 }
 
 async function loadInitialState(){
-  const ignoreLocal = new URLSearchParams(location.search).has('fresh');
+  const params = new URLSearchParams(location.search);
+  const preferLocal = params.has('local') || location.protocol === 'file:';
+  if(!preferLocal){
+    const repoState = await loadRepoState();
+    if(repoState) return repoState;
+  }
   try{
     const raw = localStorage.getItem(storageKey);
-    if(raw && !ignoreLocal) return normalizeState(JSON.parse(raw));
+    if(raw && !params.has('fresh')) return normalizeState(JSON.parse(raw));
   }catch(error){
     localStorage.removeItem(storageKey);
+  }
+  if(preferLocal){
+    const repoState = await loadRepoState();
+    if(repoState) return repoState;
   }
   return await loadRepoState() || defaultState();
 }
 
 function saveState(){
+  if(!isEditing) return;
   state.meta = readMeta();
   localStorage.setItem(storageKey, JSON.stringify(serializeState()));
   showSaveStatus('Guardado local');
 }
 
 async function saveAll(){
+  if(!isEditing) return;
   saveState();
   if(!githubToken){
     alert('Guardado local. Para guardar en la page/repositorio, entra con un token de GitHub con permiso Contents: write.');
@@ -495,7 +523,8 @@ function renderAll(){
   renderBoard();
   renderDetail();
   renderStats();
-  showSaveStatus(localStorage.getItem(storageKey) ? 'Guardado local' : 'Pendiente');
+  applyEditMode();
+  showSaveStatus(isEditing ? (localStorage.getItem(storageKey) ? 'Guardado local' : 'Pendiente') : 'Lectura pública');
 }
 
 function renderSessions(){
@@ -513,6 +542,7 @@ function renderSessions(){
 function renderBoard(){
   const session = sessions.find(item => item.id === activeSessionId);
   const criteria = criteriaFor(activeSessionId);
+  const inputState = isEditing ? '' : ' readonly tabindex="-1"';
   document.getElementById('activeSessionTitle').textContent = `${session.no} · ${session.name} | ${session.short}`;
   document.getElementById('activeSessionGoal').textContent = session.goal;
   document.getElementById('matrixHead').innerHTML = `<tr>
@@ -528,8 +558,8 @@ function renderBoard(){
       <div class="student-row">
         <div class="row-no">${String(index + 1).padStart(2,'0')}</div>
         <div>
-          <input class="student-input" data-student-name="${student.id}" value="${escapeAttr(student.name)}" aria-label="Nombre alumno ${index + 1}">
-          <input class="callsign-input" data-student-callsign="${student.id}" value="${escapeAttr(student.callsign)}" aria-label="Callsign alumno ${index + 1}">
+          <input class="student-input" data-student-name="${student.id}" value="${escapeAttr(student.name)}" aria-label="Nombre alumno ${index + 1}"${inputState}>
+          <input class="callsign-input" data-student-callsign="${student.id}" value="${escapeAttr(student.callsign)}" aria-label="Callsign alumno ${index + 1}"${inputState}>
         </div>
       </div>
     </td>
@@ -576,6 +606,20 @@ function renderDetail(){
       <div class="mini-stat"><b>${stats.blank}</b><span>Vacío</span></div>
     </div>
   </div>`;
+  if(!isEditing){
+    document.getElementById('cellEditor').innerHTML = `<div class="editor">
+      <div class="editor-meta">${escapeHtml(criterion.title)} · ${escapeHtml(criterion.sub)}</div>
+      <div class="readonly-status"><span class="badge ${currentMeta.className}">${currentMeta.letter}</span>${escapeHtml(currentMeta.label)}</div>
+      <label>Evidencia observada
+        <div class="readonly-box ${current.evidence ? '' : 'empty'}">${escapeHtml(current.evidence || 'Sin evidencia registrada.')}</div>
+      </label>
+      <label>Siguiente ejercicio
+        <div class="readonly-box ${current.action ? '' : 'empty'}">${escapeHtml(current.action || 'Sin siguiente ejercicio registrado.')}</div>
+      </label>
+      <div class="hint">Las celdas vacías significan pendiente, no suspenso.</div>
+    </div>`;
+    return;
+  }
   document.getElementById('cellEditor').innerHTML = `<div class="editor">
     <div class="editor-meta">${escapeHtml(criterion.title)} · ${escapeHtml(criterion.sub)}</div>
     <div class="status-palette">
@@ -627,7 +671,7 @@ function cycleStatus(status){
 function selectCell(studentId, criterionId, shouldCycle){
   selectedStudentId = studentId;
   selectedCriterionId = criterionId;
-  if(shouldCycle){
+  if(shouldCycle && isEditing){
     const cell = getCell(studentId, criterionId);
     cell.status = cycleStatus(cell.status || '');
     saveState();
@@ -639,9 +683,9 @@ function selectCell(studentId, criterionId, shouldCycle){
 }
 
 function addStudent(){
-  const next = state.students.length + 1;
+  if(!isEditing) return;
   const id = `alumno-${Date.now().toString(36)}`;
-  state.students.push({ id, name:`ALUMNO ${String(next).padStart(2,'0')}`, callsign:String(next).padStart(2,'0') });
+  state.students.push({ id, name:'', callsign:'' });
   allCriteria().forEach(criterion => { state.cells[key(id, criterion.id)] = { status:'', evidence:'', action:'' }; });
   selectedStudentId = id;
   selectedCriterionId = criteriaFor(activeSessionId)[0].id;
@@ -650,6 +694,7 @@ function addStudent(){
 }
 
 function updateStudent(studentId, field, value){
+  if(!isEditing) return;
   const student = state.students.find(item => item.id === studentId);
   if(!student) return;
   student[field] = value;
@@ -658,6 +703,7 @@ function updateStudent(studentId, field, value){
 }
 
 function updateNotes(){
+  if(!isEditing) return;
   const cell = getCell(selectedStudentId, selectedCriterionId);
   cell.evidence = document.getElementById('evidenceInput')?.value || '';
   cell.action = document.getElementById('actionInput')?.value || '';
@@ -665,6 +711,7 @@ function updateNotes(){
 }
 
 function setStatus(status){
+  if(!isEditing) return;
   const cell = getCell(selectedStudentId, selectedCriterionId);
   cell.status = status;
   saveState();
@@ -675,6 +722,7 @@ function setStatus(status){
 }
 
 function exportJson(){
+  if(!isEditing) return;
   saveState();
   downloadFile('evaluacion-cas.json', JSON.stringify(serializeState(), null, 2), 'application/json;charset=utf-8');
 }
@@ -758,6 +806,7 @@ function toBase64(text){
 }
 
 function importJsonFile(file){
+  if(!isEditing) return;
   if(!file) return;
   const reader = new FileReader();
   reader.onload = () => {
@@ -790,6 +839,10 @@ function downloadFile(filename, content, type){
 function showSaveStatus(text){
   const target = document.getElementById('saveStatus');
   if(!target) return;
+  if(text === 'Lectura pública'){
+    target.textContent = text;
+    return;
+  }
   const stamp = new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit' });
   target.textContent = `${text} · ${stamp}`;
 }
@@ -809,24 +862,40 @@ async function hashPin(value){
 }
 
 function configureLockCopy(){
-  document.getElementById('lockTitle').textContent = 'Acceso evaluación';
-  document.getElementById('lockText').textContent = 'Introduce la clave de edición para abrir la hoja.';
+  document.getElementById('lockTitle').textContent = 'Modo instructor';
+  document.getElementById('lockText').textContent = 'Introduce la clave para editar la hoja y guardar cambios.';
+}
+
+function applyEditMode(){
+  document.body.classList.toggle('is-editing', isEditing);
+  document.body.classList.toggle('is-readonly', !isEditing);
+}
+
+function openEditorLogin(){
+  configureLockCopy();
+  document.getElementById('pinInput').value = '';
+  document.getElementById('githubTokenInput').value = '';
+  document.getElementById('lockScreen').hidden = false;
+  setTimeout(() => document.getElementById('pinInput').focus(), 0);
+}
+
+function closeEditorLogin(){
+  document.getElementById('lockScreen').hidden = true;
+  document.getElementById('pinInput').value = '';
+  document.getElementById('githubTokenInput').value = '';
 }
 
 function unlockApp(){
+  isEditing = true;
   document.getElementById('lockScreen').hidden = true;
-  document.getElementById('appShell').hidden = false;
   renderAll();
 }
 
 function lockApp(){
-  document.getElementById('appShell').hidden = true;
-  document.getElementById('lockScreen').hidden = false;
-  configureLockCopy();
-  document.getElementById('pinInput').value = '';
-  document.getElementById('githubTokenInput').value = '';
+  isEditing = false;
   githubToken = '';
-  document.getElementById('pinInput').focus();
+  closeEditorLogin();
+  renderAll();
 }
 
 async function handleUnlock(){
@@ -861,22 +930,24 @@ document.addEventListener('click', event => {
   }
   const cellBtn = event.target.closest('.cell-btn');
   if(cellBtn){
-    selectCell(cellBtn.dataset.student, cellBtn.dataset.criterion, true);
+    selectCell(cellBtn.dataset.student, cellBtn.dataset.criterion, isEditing);
     return;
   }
   const statusBtn = event.target.closest('[data-status]');
-  if(statusBtn){
+  if(statusBtn && isEditing){
     setStatus(statusBtn.dataset.status);
   }
 });
 
 document.addEventListener('input', event => {
+  if(!isEditing) return;
   if(event.target.matches('[data-student-name]')) updateStudent(event.target.dataset.studentName, 'name', event.target.value);
   if(event.target.matches('[data-student-callsign]')) updateStudent(event.target.dataset.studentCallsign, 'callsign', event.target.value);
   if(event.target.id === 'evidenceInput' || event.target.id === 'actionInput') updateNotes();
   if(event.target.closest('.meta-field')) saveState();
 });
 
+document.getElementById('editBtn').addEventListener('click', openEditorLogin);
 document.getElementById('addStudentBtn').addEventListener('click', addStudent);
 document.getElementById('saveBtn').addEventListener('click', saveAll);
 document.getElementById('exportJsonBtn').addEventListener('click', exportJson);
@@ -886,7 +957,11 @@ document.getElementById('importJsonInput').addEventListener('change', event => {
 });
 document.getElementById('lockBtn').addEventListener('click', lockApp);
 document.getElementById('unlockBtn').addEventListener('click', handleUnlock);
+document.getElementById('cancelUnlockBtn').addEventListener('click', closeEditorLogin);
 document.getElementById('pinInput').addEventListener('keydown', event => {
+  if(event.key === 'Enter') handleUnlock();
+});
+document.getElementById('githubTokenInput').addEventListener('keydown', event => {
   if(event.key === 'Enter') handleUnlock();
 });
 
@@ -895,6 +970,8 @@ async function init(){
   selectedStudentId = state.students[0]?.id || '';
   selectedCriterionId = criteriaFor(activeSessionId)[0]?.id || '';
   configureLockCopy();
+  isEditing = false;
+  renderAll();
 }
 init();
 </script>
