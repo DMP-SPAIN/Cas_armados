@@ -1,0 +1,25 @@
+{
+  "schema": "armados.cas.evaluacion.v2",
+  "updated_at": "2026-06-17T00:00:00.000Z",
+  "meta": {
+    "course": "",
+    "instructor": "",
+    "date": "",
+    "version": ""
+  },
+  "students": [
+    { "id": "alumno-01", "name": "", "callsign": "" },
+    { "id": "alumno-02", "name": "", "callsign": "" },
+    { "id": "alumno-03", "name": "", "callsign": "" },
+    { "id": "alumno-04", "name": "", "callsign": "" },
+    { "id": "alumno-05", "name": "", "callsign": "" },
+    { "id": "alumno-06", "name": "", "callsign": "" },
+    { "id": "alumno-07", "name": "", "callsign": "" },
+    { "id": "alumno-08", "name": "", "callsign": "" },
+    { "id": "alumno-09", "name": "", "callsign": "" },
+    { "id": "alumno-10", "name": "", "callsign": "" },
+    { "id": "alumno-11", "name": "", "callsign": "" },
+    { "id": "alumno-12", "name": "", "callsign": "" }
+  ],
+  "cells": {}
+}

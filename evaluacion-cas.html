@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proceso evaluativo CAS/JTAC · ArmadOS</title>
+<meta name="description" content="Hoja de trabajo evaluativa CAS/JTAC para Grupo ArmadOS: alumnos, sesiones, estados A/M/R, evidencia y siguiente ejercicio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#090f0c; --panel:#111a15; --panel2:#17231b; --panel3:#1c2b21;
+  --ink:#edf3ed; --muted:#a2afa4; --faint:#707d72;
+  --line:rgba(164,190,170,.17); --line2:rgba(164,190,170,.34);
+  --green:#9ed47f; --green-bg:rgba(126,176,105,.19);
+  --amber:#ffbd3f; --amber-bg:rgba(255,178,46,.18);
+  --red:#ff6655; --red-bg:rgba(229,83,60,.18);
+  --blue:#65a9e8;
+  --body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --disp:'Oswald',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{min-height:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:14px;line-height:1.45;
+  background-image:
+    linear-gradient(rgba(127,176,105,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(127,176,105,.035) 1px,transparent 1px);
+  background-size:34px 34px;
+}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+h1,h2,h3,p{margin:0}
+.shell{max-width:1680px;margin:0 auto;padding:8px}
+.topbar{
+  display:grid;grid-template-columns:46px minmax(300px,1fr) repeat(4,minmax(120px,160px)) minmax(190px,240px);
+  gap:0;border:1px solid var(--line2);background:rgba(9,15,12,.86);backdrop-filter:blur(10px);
+}
+.menu-mark{display:grid;place-items:center;border-right:1px solid var(--line2);color:var(--muted);font-size:28px}
+.title-block{padding:16px 18px;border-right:1px solid var(--line2)}
+.title-block h1{font-family:var(--disp);font-size:clamp(26px,3vw,40px);line-height:.95;text-transform:uppercase;letter-spacing:.03em}
+.title-block .sub{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin-top:8px}
+.meta-field{padding:14px 16px;border-right:1px solid var(--line2)}
+.meta-field label,.view-label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.meta-field input,.view-select{
+  width:100%;border:0;border-bottom:1px solid var(--line2);background:transparent;color:#fff;
+  font-family:var(--mono);font-size:13px;padding:2px 0 7px;outline:0;
+}
+.meta-field input:focus,.view-select:focus{border-bottom-color:var(--amber)}
+.view-box{padding:14px 16px}
+.legend-bar{
+  display:grid;grid-template-columns:160px repeat(4,160px) 1fr;
+  border:1px solid var(--line2);border-top:0;background:rgba(17,26,21,.9);
+}
+.legend-title{padding:13px 18px;border-right:1px solid var(--line2);font-family:var(--disp);font-size:17px;text-transform:uppercase;letter-spacing:.05em}
+.legend-item{display:flex;align-items:center;gap:10px;padding:10px 20px;font-family:var(--disp);font-size:16px;text-transform:uppercase;letter-spacing:.06em}
+.legend-note{padding:13px 18px;border-left:1px solid var(--line2);font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
+.badge{
+  width:31px;height:31px;display:inline-grid;place-items:center;border:1px solid currentColor;border-radius:4px;
+  font-family:var(--mono);font-weight:700;line-height:1;
+}
+.badge.apto{color:var(--green)} .badge.mejora{color:var(--amber)} .badge.repetir{color:var(--red)}
+.badge.blank{color:var(--faint)}
+.workbench{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:10px;margin-top:12px;align-items:start}
+.sessions,.board,.detail{border:1px solid var(--line2);background:rgba(17,26,21,.95)}
+.board{min-width:0}
+.sessions{position:sticky;top:8px}
+.side-title{padding:14px 18px;border-bottom:1px solid var(--line2);font-family:var(--disp);font-size:18px;text-transform:uppercase;letter-spacing:.05em}
+.session-list{display:grid}
+.session-tab{
+  display:grid;grid-template-columns:48px 1fr 22px;gap:10px;align-items:center;
+  min-height:70px;padding:10px 12px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--muted);text-align:left;
+}
+.session-tab:hover,.session-tab.active{background:rgba(127,176,105,.08);color:var(--ink)}
+.session-tab.active{border-left:4px solid var(--green);padding-left:8px}
+.session-no{font-family:var(--disp);font-size:32px;color:var(--faint);line-height:1}
+.session-tab.active .session-no{color:var(--ink)}
+.session-name{font-family:var(--disp);font-size:16px;text-transform:uppercase;letter-spacing:.05em;color:inherit}
+.session-state{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:3px}
+.session-arrow{color:var(--green);font-family:var(--disp);font-size:24px;opacity:0}
+.session-tab.active .session-arrow{opacity:1}
+.side-stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line2)}
+.stat-box{padding:14px;border-right:1px solid var(--line);min-height:76px}
+.stat-box:last-child{border-right:0}
+.stat-box .label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.stat-box .value{font-family:var(--disp);font-size:30px;line-height:1;color:#fff;margin-top:5px}
+.board-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:12px 14px;border-bottom:1px solid var(--line2);
+}
+.active-session h2{font-family:var(--disp);font-size:25px;text-transform:uppercase;letter-spacing:.04em}
+.active-session p{font-size:13px;color:var(--muted);margin-top:2px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:8px 11px;
+  border:1px solid var(--line2);background:#0b120f;color:var(--ink);border-radius:4px;
+  font-family:var(--disp);font-size:13px;text-transform:uppercase;letter-spacing:.07em;
+}
+.btn:hover,.btn:focus-visible{outline:0;border-color:var(--amber);color:var(--amber);background:rgba(255,178,46,.07)}
+.btn.primary{border-color:rgba(158,212,127,.55);color:var(--green)}
+.matrix-wrap{overflow:auto}
+table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:0}
+.matrix th{
+  position:sticky;top:0;z-index:4;padding:12px 10px;border-bottom:1px solid var(--line2);border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#17231b,#111a15);text-align:center;color:#fff;
+}
+.matrix th.student-head{left:0;z-index:5;width:200px;text-align:left;padding-left:20px}
+.criterion-icon{font-size:22px;color:var(--muted);line-height:1;margin-bottom:8px}
+.criterion-title{font-family:var(--disp);font-size:16px;text-transform:uppercase;letter-spacing:.06em}
+.criterion-sub{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:5px;min-height:28px}
+.matrix td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);background:rgba(13,20,16,.86)}
+.student-cell{
+  position:sticky;left:0;z-index:2;background:#101813!important;width:200px;min-width:200px;
+}
+.student-row{display:grid;grid-template-columns:36px 1fr;align-items:center;gap:8px;padding:8px 10px 8px 14px}
+.row-no{font-family:var(--mono);color:var(--muted);text-align:right}
+.student-input,.callsign-input{
+  width:100%;border:0;background:transparent;color:#fff;outline:0;
+}
+.student-input{font-family:var(--mono);font-size:14px}
+.callsign-input{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+.student-input:focus,.callsign-input:focus{background:rgba(255,178,46,.08)}
+.eval-cell{padding:0}
+.cell-btn{
+  width:100%;height:56px;border:0;background:transparent;color:var(--faint);
+  display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--disp);font-size:16px;text-transform:uppercase;letter-spacing:.05em;
+}
+.cell-btn:hover,.cell-btn.selected{outline:1px solid rgba(255,255,255,.72);outline-offset:-1px}
+.cell-btn.blank{background:rgba(255,255,255,.012)}
+.cell-btn.apto{background:var(--green-bg);color:var(--green)}
+.cell-btn.mejora{background:var(--amber-bg);color:var(--amber)}
+.cell-btn.repetir{background:var(--red-bg);color:var(--red)}
+.cell-btn .mini{width:27px;height:27px;display:grid;place-items:center;border:1px solid currentColor;border-radius:4px;font-family:var(--mono);font-size:15px;font-weight:700}
+.cell-btn.blank .mini{border-style:dashed}
+.detail{position:sticky;top:8px;padding-bottom:12px}
+.detail-title{padding:14px 16px;border-bottom:1px solid var(--line2);font-family:var(--disp);font-size:21px;text-transform:uppercase;letter-spacing:.05em;color:var(--amber)}
+.student-summary{padding:14px 16px;border-bottom:1px solid var(--line)}
+.summary-line{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.summary-name{font-family:var(--disp);font-size:25px;text-transform:uppercase;letter-spacing:.05em}
+.summary-state{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase}
+.mini-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px}
+.mini-stat{border:1px solid var(--line);padding:8px;text-align:center}
+.mini-stat b{display:block;font-family:var(--disp);font-size:22px;line-height:1}
+.mini-stat span{font-family:var(--mono);font-size:9px;text-transform:uppercase;color:var(--faint)}
+.editor{padding:14px 16px;display:grid;gap:12px}
+.editor-meta{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.status-palette{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.status-choice{min-height:40px;border:1px solid var(--line2);background:#0b120f;color:var(--muted);border-radius:4px;font-family:var(--disp);letter-spacing:.06em;text-transform:uppercase}
+.status-choice.active{outline:2px solid rgba(255,255,255,.12)}
+.status-choice.apto{color:var(--green)} .status-choice.mejora{color:var(--amber)} .status-choice.repetir{color:var(--red)}
+.editor label{display:grid;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.editor textarea{
+  width:100%;min-height:104px;resize:vertical;border:1px solid var(--line2);background:#0b120f;color:var(--ink);border-radius:4px;padding:10px;font-family:var(--body);font-size:13px;line-height:1.45;
+}
+.editor textarea:focus{outline:0;border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,178,46,.08)}
+.hint{border:1px solid var(--line);padding:11px;color:var(--muted);font-size:12px}
+.empty-panel{padding:18px;color:var(--muted)}
+.save-status{align-self:center;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.lock-screen{
+  min-height:100vh;display:grid;place-items:center;padding:22px;
+  background:
+    radial-gradient(90% 60% at 50% 0,rgba(127,176,105,.08),transparent 55%),
+    var(--bg);
+}
+.lock-card{
+  width:min(100%,420px);border:1px solid var(--line2);background:rgba(17,26,21,.96);padding:24px;
+}
+.lock-card h1{font-family:var(--disp);font-size:32px;text-transform:uppercase;line-height:1}
+.lock-card p{color:var(--muted);margin-top:8px}
+.lock-card label{display:grid;gap:8px;margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.lock-card input{border:1px solid var(--line2);background:#0b120f;color:var(--ink);padding:11px;border-radius:4px;outline:0}
+.lock-card input:focus{border-color:var(--amber)}
+.lock-actions{display:flex;gap:8px;margin-top:14px}
+.lock-note{border-top:1px solid var(--line);margin-top:16px;padding-top:12px;font-size:12px;color:var(--faint)}
+@media(max-width:1180px){
+  .topbar{grid-template-columns:46px 1fr 1fr 1fr}
+  .title-block{grid-column:2/-1}
+  .view-box{grid-column:1/-1;border-top:1px solid var(--line2)}
+  .legend-bar{grid-template-columns:1fr 1fr;gap:0}
+  .legend-title,.legend-note{grid-column:1/-1;border-right:0;border-left:0;border-top:1px solid var(--line)}
+  .workbench{grid-template-columns:1fr}
+  .sessions,.detail{position:static}
+  .session-list{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+  .shell{padding:0}
+  .topbar{grid-template-columns:42px 1fr}
+  .title-block{padding:12px}
+  .meta-field{border-top:1px solid var(--line2)}
+  .meta-field,.view-box{grid-column:1/-1}
+  .legend-bar{grid-template-columns:1fr}
+  .legend-item{padding:8px 16px}
+  .workbench{gap:0;margin-top:8px}
+  .board-head{align-items:stretch}
+  .actions{width:100%;display:grid;grid-template-columns:1fr 1fr}
+  .btn{width:100%}
+  .session-list{grid-template-columns:1fr}
+  table.matrix{min-width:760px}
+}
+</style>
+</head>
+<body>
+<section class="lock-screen" id="lockScreen">
+  <div class="lock-card">
+    <h1 id="lockTitle">Acceso evaluación</h1>
+    <p id="lockText">Introduce la clave local para abrir la hoja.</p>
+    <label>Clave
+      <input id="pinInput" type="password" autocomplete="current-password" autofocus>
+    </label>
+    <label>Token GitHub para guardar online
+      <input id="githubTokenInput" type="password" autocomplete="off" placeholder="Opcional para solo lectura/local">
+    </label>
+    <div class="lock-actions">
+      <button class="btn primary" type="button" id="unlockBtn">Entrar</button>
+    </div>
+    <div class="lock-note">La clave bloquea la interfaz en este navegador. El token no se guarda: solo se usa para escribir el JSON en GitHub.</div>
+  </div>
+</section>
+
+<main class="shell" id="appShell" hidden>
+  <header class="topbar">
+    <div class="menu-mark">≡</div>
+    <div class="title-block">
+      <h1>Proceso evaluativo CAS</h1>
+      <div class="sub">Grupo ArmadOS | Arma Reforger CAS School</div>
+    </div>
+    <div class="meta-field"><label for="courseInput">Curso</label><input id="courseInput" value="CAS 01-24"></div>
+    <div class="meta-field"><label for="instructorInput">Instructor</label><input id="instructorInput" value="Instr. Alfa"></div>
+    <div class="meta-field"><label for="dateInput">Fecha</label><input id="dateInput" value="24 MAY 2024"></div>
+    <div class="meta-field"><label for="versionInput">Versión</label><input id="versionInput" value="1.0"></div>
+    <div class="view-box"><span class="view-label">Vista</span><select class="view-select" aria-label="Vista"><option>Matriz de evaluación</option></select></div>
+  </header>
+
+  <section class="legend-bar" aria-label="Leyenda">
+    <div class="legend-title">Leyenda</div>
+    <div class="legend-item"><span class="badge apto">A</span> Apto</div>
+    <div class="legend-item"><span class="badge mejora">M</span> Mejora</div>
+    <div class="legend-item"><span class="badge repetir">R</span> Repetir</div>
+    <div class="legend-item"><span class="badge blank">·</span> Sin evaluar</div>
+    <div class="legend-note">Clic en una celda para cambiar estado. Selecciona la celda para escribir evidencia.</div>
+  </section>
+
+  <section class="workbench" aria-label="Hoja evaluativa">
+    <aside class="sessions">
+      <div class="side-title">Sesión</div>
+      <div class="session-list" id="sessionList"></div>
+      <div class="side-stats" id="sideStats"></div>
+    </aside>
+
+    <section class="board">
+      <div class="board-head">
+        <div class="active-session">
+          <h2 id="activeSessionTitle">Sesión 1</h2>
+          <p id="activeSessionGoal">Carga del curso</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" type="button" id="addStudentBtn">+ Alumno</button>
+          <button class="btn primary" type="button" id="saveBtn">Guardar</button>
+          <button class="btn" type="button" id="exportJsonBtn">Exportar JSON</button>
+          <label class="btn" for="importJsonInput">Importar JSON</label>
+          <input id="importJsonInput" type="file" accept="application/json,.json" hidden>
+          <button class="btn" type="button" id="lockBtn">Bloquear</button>
+          <span class="save-status" id="saveStatus">Sin guardar</span>
+        </div>
+      </div>
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <thead id="matrixHead"></thead>
+          <tbody id="matrixBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <aside class="detail">
+      <div class="detail-title">Informe del alumno</div>
+      <div id="studentSummary"></div>
+      <div id="cellEditor"></div>
+    </aside>
+  </section>
+</main>
+
+<script>
+const storageKey = 'armados.cas.evaluacion.v2';
+const repoDataUrl = 'data/evaluacion-cas.json';
+const accessPinHashes = [
+  'a20c096b16e3594dd738685f37cc104b33b5cc0063d939447d7b46b74d0b2a4b',
+  'fallback-877215480'
+];
+const githubSave = {
+  owner:'DMP-SPAIN',
+  repo:'Cas_armados',
+  path:'data/evaluacion-cas.json',
+  branches:['main','gh-pages']
+};
+let githubToken = '';
+
+const sessions = [
+  { id:'s1', no:'01', name:'Sesión 1', short:'Comunicaciones', goal:'Base común: radio, circuitos, 9-line y control terminal básico.' },
+  { id:'s2', no:'02', name:'Sesión 2', short:'Circuitos', goal:'Configuración, espera, entrada, salida y contingencias de circuito.' },
+  { id:'s3', no:'03', name:'Sesión 3', short:'9-Line', goal:'Formato, líneas críticas, restricciones y colación.' },
+  { id:'s4', no:'04', name:'Sesión 4', short:'Control terminal', goal:'Correlación, IN, CONTINUE, CLEARED HOT, ABORT y BDA.' },
+  { id:'s5', no:'05', name:'Sesión 5', short:'Integración JTAC', goal:'Integración con maniobra terrestre, prioridades y mando.' },
+  { id:'s6', no:'06', name:'Sesión 6', short:'Sincronización de fuegos', goal:'Separación, coordinación y ventanas de ataque.' },
+  { id:'s7', no:'07', name:'Sesión 7', short:'CAS Plan', goal:'Plan CAS completo, briefing, restricciones y ejecución.' },
+  { id:'s8', no:'08', name:'Sesión 8', short:'Ejercicio final', goal:'Misión completa con evaluación integrada.' }
+];
+
+const criteriaBySession = {
+  s1:[
+    { id:'s1-com', icon:'▣', title:'Comunicaciones', sub:'Procedimientos y fraseología', blocker:false },
+    { id:'s1-cir', icon:'⌂', title:'Circuitos', sub:'Selección y configuración', blocker:false },
+    { id:'s1-9l', icon:'□', title:'9-Line', sub:'Formato y contenido', blocker:true },
+    { id:'s1-ctl', icon:'⌁', title:'Control terminal', sub:'Procedimientos y seguridad', blocker:true }
+  ],
+  s2:[
+    { id:'s2-pri', icon:'⌂', title:'Circuito primario', sub:'Entrada, espera y salida', blocker:false },
+    { id:'s2-alt', icon:'⇄', title:'Circuito alterno', sub:'Plan B y cambio de BP', blocker:false },
+    { id:'s2-conf', icon:'◇', title:'Configuración', sub:'Altura, rumbo y separación', blocker:false },
+    { id:'s2-nordo', icon:'!', title:'Contingencia', sub:'NORDO, amenaza y RTB', blocker:true }
+  ],
+  s3:[
+    { id:'s3-form', icon:'□', title:'Formato', sub:'Orden y ritmo de transmisión', blocker:false },
+    { id:'s3-crit', icon:'4', title:'Líneas críticas', sub:'4 · 6 · 8 + restricciones', blocker:true },
+    { id:'s3-read', icon:'↵', title:'Colación', sub:'Readback y corrección', blocker:true },
+    { id:'s3-rem', icon:'+', title:'Remarks', sub:'FAH, egress, amenaza', blocker:false }
+  ],
+  s4:[
+    { id:'s4-talk', icon:'⌕', title:'Talk-on', sub:'De referencia grande a objetivo', blocker:false },
+    { id:'s4-cor', icon:'◎', title:'Correlación', sub:'CONTACT/TALLY/NO JOY', blocker:true },
+    { id:'s4-clear', icon:'✓', title:'Clearance', sub:'CONTINUE/CLEARED/ABORT', blocker:true },
+    { id:'s4-bda', icon:'▤', title:'BDA', sub:'Resultado y reataque', blocker:false }
+  ],
+  s5:[
+    { id:'s5-prio', icon:'1', title:'Prioridades', sub:'Mando y urgencia táctica', blocker:false },
+    { id:'s5-friend', icon:'◇', title:'Friendlies', sub:'Posición y línea de seguridad', blocker:true },
+    { id:'s5-task', icon:'→', title:'Tasking', sub:'Qué, cuándo y con qué efecto', blocker:false },
+    { id:'s5-flow', icon:'▥', title:'Flujo JTAC', sub:'De check-in a BDA', blocker:true }
+  ],
+  s6:[
+    { id:'s6-sep', icon:'↔', title:'Separación', sub:'Fuegos, aeronaves y tropa', blocker:true },
+    { id:'s6-window', icon:'◷', title:'Ventanas', sub:'Tiempo y autorización', blocker:false },
+    { id:'s6-mark', icon:'✶', title:'Marcaje', sub:'Humo, láser o referencia', blocker:false },
+    { id:'s6-deconf', icon:'⌁', title:'Deconfliction', sub:'No mezclar efectos', blocker:true }
+  ],
+  s7:[
+    { id:'s7-brief', icon:'▤', title:'Briefing', sub:'SMEAC y plan CAS', blocker:false },
+    { id:'s7-rest', icon:'!', title:'Restricciones', sub:'No fires, FAH y egress', blocker:true },
+    { id:'s7-game', icon:'◇', title:'Game plan', sub:'Tipo, método y arma', blocker:false },
+    { id:'s7-adapt', icon:'⇄', title:'Adaptación', sub:'Cambios sin perder seguridad', blocker:true }
+  ],
+  s8:[
+    { id:'s8-start', icon:'▶', title:'Inicio misión', sub:'Briefing, salida y check-in', blocker:false },
+    { id:'s8-exec', icon:'✓', title:'Ejecución', sub:'Control de ataque completo', blocker:true },
+    { id:'s8-safe', icon:'!', title:'Seguridad', sub:'Abort, friendlies, restricciones', blocker:true },
+    { id:'s8-close', icon:'■', title:'Cierre', sub:'BDA, RTB y debrief', blocker:false }
+  ]
+};
+
+const statusMeta = {
+  '':{ letter:'·', label:'Sin evaluar', className:'blank' },
+  apto:{ letter:'A', label:'Apto', className:'apto' },
+  mejora:{ letter:'M', label:'Mejora', className:'mejora' },
+  repetir:{ letter:'R', label:'Repetir', className:'repetir' }
+};
+const cycle = ['', 'apto', 'mejora', 'repetir'];
+const statusMap = { green:'apto', amber:'mejora', red:'repetir', apto:'apto', mejora:'mejora', repetir:'repetir', blank:'' };
+
+let state = defaultState();
+let activeSessionId = 's1';
+let selectedStudentId = state.students[0]?.id || '';
+let selectedCriterionId = criteriaFor(activeSessionId)[0]?.id || '';
+
+function criteriaFor(sessionId){ return criteriaBySession[sessionId] || []; }
+function allCriteria(){ return Object.values(criteriaBySession).flat(); }
+function key(studentId, criterionId){ return `${studentId}|${criterionId}`; }
+
+function defaultState(){
+  const students = Array.from({ length:12 }, (_, index) => ({
+    id:`alumno-${String(index + 1).padStart(2,'0')}`,
+    name:'',
+    callsign:''
+  }));
+  return {
+    schema:'armados.cas.evaluacion.v2',
+    meta:{ course:'', instructor:'', date:'', version:'' },
+    students,
+    cells:{}
+  };
+}
+
+function normalizeState(input){
+  const fallback = defaultState();
+  if(!input || !Array.isArray(input.students)) return fallback;
+  const students = input.students.map((student, index) => ({
+    id:String(student.id || `alumno-${Date.now()}-${index}`),
+    name:String(student.name ?? student.nombre ?? ''),
+    callsign:String(student.callsign ?? student.codigo ?? '')
+  }));
+  const cells = {};
+  const inputCells = input.cells || {};
+  students.forEach(student => {
+    allCriteria().forEach(criterion => {
+      const source = inputCells[key(student.id, criterion.id)] || {};
+      cells[key(student.id, criterion.id)] = {
+        status:statusMap[source.status] ?? '',
+        evidence:String(source.evidence || source.evidencia || ''),
+        action:String(source.action || source.siguiente_ejercicio || '')
+      };
+    });
+  });
+  return {
+    schema:'armados.cas.evaluacion.v2',
+    meta:{ ...fallback.meta, ...(input.meta || {}) },
+    students,
+    cells
+  };
+}
+
+async function loadRepoState(){
+  if(location.protocol === 'file:') return null;
+  try{
+    const response = await fetch(repoDataUrl, { cache:'no-store' });
+    if(!response.ok) return null;
+    return normalizeState(await response.json());
+  }catch(error){
+    return null;
+  }
+}
+
+async function loadInitialState(){
+  const ignoreLocal = new URLSearchParams(location.search).has('fresh');
+  try{
+    const raw = localStorage.getItem(storageKey);
+    if(raw && !ignoreLocal) return normalizeState(JSON.parse(raw));
+  }catch(error){
+    localStorage.removeItem(storageKey);
+  }
+  return await loadRepoState() || defaultState();
+}
+
+function saveState(){
+  state.meta = readMeta();
+  localStorage.setItem(storageKey, JSON.stringify(serializeState()));
+  showSaveStatus('Guardado local');
+}
+
+async function saveAll(){
+  saveState();
+  if(!githubToken){
+    alert('Guardado local. Para guardar en la page/repositorio, entra con un token de GitHub con permiso Contents: write.');
+    return;
+  }
+  await saveToGitHub();
+}
+
+function serializeState(){
+  return {
+    schema:'armados.cas.evaluacion.v2',
+    updated_at:new Date().toISOString(),
+    meta:state.meta,
+    students:state.students,
+    cells:state.cells
+  };
+}
+
+function readMeta(){
+  return {
+    course:document.getElementById('courseInput').value.trim(),
+    instructor:document.getElementById('instructorInput').value.trim(),
+    date:document.getElementById('dateInput').value.trim(),
+    version:document.getElementById('versionInput').value.trim()
+  };
+}
+
+function setMeta(){
+  document.getElementById('courseInput').value = state.meta.course || '';
+  document.getElementById('instructorInput').value = state.meta.instructor || '';
+  document.getElementById('dateInput').value = state.meta.date || '';
+  document.getElementById('versionInput').value = state.meta.version || '';
+}
+
+function getCell(studentId, criterionId){
+  const cellKey = key(studentId, criterionId);
+  if(!state.cells[cellKey]) state.cells[cellKey] = { status:'', evidence:'', action:'' };
+  return state.cells[cellKey];
+}
+
+function renderAll(){
+  setMeta();
+  renderSessions();
+  renderBoard();
+  renderDetail();
+  renderStats();
+  showSaveStatus(localStorage.getItem(storageKey) ? 'Guardado local' : 'Pendiente');
+}
+
+function renderSessions(){
+  document.getElementById('sessionList').innerHTML = sessions.map(session => {
+    const stats = sessionStats(session.id);
+    const label = stats.done === 0 ? 'Sin evaluar' : `${stats.done}/${stats.total} celdas`;
+    return `<button class="session-tab ${session.id === activeSessionId ? 'active' : ''}" type="button" data-session="${session.id}">
+      <div class="session-no">${session.no}</div>
+      <div><div class="session-name">${escapeHtml(session.name)}</div><div class="session-state">${escapeHtml(session.short)} · ${label}</div></div>
+      <div class="session-arrow">›</div>
+    </button>`;
+  }).join('');
+}
+
+function renderBoard(){
+  const session = sessions.find(item => item.id === activeSessionId);
+  const criteria = criteriaFor(activeSessionId);
+  document.getElementById('activeSessionTitle').textContent = `${session.no} · ${session.name} | ${session.short}`;
+  document.getElementById('activeSessionGoal').textContent = session.goal;
+  document.getElementById('matrixHead').innerHTML = `<tr>
+    <th class="student-head">Alumno<br><span class="criterion-sub">(${state.students.length})</span></th>
+    ${criteria.map(criterion => `<th>
+      <div class="criterion-icon">${criterion.icon}</div>
+      <div class="criterion-title">${escapeHtml(criterion.title)}</div>
+      <div class="criterion-sub">${escapeHtml(criterion.sub)}${criterion.blocker ? ' · bloqueante' : ''}</div>
+    </th>`).join('')}
+  </tr>`;
+  document.getElementById('matrixBody').innerHTML = state.students.map((student, index) => `<tr data-student="${student.id}">
+    <td class="student-cell">
+      <div class="student-row">
+        <div class="row-no">${String(index + 1).padStart(2,'0')}</div>
+        <div>
+          <input class="student-input" data-student-name="${student.id}" value="${escapeAttr(student.name)}" aria-label="Nombre alumno ${index + 1}">
+          <input class="callsign-input" data-student-callsign="${student.id}" value="${escapeAttr(student.callsign)}" aria-label="Callsign alumno ${index + 1}">
+        </div>
+      </div>
+    </td>
+    ${criteria.map(criterion => renderCell(student.id, criterion.id)).join('')}
+  </tr>`).join('');
+}
+
+function renderCell(studentId, criterionId){
+  const cell = getCell(studentId, criterionId);
+  const meta = statusMeta[cell.status] || statusMeta[''];
+  const selected = studentId === selectedStudentId && criterionId === selectedCriterionId;
+  return `<td class="eval-cell">
+    <button class="cell-btn ${meta.className} ${selected ? 'selected' : ''}" type="button" data-student="${studentId}" data-criterion="${criterionId}" aria-label="${meta.label}">
+      <span class="mini">${meta.letter}</span><span>${meta.label}</span>
+    </button>
+  </td>`;
+}
+
+function renderDetail(){
+  const student = state.students.find(item => item.id === selectedStudentId) || state.students[0];
+  const criterion = allCriteria().find(item => item.id === selectedCriterionId) || criteriaFor(activeSessionId)[0];
+  if(!student || !criterion){
+    document.getElementById('studentSummary').innerHTML = '<div class="empty-panel">Añade un alumno para empezar.</div>';
+    document.getElementById('cellEditor').innerHTML = '';
+    return;
+  }
+  selectedStudentId = student.id;
+  selectedCriterionId = criterion.id;
+  const stats = studentSessionStats(student.id, activeSessionId);
+  const current = getCell(student.id, criterion.id);
+  const currentMeta = statusMeta[current.status] || statusMeta[''];
+  document.getElementById('studentSummary').innerHTML = `<div class="student-summary">
+    <div class="summary-line">
+      <div>
+        <div class="summary-state">${escapeHtml(sessions.find(item => item.id === activeSessionId)?.short || '')}</div>
+        <div class="summary-name">${escapeHtml(student.name)}</div>
+      </div>
+      <span class="badge ${currentMeta.className}">${currentMeta.letter}</span>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><b>${stats.apto}</b><span>Apto</span></div>
+      <div class="mini-stat"><b>${stats.mejora}</b><span>Mejora</span></div>
+      <div class="mini-stat"><b>${stats.repetir}</b><span>Repetir</span></div>
+      <div class="mini-stat"><b>${stats.blank}</b><span>Vacío</span></div>
+    </div>
+  </div>`;
+  document.getElementById('cellEditor').innerHTML = `<div class="editor">
+    <div class="editor-meta">${escapeHtml(criterion.title)} · ${escapeHtml(criterion.sub)}</div>
+    <div class="status-palette">
+      ${Object.entries(statusMeta).map(([status, meta]) => `<button class="status-choice ${meta.className} ${current.status === status ? 'active' : ''}" type="button" data-status="${status}">${meta.letter}</button>`).join('')}
+    </div>
+    <label>Evidencia observada
+      <textarea id="evidenceInput" placeholder="Qué hizo el alumno en esta sesión.">${escapeHtml(current.evidence)}</textarea>
+    </label>
+    <label>Siguiente ejercicio
+      <textarea id="actionInput" placeholder="Qué debe repetir o consolidar.">${escapeHtml(current.action)}</textarea>
+    </label>
+    <div class="hint">Si una sesión aún no se ha impartido, deja sus celdas vacías. Vacío significa pendiente, no suspenso.</div>
+  </div>`;
+}
+
+function renderStats(){
+  const stats = sessionStats(activeSessionId);
+  document.getElementById('sideStats').innerHTML = `<div class="stat-box"><div class="label">Alumnos</div><div class="value">${state.students.length}</div></div>
+  <div class="stat-box"><div class="label">Vacías</div><div class="value">${stats.blank}</div></div>`;
+}
+
+function sessionStats(sessionId){
+  const criteria = criteriaFor(sessionId);
+  const total = state.students.length * criteria.length;
+  const stats = { total, done:0, blank:0, apto:0, mejora:0, repetir:0 };
+  state.students.forEach(student => {
+    criteria.forEach(criterion => {
+      const status = getCell(student.id, criterion.id).status || '';
+      if(status) stats.done++; else stats.blank++;
+      if(stats[status] !== undefined) stats[status]++;
+    });
+  });
+  return stats;
+}
+
+function studentSessionStats(studentId, sessionId){
+  const stats = { blank:0, apto:0, mejora:0, repetir:0 };
+  criteriaFor(sessionId).forEach(criterion => {
+    const status = getCell(studentId, criterion.id).status || '';
+    stats[status]++;
+  });
+  return stats;
+}
+
+function cycleStatus(status){
+  return cycle[(cycle.indexOf(status) + 1) % cycle.length] || '';
+}
+
+function selectCell(studentId, criterionId, shouldCycle){
+  selectedStudentId = studentId;
+  selectedCriterionId = criterionId;
+  if(shouldCycle){
+    const cell = getCell(studentId, criterionId);
+    cell.status = cycleStatus(cell.status || '');
+    saveState();
+  }
+  renderBoard();
+  renderDetail();
+  renderStats();
+  renderSessions();
+}
+
+function addStudent(){
+  const next = state.students.length + 1;
+  const id = `alumno-${Date.now().toString(36)}`;
+  state.students.push({ id, name:`ALUMNO ${String(next).padStart(2,'0')}`, callsign:String(next).padStart(2,'0') });
+  allCriteria().forEach(criterion => { state.cells[key(id, criterion.id)] = { status:'', evidence:'', action:'' }; });
+  selectedStudentId = id;
+  selectedCriterionId = criteriaFor(activeSessionId)[0].id;
+  saveState();
+  renderAll();
+}
+
+function updateStudent(studentId, field, value){
+  const student = state.students.find(item => item.id === studentId);
+  if(!student) return;
+  student[field] = value;
+  saveState();
+  renderDetail();
+}
+
+function updateNotes(){
+  const cell = getCell(selectedStudentId, selectedCriterionId);
+  cell.evidence = document.getElementById('evidenceInput')?.value || '';
+  cell.action = document.getElementById('actionInput')?.value || '';
+  saveState();
+}
+
+function setStatus(status){
+  const cell = getCell(selectedStudentId, selectedCriterionId);
+  cell.status = status;
+  saveState();
+  renderBoard();
+  renderDetail();
+  renderStats();
+  renderSessions();
+}
+
+function exportJson(){
+  saveState();
+  downloadFile('evaluacion-cas.json', JSON.stringify(serializeState(), null, 2), 'application/json;charset=utf-8');
+}
+
+async function saveToGitHub(){
+  const payload = JSON.stringify(serializeState(), null, 2) + '\n';
+  const results = [];
+  showSaveStatus('Guardando en GitHub...');
+  for(const branch of githubSave.branches){
+    results.push(await saveBranchToGitHub(branch, payload));
+  }
+  const failed = results.filter(result => !result.ok);
+  if(failed.length){
+    const detail = failed.map(result => `${result.branch}: ${result.message}`).join('\n');
+    showSaveStatus('Error GitHub');
+    alert(`No se pudo guardar en todas las ramas.\n${detail}`);
+    return;
+  }
+  showSaveStatus(`Guardado online ${githubSave.branches.join('+')}`);
+  alert('Guardado en GitHub. GitHub Pages puede tardar 1-2 minutos en reflejar el cambio.');
+}
+
+async function saveBranchToGitHub(branch, content){
+  const path = githubSave.path.split('/').map(encodeURIComponent).join('/');
+  const base = `https://api.github.com/repos/${githubSave.owner}/${githubSave.repo}/contents/${path}`;
+  try{
+    const currentResponse = await fetch(`${base}?ref=${encodeURIComponent(branch)}`, {
+      headers: githubHeaders()
+    });
+    let sha = undefined;
+    if(currentResponse.ok){
+      const current = await currentResponse.json();
+      sha = current.sha;
+    }else if(currentResponse.status !== 404){
+      return { ok:false, branch, message:await githubError(currentResponse) };
+    }
+    const putResponse = await fetch(base, {
+      method:'PUT',
+      headers:{ ...githubHeaders(), 'Content-Type':'application/json' },
+      body:JSON.stringify({
+        message:`Actualizar evaluacion CAS (${state.meta.course || 'curso'})`,
+        content:toBase64(content),
+        sha,
+        branch
+      })
+    });
+    if(!putResponse.ok){
+      return { ok:false, branch, message:await githubError(putResponse) };
+    }
+    return { ok:true, branch };
+  }catch(error){
+    return { ok:false, branch, message:error.message || 'Error de red' };
+  }
+}
+
+function githubHeaders(){
+  return {
+    Accept:'application/vnd.github+json',
+    Authorization:`Bearer ${githubToken}`,
+    'X-GitHub-Api-Version':'2022-11-28'
+  };
+}
+
+async function githubError(response){
+  try{
+    const data = await response.json();
+    return `${response.status} ${data.message || response.statusText}`;
+  }catch(error){
+    return `${response.status} ${response.statusText}`;
+  }
+}
+
+function toBase64(text){
+  const bytes = new TextEncoder().encode(text);
+  let binary = '';
+  const chunk = 0x8000;
+  for(let index = 0; index < bytes.length; index += chunk){
+    binary += String.fromCharCode(...bytes.subarray(index, index + chunk));
+  }
+  return btoa(binary);
+}
+
+function importJsonFile(file){
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try{
+      state = normalizeState(JSON.parse(String(reader.result || '{}')));
+      activeSessionId = 's1';
+      selectedStudentId = state.students[0]?.id || '';
+      selectedCriterionId = criteriaFor(activeSessionId)[0]?.id || '';
+      saveState();
+      renderAll();
+    }catch(error){
+      alert('El JSON no tiene formato válido para esta hoja evaluativa.');
+    }
+  };
+  reader.readAsText(file, 'utf-8');
+}
+
+function downloadFile(filename, content, type){
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function showSaveStatus(text){
+  const target = document.getElementById('saveStatus');
+  if(!target) return;
+  const stamp = new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit' });
+  target.textContent = `${text} · ${stamp}`;
+}
+
+async function hashPin(value){
+  if(!window.crypto?.subtle){
+    let hash = 0;
+    for(let index = 0; index < value.length; index++){
+      hash = ((hash << 5) - hash) + value.charCodeAt(index);
+      hash |= 0;
+    }
+    return `fallback-${Math.abs(hash)}`;
+  }
+  const bytes = new TextEncoder().encode(value);
+  const hash = await crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(hash)).map(byte => byte.toString(16).padStart(2,'0')).join('');
+}
+
+function configureLockCopy(){
+  document.getElementById('lockTitle').textContent = 'Acceso evaluación';
+  document.getElementById('lockText').textContent = 'Introduce la clave de edición para abrir la hoja.';
+}
+
+function unlockApp(){
+  document.getElementById('lockScreen').hidden = true;
+  document.getElementById('appShell').hidden = false;
+  renderAll();
+}
+
+function lockApp(){
+  document.getElementById('appShell').hidden = true;
+  document.getElementById('lockScreen').hidden = false;
+  configureLockCopy();
+  document.getElementById('pinInput').value = '';
+  document.getElementById('githubTokenInput').value = '';
+  githubToken = '';
+  document.getElementById('pinInput').focus();
+}
+
+async function handleUnlock(){
+  const input = document.getElementById('pinInput');
+  const pin = input.value.trim();
+  if(pin.length < 4){
+    alert('Usa una clave de al menos 4 caracteres.');
+    return;
+  }
+  const candidateHash = await hashPin(pin);
+  githubToken = document.getElementById('githubTokenInput').value.trim();
+  if(accessPinHashes.includes(candidateHash)){
+    unlockApp();
+    return;
+  }
+  alert('Clave incorrecta.');
+  input.select();
+}
+
+function escapeHtml(value){
+  return String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'","&#039;");
+}
+function escapeAttr(value){ return escapeHtml(value); }
+
+document.addEventListener('click', event => {
+  const sessionBtn = event.target.closest('[data-session]');
+  if(sessionBtn){
+    activeSessionId = sessionBtn.dataset.session;
+    selectedCriterionId = criteriaFor(activeSessionId)[0]?.id || selectedCriterionId;
+    renderAll();
+    return;
+  }
+  const cellBtn = event.target.closest('.cell-btn');
+  if(cellBtn){
+    selectCell(cellBtn.dataset.student, cellBtn.dataset.criterion, true);
+    return;
+  }
+  const statusBtn = event.target.closest('[data-status]');
+  if(statusBtn){
+    setStatus(statusBtn.dataset.status);
+  }
+});
+
+document.addEventListener('input', event => {
+  if(event.target.matches('[data-student-name]')) updateStudent(event.target.dataset.studentName, 'name', event.target.value);
+  if(event.target.matches('[data-student-callsign]')) updateStudent(event.target.dataset.studentCallsign, 'callsign', event.target.value);
+  if(event.target.id === 'evidenceInput' || event.target.id === 'actionInput') updateNotes();
+  if(event.target.closest('.meta-field')) saveState();
+});
+
+document.getElementById('addStudentBtn').addEventListener('click', addStudent);
+document.getElementById('saveBtn').addEventListener('click', saveAll);
+document.getElementById('exportJsonBtn').addEventListener('click', exportJson);
+document.getElementById('importJsonInput').addEventListener('change', event => {
+  importJsonFile(event.target.files?.[0]);
+  event.target.value = '';
+});
+document.getElementById('lockBtn').addEventListener('click', lockApp);
+document.getElementById('unlockBtn').addEventListener('click', handleUnlock);
+document.getElementById('pinInput').addEventListener('keydown', event => {
+  if(event.key === 'Enter') handleUnlock();
+});
+
+async function init(){
+  state = await loadInitialState();
+  selectedStudentId = state.students[0]?.id || '';
+  selectedCriterionId = criteriaFor(activeSessionId)[0]?.id || '';
+  configureLockCopy();
+}
+init();
+</script>
+</body>
+</html>
