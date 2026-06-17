@@ -1,57 +1,57 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-17T21:38:41.407Z",
+  "updated_at": "2026-06-17T21:43:35.639Z",
   "meta": {
-    "course": "",
-    "instructor": "",
-    "date": "",
+    "course": "CAS/ JTAC",
+    "instructor": "<A2>Rayon",
+    "date": "18/06/2026",
     "version": ""
   },
   "students": [
     {
       "id": "alumno-01",
-      "name": "<A2>",
-      "callsign": ""
+      "name": "ffreys",
+      "callsign": "<A2>"
     },
     {
       "id": "alumno-02",
-      "name": "<A2>",
-      "callsign": ""
+      "name": "Perotte",
+      "callsign": "<A2>"
     },
     {
       "id": "alumno-03",
-      "name": "<A2>",
-      "callsign": ""
+      "name": "jonyfdez",
+      "callsign": "<A2>"
     },
     {
       "id": "alumno-04",
-      "name": "<A2>",
+      "name": "Wiljos",
       "callsign": ""
     },
     {
       "id": "alumno-05",
-      "name": "",
-      "callsign": ""
+      "name": "Phenix",
+      "callsign": "<A2>"
     },
     {
       "id": "alumno-06",
-      "name": "",
-      "callsign": ""
+      "name": "Bestiajez",
+      "callsign": "<A2>"
     },
     {
       "id": "alumno-07",
-      "name": "",
+      "name": "Rust",
       "callsign": ""
     },
     {
       "id": "alumno-08",
-      "name": "",
-      "callsign": ""
+      "name": "Brako",
+      "callsign": "<A2>"
     },
     {
       "id": "alumno-09",
-      "name": "",
-      "callsign": ""
+      "name": "Gomez",
+      "callsign": "<A2>"
     },
     {
       "id": "alumno-10",
