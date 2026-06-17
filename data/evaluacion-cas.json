@@ -1,6 +1,6 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-17T00:00:00.000Z",
+  "updated_at": "2026-06-17T21:38:41.407Z",
   "meta": {
     "course": "",
     "instructor": "",
@@ -8,18 +8,1987 @@
     "version": ""
   },
   "students": [
-    { "id": "alumno-01", "name": "", "callsign": "" },
-    { "id": "alumno-02", "name": "", "callsign": "" },
-    { "id": "alumno-03", "name": "", "callsign": "" },
-    { "id": "alumno-04", "name": "", "callsign": "" },
-    { "id": "alumno-05", "name": "", "callsign": "" },
-    { "id": "alumno-06", "name": "", "callsign": "" },
-    { "id": "alumno-07", "name": "", "callsign": "" },
-    { "id": "alumno-08", "name": "", "callsign": "" },
-    { "id": "alumno-09", "name": "", "callsign": "" },
-    { "id": "alumno-10", "name": "", "callsign": "" },
-    { "id": "alumno-11", "name": "", "callsign": "" },
-    { "id": "alumno-12", "name": "", "callsign": "" }
+    {
+      "id": "alumno-01",
+      "name": "<A2>",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-02",
+      "name": "<A2>",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-03",
+      "name": "<A2>",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-04",
+      "name": "<A2>",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-05",
+      "name": "",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-06",
+      "name": "",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-07",
+      "name": "",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-08",
+      "name": "",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-09",
+      "name": "",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-10",
+      "name": "",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-11",
+      "name": "",
+      "callsign": ""
+    },
+    {
+      "id": "alumno-12",
+      "name": "",
+      "callsign": ""
+    }
   ],
-  "cells": {}
+  "cells": {
+    "alumno-01|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-01|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-02|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-03|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-04|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-05|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-06|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-07|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-08|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-09|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-10|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-11|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s1-cir": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s1-9l": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s1-ctl": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s2-pri": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s2-alt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s2-conf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s2-nordo": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-12|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    }
+  }
 }
