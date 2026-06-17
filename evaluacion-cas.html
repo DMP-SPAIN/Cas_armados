@@ -874,7 +874,7 @@ function applyEditMode(){
 function openEditorLogin(){
   configureLockCopy();
   document.getElementById('pinInput').value = '';
-  document.getElementById('githubTokenInput').value = '';
+  document.getElementById('githubTokenInput').value = localStorage.getItem('armados.cas.githubToken') || '';
   document.getElementById('lockScreen').hidden = false;
   setTimeout(() => document.getElementById('pinInput').focus(), 0);
 }
@@ -908,6 +908,7 @@ async function handleUnlock(){
   const candidateHash = await hashPin(pin);
   githubToken = document.getElementById('githubTokenInput').value.trim();
   if(accessPinHashes.includes(candidateHash)){
+    if(githubToken) localStorage.setItem('armados.cas.githubToken', githubToken);
     unlockApp();
     return;
   }
