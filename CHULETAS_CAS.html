@@ -610,6 +610,30 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <p class="map-hint">Uso: dibuja rutas, BP, CP, objetivo, amigos, humo y ejes de entrada/salida. Se guarda solo en este navegador; para compartirlo con el grupo, exporta PNG y súbelo al canal de la misión.</p>
   </article>
 
+  <!-- ============ D2. JTAC CHECK-IN / SITREP ============ -->
+  <article class="card wide critical" id="jtac-dia2">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">D2</span><h2>JTAC · Día 2</h2><span class="tag">check-in · espera · SITREP</span></div>
+    <div class="toolgrid">
+      <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="d2-jtac-active" data-placeholder="LINCE 1 / LINCE 2 / LINCE 3"></div></div>
+      <div class="field"><label>Vuelo</label><div class="fill" contenteditable="true" data-card-key="d2-flight" data-placeholder="FORD 1 / dos Kiowa"></div></div>
+      <div class="field"><label>CP / BP</label><div class="fill" contenteditable="true" data-card-key="d2-cp-bp" data-placeholder="CP Oeste / BP Lago Oeste"></div></div>
+      <div class="field"><label>Espera</label><div class="fill" contenteditable="true" data-card-key="d2-hold" data-placeholder="Mantenga oeste del lago"></div></div>
+      <div class="field big"><label>Amigos</label><div class="fill" contenteditable="true" data-card-key="d2-friendlies" data-placeholder="LINCE en linde sur del bosque"></div></div>
+      <div class="field big"><label>Enemigo observado</label><div class="fill" contenteditable="true" data-card-key="d2-enemy" data-placeholder="Casas al norte de carretera"></div></div>
+      <div class="field big"><label>Restricción</label><div class="fill" contenteditable="true" data-card-key="d2-restriction" data-placeholder="No cruce carretera norte / no sobrevolar amigos"></div></div>
+      <div class="field big"><label>Colación exigida</label><div class="fill" contenteditable="true" data-card-key="d2-readback" data-placeholder="Amigos + restricción + espera"></div></div>
+    </div>
+    <p class="minihelp">Uso Día 2: el JTAC recibe check-in, manda espera, da SITREP simple y pide colación. <b>No</b> game plan, <b>no</b> 5-line/9-line, <b>no</b> CLEARED HOT.</p>
+    <pre class="pre" style="margin-top:10px"><span class="pil">FORD 1:</span> "LINCE, FORD 1, establecido CP Oeste, listo check-in."
+<span class="jt">LINCE 1:</span> "FORD 1, LINCE 1, adelante check-in."
+<span class="pil">FORD 1:</span> "LINCE 1, FORD 1, misión Ford-02, dos Kiowa, establecido CP Oeste, cohetes Hydra y .50. Tiempo en estación 25 minutos. ABORT en claro."
+<span class="jt">LINCE 1:</span> "Recibido check-in. Mantenga espera oeste del lago. Restricción: no cruce carretera norte."
+<span class="pil">FORD 1:</span> "Mantengo espera oeste del lago, no cruzo carretera norte, FORD 1."
+<span class="jt">LINCE 1:</span> "SITREP: amigos en linde sur del bosque, enemigo observado en casas al norte de carretera, sin AA vista. Colacione amigos y restricción."
+<span class="pil">FORD 1:</span> "Amigos al sur del bosque, no cruzo carretera norte, enemigo al norte de carretera."</pre>
+  </article>
+
   <!-- ============ J. HERRAMIENTA JTAC ============ -->
   <article class="card wide critical" id="jtac-tool">
     <span class="bk"></span>
