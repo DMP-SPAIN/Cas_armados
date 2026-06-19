@@ -11,7 +11,8 @@ La version navegable esta disponible en GitHub Pages:
 - Manual del alumno: <https://dmp-spain.github.io/Cas_armados/>
 - Chuletas CAS: <https://dmp-spain.github.io/Cas_armados/CHULETAS_CAS.html>
 - Manual de instructores: <https://dmp-spain.github.io/Cas_armados/MANUAL_INSTRUCTORES_CAS.html>
-- Guia Dia 1 - Operacion FORD: <https://dmp-spain.github.io/Cas_armados/guia-dia1-operacion-ford.html>
+- Guia Dia 1 - Comunicaciones y check-in: <https://dmp-spain.github.io/Cas_armados/guia-dia1-operacion-ford.html>
+- Guia Dia 2 - Check-in real y SITREP: <https://dmp-spain.github.io/Cas_armados/guia-dia2-checkin-sitrep.html>
 
 ## Que contiene
 
@@ -31,9 +32,13 @@ Su funcion no es sustituir al manual, sino reducir la carga mental cuando ya se 
 
 Guia para preparar y dirigir sesiones de formacion. Ordena la progresion por fases, propone ejercicios, criterios de evaluacion, errores frecuentes y una forma comun de conducir la instruccion sin improvisar cada clase desde cero.
 
-### Guia Dia 1 - Operacion FORD
+### Guia Dia 1 - Comunicaciones y check-in
 
-Sesion inicial estructurada para introducir comunicaciones, gestion de grupo, circuito, contacto JTAC basico y contingencias sencillas. Esta orientada a que el primer dia sea practico, controlado y comprensible.
+Sesion inicial estructurada para introducir comunicaciones de transito sin torre, rodaje, despegue, vuelo inicial y primer check-in seco con JTAC.
+
+### Guia Dia 2 - Check-in real y SITREP
+
+Segundo ejercicio de progresion: vuelo a CP/BP, check-in real en el aire, espera segura, SITREP simple, colacion y rotacion de JTAC para que todos practiquen hablar.
 
 ## Enfoque del proyecto
 
@@ -79,4 +84,3 @@ Antes de proponer cambios conviene revisar el material publicado para evitar dup
 ## Aviso
 
 Arma Reforger es propiedad de sus respectivos titulares. Este repositorio es material comunitario no oficial y no esta afiliado ni respaldado por Bohemia Interactive.
-

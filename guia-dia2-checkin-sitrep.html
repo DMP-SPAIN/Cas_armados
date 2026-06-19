@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuela CAS ArmadOS · Día 2 · Check-in real y SITREP</title>
+<meta name="description" content="Guía de alumno e instructor para el Día 2 CAS: vuelo a CP/BP, check-in en vuelo, espera segura, SITREP simple y rotación activa de JTAC.">
+<link rel="icon" href="data:,">
+<style>
+:root{--bg:#0b1110;--panel:#17241f;--panel2:#20322b;--ink:#ecf2ed;--muted:#aeb8b0;--faint:#7f8a82;--line:rgba(180,205,190,.24);--green:#9fca7b;--amber:#f1aa3d;--red:#df5a45;--blue:#6da8d8;--display:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;--mono:'Consolas','Courier New',monospace;--body:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% -5%,rgba(127,176,105,.16),transparent 32%),linear-gradient(135deg,var(--bg),#111915 62%,#090d0c);color:var(--ink);font-family:var(--body);line-height:1.55}
+nav{position:sticky;top:0;z-index:5;background:rgba(10,16,14,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.navin{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:10px 18px;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);letter-spacing:.08em;text-transform:uppercase}.mark{width:34px;height:34px;border:1px solid var(--amber);display:grid;place-items:center;color:var(--amber)}.links{display:flex;gap:8px;flex-wrap:wrap}.links a,.print{color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:7px 10px;border-radius:6px;background:rgba(255,255,255,.03);font-size:12px;text-transform:uppercase;font-weight:700}.print{color:var(--amber);cursor:pointer}
+.hero{max-width:1180px;margin:28px auto 20px;padding:0 18px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px}.hero-card,.side,.slide{border:1px solid var(--line);background:linear-gradient(180deg,rgba(32,50,43,.94),rgba(18,29,25,.96));border-radius:12px;box-shadow:0 18px 48px rgba(0,0,0,.26)}.hero-card{padding:26px;position:relative;overflow:hidden}.kicker,.tag{font-family:var(--mono);color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:12px}.hero h1{font-family:var(--display);font-size:clamp(42px,7vw,86px);line-height:.92;text-transform:uppercase;margin:12px 0}.subtitle{font-size:18px;color:var(--muted);max-width:760px}.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.stat{border:1px solid var(--line);background:rgba(9,13,12,.48);padding:12px}.stat b{display:block;font-family:var(--display);font-size:28px}.stat span{font-size:12px;color:var(--faint);text-transform:uppercase;font-weight:700}.side{padding:20px}.side h2{font-family:var(--display);font-size:34px;text-transform:uppercase;margin:8px 0}.side ul{padding-left:18px;color:var(--muted)}
+.deck{max-width:1180px;margin:0 auto;padding:8px 18px 50px;display:grid;gap:20px}.slide{overflow:hidden}.slide-head{display:grid;grid-template-columns:74px 1fr auto;gap:14px;align-items:center;padding:18px 22px;background:linear-gradient(90deg,rgba(127,176,105,.20),rgba(255,255,255,.02));border-bottom:1px solid var(--line)}.num{font-family:var(--display);font-size:44px;color:var(--amber)}h2{font-family:var(--display);font-size:34px;text-transform:uppercase;margin:0}.slide-body{padding:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.box{background:rgba(9,13,12,.38);border:1px solid var(--line);border-radius:10px;padding:16px}.box h3{margin:0 0 8px;color:var(--amber);text-transform:uppercase}.box p,.box li{color:var(--muted)}.box ul,.box ol{margin:8px 0 0 18px;padding:0}.callout{border-left:5px solid var(--amber);background:rgba(241,170,61,.08);padding:14px 16px;margin-top:16px}.ok{border-left-color:var(--green);background:rgba(127,176,105,.08)}.warn{border-left-color:var(--red);background:rgba(223,90,69,.08)}
+.timeline{display:grid;gap:10px}.phase{display:grid;grid-template-columns:92px 1fr 170px;gap:12px;align-items:center;border:1px solid var(--line);background:rgba(9,13,12,.34);padding:12px}.time{font-family:var(--display);font-size:28px;color:var(--amber)}.owner{font-family:var(--mono);font-size:12px;color:var(--green);text-align:right;text-transform:uppercase}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.node{border:1px solid var(--line);background:rgba(127,176,105,.07);padding:12px;border-radius:10px}.node b{display:block;color:var(--amber);text-transform:uppercase}.node span{font-size:13px;color:var(--muted)}
+.radio{font-family:var(--mono);white-space:pre-wrap;background:#09100d;border:1px solid rgba(127,176,105,.28);border-radius:10px;padding:14px;color:#dcefe0}.ford{color:var(--blue);font-weight:900}.lince{color:var(--green);font-weight:900}.sys{color:var(--faint)}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{color:var(--amber);text-transform:uppercase;font-size:12px}
+@media(max-width:900px){.hero,.grid2,.grid3{grid-template-columns:1fr}.strip,.flow{grid-template-columns:1fr 1fr}.slide-head{grid-template-columns:1fr}.phase{grid-template-columns:1fr}.owner{text-align:left}.links{display:none}}@media print{nav{display:none}body{background:#fff;color:#111}.hero,.deck{max-width:none}.slide,.hero-card,.side,.box{box-shadow:none;break-inside:avoid;background:#fff;color:#111}.radio{background:#f4f4f4;color:#111}}
+</style>
+</head>
+<body>
+<nav><div class="navin"><div class="brand"><div class="mark">D2</div><span>Escuela CAS ArmadOS</span></div><div class="links"><a href="#objetivo">Objetivo</a><a href="#agenda">Agenda</a><a href="#jtac">JTAC</a><a href="#script">Script</a><a href="#evaluacion">Evaluación</a><button class="print" onclick="window.print()">Imprimir</button></div></div></nav>
+
+<header class="hero">
+  <section class="hero-card">
+    <div class="kicker">Guía de alumno e instructor · Día 2</div>
+    <h1>Check-in real y SITREP simple</h1>
+    <p class="subtitle">Siguiente ejercicio tras el Día 1: volar a un punto concreto, entrar en frecuencia JTAC, hacer check-in real en el aire, recibir espera segura y practicar SITREP simple con rotación activa de JTAC.</p>
+    <div class="strip">
+      <div class="stat"><b>90</b><span>minutos</span></div>
+      <div class="stat"><b>0</b><span>armas</span></div>
+      <div class="stat"><b>CP/BP</b><span>punto concreto</span></div>
+      <div class="stat"><b>JTAC</b><span>hablan todos</span></div>
+    </div>
+  </section>
+  <aside class="side">
+    <div class="tag">Límite</div>
+    <h2>No es ataque</h2>
+    <ul>
+      <li>No hay game plan.</li>
+      <li>No hay 9-line.</li>
+      <li>No hay IN/OFF.</li>
+      <li>No hay autorización de fuego.</li>
+      <li>Sí hay check-in, espera, SITREP y colación.</li>
+    </ul>
+  </aside>
+</header>
+
+<main class="deck">
+  <section id="objetivo" class="slide">
+    <div class="slide-head"><div class="num">01</div><h2>Objetivo del día</h2><div class="tag">Avance realista</div></div>
+    <div class="slide-body">
+      <div class="grid2">
+        <div class="box"><h3>De dónde venimos</h3><p>En el Día 1 se practicó radio de tránsito, arranque/rodaje/despegue emulado y check-in en seco. Los JTAC quedaron demasiado a la escucha.</p></div>
+        <div class="box"><h3>A dónde vamos</h3><p>Ahora el vuelo se mueve de verdad a un CP/BP, el piloto hace check-in en vuelo y cada JTAC debe hablar, dar espera y emitir un SITREP simple.</p></div>
+      </div>
+      <div class="callout ok"><b>Criterio:</b> si el check-in, la espera o la colación salen sucios, se repite. No se avanza a game plan.</div>
+    </div>
+  </section>
+
+  <section id="agenda" class="slide">
+    <div class="slide-head"><div class="num">02</div><h2>Agenda 90 minutos</h2><div class="tag">Ritmo de clase</div></div>
+    <div class="slide-body">
+      <div class="timeline">
+        <div class="phase"><div class="time">00-10</div><div><b>Briefing.</b><br><span>CP, BP, frecuencia JTAC, abort, JTAC activo y orden de rotación.</span></div><div class="owner">Instructor</div></div>
+        <div class="phase"><div class="time">10-25</div><div><b>Repaso Día 1.</b><br><span>Tránsito, rodaje, despegue y llamada inicial a LINCE.</span></div><div class="owner">FORD</div></div>
+        <div class="phase"><div class="time">25-40</div><div><b>Vuelo a CP/BP.</b><br><span>El vuelo se establece en el punto concreto sin saturar radio.</span></div><div class="owner">FORD 1</div></div>
+        <div class="phase"><div class="time">40-65</div><div><b>Rondas JTAC.</b><br><span>Cada JTAC recibe check-in, manda espera y da SITREP simple.</span></div><div class="owner">LINCE 1/2/3</div></div>
+        <div class="phase"><div class="time">65-80</div><div><b>Colación.</b><br><span>El piloto repite restricción, amigos, enemigo y espera.</span></div><div class="owner">Todos</div></div>
+        <div class="phase"><div class="time">80-90</div><div><b>Debrief.</b><br><span>Un punto fuerte, un error de radio y tarea para siguiente sesión.</span></div><div class="owner">Instructor</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">03</div><h2>Preparación en pizarra</h2><div class="tag">Antes de despegar</div></div>
+    <div class="slide-body">
+      <div class="grid3">
+        <div class="box"><h3>Vuelo</h3><ul><li>Indicativo: FORD.</li><li>CP: entrada.</li><li>BP/espera: punto seguro.</li><li>Tiempo en estación.</li></ul></div>
+        <div class="box"><h3>JTAC</h3><ul><li>LINCE 1 activo ronda 1.</li><li>LINCE 2 activo ronda 2.</li><li>LINCE 3 activo ronda 3.</li><li>Observadores solo pasan notas por interna.</li></ul></div>
+        <div class="box"><h3>Seguridad</h3><ul><li>Sin armas.</li><li>No cruzar la restricción.</li><li>Si hay duda: espera.</li><li>ABORT en claro.</li></ul></div>
+      </div>
+      <div class="callout"><b>Regla para forzar participación:</b> quien no sea JTAC activo debe preparar el siguiente SITREP por escrito y entregarlo cuando rote.</div>
+    </div>
+  </section>
+
+  <section id="jtac" class="slide">
+    <div class="slide-head"><div class="num">04</div><h2>Trabajo del JTAC</h2><div class="tag">Hablar sin atacar</div></div>
+    <div class="slide-body">
+      <div class="flow">
+        <div class="node"><b>1</b><span>Identifica a FORD.</span></div>
+        <div class="node"><b>2</b><span>Da paso al check-in.</span></div>
+        <div class="node"><b>3</b><span>Manda espera.</span></div>
+        <div class="node"><b>4</b><span>Da SITREP.</span></div>
+        <div class="node"><b>5</b><span>Pide colación.</span></div>
+        <div class="node"><b>6</b><span>Cierra o rota.</span></div>
+      </div>
+      <div class="grid2" style="margin-top:16px">
+        <div class="box"><h3>SITREP simple</h3><ol><li>Situación propia.</li><li>Enemigo visto o sospechado.</li><li>Amigos y zona prohibida.</li><li>Amenazas al aire si las hay.</li><li>Restricción principal.</li></ol></div>
+        <div class="box"><h3>Lo que no dice todavía</h3><ul><li>No da game plan.</li><li>No dicta 5-line/9-line.</li><li>No autoriza ataque.</li><li>No pide IN.</li><li>No usa autorización de fuego.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">05</div><h2>Trabajo del piloto</h2><div class="tag">Escuchar y colacionar</div></div>
+    <div class="slide-body">
+      <div class="grid2">
+        <div class="box"><h3>Debe hacer</h3><ul><li>Notificar llegada a CP/BP.</li><li>Hacer check-in completo.</li><li>Mantener espera asignada.</li><li>Colacionar restricción y amigos.</li><li>Pedir repetición si no entiende.</li></ul></div>
+        <div class="box"><h3>No debe hacer</h3><ul><li>No pedir ataque.</li><li>No entrar al objetivo.</li><li>No cambiar BP por libre.</li><li>No decir TALLY si solo entiende una referencia.</li><li>No saturar al JTAC.</li></ul></div>
+      </div>
+      <div class="callout ok"><b>Manual CAS aplicado:</b> check-in abre la coordinación. SITREP crea conciencia de situación. Game plan viene después, no hoy.</div>
+    </div>
+  </section>
+
+  <section id="script" class="slide">
+    <div class="slide-head"><div class="num">06</div><h2>Script base</h2><div class="tag">Ronda 1</div></div>
+    <div class="slide-body">
+      <div class="radio"><span class="ford">FORD 1:</span> "LINCE, FORD 1, establecido CP Oeste, listo check-in."
+<span class="lince">LINCE 1:</span> "FORD 1, LINCE 1, adelante check-in."
+<span class="ford">FORD 1:</span> "LINCE 1, FORD 1, misión Ford-02, dos Kiowa, establecido CP Oeste, cohetes Hydra y ametralladora .50. Tiempo en estación 25 minutos. ABORT en claro."
+<span class="lince">LINCE 1:</span> "FORD 1, LINCE 1, recibido check-in. Mantenga espera oeste del lago. Restricción: no cruce carretera norte."
+<span class="ford">FORD 1:</span> "Mantengo espera oeste del lago, no cruzo carretera norte, FORD 1."
+<span class="lince">LINCE 1:</span> "SITREP: Lince en linde sur del bosque. Enemigo observado en casas al norte de carretera. Sin amenaza antiaérea vista. Amigos al sur; carretera norte es límite. Colacione amigos y restricción."
+<span class="ford">FORD 1:</span> "Amigos al sur en linde del bosque. No cruzo carretera norte. Enemigo en casas al norte de carretera. FORD 1."
+<span class="lince">LINCE 1:</span> "Colación correcta. Mantenga espera. LINCE 2 será JTAC activo en la siguiente ronda."</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">07</div><h2>Rotación de JTAC</h2><div class="tag">Que hablen todos</div></div>
+    <div class="slide-body">
+      <table>
+        <thead><tr><th>Ronda</th><th>JTAC activo</th><th>Qué debe hacer</th><th>Qué evalúa el instructor</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>LINCE 1</td><td>Recibe check-in y manda espera.</td><td>Voz clara, orden y restricción.</td></tr>
+          <tr><td>2</td><td>LINCE 2</td><td>Da SITREP con amigos/enemigo/restricción.</td><td>No se va a game plan.</td></tr>
+          <tr><td>3</td><td>LINCE 3</td><td>Pide colación y corrige si falta algo.</td><td>Corrige sin humillar ni saturar.</td></tr>
+          <tr><td>4</td><td>Alumno más flojo</td><td>Repite el flujo completo con ayuda mínima.</td><td>Si puede mantener el orden.</td></tr>
+        </tbody>
+      </table>
+      <div class="callout warn"><b>Corte inmediato:</b> si un JTAC empieza a dirigir ataque, se pausa y se vuelve a "mantenga espera".</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-head"><div class="num">08</div><h2>Errores provocados</h2><div class="tag">Sin castigar</div></div>
+    <div class="slide-body">
+      <div class="grid3">
+        <div class="box"><h3>Piloto incompleto</h3><p>El piloto olvida armas o tiempo. LINCE debe pedir el dato que falta, no inventarlo.</p></div>
+        <div class="box"><h3>JTAC largo</h3><p>El JTAC cuenta demasiado. Instructor corta: "solo amigos, enemigo, amenaza, restricción".</p></div>
+        <div class="box"><h3>Colación mala</h3><p>El piloto repite enemigo pero olvida amigos. LINCE exige colacionar amigos y restricción.</p></div>
+      </div>
+      <div class="radio" style="margin-top:16px"><span class="lince">LINCE 2:</span> "FORD 1, colación incompleta. Repita posición amiga y restricción."
+<span class="ford">FORD 1:</span> "Amigos al sur del bosque. No cruzo carretera norte."
+<span class="lince">LINCE 2:</span> "Correcto. Mantenga espera."</div>
+    </div>
+  </section>
+
+  <section id="evaluacion" class="slide">
+    <div class="slide-head"><div class="num">09</div><h2>Evaluación del Día 2</h2><div class="tag">A/M/R</div></div>
+    <div class="slide-body">
+      <table>
+        <thead><tr><th>Área</th><th>Apto</th><th>Necesita mejorar</th><th>Repetir</th></tr></thead>
+        <tbody>
+          <tr><td>CP/BP</td><td>Llega y se establece sin saturar.</td><td>Duda pero se corrige.</td><td>No sabe dónde está ni qué frecuencia usar.</td></tr>
+          <tr><td>Check-in</td><td>Completo: misión, aeronave, posición, armas, tiempo, abort.</td><td>Olvida un dato menor.</td><td>No puede hacerlo sin guía total.</td></tr>
+          <tr><td>JTAC activo</td><td>Recibe, manda espera y da SITREP breve.</td><td>Se alarga o desordena.</td><td>Salta a ataque o no controla la radio.</td></tr>
+          <tr><td>Colación</td><td>Repite amigos y restricción.</td><td>Repite solo parte.</td><td>No entiende la restricción.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+</body>
+</html>

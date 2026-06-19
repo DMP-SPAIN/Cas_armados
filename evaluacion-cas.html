@@ -316,8 +316,8 @@ let githubToken = '';
 let isEditing = false;
 
 const sessions = [
-  { id:'s1', no:'01', name:'Sesión 1', short:'Comunicaciones', goal:'Base común: radio, circuitos, 9-line y control terminal básico.' },
-  { id:'s2', no:'02', name:'Sesión 2', short:'Circuitos', goal:'Configuración, espera, entrada, salida y contingencias de circuito.' },
+  { id:'s1', no:'01', name:'Sesión 1', short:'Tránsito y check-in', goal:'Radio de tránsito, rodaje/despegue emulado y primer check-in seco con JTAC.' },
+  { id:'s2', no:'02', name:'Sesión 2', short:'Check-in real y SITREP', goal:'Vuelo a CP/BP, check-in en el aire, espera segura, SITREP simple y rotación de JTAC.' },
   { id:'s3', no:'03', name:'Sesión 3', short:'9-Line', goal:'Formato, líneas críticas, restricciones y colación.' },
   { id:'s4', no:'04', name:'Sesión 4', short:'Control terminal', goal:'Correlación, IN, CONTINUE, CLEARED HOT, ABORT y BDA.' },
   { id:'s5', no:'05', name:'Sesión 5', short:'Integración JTAC', goal:'Integración con maniobra terrestre, prioridades y mando.' },
@@ -328,16 +328,16 @@ const sessions = [
 
 const criteriaBySession = {
   s1:[
-    { id:'s1-com', icon:'▣', title:'Comunicaciones', sub:'Procedimientos y fraseología', blocker:false },
-    { id:'s1-cir', icon:'⌂', title:'Circuitos', sub:'Selección y configuración', blocker:false },
-    { id:'s1-9l', icon:'□', title:'9-Line', sub:'Formato y contenido', blocker:true },
-    { id:'s1-ctl', icon:'⌁', title:'Control terminal', sub:'Procedimientos y seguridad', blocker:true }
+    { id:'s1-com', icon:'▣', title:'Tránsito', sub:'Notifica sin torre', blocker:false },
+    { id:'s1-rod', icon:'⌂', title:'Rodaje y despegue', sub:'Posición e intención', blocker:false },
+    { id:'s1-check', icon:'□', title:'Check-in seco', sub:'Quién soy y qué llevo', blocker:true },
+    { id:'s1-disc', icon:'⌁', title:'Disciplina radio', sub:'Corto, claro y ordenado', blocker:true }
   ],
   s2:[
-    { id:'s2-pri', icon:'⌂', title:'Circuito primario', sub:'Entrada, espera y salida', blocker:false },
-    { id:'s2-alt', icon:'⇄', title:'Circuito alterno', sub:'Plan B y cambio de BP', blocker:false },
-    { id:'s2-conf', icon:'◇', title:'Configuración', sub:'Altura, rumbo y separación', blocker:false },
-    { id:'s2-nordo', icon:'!', title:'Contingencia', sub:'NORDO, amenaza y RTB', blocker:true }
+    { id:'s2-cp', icon:'⌂', title:'CP / BP', sub:'Llegada y espera segura', blocker:false },
+    { id:'s2-check', icon:'⇄', title:'Check-in real', sub:'En vuelo y completo', blocker:true },
+    { id:'s2-sitrep', icon:'◇', title:'SITREP JTAC', sub:'Amigos, enemigo, restricción', blocker:true },
+    { id:'s2-col', icon:'!', title:'Colación', sub:'Repite lo crítico', blocker:true }
   ],
   s3:[
     { id:'s3-form', icon:'□', title:'Formato', sub:'Orden y ritmo de transmisión', blocker:false },
