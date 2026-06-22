@@ -111,9 +111,10 @@ strong{color:#fff;font-weight:600}
 .field.big{min-height:112px}
 .field label{display:block;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:7px}
 .field p{margin:0;color:var(--ink);font-weight:700;font-size:15px;line-height:1.45}
-.field .fill{min-height:24px;outline:none;color:#fff;font-weight:700;font-size:15px;line-height:1.45}
+.field .fill{min-height:24px;outline:none;color:#fff;font-weight:700;font-size:15px;line-height:1.45;caret-color:var(--amber)}
 .field .fill:empty:before{content:attr(data-placeholder);color:rgba(233,239,233,.35);font-weight:500}
 .field .fill:focus{background:rgba(255,178,46,.08);box-shadow:0 0 0 4px rgba(255,178,46,.08);border-radius:4px}
+.field:focus-within{border-color:var(--amber);box-shadow:0 0 0 1px rgba(255,178,46,.2)}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .actions button{font-family:var(--disp);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:7px;background:transparent;color:var(--ink);border:1px solid var(--line-strong);cursor:pointer}
 .actions button:hover{border-color:var(--amber);color:var(--amber)}
@@ -256,16 +257,18 @@ strong{color:#fff;font-weight:600}
   .card .hd h2{font-size:18px;line-height:1.05}
   .card .hd .tag{display:none}
   .toolgrid,.toolgrid.two,.toolgrid.three{grid-template-columns:1fr;gap:10px}
-  .field{min-height:76px;padding:12px;border-radius:10px}
-  .field.big{min-height:124px}
+  .field{min-height:76px;padding:12px;border-radius:10px;background:#08100d}
+  .field.big{min-height:118px}
   .field label{font-size:10px;margin-bottom:8px}
   .field p{font-size:18px;line-height:1.35}
   .field .fill{
-    min-height:34px;font-size:18px;line-height:1.35;
+    min-height:42px;font-size:18px;line-height:1.35;
     -webkit-user-select:text;user-select:text;
     word-break:break-word;
+    padding:2px 0;
   }
-  .field .fill:focus{box-shadow:0 0 0 3px rgba(255,178,46,.18)}
+  .field .fill:focus{box-shadow:none;background:rgba(255,178,46,.1)}
+  .field:focus-within{border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,178,46,.18)}
   .linebox{grid-template-columns:38px 1fr;gap:7px;margin-bottom:8px}
   .linebox .ln{font-size:18px;border-radius:8px}
   .linebox .field{min-height:66px}
@@ -293,7 +296,7 @@ strong{color:#fff;font-weight:600}
   .kneeboard-box .fill,.kneeboard-field .fill{font-size:15px;min-height:25px}
   .mobile-dock{
     position:fixed;left:0;right:0;bottom:0;z-index:70;
-    display:grid;grid-template-columns:1fr 1fr 1fr;
+    display:grid;grid-template-columns:1fr 1fr 1fr 1fr;
     gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));
     background:rgba(10,17,14,.96);border-top:1px solid var(--line-strong);
     box-shadow:0 -12px 30px rgba(0,0,0,.35);
@@ -306,6 +309,7 @@ strong{color:#fff;font-weight:600}
     display:flex;align-items:center;justify-content:center;
   }
   .mobile-dock button:first-child{background:var(--amber);border-color:var(--amber);color:#0c1310;font-weight:700}
+  .card:has(.fill:focus){border-color:rgba(255,178,46,.62)}
 }
 
 /* ---- listas reglas ---- */
@@ -451,27 +455,27 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <div class="hd"><span class="num">C</span><h2>Contingencias rápidas</h2><span class="tag">Si algo falla</span></div>
     <div class="toolgrid">
       <div class="field big">
-        <label>BLIND · pierdo visual</label>
-        <p>Cantar BLIND, mantener rumbo/altura seguros y esperar instrucción. No cruzar por delante buscando visual.</p>
+        <label>SIN VISUAL · pierdo visual</label>
+        <p>Cantar SIN VISUAL, mantener rumbo/altura seguros y esperar instrucción. No cruzar por delante buscando visual.</p>
       </div>
       <div class="field big">
         <label>NORDO · pierdo radio</label>
-        <p>No entrar al objetivo. Mantener última instrucción segura. Volver a CP/BP/RTB según briefing.</p>
+        <p>No entrar al objetivo. Mantener última instrucción segura. Volver a CP/BP/RTB según reunión previa.</p>
       </div>
       <div class="field big">
         <label>ABORT</label>
-        <p>ABORT, ABORT, ABORT = cortar pasada ya, no disparar, OFF a zona segura.</p>
+        <p>ABORT, ABORT, ABORT = cortar pasada ya, no disparar, SALIENDO a zona segura.</p>
       </div>
       <div class="field big">
         <label>Cae líder / caos</label>
         <p>Volver a espera, reorganizar mando, nombrar líder nuevo. No continuar CAS por inercia.</p>
       </div>
     </div>
-    <pre class="pre" style="margin-top:12px"><span class="pil">FORD 2:</span> "FORD 1, FORD 2, BLIND."
+    <pre class="pre" style="margin-top:12px"><span class="pil">FORD 2:</span> "FORD 1, FORD 2, SIN VISUAL."
 <span class="pil">FORD 1:</span> "FORD 2, mantenga rumbo oeste y altura actual."
 
 <span class="jt">LINCE:</span> "FORD 2, ABORT, ABORT, ABORT."
-<span class="pil">FORD 2:</span> "Abortando, OFF al norte, FORD 2."</pre>
+<span class="pil">FORD 2:</span> "Abortando, SALIENDO al norte, FORD 2."</pre>
   </article>
 
   <!-- ============ A. 9-LINE RELLENABLE ============ -->
@@ -480,24 +484,36 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <div class="hd"><span class="num">A</span><h2>9-Line rellenable</h2><span class="tag">Copiar durante misión</span></div>
     <div class="toolgrid two">
       <div>
-        <div class="linebox"><div class="ln">1</div><div class="field"><label>BP / posición inicial</label><div class="fill" contenteditable="true" data-card-key="nine-1" data-placeholder="BP, holding o punto de ataque"></div></div></div>
-        <div class="linebox"><div class="ln">2</div><div class="field"><label>Rumbo / offset</label><div class="fill" contenteditable="true" data-card-key="nine-2" data-placeholder="Ej.: 090 · sin offset / offset derecha"></div></div></div>
-        <div class="linebox"><div class="ln">3</div><div class="field"><label>Distancia</label><div class="fill" contenteditable="true" data-card-key="nine-3" data-placeholder="Ej.: 1200 m"></div></div></div>
+        <div class="linebox"><div class="ln">1</div><div class="field"><label>IP / BP / HA</label><div class="fill" contenteditable="true" data-card-key="nine-1" data-placeholder="IP FORD / HA Pepsi / BP Lago Oeste"></div></div></div>
+        <div class="linebox"><div class="ln">2</div><div class="field"><label>Rumbo / lado permitido</label><div class="fill" contenteditable="true" data-card-key="nine-2" data-placeholder="Ej.: 160 · FAH 180 / lado derecho"></div></div></div>
+        <div class="linebox"><div class="ln">3</div><div class="field"><label>Distancia</label><div class="fill" contenteditable="true" data-card-key="nine-3" data-placeholder="Ej.: 4 km / 1200 m"></div></div></div>
         <div class="linebox"><div class="ln">4</div><div class="field"><label>Cota</label><div class="fill" contenteditable="true" data-card-key="nine-4" data-placeholder="Lectura de vuelta"></div></div></div>
-        <div class="linebox"><div class="ln">5</div><div class="field"><label>Objetivo</label><div class="fill" contenteditable="true" data-card-key="nine-5" data-placeholder="Tipo, postura, referencia"></div></div></div>
+        <div class="linebox"><div class="ln">5</div><div class="field"><label>Objetivo</label><div class="fill" contenteditable="true" data-card-key="nine-5" data-placeholder="T-80 / técnico / camión mando"></div></div></div>
       </div>
       <div>
         <div class="linebox"><div class="ln">6</div><div class="field"><label>Coordenadas</label><div class="fill" contenteditable="true" data-card-key="nine-6" data-placeholder="Lectura de vuelta"></div></div></div>
-        <div class="linebox"><div class="ln">7</div><div class="field"><label>Marca</label><div class="fill" contenteditable="true" data-card-key="nine-7" data-placeholder="Humo, láser, trazadora, talk-on"></div></div></div>
-        <div class="linebox"><div class="ln">8</div><div class="field"><label>Amigos</label><div class="fill" contenteditable="true" data-card-key="nine-8" data-placeholder="Lectura de vuelta"></div></div></div>
-        <div class="linebox"><div class="ln">9</div><div class="field"><label>Egreso</label><div class="fill" contenteditable="true" data-card-key="nine-9" data-placeholder="Ruta de salida / vuelta a BP"></div></div></div>
-        <div class="field"><label>Restricciones / remarks</label><div class="fill" contenteditable="true" data-card-key="nine-remarks" data-placeholder="FAH, altura, no disparar sur, no sobrevolar pueblo, amenaza AA..."></div></div>
-        <div class="field"><label>Game plan / arma JTAC</label><div class="fill" contenteditable="true" data-card-key="nine-gameplan-weapon" data-placeholder="Tipo 2 · cohetes · ataque oeste-este · una pasada"></div></div>
+        <div class="linebox"><div class="ln">7</div><div class="field"><label>Marca</label><div class="fill" contenteditable="true" data-card-key="nine-7" data-placeholder="Láser / humo rojo / guía hablada"></div></div></div>
+        <div class="linebox"><div class="ln">8</div><div class="field"><label>Amigos</label><div class="fill" contenteditable="true" data-card-key="nine-8" data-placeholder="2 km NW / 300 m sur"></div></div></div>
+        <div class="linebox"><div class="ln">9</div><div class="field"><label>Egreso</label><div class="fill" contenteditable="true" data-card-key="nine-9" data-placeholder="Sur a CP Wolf / vuelta HA"></div></div></div>
+        <div class="field"><label>Observaciones / restricciones</label><div class="fill" contenteditable="true" data-card-key="nine-remarks" data-placeholder="FAH 180 · láser N-S · AA norte · no fuego sur"></div></div>
+        <div class="field"><label>Tipo / arma / avance</label><div class="fill" contenteditable="true" data-card-key="nine-gameplan-weapon" data-placeholder="Tipo 2 · 1x misil guiado / cohetes · colación correcta · avance"></div></div>
       </div>
     </div>
-    <p class="minihelp">El arma no es una de las 9 líneas clásicas. El JTAC la deja clara en game plan o remarks: tipo de control, arma/efecto, dirección, offset/FAH y restricciones. El piloto colaciona lo crítico antes de entrar.</p>
-    <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "Game plan: Tipo 2, cohetes, una pasada oeste-este."
-<span class="pil">FORD 1:</span> "Tipo 2, cohetes, una pasada oeste-este, FORD 1."</pre>
+    <p class="minihelp">Patrón vídeo 9-line: tras reporte de entrada y informe de tierra, LINCE manda CP/IP, da Tipo 2, dicta 9-line, añade observaciones, valida colación, ordena avance, marca, recibe ENTRANDO, autoriza y pide BDA.</p>
+    <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "FORD 1, LINCE, Tipo 2 en vigor. Espere 9-line."
+<span class="pil">FORD 1:</span> "Listo para 9-line."
+<span class="jt">LINCE:</span> "1 IP FORD. 2 rumbo 160. 3 cuatro kilómetros. 4 cota 230. 5 T-80 carro de combate. 6 cuadrícula 237 1923. 7 láser. 8 amigos dos kilómetros noroeste. 9 egreso sur."
+<span class="jt">LINCE:</span> "Observaciones: solicito un misil guiado, rumbo final de ataque 180, línea láser norte-sur. Colacione."
+<span class="pil">FORD 1:</span> "Cota 230, cuadrícula 237 1923, amigos dos kilómetros noroeste, egreso sur, FAH 180, láser norte-sur."
+<span class="jt">LINCE:</span> "Colación correcta. Avance ahora."</pre>
+    <pre class="pre" style="margin-top:10px"><span class="pil">FORD 1:</span> "Avanzando. Dos minutos a IP."
+<span class="jt">LINCE:</span> "Continúe en IP."
+<span class="pil">FORD 1:</span> "Treinta segundos al objetivo."
+<span class="jt">LINCE:</span> "Marque objetivo."
+<span class="pil">FORD 1:</span> "Contacto láser. ENTRANDO."
+<span class="jt">LINCE:</span> "FORD 1, AUTORIZADO FUEGO."
+<span class="pil">FORD 1:</span> "MISIL. Egreso sur."
+<span class="jt">LINCE:</span> "Espere BDA. Carro destruido. Vuelva a CP Wolf."</pre>
   </article>
 
   <!-- ============ K. PIERNOGRAFO ============ -->
@@ -516,7 +532,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
       <div class="kneeboard-band">
         <div class="kneeboard-box"><label>Misión / zona</label><div class="fill" contenteditable="true" data-card-key="kb-mission" data-placeholder="Operación FORD · Lago Oeste"></div></div>
         <div class="kneeboard-box"><label>Mi indicativo</label><div class="fill" contenteditable="true" data-card-key="kb-my-callsign" data-placeholder="FORD 2"></div></div>
-        <div class="kneeboard-box"><label>Rol</label><div class="fill" contenteditable="true" data-card-key="kb-role" data-placeholder="Líder / punto / shooter"></div></div>
+        <div class="kneeboard-box"><label>Rol</label><div class="fill" contenteditable="true" data-card-key="kb-role" data-placeholder="Líder / punto / aparato atacante"></div></div>
         <div class="kneeboard-box"><label>Ventana / TOT</label><div class="fill" contenteditable="true" data-card-key="kb-tot" data-placeholder="Hora H / ventana"></div></div>
       </div>
 
@@ -534,7 +550,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
           <div class="kneeboard-field"><label>Líder vuelo</label><div class="fill" contenteditable="true" data-card-key="kb-flight-lead" data-placeholder="FORD 1"></div></div>
           <div class="kneeboard-field"><label>Elementos</label><div class="fill" contenteditable="true" data-card-key="kb-element-two" data-placeholder="FORD 1/2 · FORD 3/4"></div></div>
           <div class="kneeboard-field"><label>Orden JTAC</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-flow" data-placeholder="1 habla · 2/3/4 esperan"></div></div>
-          <div class="kneeboard-field"><label>Orden ataque</label><div class="fill" contenteditable="true" data-card-key="kb-shooter-order" data-placeholder="2, 3, 1, 4"></div></div>
+          <div class="kneeboard-field"><label>Orden ataque</label><div class="fill" contenteditable="true" data-card-key="kb-aparato atacante-order" data-placeholder="2, 3, 1, 4"></div></div>
         </section>
 
         <section class="kneeboard-section">
@@ -550,8 +566,8 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
           <div class="kneeboard-field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-active" data-placeholder="LINCE 1"></div></div>
           <div class="kneeboard-field"><label>Unidad amiga</label><div class="fill" contenteditable="true" data-card-key="kb-ground" data-placeholder="LINCE / TORO / posición"></div></div>
           <div class="kneeboard-field"><label>Marcas</label><div class="fill" contenteditable="true" data-card-key="kb-smoke" data-placeholder="Humo rojo enemigo · verde amigo"></div></div>
-          <div class="kneeboard-field"><label>Armas disponibles</label><div class="fill" contenteditable="true" data-card-key="kb-loadout" data-placeholder="Cohetes / .50 / munición útil"></div></div>
-          <div class="kneeboard-field"><label>Arma JTAC</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-weapon" data-placeholder="Lo que pide tierra: cohetes / .50 / no disparar"></div></div>
+          <div class="kneeboard-field"><label>Armas disponibles</label><div class="fill" contenteditable="true" data-card-key="kb-loadout" data-placeholder="Cohetes / ametralladora / munición útil"></div></div>
+          <div class="kneeboard-field"><label>Arma JTAC</label><div class="fill" contenteditable="true" data-card-key="kb-jtac-weapon" data-placeholder="Lo que pide tierra: cohetes / ametralladora / no disparar"></div></div>
         </section>
 
         <section class="kneeboard-section">
@@ -577,7 +593,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <!-- ============ M. MAPA TACTICO LOCAL ============ -->
   <article class="card wide" id="tactical-map-tool">
     <span class="bk"></span>
-    <div class="hd"><span class="num">M</span><h2>Mapa táctico local</h2><span class="tag">Dibujo / briefing</span></div>
+    <div class="hd"><span class="num">M</span><h2>Mapa táctico local</h2><span class="tag">Dibujo / reunión previa</span></div>
     <div class="map-tools" aria-label="Herramientas de dibujo">
       <button type="button" class="map-btn active" data-tool="pen">Lápiz</button>
       <button type="button" class="map-btn" data-tool="line">Línea</button>
@@ -613,25 +629,25 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <!-- ============ D2. JTAC CHECK-IN / SITREP ============ -->
   <article class="card wide critical" id="jtac-dia2">
     <span class="bk"></span>
-    <div class="hd"><span class="num">D2</span><h2>JTAC · Día 2</h2><span class="tag">check-in · espera · SITREP</span></div>
+    <div class="hd"><span class="num">D2</span><h2>JTAC · Día 2</h2><span class="tag">reporte de entrada · HA · informe de tierra</span></div>
     <div class="toolgrid">
       <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="d2-jtac-active" data-placeholder="LINCE 1 / LINCE 2 / LINCE 3"></div></div>
-      <div class="field"><label>Vuelo</label><div class="fill" contenteditable="true" data-card-key="d2-flight" data-placeholder="FORD 1 / dos Kiowa"></div></div>
-      <div class="field"><label>CP / BP</label><div class="fill" contenteditable="true" data-card-key="d2-cp-bp" data-placeholder="CP Oeste / BP Lago Oeste"></div></div>
-      <div class="field"><label>Espera</label><div class="fill" contenteditable="true" data-card-key="d2-hold" data-placeholder="Mantenga oeste del lago"></div></div>
+      <div class="field"><label>Vuelo</label><div class="fill" contenteditable="true" data-card-key="d2-flight" data-placeholder="FORD 1 / dos helicópteros"></div></div>
+      <div class="field"><label>CP / HA / BP</label><div class="fill" contenteditable="true" data-card-key="d2-cp-bp" data-placeholder="CP Oeste / HA Pepsi / BP Lago Oeste"></div></div>
+      <div class="field"><label>Espera</label><div class="fill" contenteditable="true" data-card-key="d2-hold" data-placeholder="Mantenga HA Pepsi / oeste del lago"></div></div>
       <div class="field big"><label>Amigos</label><div class="fill" contenteditable="true" data-card-key="d2-friendlies" data-placeholder="LINCE en linde sur del bosque"></div></div>
       <div class="field big"><label>Enemigo observado</label><div class="fill" contenteditable="true" data-card-key="d2-enemy" data-placeholder="Casas al norte de carretera"></div></div>
       <div class="field big"><label>Restricción</label><div class="fill" contenteditable="true" data-card-key="d2-restriction" data-placeholder="No cruce carretera norte / no sobrevolar amigos"></div></div>
-      <div class="field big"><label>Colación exigida</label><div class="fill" contenteditable="true" data-card-key="d2-readback" data-placeholder="Amigos + restricción + espera"></div></div>
+      <div class="field big"><label>Colación exigida</label><div class="fill" contenteditable="true" data-card-key="d2-readback" data-placeholder="Amigos + restricción + HA + código ABORT"></div></div>
     </div>
-    <p class="minihelp">Uso Día 2: el JTAC recibe check-in, manda espera, da SITREP simple y pide colación. <b>No</b> game plan, <b>no</b> 5-line/9-line, <b>no</b> CLEARED HOT.</p>
-    <pre class="pre" style="margin-top:10px"><span class="pil">FORD 1:</span> "LINCE, FORD 1, establecido CP Oeste, listo check-in."
-<span class="jt">LINCE 1:</span> "FORD 1, LINCE 1, adelante check-in."
-<span class="pil">FORD 1:</span> "LINCE 1, FORD 1, misión Ford-02, dos Kiowa, establecido CP Oeste, cohetes Hydra y .50. Tiempo en estación 25 minutos. ABORT en claro."
-<span class="jt">LINCE 1:</span> "Recibido check-in. Mantenga espera oeste del lago. Restricción: no cruce carretera norte."
-<span class="pil">FORD 1:</span> "Mantengo espera oeste del lago, no cruzo carretera norte, FORD 1."
-<span class="jt">LINCE 1:</span> "SITREP: amigos en linde sur del bosque, enemigo observado en casas al norte de carretera, sin AA vista. Colacione amigos y restricción."
-<span class="pil">FORD 1:</span> "Amigos al sur del bosque, no cruzo carretera norte, enemigo al norte de carretera."</pre>
+    <p class="minihelp">Uso Día 2: el JTAC recibe reporte de entrada, manda HA/BP, da informe de tierra/SITREP y exige colación. Si el flujo sale limpio, puede hacerse plan de ataque básico y 5-line fría <b>sin armas</b>.</p>
+    <pre class="pre" style="margin-top:10px"><span class="pil">FORD 1:</span> "LINCE, FORD 1, establecido CP Oeste, listo reporte de entrada."
+<span class="jt">LINCE 1:</span> "FORD 1, LINCE 1, adelante reporte de entrada."
+<span class="pil">FORD 1:</span> "LINCE 1, FORD 1, dos helicópteros armados, establecido CP Oeste, angels 1.5, cohetes y cañón verde, tiempo en estación 25 minutos, código ABORT banana."
+<span class="jt">LINCE 1:</span> "Recibido reporte de entrada. Mueva a HA Pepsi. Restricción: no cruce carretera norte."
+<span class="pil">FORD 1:</span> "Muevo a HA Pepsi, no cruzo carretera norte, código ABORT banana, FORD 1."
+<span class="jt">LINCE 1:</span> "Informe de tierra: amigos en linde sur del bosque, no amigos al norte de carretera, enemigo observado en casas al norte, sin AA vista."
+<span class="pil">FORD 1:</span> "Amigos al sur, enemigo al norte, mantengo HA Pepsi."</pre>
   </article>
 
   <!-- ============ J. HERRAMIENTA JTAC ============ -->
@@ -640,32 +656,33 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <div class="hd"><span class="num">J</span><h2>Herramienta JTAC · Día 1</h2><span class="tag">LINCE / control básico</span></div>
     <div class="toolgrid">
       <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="jtac-active" data-placeholder="LINCE 1"></div></div>
-      <div class="field"><label>Vuelo controlado</label><div class="fill" contenteditable="true" data-card-key="jtac-flight" data-placeholder="FORD 1 / FORD 2 shooter"></div></div>
+      <div class="field"><label>Vuelo controlado</label><div class="fill" contenteditable="true" data-card-key="jtac-flight" data-placeholder="FORD 1 / FORD 2 aparato atacante"></div></div>
       <div class="field"><label>Frecuencia CAS</label><div class="fill" contenteditable="true" data-card-key="jtac-freq" data-placeholder="65.0 / canal táctico"></div></div>
-      <div class="field"><label>Zona de espera</label><div class="fill" contenteditable="true" data-card-key="jtac-hold" data-placeholder="Oeste del lago / BP"></div></div>
+      <div class="field"><label>HA / BP espera</label><div class="fill" contenteditable="true" data-card-key="jtac-hold" data-placeholder="HA Pepsi / BP Lago Oeste"></div></div>
 
       <div class="field big"><label>Situación amiga</label><div class="fill" contenteditable="true" data-card-key="jtac-friendlies" data-placeholder="LINCE al sur del bosque, 300 m al sur del objetivo"></div></div>
       <div class="field big"><label>Objetivo / referencia</label><div class="fill" contenteditable="true" data-card-key="jtac-target" data-placeholder="Vehículo junto al granero / casa aislada / cruce"></div></div>
-      <div class="field big"><label>Marca / talk-on</label><div class="fill" contenteditable="true" data-card-key="jtac-mark" data-placeholder="Humo rojo, desde humo 100 m este, junto al muro"></div></div>
+      <div class="field big"><label>Marca / guía hablada</label><div class="fill" contenteditable="true" data-card-key="jtac-mark" data-placeholder="Humo rojo, desde humo 100 m este, junto al muro"></div></div>
       <div class="field big"><label>Restricción principal</label><div class="fill" contenteditable="true" data-card-key="jtac-restriction" data-placeholder="No disparar hacia el sur / no cruzar carretera norte"></div></div>
 
-      <div class="field"><label>Game plan</label><div class="fill" contenteditable="true" data-card-key="jtac-gameplan" data-placeholder="Tipo 2 · cohetes · una pasada · oeste-este"></div></div>
-      <div class="field"><label>Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="jtac-weapon-effect" data-placeholder="Cohetes / .50 / supresión / pasada seca"></div></div>
-      <div class="field"><label>Autorización</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="CONTINUE / CONTINUE DRY / CLEARED HOT / CLEARED TO ENGAGE / ABORT"></div></div>
-      <div class="field"><label>BDA / cierre</label><div class="fill" contenteditable="true" data-card-key="jtac-bda" data-placeholder="Si lo veo: exitoso/no exitoso, daño confirmado, RTB"></div></div>
+      <div class="field"><label>Plan de ataque</label><div class="fill" contenteditable="true" data-card-key="jtac-gameplan" data-placeholder="Tipo 2 · cohetes · una pasada · oeste-este"></div></div>
+      <div class="field"><label>Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="jtac-weapon-effect" data-placeholder="Cohetes / ametralladora / supresión / pasada seca"></div></div>
+      <div class="field"><label>Autorización</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="CONTINÚE / CONTINÚE EN SECO / AUTORIZADO FUEGO / AUTORIZADO A ATACAR / ABORT"></div></div>
+      <div class="field"><label>BDA / cierre</label><div class="fill" contenteditable="true" data-card-key="jtac-bda" data-placeholder="Espere BDA / destruido / no observado / RTB"></div></div>
     </div>
-    <p class="minihelp">Uso JTAC: primero seguridad y espera; luego game plan con arma/efecto; después talk-on, TALLY, IN, CONTINUE/CLEARED HOT y BDA. <b>CLEARED</b> solo para armas; si no ves el daño, no lo inventes.</p>
-    <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "FORD 1, LINCE, mantenga vuelo en espera oeste del lago. No cruce carretera norte."
-<span class="pil">FORD 1:</span> "Mantengo espera oeste del lago, no cruzo carretera norte, FORD 1."
-<span class="jt">LINCE:</span> "Game plan: Tipo 2, cohetes, una pasada oeste-este. Objetivo simulado: vehículo junto al granero."
-<span class="pil">FORD 1:</span> "Tipo 2, cohetes, una pasada oeste-este, vehículo junto al granero, FORD 1."
-<span class="jt">LINCE:</span> "Desde humo rojo, 100 metros este. Avise TALLY."
-<span class="pil">FORD 1:</span> "TALLY vehículo junto al granero."
-<span class="jt">LINCE:</span> "FORD 1, proceda. Avise IN."
-<span class="pil">FORD 1:</span> "IN desde el oeste, FORD 1."
-<span class="jt">LINCE:</span> "FORD 1, CLEARED HOT."
-<span class="pil">FORD 1:</span> "OFF al norte, FORD 1."
-<span class="jt">LINCE:</span> "Efectos observados. Vuelva a espera."</pre>
+    <p class="minihelp">Uso JTAC: seguridad, HA/BP, informe de tierra, 5-line, colación correcta, avance, visual/BLANCO A LA VISTA, CONTINÚE/AUTORIZADO FUEGO y BDA. <b>AUTORIZADO</b> solo para armas; entrada fría = <b>CONTINÚE EN SECO</b>.</p>
+    <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "FORD 1, LINCE, mueva a HA Pepsi. No cruce carretera norte."
+<span class="pil">FORD 1:</span> "Muevo HA Pepsi, no cruzo carretera norte, FORD 1."
+<span class="jt">LINCE:</span> "Plan de ataque: Tipo 2, entrada fría, sin armas, pasada oeste-este."
+<span class="pil">FORD 1:</span> "Tipo 2, entrada fría, sin armas, oeste-este, FORD 1."
+<span class="jt">LINCE:</span> "CCA 5-line: dos cohetes simulados; LINCE 500 norte de edificio azul; objetivo camión de mando rumbo 340, 700 metros; marca humo rojo; ataque sobre mi hombro derecho; egreso este; AA ligera al norte; amigos amigos al sur, cerca del objetivo. Colacione."
+<span class="pil">FORD 1:</span> "Dos cohetes simulados, objetivo camión rumbo 340, 700, humo rojo, ataque sobre su hombro derecho, egreso este, AA norte, amigos sur."
+<span class="jt">LINCE:</span> "Colación correcta. Avance ahora."
+<span class="pil">FORD 1:</span> "Avanzando, visual."
+<span class="pil">FORD 1:</span> "BLANCO A LA VISTA objetivo."
+<span class="jt">LINCE:</span> "FORD 1, CONTINÚE EN SECO."
+<span class="pil">FORD 1:</span> "SALIENDO EN SECO, egreso este, FORD 1."
+<span class="jt">LINCE:</span> "Espere BDA. Vuelva HA Pepsi."</pre>
   </article>
 
   <!-- ============ B. 5-LINE RELLENABLE ============ -->
@@ -673,17 +690,17 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <span class="bk"></span>
     <div class="hd"><span class="num">B</span><h2>CCA 5-Line rellenable</h2><span class="tag">Rápida para helicóptero</span></div>
     <div class="toolgrid">
-      <div class="field big"><label>1 · Amigos / propia</label><div class="fill" contenteditable="true" data-card-key="five-1" data-placeholder="Dónde están amigos y cómo se marcan"></div></div>
-      <div class="field big"><label>2 · Objetivo</label><div class="fill" contenteditable="true" data-card-key="five-2" data-placeholder="Qué es y dónde está"></div></div>
-      <div class="field big"><label>3 · Marca</label><div class="fill" contenteditable="true" data-card-key="five-3" data-placeholder="Humo, trazadoras, referencia, talk-on"></div></div>
-      <div class="field big"><label>4 · Restricciones</label><div class="fill" contenteditable="true" data-card-key="five-4" data-placeholder="No disparar hacia..., no cruzar..., no sobrevolar..."></div></div>
-      <div class="field big"><label>5 · Egreso / control</label><div class="fill" contenteditable="true" data-card-key="five-5" data-placeholder="Salida, BP, tipo de pasada, control"></div></div>
-      <div class="field big"><label>Arma / efecto JTAC</label><div class="fill" contenteditable="true" data-card-key="five-weapon" data-placeholder="Cohetes, .50, supresión, destrucción, marcar sin disparar..."></div></div>
-      <div class="field big"><label>Readback mínimo</label><div class="fill" contenteditable="true" data-card-key="five-readback" data-placeholder="Amigos, objetivo, restricciones y egreso"></div></div>
+      <div class="field big"><label>1 · Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="five-1" data-placeholder="Dos cohetes / pasada fría / supresión"></div></div>
+      <div class="field big"><label>2 · Propia / referencia JTAC</label><div class="fill" contenteditable="true" data-card-key="five-2" data-placeholder="LINCE 500 m norte de edificio azul / humo azul"></div></div>
+      <div class="field big"><label>3 · Objetivo / rumbo / range</label><div class="fill" contenteditable="true" data-card-key="five-3" data-placeholder="Camión mando, rumbo 340, 700 m"></div></div>
+      <div class="field big"><label>4 · Marca / ataque / egreso</label><div class="fill" contenteditable="true" data-card-key="five-4" data-placeholder="Humo rojo, sobre hombro derecho, egreso este"></div></div>
+      <div class="field big"><label>5 · Amenaza / amigos</label><div class="fill" contenteditable="true" data-card-key="five-5" data-placeholder="AA norte, amigos amigos al sur, cerca del objetivo"></div></div>
+      <div class="field big"><label>Arma / efecto JTAC</label><div class="fill" contenteditable="true" data-card-key="five-weapon" data-placeholder="Cohetes, ametralladora, supresión, destrucción, marcar sin disparar..."></div></div>
+      <div class="field big"><label>Colación mínima</label><div class="fill" contenteditable="true" data-card-key="five-readback" data-placeholder="Amigos, objetivo, restricciones y egreso"></div></div>
       <div class="field big"><label>BDA</label><div class="fill" contenteditable="true" data-card-key="five-bda" data-placeholder="Impactos, destruido, necesita segunda pasada..."></div></div>
-      <div class="field big"><label>Notas</label><div class="fill" contenteditable="true" data-card-key="five-notes" data-placeholder="Shooter, arma, entrada, amenaza, humo..."></div></div>
+      <div class="field big"><label>Notas</label><div class="fill" contenteditable="true" data-card-key="five-notes" data-placeholder="Aparato atacante, arma, entrada, amenaza, humo..."></div></div>
     </div>
-    <p class="minihelp">En helicóptero, si se usa CCA 5-Line, el arma suele darse como game plan breve o como aclaración adicional. Ejemplo: "Tipo 2, cohetes, una pasada, oeste-este".</p>
+    <p class="minihelp">Patrón vídeo CAS de ala rotatoria: 5-line compacta, colación crítica, <b>colación correcta</b>, <b>avance ahora</b>, visual/BLANCO A LA VISTA, control final y BDA. Para escuela: entrada fría si no hay armas.</p>
   </article>
 
   <!-- ============ 1. VOCABULARIO ============ -->
@@ -696,23 +713,26 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <tr><td>WILCO</td><td>Recibido y cumpliré</td></tr>
         <tr><td>ROGER</td><td>Recibido (no implica cumplir)</td></tr>
         <tr><td>AFIRMA / NEGATIVO</td><td>Sí / No</td></tr>
-        <tr><td>SAY AGAIN</td><td>Repita la última transmisión</td></tr>
-        <tr><td>STANDBY</td><td>Espere, ahora no puedo responder</td></tr>
-        <tr><td>TALLY</td><td>Veo el objetivo asignado</td></tr>
-        <tr><td>NO JOY</td><td>No veo el objetivo asignado</td></tr>
+        <tr><td>REPITA</td><td>Repita la última transmisión</td></tr>
+        <tr><td>ESPERE</td><td>Espere, ahora no puedo responder</td></tr>
+        <tr><td>BLANCO A LA VISTA</td><td>Veo el objetivo asignado</td></tr>
+        <tr><td>SIN BLANCO</td><td>No veo el objetivo asignado</td></tr>
         <tr><td>VISUAL</td><td>Veo al amigo</td></tr>
-        <tr><td>BLIND</td><td>No veo al amigo</td></tr>
-        <tr><td>CONTACT</td><td>Veo una referencia o contacto aún no asignado</td></tr>
-        <tr><td>CCA 5-LINE</td><td>Control rápido de helicóptero en 5 líneas</td></tr>
-        <tr><td>GAME PLAN</td><td>Plan de ataque: tipo de control, arma/efecto, dirección, restricciones</td></tr>
-        <tr><td>IN / OFF</td><td>Entro al ataque / salgo de la pasada</td></tr>
-        <tr><td>CONTINUE</td><td>Siga maniobrando; todavía no autoriza fuego</td></tr>
-        <tr><td>CLEARED HOT</td><td>Autorizado a disparar</td></tr>
-        <tr><td>CLEARED TO ENGAGE</td><td>Tipo 3: autorizado a atacar dentro de límites concretos</td></tr>
+        <tr><td>SIN VISUAL</td><td>No veo al amigo</td></tr>
+        <tr><td>CONTACTO</td><td>Veo una referencia o contacto aún no asignado</td></tr>
+        <tr><td>CCA 5-LINE</td><td>Control rápido de helicóptero: efecto, propia/referencia, objetivo, marca/egreso, amenaza/amigos</td></tr>
+        <tr><td>PLAN DE ATAQUE</td><td>Plan de ataque: tipo de control, arma/efecto, dirección, restricciones</td></tr>
+        <tr><td>INFORME DE TIERRA</td><td>Situación táctica previa: AO, amigos, enemigo, amenazas y restricciones</td></tr>
+        <tr><td>HA</td><td>Holding Area: zona de espera táctica antes de la entrada</td></tr>
+        <tr><td>ENTRANDO / SALIENDO</td><td>Entro al ataque / salgo de la pasada</td></tr>
+        <tr><td>CONTINÚE</td><td>Siga maniobrando; todavía no autoriza fuego</td></tr>
+        <tr><td>COLACIÓN CORRECTA / AVANCE</td><td>Colación correcta / avance hacia la entrada</td></tr>
+        <tr><td>AUTORIZADO FUEGO</td><td>Autorizado a disparar</td></tr>
+        <tr><td>AUTORIZADO A ATACAR</td><td>Tipo 3: autorizado a atacar dentro de límites concretos</td></tr>
         <tr><td>ABORT</td><td>Cancela el ataque ya</td></tr>
-        <tr><td>OFFSET / FAH</td><td>Lado permitido / rumbo final de ataque permitido</td></tr>
+        <tr><td>LADO / FAH</td><td>Lado permitido / rumbo final de ataque permitido</td></tr>
         <tr><td>BDA</td><td>Resultado observado del ataque; si no se ve, no se inventa</td></tr>
-        <tr><td>WINCHESTER / AMMO LOW</td><td>Sin munición útil / munición baja para continuar apoyo</td></tr>
+        <tr><td>SIN MUNICIÓN / MUNICIÓN BAJA</td><td>Sin munición útil / munición baja para continuar apoyo</td></tr>
       </tbody>
     </table>
   </article>
@@ -720,7 +740,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <!-- ============ 2. 9-LINE ============ -->
   <article class="card">
     <span class="bk"></span>
-    <div class="hd"><span class="num">02</span><h2>Briefing 9-Line</h2><span class="tag">El JTAC dicta</span></div>
+    <div class="hd"><span class="num">02</span><h2>Reunión previa 9-Line</h2><span class="tag">El JTAC dicta</span></div>
     <table class="tb">
       <thead><tr><th>L</th><th>Qué dice</th></tr></thead>
       <tbody>
@@ -730,32 +750,32 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <tr><td>4 <span class="star">★</span></td><td>Elevación del blanco sobre el nivel del mar</td></tr>
         <tr><td>5</td><td>Descripción del blanco: tipo, orientación y referencia visible</td></tr>
         <tr><td>6 <span class="star">★</span></td><td>Coordenadas (MGRS / cuadrícula)</td></tr>
-        <tr><td>7</td><td>Marcado (humo, trazadoras, referencia visual, talk-on o sin marca)</td></tr>
+        <tr><td>7</td><td>Marcado (humo, trazadoras, referencia visual, guía hablada o sin marca)</td></tr>
         <tr><td>8 <span class="star">★</span></td><td>Posición de amigos más cercanos</td></tr>
         <tr><td>9</td><td>Egreso · por dónde sale el piloto</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">★</strong> Líneas con lectura de vuelta obligatoria. BP es una zona, no un punto. En el grupo, amigos a menos de <b>200 m</b> del objetivo = <strong style="color:var(--red)">DANGER CLOSE</strong>.</p>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">★</strong> Líneas con lectura de vuelta obligatoria. BP/HA es zona, no punto. En ArmadOS usamos <b>200 m</b> como umbral conservador interno de <strong style="color:var(--red)">PELIGRO CERCANO</strong>; no es una cifra universal.</p>
   </article>
 
   <!-- ============ 3. CHECK-IN PILOTO ============ -->
   <article class="card">
     <span class="bk"></span>
     <div class="hd"><span class="num">03</span><h2>Reporte de entrada</h2><span class="tag">Piloto al llegar</span></div>
-<pre class="pre"><span class="pil">PILOTO:
-"Lince, Pantera,
-misión Ford-01, un Kiowa,
+<pre class="pre"><span class="pil">FORD 1:
+"Lince, FORD 1,
+misión Ford-01, un helicóptero armado,
 establecido BP Lago Oeste,
-14 Hydra y .50,
+cohetes y cañón verde,
 tiempo en estación 25 min.
-ABORT en claro."</span>
+código ABORT banana."</span>
 
-  <span class="sys">→</span> Misión/indicativo: Ford-01 / Pantera
+  <span class="sys">→</span> Misión/indicativo: Ford-01 / FORD 1
   <span class="sys">→</span> Posición: establecido en BP / sobre CP
-  <span class="sys">→</span> Número y tipo: 1 × Kiowa
-  <span class="sys">→</span> Armamento: cohetes Hydra + ametralladora .50
+  <span class="sys">→</span> Número y tipo: 1 × helicóptero armado
+  <span class="sys">→</span> Armamento: cohetes + cañón/ametralladora
   <span class="sys">→</span> Tiempo en estación: 25 min
-  <span class="sys">→</span> Abort: en claro = ABORT ABORT ABORT</pre>
+  <span class="sys">→</span> Código ABORT: palabra acordada, repetida en reporte de entrada</pre>
     <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4">Habla el piloto. Formato: destinatario primero, emisor después. En colaciones, repite lo crítico y cierra con tu indicativo. No abandones BP salvo autorización o seguridad.</p>
   </article>
 
@@ -763,27 +783,32 @@ ABORT en claro."</span>
   <article class="card critical">
     <span class="bk"></span>
     <div class="hd"><span class="num">04</span><h2>Secuencia de ataque</h2><span class="tag">Pasada · coreografía</span></div>
-    <pre class="pre"><span class="pil">PIL:</span>  "Dejando la BP,
-       Pantera."
+    <pre class="pre"><span class="pil">FORD 1:</span>  "Dejando la BP,
+       FORD 1."
 <span class="sys">       → salgo de posición de batalla</span>
 
-<span class="jt">JTAC:</span> "Pantera, CONTINUE."
+<span class="jt">LINCE:</span> "FORD 1, CONTINÚE."
 <span class="sys">       → sigue acercándote, todavía sin fuego</span>
 
-<span class="pil">PIL:</span>  "IN desde el sur,
-       Pantera."
+<span class="pil">FORD 1:</span>  "ENTRANDO desde el sur,
+       FORD 1."
 <span class="sys">       → 30 s al lanzamiento</span>
 
-<span class="jt">JTAC:</span> <span class="key">"Pantera, CLEARED HOT."</span>
+<span class="jt">LINCE:</span> <span class="key">"FORD 1, AUTORIZADO FUEGO."</span>
 <span class="sys">       → autorización de armas para ESTA pasada ★</span>
 
-<span class="pil">PIL:</span>  "ROCKETS, Pantera."
+<span class="pil">FORD 1:</span>  "COHETES, FORD 1."
 
-<span class="pil">PIL:</span>  "OFF, vuelvo a la BP,
-       Pantera."
+<span class="pil">FORD 1:</span>  "SALIENDO, vuelvo a la BP,
+       FORD 1."
 
-<span class="jt">JTAC:</span> "Pantera, buenos impactos.
+<span class="jt">LINCE:</span> "FORD 1, buenos impactos.
        Espere BDA."</pre>
+    <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "Colación correcta. Avance ahora."
+<span class="pil">FORD 1:</span>  "Avanzando, visual."
+<span class="pil">FORD 1:</span>  "BLANCO A LA VISTA objetivo."
+<span class="jt">LINCE:</span> "CONTINÚE EN SECO." <span class="sys">→ entrada fría, sin armas</span>
+<span class="pil">FORD 1:</span>  "SALIENDO EN SECO, egreso este."</pre>
   </article>
 
   <!-- ============ 5. TIPOS DE CONTROL ============ -->
@@ -804,14 +829,14 @@ ABORT en claro."</span>
       <div class="tcard t3">
         <h3><span class="dot"></span>TIPO 3 · Límites cerrados</h3>
         <p>JTAC autoriza varios ataques dentro de <b>área, tiempo, arma y restricciones</b>.</p>
-        <p>Se autoriza con <b>CLEARED TO ENGAGE</b>, no con frases ambiguas.</p>
+        <p>Se autoriza con <b>AUTORIZADO A ATACAR</b>, no con frases ambiguas.</p>
       </div>
     </div>
-    <pre class="pre" style="margin-top:10px">GAME PLAN:
+    <pre class="pre" style="margin-top:10px">PLAN DE ATAQUE:
 Tipo __ · método visual/coordenada __
-Arma __ · shooter __
+Arma __ · aparato atacante __
 Restricción principal __
-Tipo 3: límites __ / CLEARED TO ENGAGE __</pre>
+Tipo 3: límites __ / AUTORIZADO A ATACAR __</pre>
   </article>
 
   <!-- ============ 6. CCA 5-LINE ============ -->
@@ -821,30 +846,30 @@ Tipo 3: límites __ / CLEARED TO ENGAGE __</pre>
     <table class="tb">
       <thead><tr><th>L</th><th>Qué dicta el JTAC</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td><b>Amigos / propia:</b> dónde está tierra y cómo se marca</td></tr>
-        <tr><td>2</td><td><b>Objetivo:</b> qué es y dónde está</td></tr>
-        <tr><td>3</td><td><b>Marca:</b> humo, trazadoras, talk-on o referencia</td></tr>
-        <tr><td>4</td><td><b>Restricciones:</b> lo prohibido</td></tr>
-        <tr><td>5</td><td><b>Egreso/control:</b> salida y autorización</td></tr>
+        <tr><td>1</td><td><b>Arma / efecto:</b> qué se espera de la pasada</td></tr>
+        <tr><td>2</td><td><b>Propia / referencia:</b> dónde está LINCE o desde qué referencia habla</td></tr>
+        <tr><td>3</td><td><b>Objetivo:</b> descripción, rumbo/range o referencia visual</td></tr>
+        <tr><td>4</td><td><b>Marca / ataque / egreso:</b> humo, geometría y salida</td></tr>
+        <tr><td>5</td><td><b>Amenaza / amigos:</b> AA, peligro cercano y restricciones críticas</td></tr>
       </tbody>
     </table>
-    <pre class="pre" style="margin-top:10px"><span class="jt">JTAC:</span> "Pantera, CCA 5-line.
-Amigos sur humo verde.
-Técnico cruce norte.
-Marca humo rojo.
-No disparo al sur.
-Ataque oeste-este,
-egreso norte. Colacione."
+    <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "FORD 1, CCA 5-line.
+Dos cohetes simulados.
+LINCE 500 norte de edificio azul.
+Técnico rumbo 340, 700 metros.
+Humo rojo, ataque sobre mi hombro derecho, egreso este.
+AA ligera norte, amigos peligro cercano sur. Colacione."
 
-<span class="pil">PIL:</span> "Amigos sur,
-técnico cruce norte,
-humo rojo, no disparo sur,
-egreso norte. Pantera."</pre>
-    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">No sustituye</strong> TALLY, CLEARED HOT ni ABORT. Si hay duda, 9-Line completa. BDA: reporta solo lo observado.</p>
+<span class="pil">FORD 1:</span> "Dos cohetes simulados,
+técnico rumbo 340, 700,
+humo rojo, hombro derecho,
+egreso este, AA norte,
+amigos sur. FORD 1."</pre>
+    <p style="margin-top:10px;font-size:11.5px;color:var(--ink-faint);line-height:1.4"><strong style="color:var(--red)">No sustituye</strong> BLANCO A LA VISTA, AUTORIZADO FUEGO ni ABORT. Si hay duda, 9-Line completa. BDA: reporta solo lo observado.</p>
     <pre class="pre" style="margin-top:8px">Anota:
-Amigos ____ Objetivo ____
-Marca _____ Restric. ____
-Egreso ____ BDA ________</pre>
+Efecto ____ Propia/ref. ____
+Objetivo __ Marca/egreso __
+Amenaza/amigos ____ BDA ____</pre>
   </article>
 
   <!-- ============ 7. REGLAS ============ -->
@@ -852,11 +877,11 @@ Egreso ____ BDA ________</pre>
     <span class="bk"></span>
     <div class="hd"><span class="num">07</span><h2>Reglas no negociables</h2><span class="tag">No se rompen</span></div>
     <ol class="rules-list">
-      <li>Sin <b>"CLEARED HOT"</b> NO se dispara. Nunca. Aunque el blanco esté cantado.</li>
-      <li><b>CLEARED</b> solo se usa para autorizar armas. Pasada seca = <b>CONTINUE DRY</b>.</li>
-      <li><b>"ABORT"</b> se obedece YA, sin discutir ni preguntar por qué. El motivo se explica en el debrief.</li>
-      <li>Si el piloto pierde el blanco: <b>"NO JOY, OFF, vuelvo a la BP"</b> y aborta él solo.</li>
-      <li>Amigos a menos de <b>200 m</b> del objetivo = DANGER CLOSE. Sin coordinación clara, no se dispara.</li>
+      <li>Sin <b>"AUTORIZADO FUEGO"</b> NO se dispara. Nunca. Aunque el blanco esté cantado.</li>
+      <li><b>AUTORIZADO</b> solo se usa para autorizar armas. Pasada seca = <b>CONTINÚE EN SECO</b>.</li>
+      <li><b>"ABORT"</b> se obedece YA, sin discutir ni preguntar por qué. El motivo se explica en el cierre de misión.</li>
+      <li>Si el piloto pierde el blanco: <b>"SIN BLANCO, SALIENDO, vuelvo a la BP"</b> y aborta él solo.</li>
+      <li>Amigos a menos de <b>200 m</b> del objetivo = PELIGRO CERCANO. Sin coordinación clara, no se dispara.</li>
       <li>9-Line sin lectura de vuelta de <b>L4, L6, L8 y restricciones</b> = no hay autorización válida.</li>
       <li>CCA 5-line sin colación de restricciones y egreso = no hay ataque.</li>
       <li>BDA sin visual = "no observado". No se inventan daños para cerrar rápido.</li>
@@ -914,7 +939,7 @@ Egreso ____ BDA ________</pre>
         <tr><td>Humo rojo/naranja</td><td>Marca enemigo · cerca, sin tapar el blanco</td></tr>
         <tr><td>Humo verde</td><td>Marca amigos · nunca se usa como blanco</td></tr>
         <tr><td>Trazadoras</td><td>Útiles de urgencia · revelan la posición amiga</td></tr>
-        <tr><td>Talk-on</td><td>Referencia visual: cruce, casa, granero, bosque</td></tr>
+        <tr><td>Guía hablada</td><td>Referencia visual: cruce, casa, granero, bosque</td></tr>
       </tbody>
     </table>
     <table class="tb" style="margin-top:10px">
@@ -922,21 +947,22 @@ Egreso ____ BDA ________</pre>
       <tbody>
         <tr><td>BP cubierta</td><td>Observa desde terreno, sin exponerte</td></tr>
         <tr><td>Pop-up corto</td><td>Asoma, identifica/dispara y vuelve a cubrirte</td></tr>
-        <tr><td>Pasada rockets/guns</td><td>Entra, suelta, rompe y canta OFF</td></tr>
-        <tr><td>Show of Force</td><td>Pasada baja sin disparar: CONTINUE DRY</td></tr>
+        <tr><td>Pasada rockets/cañón</td><td>Entra, suelta, rompe y canta SALIENDO</td></tr>
+        <tr><td>Pasada de presencia</td><td>Pasada baja sin disparar: CONTINÚE EN SECO</td></tr>
       </tbody>
     </table>
     <pre class="pre" style="margin-top:10px">CORRELACIÓN:
-JTAC pide descripción.
-Piloto: CONTACT referencia / TALLY blanco.
-JTAC: "Ese ___ es su objetivo."</pre>
+LINCE pide descripción.
+FORD 1: CONTACTO con referencia / BLANCO A LA VISTA del blanco.
+LINCE: "Ese ___ es su objetivo."</pre>
   </article>
 
 </div><!-- /grid -->
 
 <div class="mobile-dock" aria-label="Acciones móviles">
   <button onclick="saveCards()">Guardar</button>
-  <button onclick="clearCards()">Limpiar</button>
+  <button type="button" id="prevFieldBtn">Anterior</button>
+  <button type="button" id="nextFieldBtn">Siguiente</button>
   <a href="#five-line-tool">Arriba</a>
 </div>
 
@@ -965,10 +991,50 @@ function saveCards(){
   });
 }
 function loadCards(){
-  document.querySelectorAll("[data-card-key]").forEach((el) => {
+  document.querySelectorAll("[data-card-key]").forEach((el, index) => {
     const value = localStorage.getItem(cardPrefix + el.dataset.cardKey);
     if(value) el.innerText = value;
+    el.setAttribute("tabindex", String(index + 1));
+    el.setAttribute("role", "textbox");
+    el.setAttribute("aria-multiline", "true");
+    el.setAttribute("autocapitalize", "characters");
+    el.setAttribute("spellcheck", "false");
     el.addEventListener("input", saveCards);
+  });
+}
+function editableFields(){
+  return Array.from(document.querySelectorAll("[data-card-key]"));
+}
+function focusField(delta){
+  const fields = editableFields();
+  if(!fields.length) return;
+  const active = document.activeElement;
+  let index = fields.indexOf(active);
+  if(index < 0) index = delta > 0 ? -1 : 0;
+  const next = fields[(index + delta + fields.length) % fields.length];
+  next.focus({preventScroll:false});
+  next.scrollIntoView({block:"center", behavior:"smooth"});
+}
+function setupFieldNavigation(){
+  document.addEventListener("keydown", (event) => {
+    const active = document.activeElement;
+    if(!active || !active.matches("[data-card-key]")) return;
+    if(event.key === "Enter" && !event.shiftKey){
+      event.preventDefault();
+      saveCards();
+      focusField(1);
+    }
+    if(event.key === "Tab"){
+      saveCards();
+    }
+  });
+  document.getElementById("nextFieldBtn")?.addEventListener("click", () => {
+    saveCards();
+    focusField(1);
+  });
+  document.getElementById("prevFieldBtn")?.addEventListener("click", () => {
+    saveCards();
+    focusField(-1);
   });
 }
 function clearCards(){
@@ -1295,6 +1361,7 @@ function setupTacticalMap(){
   loadMap();
 }
 loadCards();
+setupFieldNavigation();
 setupTacticalMap();
 </script>
 

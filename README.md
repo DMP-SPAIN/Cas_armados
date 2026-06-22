@@ -11,14 +11,28 @@ La version navegable esta disponible en GitHub Pages:
 - Manual del alumno: <https://dmp-spain.github.io/Cas_armados/>
 - Chuletas CAS: <https://dmp-spain.github.io/Cas_armados/CHULETAS_CAS.html>
 - Manual de instructores: <https://dmp-spain.github.io/Cas_armados/MANUAL_INSTRUCTORES_CAS.html>
-- Guia Dia 1 - Comunicaciones y check-in: <https://dmp-spain.github.io/Cas_armados/guia-dia1-operacion-ford.html>
-- Guia Dia 2 - Check-in real y SITREP: <https://dmp-spain.github.io/Cas_armados/guia-dia2-checkin-sitrep.html>
+- Guia Dia 1 - Comunicaciones y reporte de entrada: <https://dmp-spain.github.io/Cas_armados/guia-dia1-operacion-ford.html>
+- Guia Dia 2 - Reporte de entrada, informe de tierra y HA: <https://dmp-spain.github.io/Cas_armados/guia-dia2-checkin-sitrep.html>
+
+## Fuente CAS rotary
+
+La ultima revision de doctrina CAS se ha alineado con dos videos de referencia de Dave S publicados el 2018-10-05:
+
+- `Rotary CAS engagement example` (`VRnjkj377EE`).
+- `Fixed Wing CAS Example` (`05Ed_ENSp8k`), usado para reforzar la 9-line.
+
+Las transcripciones automaticas extraidas se conservan en:
+
+- `data/youtube/VRnjkj377EE.transcript.en.txt`
+- `data/youtube/05Ed_ENSp8k.transcript.en.txt`
+
+El material usa esos videos como referencia practica para: reporte de entrada completo, informe de tierra, HA/BP, CCA 5-line, 9-line, observaciones, colación, avance, visual/blanco a la vista, control final y BDA.
 
 ## Que contiene
 
 ### Manual del alumno
 
-Documento principal para entender el ciclo completo de una mision CAS con helicopteros: briefing, comunicaciones, salida, navegacion, contacto con JTAC, secuencia de ataque, restricciones, regreso y debrief.
+Documento principal para entender el ciclo completo de una mision CAS con helicopteros: reunión previa, comunicaciones, salida, navegación, contacto con JTAC, informe de tierra, HA/BP, CCA 5-line, control de entrada, restricciones, regreso y cierre de misión.
 
 Esta pensado para formar una base comun antes de entrar en procedimientos mas exigentes.
 
@@ -32,13 +46,13 @@ Su funcion no es sustituir al manual, sino reducir la carga mental cuando ya se 
 
 Guia para preparar y dirigir sesiones de formacion. Ordena la progresion por fases, propone ejercicios, criterios de evaluacion, errores frecuentes y una forma comun de conducir la instruccion sin improvisar cada clase desde cero.
 
-### Guia Dia 1 - Comunicaciones y check-in
+### Guia Dia 1 - Comunicaciones y reporte de entrada
 
-Sesion inicial estructurada para introducir comunicaciones de transito sin torre, rodaje, despegue, vuelo inicial y primer check-in seco con JTAC.
+Sesion inicial estructurada para introducir comunicaciones de transito sin torre, rodaje, despegue, vuelo inicial y primer reporte de entrada en seco con JTAC.
 
-### Guia Dia 2 - Check-in real y SITREP
+### Guia Dia 2 - Reporte de entrada, informe de tierra y HA
 
-Segundo ejercicio de progresion: vuelo a CP/BP, check-in real en el aire, espera segura, SITREP simple, colacion y rotacion de JTAC para que todos practiquen hablar.
+Segundo ejercicio de progresion: vuelo a CP/HA/BP, reporte de entrada real en el aire, informe de tierra, colación, colación correcta y rotación de JTAC. Si el grupo va ordenado, se puede practicar plan de ataque básico, CCA 5-line y entrada fría sin armas.
 
 ## Enfoque del proyecto
 
