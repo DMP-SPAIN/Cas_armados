@@ -283,9 +283,9 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
 <nav class="topbar"><div class="wrap">
   <span class="brand"><svg><use href="#emblem"/></svg>ARMADOS</span>
   <span class="links">
-    <a href="#tablillas">Tablillas</a><a href="#mision">Misión</a><a href="#idea">Idea</a><a href="#briefing">Reunión previa</a>
+    <a href="#idea">Idea</a><a href="#mision">Misión</a><a href="#briefing">Reunión previa</a>
     <a href="#radio">Radio</a><a href="#salida">Despegue</a><a href="#zona">Zona</a>
-    <a href="#secuencia">CAS</a><a href="#cca5">CCA</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tarjetas">Tarjetas</a><a href="MANUAL_INSTRUCTORES_CAS.html">Instructor</a>
+    <a href="#secuencia">CAS</a><a href="#cca5">CCA</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tablillas">Tablillas</a><a href="#tarjetas">Tarjetas</a><a href="MANUAL_INSTRUCTORES_CAS.html">Instructor</a>
   </span>
 </div></nav>
 
@@ -309,22 +309,27 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
   <div><b>Para qué es esto:</b> para que cualquiera del grupo —aunque no sepa nada de aviación— pueda llevar una misión de apoyo aéreo <b>de principio a fin</b> como se hace en simulación militar: planear, despegar, llegar a la zona, atacar coordinado con tierra y volver. Léelo una vez; en partida te bastará con las <b>tarjetas del final</b>. Norma nº1: <b>si te pierdes, pregunta o habla con tus propias palabras.</b></div>
 </div>
 
-<section id="tablillas" class="sheet">
-  <div class="shead"><span class="num">00B</span><h2>Qué tablilla usar</h2><span class="tag">Herramientas</span></div>
-  <p class="lead">Este manual es genérico CAS/JTAC. En la escuela lo practicamos con helicópteros, pero la lógica no depende de un modelo concreto: primero seguridad y posición, después brief, colación, correlación, autorización y BDA.</p>
-  <div class="cards c2">
-    <div class="card"><h3>Piernógrafo / hoja personal</h3><p>Se rellena antes de despegar. Sirve para que el piloto lleve frecuencias, indicativos, CP/HA/BP, armamento, restricciones, NORDO y ABORT. No sustituye la orden CAS: evita perder datos básicos en cabina.</p></div>
-    <div class="card"><h3>Mapa táctico</h3><p>Se usa antes y durante la misión para dibujar rutas, amigos, enemigos, líneas de no cruce, BP/HA, marcas y egresos. Si alguien no entiende la situación, se vuelve al mapa antes de seguir por radio.</p></div>
-    <div class="card"><h3>CCA 5-Line</h3><p>Úsala con helicópteros cuando el escenario ya está claro: objetivo simple, amigos localizados, HA/BP definida, amenaza entendida y restricciones sencillas. Acelera lo que ya está claro; no arregla una situación confusa.</p></div>
-    <div class="card"><h3>9-Line</h3><p>Úsala cuando hay varios blancos, coordenadas, marca láser/humo, zona urbana, amigos cerca, peligro cercano, mala visibilidad, piloto nuevo o restricciones delicadas. Es más lenta, pero ordena mejor la cabeza.</p></div>
-    <div class="card"><h3>Herramienta JTAC</h3><p>Úsala en sesiones iniciales para obligar a LINCE a hablar: reporte de entrada, HA/BP, informe de tierra, restricciones, colación correcta, plan de ataque y entrada fría. Si eso no sale limpio, no se pasa a fuego real.</p></div>
-    <div class="card"><h3>Evaluación</h3><p>Se rellena después de la sesión. No es para castigar: marca qué alumno ya es autónomo, quién necesita repetir una parte concreta y qué debe entrenar antes de la siguiente clase.</p></div>
+<!-- ======= LA IDEA EN 30 SEGUNDOS ======= -->
+<section id="idea" class="sheet">
+  <div class="shead"><span class="num">00</span><h2>La idea en 30 segundos</h2><span class="tag">Empieza por aquí</span></div>
+  <div class="hero">
+    <p>Piensa en un <strong>taxi armado</strong>. Tú eres el puño; un compañero en tierra son los ojos. Él (el <strong>JTAC</strong>) ve dónde están enemigos <em>y</em> amigos; tú desde el aire muchas veces no. Por eso <strong>él te señala el blanco y te da permiso</strong>. Todo esto existe <strong>porque hay amigos cerca del enemigo</strong>: si fallas, matas a los tuyos.</p>
+    <div class="taxi">
+      <div class="col"><h4>El JTAC (en tierra)</h4><ul><li>Ve dónde está todo el mundo</li><li>Te dice QUÉ atacar</li><li>Te da el PERMISO</li></ul></div>
+      <div class="col you"><h4>Tú (en el helicóptero)</h4><ul><li>Llevas las armas</li><li>Atacas lo que te señalan</li><li>NUNCA disparas sin permiso</li></ul></div>
+    </div>
+  </div>
+  <h3 class="subh">Las 3 reglas de oro · no se rompen jamás</h3>
+  <div class="rules">
+    <div class="rule bk"><div class="n">Regla 1</div><p><b>No disparas sin permiso.</b> «AUTORIZADO FUEGO» o nada. Aunque lo veas clarísimo.</p></div>
+    <div class="rule bk"><div class="n">Regla 2</div><p><b>No pasas tu línea de espera (la «BP») sin permiso.</b> Esperas ahí hasta que te autoricen.</p></div>
+    <div class="rule bk"><div class="n">Regla 3</div><p><b>Si oyes «ABORT» → cortas al instante y te alejas.</b> Sin preguntar.</p></div>
   </div>
 </section>
 
-<!-- ======= 00 LA MISIÓN DE PRINCIPIO A FIN ======= -->
+<!-- ======= LA MISIÓN DE PRINCIPIO A FIN ======= -->
 <section id="mision" class="sheet">
-  <div class="shead"><span class="num">00</span><h2>La misión, de principio a fin</h2><span class="tag">Visión global</span></div>
+  <div class="shead"><span class="num">01</span><h2>La misión, de principio a fin</h2><span class="tag">Visión global</span></div>
   <p class="lead">Antes de entrar en detalle, mira el viaje completo. Una salida de CAS no empieza disparando: empieza en tierra, planeando. Estas son las <strong>8 fases</strong> por las que pasarás siempre, y en qué frecuencia ocurre cada una.</p>
   <div class="steps flow">
     <div class="step"><div class="dot"><div class="b">1</div><div class="ln"></div></div><div class="body">
@@ -371,24 +376,6 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
   <div class="callout tip">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
     <div>Las fases 1 a 5 y 7 a 8 son <b>rápidas</b>; existen para que llegues al ataque ordenado y vuelvas vivo. La fase 6 (CAS) es la que más se practica. El resto de este manual desarrolla cada fase en orden.</div>
-  </div>
-</section>
-
-<!-- ======= 01 IDEA ======= -->
-<section id="idea" class="sheet">
-  <div class="shead"><span class="num">01</span><h2>La idea en 30 segundos</h2><span class="tag">Concepto</span></div>
-  <div class="hero">
-    <p>Piensa en un <strong>taxi armado</strong>. Tú eres el puño; un compañero en tierra son los ojos. Él (el <strong>JTAC</strong>) ve dónde están enemigos <em>y</em> amigos; tú desde el aire muchas veces no. Por eso <strong>él te señala el blanco y te da permiso</strong>. Todo esto existe <strong>porque hay amigos cerca del enemigo</strong>: si fallas, matas a los tuyos.</p>
-    <div class="taxi">
-      <div class="col"><h4>El JTAC (en tierra)</h4><ul><li>Ve dónde está todo el mundo</li><li>Te dice QUÉ atacar</li><li>Te da el PERMISO</li></ul></div>
-      <div class="col you"><h4>Tú (en el helicóptero)</h4><ul><li>Llevas las armas</li><li>Atacas lo que te señalan</li><li>NUNCA disparas sin permiso</li></ul></div>
-    </div>
-  </div>
-  <h3 class="subh">Las 3 reglas de oro · no se rompen jamás</h3>
-  <div class="rules">
-    <div class="rule bk"><div class="n">Regla 1</div><p><b>No disparas sin permiso.</b> «AUTORIZADO FUEGO» o nada. Aunque lo veas clarísimo.</p></div>
-    <div class="rule bk"><div class="n">Regla 2</div><p><b>No pasas tu línea de espera (la «BP») sin permiso.</b> Esperas ahí hasta que te autoricen.</p></div>
-    <div class="rule bk"><div class="n">Regla 3</div><p><b>Si oyes «ABORT» → cortas al instante y te alejas.</b> Sin preguntar.</p></div>
   </div>
 </section>
 
@@ -541,6 +528,17 @@ Llamadas mínimas:
 2 "FORD 1, viento en cola izquierda para plataforma norte."
 3 "FORD 1, final para plataforma norte."
 4 "FORD 1, toma completada, libre de zona de aterrizaje."</div>
+  <h3 class="subh">Cada tramo del circuito, en cristiano</h3>
+  <p style="color:var(--ink-dim);font-size:15px">El circuito es un rectángulo que se vuela alrededor de la pista, con todos los giros al mismo lado (normalmente a la izquierda) y aterrizando contra el viento. Sin torre, te <strong>autoinformas</strong> al cambiar de tramo. En helicóptero se vuela más bajo, lento y cerrado que en avión. Truco: el <strong>viento en cola</strong> va al revés de como vas a aterrizar; el <strong>final</strong>, en el sentido bueno.</p>
+  <table class="tbl wide">
+    <tr><th>Tramo</th><th>Qué es</th><th>En helicóptero</th></tr>
+    <tr><td>Inicial</td><td>Tu entrada al circuito cuando llegas de fuera: te alineas con la pista y avisas que llegas.</td><td>Entras bajo desde el CP; asoma solo para autoinformarte.</td></tr>
+    <tr><td>Viento cruzado</td><td>Tramo perpendicular a la pista justo tras despegar: subes y giras 90° para cruzar por un extremo.</td><td>Tu primer giro tras la plataforma; cerrado y corto.</td></tr>
+    <tr><td>Viento en cola</td><td>Vuelas paralelo a la pista en sentido <strong>contrario</strong> al de aterrizaje, con la pista a un lado. El lado largo, donde más tiempo pasas.</td><td>Tramo de preparación: ajusta altura y empieza a bajar. Avisas «en viento en cola».</td></tr>
+    <tr><td>Base</td><td>Tramo perpendicular que une viento en cola con el final: giras 90° hacia la pista mientras bajas.</td><td>Muy corta y pegada al campo; coordina descenso y giro.</td></tr>
+    <tr><td>Final</td><td>El último giro te deja alineado con la pista en el sentido <strong>correcto</strong>, descendiendo hacia el punto de toma. Avisas «en final».</td><td>Puede ser corto y empinado; apunta al BP o a la plataforma.</td></tr>
+    <tr><td>Toma</td><td>El aterrizaje en sí: frenas el descenso y posas el aparato. Aquí acaba el circuito.</td><td>Puedes pararte en estacionario y bajar en vertical. Despeja rápido la plataforma.</td></tr>
+  </table>
   <div class="callout tip">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
     <div><b>Regla simple:</b> escucha antes de mover el helicóptero; avisa antes de hacer algo que afecte a otros.</div>
@@ -552,7 +550,7 @@ Llamadas mínimas:
   <div class="shead"><span class="num">06</span><h2>Navegación y Punto de Contacto</h2><span class="tag">Fases 4–5</span></div>
   <p class="lead">Volar a la zona no es ir en línea recta y alto. Es llegar <strong>sin que te vean ni te derriben</strong>, y presentarte al JTAC en el momento justo.</p>
   <div class="cards c2">
-    <div class="card bk"><h3 style="font-size:16px">En ruta</h3><p>Vuela <strong>bajo y pegado al terreno</strong> (máscara de terreno). Sigue la ruta dla reunión previa. Si sois dos, mantened separación para no estorbaros.</p></div>
+    <div class="card bk"><h3 style="font-size:16px">En ruta</h3><p>Vuela <strong>bajo y pegado al terreno</strong> (máscara de terreno). Sigue la ruta de la reunión previa. Si sois dos, mantened separación para no estorbaros.</p></div>
     <div class="card bk"><h3 style="font-size:16px">Punto de Contacto (CP)</h3><p>Al acercarte al CP, <strong>cambia a la frecuencia 2 (JTAC)</strong> y llámalo. Es tu primer «hola»: a partir de aquí trabajas para él.</p></div>
   </div>
   <div class="radio"><span class="pil">FORD 1</span> "Lince, FORD 1, entrando por CP Oeste, dos kilómetros al sur, listo para reporte de entrada."
@@ -651,10 +649,10 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 
     <div class="step"><div class="dot"><div class="b">1</div><div class="ln"></div></div><div class="body">
       <h3>Reporte de entrada — «quién soy y qué llevo»</h3>
-      <p class="why"><strong>Cómo:</strong> autenticación si procede · indicativo · número y tipo · posición/altura · armas · estado verde · tiempo en estación · código ABORT.</p>
+      <p class="why"><strong>Cómo:</strong> autenticación si procede · indicativo · número y tipo · posición/altura · armas operativas · tiempo en estación · código ABORT.</p>
       <div class="radio"><span class="pil">FORD 1</span> "Lince, FORD 1, establecido BP Lago Oeste, listo reporte de entrada."
 <span class="jt">LINCE</span> "FORD 1, Lince, adelante reporte de entrada."
-<span class="pil">FORD 1</span> "Lince, FORD 1, un helicóptero armado, establecido BP Lago Oeste, angels 1.5, cohetes y cañón/ametralladora verde. Tiempo en estación 25 minutos. Código ABORT banana."
+<span class="pil">FORD 1</span> "Lince, FORD 1, un helicóptero armado, establecido BP Lago Oeste, a baja cota, cohetes y cañón listos. Tiempo en estación 25 minutos. Código ABORT banana."
 <span class="jt">LINCE</span> "FORD 1, Lince, recibido reporte de entrada. Copie informe de tierra."</div>
       <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: di <b>qué llevas y cuánto tiempo te queda</b>.</span></div>
     </div></div>
@@ -861,7 +859,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
   <div class="radio long"><span class="ph">— CCA 5-LINE · MISMA SITUACIÓN, MÁS CORTA QUE LA 9-LINE —</span>
 <span class="jt">JTAC · LINCE</span> "FORD 1, Lince, CCA 5-line sobre técnico aislado. Avise listo para copiar."
 <span class="pil">PILOTO · FORD 1</span> "Lince, FORD 1, listo para 5-line."
-<span class="jt">JTAC · LINCE</span> "Uno: dos cohetes. Dos: Lince 500 metros norte de edificio azul, marcado humo azul. Tres: objetivo técnico rumbo tres-cuatro-cero, 700 metros, calle norte-sur. Cuatro: marca humo rojo, ataque sobre mi hombro derecho, egreso este. Cinco: AA ligera al norte, amigos amigos al sur, cerca del objetivo. Colacione."
+<span class="jt">JTAC · LINCE</span> "Uno: dos cohetes. Dos: Lince 500 metros norte de edificio azul, marcado humo azul. Tres: objetivo técnico rumbo tres-cuatro-cero, 700 metros, calle norte-sur. Cuatro: marca humo rojo, ataque sobre mi hombro derecho, egreso este. Cinco: AA ligera al norte, amigos al sur, cerca del objetivo. Colacione."
 <span class="pil">PILOTO · FORD 1</span> "Dos cohetes. Técnico rumbo tres-cuatro-cero, 700 metros, humo rojo, ataque sobre su hombro derecho, egreso este, AA al norte, amigos al sur. FORD 1."
 <span class="jt">JTAC · LINCE</span> "Colación correcta. Avance ahora."
 <span class="pil">PILOTO · FORD 1</span> "Avanzando, visual."
@@ -897,7 +895,7 @@ BDA / resultado: ________________________________________</div>
 
 <!-- ======= PELIGRO CERCANO ======= -->
 <section id="danger" class="sheet">
-  <div class="shead"><span class="num">11</span><h2>peligro cercano</h2><span class="tag">Amigos muy cerca</span></div>
+  <div class="shead"><span class="num">11</span><h2>Peligro cercano</h2><span class="tag">Amigos muy cerca</span></div>
   <div class="callout warn" style="font-size:16px">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
     <div><b>Regla interna ArmadOS:</b> amigos a menos de <b>200 m</b> del objetivo = PELIGRO CERCANO. Es un umbral conservador para Reforger; el vídeo de referencia muestra peligro cercano con distancias mayores, así que no lo trates como cifra universal.</div>
@@ -905,12 +903,12 @@ BDA / resultado: ________________________________________</div>
   <ol style="color:var(--ink-dim)">
     <li>El JTAC lo <strong>anuncia</strong>.</li>
     <li>Al autorizar, <strong>acepta el riesgo diciendo sus iniciales</strong>: <em>«FORD 1, Lince, PELIGRO CERCANO, iniciales DELTA MIKE, AUTORIZADO FUEGO.»</em></li>
-    <li>Tú extremas el cuidado: <strong>rumbo de ataque que NUNCA apunte a los amigos</strong>, prefieres la <strong>ametralladora ametralladora</strong> antes que cohetes, y disparas <strong>ráfagas cortas</strong>.</li>
+    <li>Tú extremas el cuidado: <strong>rumbo de ataque que NUNCA apunte a los amigos</strong>, prefieres la <strong>ametralladora</strong> antes que cohetes, y disparas <strong>ráfagas cortas</strong>.</li>
   </ol>
   <table class="tbl" style="max-width:380px">
     <tr><th>Arma</th><th>Riesgo a amigos</th></tr>
     <tr><td>Cohetes Hydra 70</td><td>~150 m</td></tr>
-    <tr><td>Ametralladora ametralladora</td><td>~100 m</td></tr>
+    <tr><td>Ametralladora</td><td>~100 m</td></tr>
   </table>
 </section>
 
@@ -948,7 +946,7 @@ BDA / resultado: ________________________________________</div>
 
 <span class="pil">PILOTO · FORD 1</span> "Lince, FORD 1, establecido BP Lago Oeste, listo reporte de entrada."
 <span class="jt">JTAC · LINCE</span> "FORD 1, Lince, adelante reporte de entrada."
-<span class="pil">PILOTO · FORD 1</span> "Lince, FORD 1, un helicóptero armado, establecido BP Lago Oeste, angels 1.5, cohetes y cañón/ametralladora verde. Tiempo en estación 25 minutos. Código ABORT banana."
+<span class="pil">PILOTO · FORD 1</span> "Lince, FORD 1, un helicóptero armado, establecido BP Lago Oeste, a baja cota, cohetes y cañón listos. Tiempo en estación 25 minutos. Código ABORT banana."
 <span class="jt">JTAC · LINCE</span> "FORD 1, Lince, recibido reporte de entrada. Copie informe de tierra."
 
 <span class="jt">JTAC · LINCE</span> "Contacto en curso. Técnico con ametralladora en el cruce norte, activo, nos tiene fijados. Sin AA vista. Somos 8 en la linde sur del bosque. Sin morteros propios activos. Lince solicita destruir el técnico con cohetes o ametralladora. Restricción: ningún disparo hacia el sur. Sin cables ni torres en zona. Colacione restricción."
@@ -1019,11 +1017,48 @@ BDA / resultado: ________________________________________</div>
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
     <div><b>Pasada de presencia:</b> pasada baja, rápida y <b>sin disparar</b> para asustar/fijar al enemigo. Se autoriza con «CONTINÚE EN SECO», nunca con «AUTORIZADO FUEGO».</div>
   </div>
+  <h3 class="subh">Patrones de espera</h3>
+  <p style="color:var(--ink-dim);font-size:15px">Mientras esperas turno del JTAC en la <strong>zona de espera (HA)</strong>, no te quedas quieto ni das vueltas a lo loco: orbitas con un patrón que te deja vigilar el blanco sin ponérselo fácil al enemigo. La <strong>BP</strong> no es para orbitar: ahí asomas, disparas y te escondes.</p>
+  <div class="cards c3">
+    <div class="card">
+      <svg viewBox="0 0 80 60" width="120" height="90" style="display:block;margin:0 auto 8px" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="30" r="20" fill="none" stroke="#ffb22e" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="40" cy="30" r="3" fill="#e5533c"/><polygon points="60,30 55,26 57,30 55,34" fill="#ffb22e"/></svg>
+      <h3 style="font-size:15px">Circular</h3>
+      <p>Vueltas redondas alrededor de un punto, bajo y cerrado, con el blanco a un costado para no perderlo de vista. <b>Cuándo:</b> por defecto, sin antiaérea y con un solo blanco.</p>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 80 60" width="120" height="90" style="display:block;margin:0 auto 8px" xmlns="http://www.w3.org/2000/svg"><path d="M20 18 L60 18 A12 12 0 0 1 60 42 L20 42 A12 12 0 0 1 20 18 Z" fill="none" stroke="#ffb22e" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="40" cy="30" r="3" fill="#e5533c"/><polygon points="40,18 36,22 40,20 44,22" fill="#ffb22e"/></svg>
+      <h3 style="font-size:15px">Ovalado</h3>
+      <p>Un óvalo con el eje largo paralelo a la amenaza, dejando el tramo más expuesto tapado por una cresta. Te protege la <b>máscara de terreno</b>, no la distancia. <b>Cuándo:</b> antiaérea sospechada o zona caliente.</p>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 80 60" width="120" height="90" style="display:block;margin:0 auto 8px" xmlns="http://www.w3.org/2000/svg"><path d="M20 30 Q20 12 35 22 Q50 32 50 30 Q50 12 65 22 Q65 48 50 38 Q35 28 35 30 Q35 48 20 38 Z" fill="none" stroke="#ffb22e" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="28" cy="30" r="2.5" fill="#e5533c"/><circle cx="57" cy="30" r="2.5" fill="#e5533c"/></svg>
+      <h3 style="font-size:15px">En ocho</h3>
+      <p>Un 8: dos lazos que se cruzan, cada uno mirando a un lado. Repartes la atención entre dos puntos. <b>Cuándo:</b> dos blancos, o para alternar y no encarar siempre el sol.</p>
+    </div>
+  </div>
+  <div class="callout warn">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
+    <div>Los patrones son para <b>esperar</b> con amenaza latente, no para torear un misil. Si la antiaérea ya te tiene fijado: <b>SALIENDO inmediato</b>, máscara de terreno, avisas, y el CAS no se reanuda hasta que haya plan para esa amenaza.</div>
+  </div>
+</section>
+
+<!-- ======= QUÉ TABLILLA USAR ======= -->
+<section id="tablillas" class="sheet">
+  <div class="shead"><span class="num">15</span><h2>Qué tablilla usar</h2><span class="tag">Herramientas</span></div>
+  <p class="lead">Cada herramienta tiene su momento. Cuando dudes cuál sacar, esta es la guía rápida. La lógica es siempre la misma: primero seguridad y posición, después brief, colación, correlación, autorización y BDA.</p>
+  <div class="cards c2">
+    <div class="card"><h3>Piernógrafo / hoja personal</h3><p>Se rellena antes de despegar. Sirve para que el piloto lleve frecuencias, indicativos, CP/HA/BP, armamento, restricciones, NORDO y ABORT. No sustituye la orden CAS: evita perder datos básicos en cabina.</p></div>
+    <div class="card"><h3>Mapa táctico</h3><p>Se usa antes y durante la misión para dibujar rutas, amigos, enemigos, líneas de no cruce, BP/HA, marcas y egresos. Si alguien no entiende la situación, se vuelve al mapa antes de seguir por radio.</p></div>
+    <div class="card"><h3>CCA 5-Line</h3><p>Úsala con helicópteros cuando el escenario ya está claro: objetivo simple, amigos localizados, HA/BP definida, amenaza entendida y restricciones sencillas. Acelera lo que ya está claro; no arregla una situación confusa.</p></div>
+    <div class="card"><h3>9-Line</h3><p>Úsala cuando hay varios blancos, coordenadas, marca láser/humo, zona urbana, amigos cerca, peligro cercano, mala visibilidad, piloto nuevo o restricciones delicadas. Es más lenta, pero ordena mejor la cabeza.</p></div>
+    <div class="card"><h3>Herramienta JTAC</h3><p>Úsala en sesiones iniciales para obligar a LINCE a hablar: reporte de entrada, HA/BP, informe de tierra, restricciones, colación correcta, plan de ataque y entrada fría. Si eso no sale limpio, no se pasa a fuego real.</p></div>
+    <div class="card"><h3>Evaluación</h3><p>Se rellena después de la sesión. No es para castigar: marca qué alumno ya es autónomo, quién necesita repetir una parte concreta y qué debe entrenar antes de la siguiente clase.</p></div>
+  </div>
 </section>
 
 <!-- ======= TARJETAS ======= -->
 <section id="tarjetas" class="sheet">
-  <div class="shead"><span class="num">15</span><h2>Tarjetas de bolsillo</h2><span class="tag">Recórtalas</span></div>
+  <div class="shead"><span class="num">16</span><h2>Tarjetas de bolsillo</h2><span class="tag">Recórtalas</span></div>
   <div class="pocket">
     <div class="pcard blue bk">
       <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h7l3-4 2 4h6M7 12v4M14 12l2 5"/></svg>Piloto / Copiloto</h3>
