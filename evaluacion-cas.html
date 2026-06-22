@@ -316,13 +316,13 @@ let githubToken = '';
 let isEditing = false;
 
 const sessions = [
-  { id:'s1', no:'01', name:'Sesión 1', short:'Tránsito y check-in', goal:'Radio de tránsito, rodaje/despegue emulado y primer check-in seco con JTAC.' },
-  { id:'s2', no:'02', name:'Sesión 2', short:'Check-in real y SITREP', goal:'Vuelo a CP/BP, check-in en el aire, espera segura, SITREP simple y rotación de JTAC.' },
-  { id:'s3', no:'03', name:'Sesión 3', short:'9-Line', goal:'Formato, líneas críticas, restricciones y colación.' },
-  { id:'s4', no:'04', name:'Sesión 4', short:'Control terminal', goal:'Correlación, IN, CONTINUE, CLEARED HOT, ABORT y BDA.' },
+  { id:'s1', no:'01', name:'Sesión 1', short:'Tránsito y reporte', goal:'Radio de tránsito, rodaje/despegue emulado y primer reporte de entrada en seco con JTAC.' },
+  { id:'s2', no:'02', name:'Sesión 2', short:'Reporte e informe', goal:'Vuelo a CP/HA/BP, reporte de entrada en el aire, informe de tierra, colación correcta y posible 5-line fría sin armas.' },
+  { id:'s3', no:'03', name:'Sesión 3', short:'9-Line y observaciones', goal:'Formato 9-line, observaciones, colación crítica, avance, marca, entrando, autorización y BDA.' },
+  { id:'s4', no:'04', name:'Sesión 4', short:'Control terminal', goal:'Correlación, entrando, continúe, autorizado fuego, ABORT y BDA.' },
   { id:'s5', no:'05', name:'Sesión 5', short:'Integración JTAC', goal:'Integración con maniobra terrestre, prioridades y mando.' },
   { id:'s6', no:'06', name:'Sesión 6', short:'Sincronización de fuegos', goal:'Separación, coordinación y ventanas de ataque.' },
-  { id:'s7', no:'07', name:'Sesión 7', short:'CAS Plan', goal:'Plan CAS completo, briefing, restricciones y ejecución.' },
+  { id:'s7', no:'07', name:'Sesión 7', short:'Plan CAS', goal:'Plan CAS completo, reunión previa, restricciones y ejecución.' },
   { id:'s8', no:'08', name:'Sesión 8', short:'Ejercicio final', goal:'Misión completa con evaluación integrada.' }
 ];
 
@@ -330,50 +330,50 @@ const criteriaBySession = {
   s1:[
     { id:'s1-com', icon:'▣', title:'Tránsito', sub:'Notifica sin torre', blocker:false },
     { id:'s1-rod', icon:'⌂', title:'Rodaje y despegue', sub:'Posición e intención', blocker:false },
-    { id:'s1-check', icon:'□', title:'Check-in seco', sub:'Quién soy y qué llevo', blocker:true },
+    { id:'s1-check', icon:'□', title:'Reporte en seco', sub:'Quién soy y qué llevo', blocker:true },
     { id:'s1-disc', icon:'⌁', title:'Disciplina radio', sub:'Corto, claro y ordenado', blocker:true }
   ],
   s2:[
-    { id:'s2-cp', icon:'⌂', title:'CP / BP', sub:'Llegada y espera segura', blocker:false },
-    { id:'s2-check', icon:'⇄', title:'Check-in real', sub:'En vuelo y completo', blocker:true },
-    { id:'s2-sitrep', icon:'◇', title:'SITREP JTAC', sub:'Amigos, enemigo, restricción', blocker:true },
-    { id:'s2-col', icon:'!', title:'Colación', sub:'Repite lo crítico', blocker:true }
+    { id:'s2-cp', icon:'⌂', title:'CP / HA / BP', sub:'Llegada y espera segura', blocker:false },
+    { id:'s2-check', icon:'⇄', title:'Reporte real', sub:'Verde, tiempo en estación y código ABORT', blocker:true },
+    { id:'s2-sitrep', icon:'◇', title:'Informe de tierra', sub:'AO, amigos, enemigo, amenaza', blocker:true },
+    { id:'s2-col', icon:'!', title:'Colación correcta', sub:'Colación y corrección', blocker:true }
   ],
   s3:[
-    { id:'s3-form', icon:'□', title:'Formato', sub:'Orden y ritmo de transmisión', blocker:false },
+    { id:'s3-form', icon:'□', title:'Formato', sub:'1 a 9 en orden y sin correr', blocker:false },
     { id:'s3-crit', icon:'4', title:'Líneas críticas', sub:'4 · 6 · 8 + restricciones', blocker:true },
-    { id:'s3-read', icon:'↵', title:'Colación', sub:'Readback y corrección', blocker:true },
-    { id:'s3-rem', icon:'+', title:'Remarks', sub:'FAH, egress, amenaza', blocker:false }
+    { id:'s3-read', icon:'↵', title:'Colación', sub:'L4/L6/L8, FAH y egreso', blocker:true },
+    { id:'s3-rem', icon:'+', title:'Avance / marca', sub:'Avance, contacto, entrando y BDA', blocker:false }
   ],
   s4:[
-    { id:'s4-talk', icon:'⌕', title:'Talk-on', sub:'De referencia grande a objetivo', blocker:false },
-    { id:'s4-cor', icon:'◎', title:'Correlación', sub:'CONTACT/TALLY/NO JOY', blocker:true },
-    { id:'s4-clear', icon:'✓', title:'Clearance', sub:'CONTINUE/CLEARED/ABORT', blocker:true },
+    { id:'s4-talk', icon:'⌕', title:'Guía hablada', sub:'De referencia grande a objetivo', blocker:false },
+    { id:'s4-cor', icon:'◎', title:'Correlación', sub:'CONTACTO/BLANCO A LA VISTA/SIN BLANCO', blocker:true },
+    { id:'s4-clear', icon:'✓', title:'Autorización', sub:'CONTINÚE/AUTORIZADO/ABORT', blocker:true },
     { id:'s4-bda', icon:'▤', title:'BDA', sub:'Resultado y reataque', blocker:false }
   ],
   s5:[
     { id:'s5-prio', icon:'1', title:'Prioridades', sub:'Mando y urgencia táctica', blocker:false },
-    { id:'s5-friend', icon:'◇', title:'Friendlies', sub:'Posición y línea de seguridad', blocker:true },
-    { id:'s5-task', icon:'→', title:'Tasking', sub:'Qué, cuándo y con qué efecto', blocker:false },
-    { id:'s5-flow', icon:'▥', title:'Flujo JTAC', sub:'De check-in a BDA', blocker:true }
+    { id:'s5-friend', icon:'◇', title:'Amigos', sub:'Posición y línea de seguridad', blocker:true },
+    { id:'s5-task', icon:'→', title:'Tarea', sub:'Qué, cuándo y con qué efecto', blocker:false },
+    { id:'s5-flow', icon:'▥', title:'Flujo JTAC', sub:'Del reporte de entrada a BDA', blocker:true }
   ],
   s6:[
     { id:'s6-sep', icon:'↔', title:'Separación', sub:'Fuegos, aeronaves y tropa', blocker:true },
     { id:'s6-window', icon:'◷', title:'Ventanas', sub:'Tiempo y autorización', blocker:false },
     { id:'s6-mark', icon:'✶', title:'Marcaje', sub:'Humo, láser o referencia', blocker:false },
-    { id:'s6-deconf', icon:'⌁', title:'Deconfliction', sub:'No mezclar efectos', blocker:true }
+    { id:'s6-deconf', icon:'⌁', title:'Separación de fuegos', sub:'No mezclar efectos', blocker:true }
   ],
   s7:[
-    { id:'s7-brief', icon:'▤', title:'Briefing', sub:'SMEAC y plan CAS', blocker:false },
-    { id:'s7-rest', icon:'!', title:'Restricciones', sub:'No fires, FAH y egress', blocker:true },
-    { id:'s7-game', icon:'◇', title:'Game plan', sub:'Tipo, método y arma', blocker:false },
+    { id:'s7-brief', icon:'▤', title:'Reunión previa', sub:'SMEAC y plan CAS', blocker:false },
+    { id:'s7-rest', icon:'!', title:'Restricciones', sub:'No fuego, FAH y egreso', blocker:true },
+    { id:'s7-game', icon:'◇', title:'Plan de ataque', sub:'Tipo, método y arma', blocker:false },
     { id:'s7-adapt', icon:'⇄', title:'Adaptación', sub:'Cambios sin perder seguridad', blocker:true }
   ],
   s8:[
-    { id:'s8-start', icon:'▶', title:'Inicio misión', sub:'Briefing, salida y check-in', blocker:false },
+    { id:'s8-start', icon:'▶', title:'Inicio misión', sub:'Reunión previa, salida y reporte', blocker:false },
     { id:'s8-exec', icon:'✓', title:'Ejecución', sub:'Control de ataque completo', blocker:true },
-    { id:'s8-safe', icon:'!', title:'Seguridad', sub:'Abort, friendlies, restricciones', blocker:true },
-    { id:'s8-close', icon:'■', title:'Cierre', sub:'BDA, RTB y debrief', blocker:false }
+    { id:'s8-safe', icon:'!', title:'Seguridad', sub:'ABORT, amigos y restricciones', blocker:true },
+    { id:'s8-close', icon:'■', title:'Cierre', sub:'BDA, RTB y cierre de misión', blocker:false }
   ]
 };
 
