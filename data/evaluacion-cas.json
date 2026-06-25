@@ -1,6 +1,6 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-25T17:12:08.881Z",
+  "updated_at": "2026-06-25T17:13:36.257Z",
   "meta": {
     "course": "CAS/ JTAC",
     "instructor": "<A2>Rayon",
@@ -30,8 +30,8 @@
     },
     {
       "id": "alumno-05",
-      "name": "Phenix",
-      "callsign": "<A2>"
+      "name": "Avaratarsis",
+      "callsign": ""
     },
     {
       "id": "alumno-06",
@@ -65,12 +65,12 @@
     },
     {
       "id": "alumno-12",
-      "name": "<A2>Avaratarsis",
-      "callsign": "<A2>"
+      "name": "Rust",
+      "callsign": ""
     },
     {
       "id": "alumno-mqtregux",
-      "name": "Rust",
+      "name": "",
       "callsign": ""
     }
   ],
