@@ -1,6 +1,6 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-25T17:13:36.257Z",
+  "updated_at": "2026-06-25T17:14:40.137Z",
   "meta": {
     "course": "CAS/ JTAC",
     "instructor": "<A2>Rayon",
@@ -31,7 +31,7 @@
     {
       "id": "alumno-05",
       "name": "Avaratarsis",
-      "callsign": ""
+      "callsign": "<A2>"
     },
     {
       "id": "alumno-06",
@@ -251,7 +251,7 @@
       "action": ""
     },
     "alumno-02|s1-disc": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -566,7 +566,7 @@
       "action": ""
     },
     "alumno-04|s1-check": {
-      "status": "",
+      "status": "mejora",
       "evidence": "",
       "action": ""
     },
@@ -1206,12 +1206,12 @@
       "action": ""
     },
     "alumno-08|s1-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-08|s1-disc": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
