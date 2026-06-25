@@ -1,6 +1,6 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-25T17:10:19.337Z",
+  "updated_at": "2026-06-25T17:12:08.881Z",
   "meta": {
     "course": "CAS/ JTAC",
     "instructor": "<A2>Rayon",
@@ -60,12 +60,17 @@
     },
     {
       "id": "alumno-11",
-      "name": "",
+      "name": "Bestiajez",
       "callsign": ""
     },
     {
       "id": "alumno-12",
-      "name": "",
+      "name": "<A2>Avaratarsis",
+      "callsign": "<A2>"
+    },
+    {
+      "id": "alumno-mqtregux",
+      "name": "Rust",
       "callsign": ""
     }
   ],
@@ -241,7 +246,7 @@
       "action": ""
     },
     "alumno-02|s1-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -1986,6 +1991,166 @@
       "action": ""
     },
     "alumno-12|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s1-rod": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s1-check": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s1-disc": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s2-cp": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s2-check": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s2-sitrep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s2-col": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqtregux|s8-close": {
       "status": "",
       "evidence": "",
       "action": ""
