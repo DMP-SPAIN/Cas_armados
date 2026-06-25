@@ -1,6 +1,6 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-25T17:14:40.137Z",
+  "updated_at": "2026-06-25T19:58:56.272Z",
   "meta": {
     "course": "CAS/ JTAC",
     "instructor": "<A2>Rayon",
@@ -70,8 +70,8 @@
     },
     {
       "id": "alumno-mqtregux",
-      "name": "",
-      "callsign": ""
+      "name": "Jabato",
+      "callsign": "<A2>"
     }
   ],
   "cells": {
@@ -741,7 +741,7 @@
       "action": ""
     },
     "alumno-05|s2-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -901,7 +901,7 @@
       "action": ""
     },
     "alumno-06|s2-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -1061,7 +1061,7 @@
       "action": ""
     },
     "alumno-07|s2-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -1541,7 +1541,7 @@
       "action": ""
     },
     "alumno-10|s2-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -2021,7 +2021,7 @@
       "action": ""
     },
     "alumno-mqtregux|s2-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
