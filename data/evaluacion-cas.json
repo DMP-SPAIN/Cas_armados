@@ -1,6 +1,6 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-17T21:43:35.639Z",
+  "updated_at": "2026-06-25T17:10:19.337Z",
   "meta": {
     "course": "CAS/ JTAC",
     "instructor": "<A2>Rayon",
@@ -55,7 +55,7 @@
     },
     {
       "id": "alumno-10",
-      "name": "",
+      "name": "sirdeath",
       "callsign": ""
     },
     {
@@ -75,37 +75,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-01|s1-cir": {
+    "alumno-01|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-01|s1-9l": {
+    "alumno-01|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-01|s1-ctl": {
+    "alumno-01|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-01|s2-pri": {
+    "alumno-01|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-01|s2-alt": {
+    "alumno-01|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-01|s2-conf": {
+    "alumno-01|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-01|s2-nordo": {
+    "alumno-01|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -235,37 +235,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-02|s1-cir": {
+    "alumno-02|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-02|s1-9l": {
+    "alumno-02|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-02|s1-ctl": {
+    "alumno-02|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-02|s2-pri": {
+    "alumno-02|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-02|s2-alt": {
+    "alumno-02|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-02|s2-conf": {
+    "alumno-02|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-02|s2-nordo": {
+    "alumno-02|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -395,37 +395,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-03|s1-cir": {
+    "alumno-03|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-03|s1-9l": {
+    "alumno-03|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-03|s1-ctl": {
+    "alumno-03|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-03|s2-pri": {
+    "alumno-03|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-03|s2-alt": {
+    "alumno-03|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-03|s2-conf": {
+    "alumno-03|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-03|s2-nordo": {
+    "alumno-03|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -555,37 +555,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-04|s1-cir": {
+    "alumno-04|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-04|s1-9l": {
+    "alumno-04|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-04|s1-ctl": {
+    "alumno-04|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-04|s2-pri": {
+    "alumno-04|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-04|s2-alt": {
+    "alumno-04|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-04|s2-conf": {
+    "alumno-04|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-04|s2-nordo": {
+    "alumno-04|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -715,37 +715,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-05|s1-cir": {
+    "alumno-05|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-05|s1-9l": {
+    "alumno-05|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-05|s1-ctl": {
+    "alumno-05|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-05|s2-pri": {
+    "alumno-05|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-05|s2-alt": {
+    "alumno-05|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-05|s2-conf": {
+    "alumno-05|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-05|s2-nordo": {
+    "alumno-05|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -875,37 +875,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-06|s1-cir": {
+    "alumno-06|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-06|s1-9l": {
+    "alumno-06|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-06|s1-ctl": {
+    "alumno-06|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-06|s2-pri": {
+    "alumno-06|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-06|s2-alt": {
+    "alumno-06|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-06|s2-conf": {
+    "alumno-06|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-06|s2-nordo": {
+    "alumno-06|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -1035,37 +1035,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-07|s1-cir": {
+    "alumno-07|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-07|s1-9l": {
+    "alumno-07|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-07|s1-ctl": {
+    "alumno-07|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-07|s2-pri": {
+    "alumno-07|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-07|s2-alt": {
+    "alumno-07|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-07|s2-conf": {
+    "alumno-07|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-07|s2-nordo": {
+    "alumno-07|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -1195,37 +1195,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-08|s1-cir": {
+    "alumno-08|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-08|s1-9l": {
+    "alumno-08|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-08|s1-ctl": {
+    "alumno-08|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-08|s2-pri": {
+    "alumno-08|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-08|s2-alt": {
+    "alumno-08|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-08|s2-conf": {
+    "alumno-08|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-08|s2-nordo": {
+    "alumno-08|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -1355,37 +1355,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-09|s1-cir": {
+    "alumno-09|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-09|s1-9l": {
+    "alumno-09|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-09|s1-ctl": {
+    "alumno-09|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-09|s2-pri": {
+    "alumno-09|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-09|s2-alt": {
+    "alumno-09|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-09|s2-conf": {
+    "alumno-09|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-09|s2-nordo": {
+    "alumno-09|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -1515,37 +1515,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-10|s1-cir": {
+    "alumno-10|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-10|s1-9l": {
+    "alumno-10|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-10|s1-ctl": {
+    "alumno-10|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-10|s2-pri": {
+    "alumno-10|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-10|s2-alt": {
+    "alumno-10|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-10|s2-conf": {
+    "alumno-10|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-10|s2-nordo": {
+    "alumno-10|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -1675,37 +1675,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-11|s1-cir": {
+    "alumno-11|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-11|s1-9l": {
+    "alumno-11|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-11|s1-ctl": {
+    "alumno-11|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-11|s2-pri": {
+    "alumno-11|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-11|s2-alt": {
+    "alumno-11|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-11|s2-conf": {
+    "alumno-11|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-11|s2-nordo": {
+    "alumno-11|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
@@ -1835,37 +1835,37 @@
       "evidence": "",
       "action": ""
     },
-    "alumno-12|s1-cir": {
+    "alumno-12|s1-rod": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-12|s1-9l": {
+    "alumno-12|s1-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-12|s1-ctl": {
+    "alumno-12|s1-disc": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-12|s2-pri": {
+    "alumno-12|s2-cp": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-12|s2-alt": {
+    "alumno-12|s2-check": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-12|s2-conf": {
+    "alumno-12|s2-sitrep": {
       "status": "",
       "evidence": "",
       "action": ""
     },
-    "alumno-12|s2-nordo": {
+    "alumno-12|s2-col": {
       "status": "",
       "evidence": "",
       "action": ""
