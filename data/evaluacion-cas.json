@@ -1,6 +1,6 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-26T12:58:09.078Z",
+  "updated_at": "2026-06-26T17:31:51.139Z",
   "meta": {
     "course": "CAS/ JTAC",
     "instructor": "<A2>Rayon",
@@ -241,12 +241,12 @@
       "action": ""
     },
     "alumno-02|s1-com": {
-      "status": "",
+      "status": "mejora",
       "evidence": "",
       "action": ""
     },
     "alumno-02|s1-rod": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -1841,22 +1841,22 @@
       "action": ""
     },
     "alumno-12|s1-com": {
-      "status": "",
+      "status": "ausente",
       "evidence": "",
       "action": ""
     },
     "alumno-12|s1-rod": {
-      "status": "",
+      "status": "ausente",
       "evidence": "",
       "action": ""
     },
     "alumno-12|s1-check": {
-      "status": "",
+      "status": "ausente",
       "evidence": "",
       "action": ""
     },
     "alumno-12|s1-disc": {
-      "status": "",
+      "status": "ausente",
       "evidence": "",
       "action": ""
     },
@@ -2001,22 +2001,22 @@
       "action": ""
     },
     "alumno-mqtregux|s1-com": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-mqtregux|s1-rod": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-mqtregux|s1-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-mqtregux|s1-disc": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
