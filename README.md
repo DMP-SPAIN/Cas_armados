@@ -20,6 +20,17 @@ Proyecto local para mantener y publicar materiales CAS de Arma Reforger.
 - Guia Dia 1 FORD: `https://dmp-spain.github.io/Cas_armados/guia-dia1-operacion-ford.html`
 - Guia Dia 2 CP/SITREP/Zuni: `https://dmp-spain.github.io/Cas_armados/guia-dia2-checkin-sitrep.html`
 
+## Progresion Del Curso
+
+1. Sesion 1: transito de aerodromo, rodaje/despegue emulado y reporte de entrada en seco.
+2. Sesion 2: CP, SITREP, BP, plan de ataque, 5 lineas, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB.
+3. Sesion 3: consolidacion del Dia 2 con rotacion de LINCE y aparato atacante.
+4. Sesion 4: control terminal, correlacion, ABORT, reataque, correccion y BDA.
+5. Sesion 5: 9-line y observaciones solo cuando la 5-line ya sale ordenada.
+6. Sesion 6: integracion JTAC con maniobra terrestre y prioridades.
+7. Sesion 7: plan CAS, frecuencias, CP/BP, separacion y ventanas.
+8. Sesion 8: ejercicio final con evaluacion integrada.
+
 ## Fuente CAS rotary
 
 - Video de referencia: `Rotary CAS engagement example` (`VRnjkj377EE`, Dave S, 2018-10-05).

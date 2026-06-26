@@ -322,11 +322,11 @@ let isEditing = false;
 const sessions = [
   { id:'s1', no:'01', name:'Sesión 1', short:'Tránsito y reporte', goal:'Radio de tránsito, rodaje/despegue emulado y primer reporte de entrada en seco con JTAC.' },
   { id:'s2', no:'02', name:'Sesión 2', short:'CP, SITREP y Zuni', goal:'Tránsito de aeródromo, reporte en CP, SITREP, movimiento a BP, plan de ataque, 5 líneas, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB.' },
-  { id:'s3', no:'03', name:'Sesión 3', short:'9-Line y observaciones', goal:'Formato 9-line, observaciones, colación crítica, avance, marca, DENTRO CALIENTE, confirmación de LINCE, RIFLE y BDA.' },
-  { id:'s4', no:'04', name:'Sesión 4', short:'Control terminal', goal:'Correlación, DENTRO CALIENTE, confirmación de LINCE, ABORT y BDA.' },
-  { id:'s5', no:'05', name:'Sesión 5', short:'Integración JTAC', goal:'Integración con maniobra terrestre, prioridades y mando.' },
-  { id:'s6', no:'06', name:'Sesión 6', short:'Sincronización de fuegos', goal:'Separación, coordinación y ventanas de ataque.' },
-  { id:'s7', no:'07', name:'Sesión 7', short:'Plan CAS', goal:'Plan CAS completo, reunión previa, restricciones y ejecución.' },
+  { id:'s3', no:'03', name:'Sesión 3', short:'Consolidación Día 2', goal:'Repetir el flujo CP, reporte, SITREP, BP, plan de ataque, 5 líneas, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB con rotación real de LINCE y FORD.' },
+  { id:'s4', no:'04', name:'Sesión 4', short:'Control terminal', goal:'Correlación, BLANCO A LA VISTA, DENTRO CALIENTE, confirmación de LINCE, ABORT, reataque, corrección y BDA.' },
+  { id:'s5', no:'05', name:'Sesión 5', short:'9-Line y observaciones', goal:'Formato 9-line, observaciones, colación crítica, avance, marca, pasada en seco o caliente según seguridad, y BDA.' },
+  { id:'s6', no:'06', name:'Sesión 6', short:'Integración JTAC', goal:'Integración con maniobra terrestre, prioridades, posición amiga, restricciones y coordinación LINCE/FORD.' },
+  { id:'s7', no:'07', name:'Sesión 7', short:'Plan CAS y sincronización', goal:'Reunión previa, frecuencias, CP/BP, separación de helicópteros, ventanas de ataque, restricciones y adaptación.' },
   { id:'s8', no:'08', name:'Sesión 8', short:'Ejercicio final', goal:'Misión completa con evaluación integrada.' }
 ];
 
@@ -344,10 +344,10 @@ const criteriaBySession = {
     { id:'s2-col', icon:'!', title:'DENTRO / RIFLE / BDA', sub:'Confirmación LINCE y cierre RTB', blocker:true }
   ],
   s3:[
-    { id:'s3-form', icon:'□', title:'Formato', sub:'1 a 9 en orden y sin correr', blocker:false },
-    { id:'s3-crit', icon:'4', title:'Líneas críticas', sub:'4 · 6 · 8 + restricciones', blocker:true },
-    { id:'s3-read', icon:'↵', title:'Colación', sub:'L4/L6/L8, FAH y egreso', blocker:true },
-    { id:'s3-rem', icon:'+', title:'Avance / marca', sub:'DENTRO, RIFLE y BDA', blocker:false }
+    { id:'s3-form', icon:'□', title:'Flujo Día 2', sub:'CP, SITREP, BP, plan y 5 líneas', blocker:true },
+    { id:'s3-crit', icon:'4', title:'Rotación LINCE', sub:'Todos hablan y controlan una parte', blocker:false },
+    { id:'s3-read', icon:'↵', title:'Aparato atacante', sub:'FORD 1/2 sin saturar red CAS', blocker:false },
+    { id:'s3-rem', icon:'+', title:'Repetición segura', sub:'DENTRO, autorizado, RIFLE, BDA y RTB', blocker:true }
   ],
   s4:[
     { id:'s4-talk', icon:'⌕', title:'Guía hablada', sub:'De referencia grande a objetivo', blocker:false },
@@ -356,21 +356,21 @@ const criteriaBySession = {
     { id:'s4-bda', icon:'▤', title:'BDA', sub:'Resultado y reataque', blocker:false }
   ],
   s5:[
-    { id:'s5-prio', icon:'1', title:'Prioridades', sub:'Mando y urgencia táctica', blocker:false },
-    { id:'s5-friend', icon:'◇', title:'Amigos', sub:'Posición y línea de seguridad', blocker:true },
-    { id:'s5-task', icon:'→', title:'Tarea', sub:'Qué, cuándo y con qué efecto', blocker:false },
-    { id:'s5-flow', icon:'▥', title:'Flujo JTAC', sub:'Del reporte de entrada a BDA', blocker:true }
+    { id:'s5-prio', icon:'1', title:'Formato 9-line', sub:'1 a 9 en orden y sin correr', blocker:false },
+    { id:'s5-friend', icon:'◇', title:'Líneas críticas', sub:'4, 6, 8, restricciones y egreso', blocker:true },
+    { id:'s5-task', icon:'→', title:'Observaciones', sub:'FAH, marca, amenaza y arma', blocker:false },
+    { id:'s5-flow', icon:'▥', title:'Colación y avance', sub:'Colación correcta antes de avance', blocker:true }
   ],
   s6:[
-    { id:'s6-sep', icon:'↔', title:'Separación', sub:'Fuegos, aeronaves y tropa', blocker:true },
-    { id:'s6-window', icon:'◷', title:'Ventanas', sub:'Tiempo y autorización', blocker:false },
-    { id:'s6-mark', icon:'✶', title:'Marcaje', sub:'Humo, láser o referencia', blocker:false },
-    { id:'s6-deconf', icon:'⌁', title:'Separación de fuegos', sub:'No mezclar efectos', blocker:true }
+    { id:'s6-sep', icon:'↔', title:'Prioridades', sub:'Qué necesita tierra y cuándo', blocker:false },
+    { id:'s6-window', icon:'◷', title:'Amigos', sub:'Posición, línea segura y no fuego', blocker:true },
+    { id:'s6-mark', icon:'✶', title:'Tarea CAS', sub:'Observar, fijar, suprimir o destruir', blocker:false },
+    { id:'s6-deconf', icon:'⌁', title:'Red LINCE/FORD', sub:'Mando claro y sin dobles órdenes', blocker:true }
   ],
   s7:[
     { id:'s7-brief', icon:'▤', title:'Reunión previa', sub:'SMEAC y plan CAS', blocker:false },
-    { id:'s7-rest', icon:'!', title:'Restricciones', sub:'No fuego, FAH y egreso', blocker:true },
-    { id:'s7-game', icon:'◇', title:'Plan de ataque', sub:'Tipo, método y arma', blocker:false },
+    { id:'s7-rest', icon:'!', title:'CP / BP / frecuencias', sub:'Plan común antes de despegar', blocker:true },
+    { id:'s7-game', icon:'◇', title:'Separación', sub:'Helicópteros, fuegos y tropa', blocker:true },
     { id:'s7-adapt', icon:'⇄', title:'Adaptación', sub:'Cambios sin perder seguridad', blocker:true }
   ],
   s8:[
