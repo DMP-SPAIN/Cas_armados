@@ -1,6 +1,6 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-25T19:58:56.272Z",
+  "updated_at": "2026-06-26T12:42:30.846Z",
   "meta": {
     "course": "CAS/ JTAC",
     "instructor": "<A2>Rayon",
@@ -60,18 +60,23 @@
     },
     {
       "id": "alumno-11",
-      "name": "Bestiajez",
+      "name": "",
       "callsign": ""
     },
     {
       "id": "alumno-12",
-      "name": "Rust",
-      "callsign": ""
+      "name": "Animal",
+      "callsign": "<A2>"
     },
     {
       "id": "alumno-mqtregux",
       "name": "Jabato",
       "callsign": "<A2>"
+    },
+    {
+      "id": "alumno-mqux5nql",
+      "name": "",
+      "callsign": ""
     }
   ],
   "cells": {
@@ -736,7 +741,7 @@
       "action": ""
     },
     "alumno-05|s2-cp": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -746,12 +751,12 @@
       "action": ""
     },
     "alumno-05|s2-sitrep": {
-      "status": "",
+      "status": "mejora",
       "evidence": "",
       "action": ""
     },
     "alumno-05|s2-col": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -896,7 +901,7 @@
       "action": ""
     },
     "alumno-06|s2-cp": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -906,12 +911,12 @@
       "action": ""
     },
     "alumno-06|s2-sitrep": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-06|s2-col": {
-      "status": "",
+      "status": "mejora",
       "evidence": "",
       "action": ""
     },
@@ -1056,7 +1061,7 @@
       "action": ""
     },
     "alumno-07|s2-cp": {
-      "status": "",
+      "status": "mejora",
       "evidence": "",
       "action": ""
     },
@@ -1066,12 +1071,12 @@
       "action": ""
     },
     "alumno-07|s2-sitrep": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-07|s2-col": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -1216,22 +1221,22 @@
       "action": ""
     },
     "alumno-08|s2-cp": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-08|s2-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-08|s2-sitrep": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-08|s2-col": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -1536,7 +1541,7 @@
       "action": ""
     },
     "alumno-10|s2-cp": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -1546,12 +1551,12 @@
       "action": ""
     },
     "alumno-10|s2-sitrep": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-10|s2-col": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -1856,22 +1861,22 @@
       "action": ""
     },
     "alumno-12|s2-cp": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-12|s2-check": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-12|s2-sitrep": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-12|s2-col": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -2016,7 +2021,7 @@
       "action": ""
     },
     "alumno-mqtregux|s2-cp": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -2026,12 +2031,12 @@
       "action": ""
     },
     "alumno-mqtregux|s2-sitrep": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
     "alumno-mqtregux|s2-col": {
-      "status": "",
+      "status": "apto",
       "evidence": "",
       "action": ""
     },
@@ -2151,6 +2156,166 @@
       "action": ""
     },
     "alumno-mqtregux|s8-close": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s1-com": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s1-rod": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s1-check": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s1-disc": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s2-cp": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s2-check": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s2-sitrep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s2-col": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s3-form": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s3-crit": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s3-read": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s3-rem": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s4-talk": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s4-cor": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s4-clear": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s4-bda": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s5-prio": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s5-friend": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s5-task": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s5-flow": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s6-sep": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s6-window": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s6-mark": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s6-deconf": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s7-brief": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s7-rest": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s7-game": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s7-adapt": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s8-start": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s8-exec": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s8-safe": {
+      "status": "",
+      "evidence": "",
+      "action": ""
+    },
+    "alumno-mqux5nql|s8-close": {
       "status": "",
       "evidence": "",
       "action": ""
