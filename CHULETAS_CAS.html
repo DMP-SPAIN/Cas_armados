@@ -447,7 +447,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <!-- ============ 1. CCA 5-LINE RELLENABLE ============ -->
   <article class="card wide critical" id="five-line-tool">
     <span class="bk"></span>
-    <div class="hd"><span class="num">1</span><h2>CCA 5-Line rellenable</h2><span class="tag">Rápida para helicóptero</span></div>
+    <div class="hd"><span class="num">1</span><h2>CCA 5 líneas rellenable</h2><span class="tag">Rápida para helicóptero</span></div>
     <div class="toolgrid">
       <div class="field big"><label>1 · Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="five-1" data-placeholder="Dos cohetes / pasada fría / supresión"></div></div>
       <div class="field big"><label>2 · Propia / referencia JTAC</label><div class="fill" contenteditable="true" data-card-key="five-2" data-placeholder="LINCE 500 m norte de edificio azul / humo azul"></div></div>
@@ -459,7 +459,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
       <div class="field big"><label>BDA</label><div class="fill" contenteditable="true" data-card-key="five-bda" data-placeholder="Impactos, destruido, necesita segunda pasada..."></div></div>
       <div class="field big"><label>Notas</label><div class="fill" contenteditable="true" data-card-key="five-notes" data-placeholder="Aparato atacante, arma, entrada, amenaza, humo..."></div></div>
     </div>
-    <p class="minihelp">Patrón CAS de ala rotatoria: 5-line compacta, colación crítica, <b>colación correcta</b>, <b>avance ahora</b>, visual/BLANCO A LA VISTA, control final y BDA. Para escuela: entrada fría si no hay armas. <strong style="color:var(--red)">No sustituye</strong> BLANCO A LA VISTA, AUTORIZADO FUEGO ni ABORT. Si hay duda, 9-Line.</p>
+    <p class="minihelp">Patrón CAS de ala rotatoria: 5-line compacta, colación crítica, <b>colación correcta</b>, <b>avance ahora</b>, visual/BLANCO A LA VISTA, DENTRO CALIENTE del piloto, confirmación de LINCE, RIFLE/Zuni y BDA. Para escuela: pasada en seco si no hay armas. <strong style="color:var(--red)">No sustituye</strong> BLANCO A LA VISTA, confirmación de LINCE ni ABORT. Si hay duda, 9-Line.</p>
   </article>
 
   <!-- ============ A. 9-LINE RELLENABLE ============ -->
@@ -483,7 +483,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <div class="field"><label>Tipo / arma / avance</label><div class="fill" contenteditable="true" data-card-key="nine-gameplan-weapon" data-placeholder="Tipo 2 · 1x misil guiado / cohetes · colación correcta · avance"></div></div>
       </div>
     </div>
-    <p class="minihelp">Patrón vídeo 9-line: tras reporte de entrada y informe de tierra, LINCE manda CP/IP, da Tipo 2, dicta 9-line, añade observaciones, valida colación, ordena avance, marca, recibe ENTRANDO, autoriza y pide BDA.</p>
+    <p class="minihelp">Patrón vídeo 9-line: tras reporte de entrada y SITREP, LINCE manda CP/IP, da Tipo 2, dicta 9-line, añade observaciones, valida colación, ordena avance, marca, recibe DENTRO CALIENTE, confirma la suelta y pide BDA.</p>
     <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "FORD 1, LINCE, Tipo 2 en vigor. Espere 9-line."
 <span class="pil">FORD 1:</span> "Listo para 9-line."
 <span class="jt">LINCE:</span> "1 IP FORD. 2 rumbo 160. 3 cuatro kilómetros. 4 cota 230. 5 T-80 carro de combate. 6 cuadrícula 237 1923. 7 láser. 8 amigos dos kilómetros noroeste. 9 egreso sur."
@@ -494,23 +494,23 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 <span class="jt">LINCE:</span> "Continúe en IP."
 <span class="pil">FORD 1:</span> "Treinta segundos al objetivo."
 <span class="jt">LINCE:</span> "Marque objetivo."
-<span class="pil">FORD 1:</span> "Contacto láser. ENTRANDO."
-<span class="jt">LINCE:</span> "FORD 1, AUTORIZADO FUEGO."
-<span class="pil">FORD 1:</span> "MISIL. Egreso sur."
+<span class="pil">FORD 1:</span> "Contacto láser. DENTRO CALIENTE desde el norte."
+<span class="jt">LINCE:</span> "FORD 1, autorizado."
+<span class="pil">FORD 1:</span> "RIFLE, misil. SALIENDO sur."
 <span class="jt">LINCE:</span> "Espere BDA. Carro destruido. Vuelva a CP Wolf."</pre>
   </article>
 
   <!-- ============ JTAC UNIFICADO ============ -->
   <article class="card wide critical" id="jtac-tool">
     <span class="bk"></span>
-    <div class="hd"><span class="num">3</span><h2>Herramienta JTAC</h2><span class="tag">Check-in → 5-line → control → BDA</span></div>
+    <div class="hd"><span class="num">3</span><h2>Herramienta JTAC</h2><span class="tag">Reporte → 5 líneas → control → BDA</span></div>
     <div class="toolgrid">
       <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="jtac-active" data-placeholder="LINCE 1"></div></div>
       <div class="field"><label>Vuelo controlado</label><div class="fill" contenteditable="true" data-card-key="jtac-flight" data-placeholder="FORD 1 / FORD 2 aparato atacante"></div></div>
       <div class="field"><label>Frecuencia CAS</label><div class="fill" contenteditable="true" data-card-key="jtac-freq" data-placeholder="65.0 / canal táctico"></div></div>
       <div class="field"><label>HA / BP espera</label><div class="fill" contenteditable="true" data-card-key="jtac-hold" data-placeholder="HA Pepsi / BP Lago Oeste"></div></div>
 
-      <div class="field big"><label>Reporte de entrada (armas · tiempo · ABORT)</label><div class="fill" contenteditable="true" data-card-key="jtac-checkin" data-placeholder="2 helis, cohetes y cañón, 25 min, código ABORT banana"></div></div>
+      <div class="field big"><label>Reporte de entrada (armas · tiempo · ABORT)</label><div class="fill" contenteditable="true" data-card-key="jtac-checkin" data-placeholder="2 helicópteros, cohetes y cañón, 25 min, código ABORT banana"></div></div>
       <div class="field big"><label>Colación exigida</label><div class="fill" contenteditable="true" data-card-key="jtac-readback" data-placeholder="Amigos + restricción + HA + código ABORT"></div></div>
 
       <div class="field big"><label>Situación amiga</label><div class="fill" contenteditable="true" data-card-key="jtac-friendlies" data-placeholder="LINCE al sur del bosque, 300 m al sur del objetivo"></div></div>
@@ -520,10 +520,10 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 
       <div class="field"><label>Plan de ataque</label><div class="fill" contenteditable="true" data-card-key="jtac-gameplan" data-placeholder="Tipo 2 · cohetes · una pasada · oeste-este"></div></div>
       <div class="field"><label>Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="jtac-weapon-effect" data-placeholder="Cohetes / ametralladora / supresión / pasada seca"></div></div>
-      <div class="field"><label>Autorización</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="CONTINÚE / CONTINÚE EN SECO / AUTORIZADO FUEGO / AUTORIZADO A ATACAR / ABORT"></div></div>
+      <div class="field"><label>Confirmación LINCE</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="AUTORIZADO / CONTINÚE EN SECO / AUTORIZADO A ATACAR / ABORT"></div></div>
       <div class="field"><label>BDA / cierre</label><div class="fill" contenteditable="true" data-card-key="jtac-bda" data-placeholder="Espere BDA / destruido / no observado / RTB"></div></div>
     </div>
-    <p class="minihelp">Flujo JTAC completo: recibe <b>reporte de entrada</b> → manda <b>HA/BP</b> → da <b>informe de tierra</b> y exige colación → <b>plan de ataque + 5-line</b> → <b>colación correcta</b> → <b>avance</b> → correlación (visual/BLANCO A LA VISTA) → <b>CONTINÚE / AUTORIZADO FUEGO</b> → <b>BDA</b>. AUTORIZADO solo para armas; entrada fría = <b>CONTINÚE EN SECO</b>. Si el flujo no sale limpio, no se pasa a fuego real.</p>
+    <p class="minihelp">Flujo JTAC completo: recibe <b>reporte de entrada</b> → manda <b>HA/BP</b> → da <b>SITREP</b> y exige colación → <b>plan de ataque + 5-line</b> → <b>colación correcta</b> → <b>avance</b> → correlación (visual/BLANCO A LA VISTA) → piloto <b>DENTRO CALIENTE</b> → LINCE <b>AUTORIZADO/ABORT</b> → piloto <b>RIFLE/Zuni</b> → <b>BDA</b>. Si el flujo no sale limpio, no se pasa a fuego real.</p>
     <pre class="pre" style="margin-top:10px"><span class="pil">FORD 1:</span> "LINCE, FORD 1, establecido CP Oeste, listo reporte de entrada."
 <span class="jt">LINCE 1:</span> "FORD 1, LINCE 1, adelante reporte de entrada."
 <span class="pil">FORD 1:</span> "LINCE 1, FORD 1, dos helicópteros armados, a baja cota, cohetes y cañón listos, 25 minutos, código ABORT banana."
@@ -536,10 +536,10 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 <span class="jt">LINCE:</span> "Colación correcta. Avance ahora."
 <span class="pil">FORD 1:</span> "Avanzando, visual."
 <span class="pil">FORD 1:</span> "BLANCO A LA VISTA, técnico junto al granero."
-<span class="jt">LINCE:</span> "Correcto, ese es su objetivo. Reporte ENTRANDO."
-<span class="pil">FORD 1:</span> "ENTRANDO desde el oeste, FORD 1."
-<span class="jt">LINCE:</span> "FORD 1, AUTORIZADO FUEGO."
-<span class="pil">FORD 1:</span> "COHETES. SALIENDO norte, vuelvo a BP, FORD 1."
+<span class="jt">LINCE:</span> "Correcto, ese es su objetivo. Continúe."
+<span class="pil">FORD 1:</span> "SALIENDO DE BP. DENTRO CALIENTE desde el oeste, FORD 1."
+<span class="jt">LINCE:</span> "FORD 1, autorizado."
+<span class="pil">FORD 1:</span> "RIFLE, ZUNI. SALIENDO norte, vuelvo a BP, FORD 1."
 <span class="jt">LINCE:</span> "Buenos impactos. Espere BDA. Vuelva HA Pepsi."</pre>
   </article>
 
