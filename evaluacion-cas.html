@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proceso evaluativo CAS/JTAC · ArmadOS</title>
-<meta name="description" content="Hoja de trabajo evaluativa CAS/JTAC para Grupo ArmadOS: alumnos, sesiones, estados A/M/R, evidencia y siguiente ejercicio.">
+<meta name="description" content="Hoja de trabajo evaluativa CAS/JTAC para Grupo ArmadOS: alumnos, sesiones, estados A/M/R/N, evidencia y siguiente ejercicio.">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,7 @@
   --green:#9ed47f; --green-bg:rgba(126,176,105,.19);
   --amber:#ffbd3f; --amber-bg:rgba(255,178,46,.18);
   --red:#ff6655; --red-bg:rgba(229,83,60,.18);
+  --gray:#95a0a0; --gray-bg:rgba(149,160,160,.15);
   --blue:#65a9e8;
   --body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --disp:'Oswald',system-ui,sans-serif;
@@ -54,7 +55,7 @@ h1,h2,h3,p{margin:0}
 .meta-field input:focus,.view-select:focus{border-bottom-color:var(--amber)}
 .view-box{padding:14px 16px}
 .legend-bar{
-  display:grid;grid-template-columns:160px repeat(4,160px) 1fr;
+  display:grid;grid-template-columns:160px repeat(5,160px) 1fr;
   border:1px solid var(--line2);border-top:0;background:rgba(17,26,21,.9);
 }
 .legend-title{padding:13px 18px;border-right:1px solid var(--line2);font-family:var(--disp);font-size:17px;text-transform:uppercase;letter-spacing:.05em}
@@ -64,7 +65,7 @@ h1,h2,h3,p{margin:0}
   width:31px;height:31px;display:inline-grid;place-items:center;border:1px solid currentColor;border-radius:4px;
   font-family:var(--mono);font-weight:700;line-height:1;
 }
-.badge.apto{color:var(--green)} .badge.mejora{color:var(--amber)} .badge.repetir{color:var(--red)}
+.badge.apto{color:var(--green)} .badge.mejora{color:var(--amber)} .badge.repetir{color:var(--red)} .badge.ausente{color:var(--gray)}
 .badge.blank{color:var(--faint)}
 .workbench{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:10px;margin-top:12px;align-items:start}
 .sessions,.board,.detail{border:1px solid var(--line2);background:rgba(17,26,21,.95)}
@@ -84,7 +85,7 @@ h1,h2,h3,p{margin:0}
 .session-state{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:3px}
 .session-arrow{color:var(--green);font-family:var(--disp);font-size:24px;opacity:0}
 .session-tab.active .session-arrow{opacity:1}
-.side-stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line2)}
+.side-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line2)}
 .stat-box{padding:14px;border-right:1px solid var(--line);min-height:76px}
 .stat-box:last-child{border-right:0}
 .stat-box .label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
@@ -147,6 +148,7 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
 .cell-btn.apto{background:var(--green-bg);color:var(--green)}
 .cell-btn.mejora{background:var(--amber-bg);color:var(--amber)}
 .cell-btn.repetir{background:var(--red-bg);color:var(--red)}
+.cell-btn.ausente{background:var(--gray-bg);color:var(--gray)}
 .cell-btn .mini{width:27px;height:27px;display:grid;place-items:center;border:1px solid currentColor;border-radius:4px;font-family:var(--mono);font-size:15px;font-weight:700}
 .cell-btn.blank .mini{border-style:dashed}
 .detail{position:sticky;top:8px;padding-bottom:12px}
@@ -155,16 +157,17 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
 .summary-line{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .summary-name{font-family:var(--disp);font-size:25px;text-transform:uppercase;letter-spacing:.05em}
 .summary-state{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase}
-.mini-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px}
+.mini-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:12px}
 .mini-stat{border:1px solid var(--line);padding:8px;text-align:center}
 .mini-stat b{display:block;font-family:var(--disp);font-size:22px;line-height:1}
 .mini-stat span{font-family:var(--mono);font-size:9px;text-transform:uppercase;color:var(--faint)}
 .editor{padding:14px 16px;display:grid;gap:12px}
 .editor-meta{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
-.status-palette{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.status-palette{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .status-choice{min-height:40px;border:1px solid var(--line2);background:#0b120f;color:var(--muted);border-radius:4px;font-family:var(--disp);letter-spacing:.06em;text-transform:uppercase}
 .status-choice.active{outline:2px solid rgba(255,255,255,.12)}
-.status-choice.apto{color:var(--green)} .status-choice.mejora{color:var(--amber)} .status-choice.repetir{color:var(--red)}
+.status-choice.apto{color:var(--green)} .status-choice.mejora{color:var(--amber)} .status-choice.repetir{color:var(--red)} .status-choice.ausente{color:var(--gray)}
+.editor-actions{display:grid;grid-template-columns:1fr;gap:6px}
 .editor label{display:grid;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .editor textarea{
   width:100%;min-height:104px;resize:vertical;border:1px solid var(--line2);background:#0b120f;color:var(--ink);border-radius:4px;padding:10px;font-family:var(--body);font-size:13px;line-height:1.45;
@@ -255,6 +258,7 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
     <div class="legend-item"><span class="badge apto">A</span> Apto</div>
     <div class="legend-item"><span class="badge mejora">M</span> Mejora</div>
     <div class="legend-item"><span class="badge repetir">R</span> Repetir</div>
+    <div class="legend-item"><span class="badge ausente">N</span> No asistencia</div>
     <div class="legend-item"><span class="badge blank">·</span> Sin evaluar</div>
     <div class="legend-note">Alumnos: clic para ver detalle. Instructor: editar para cambiar estados y guardar.</div>
   </section>
@@ -317,9 +321,9 @@ let isEditing = false;
 
 const sessions = [
   { id:'s1', no:'01', name:'Sesión 1', short:'Tránsito y reporte', goal:'Radio de tránsito, rodaje/despegue emulado y primer reporte de entrada en seco con JTAC.' },
-  { id:'s2', no:'02', name:'Sesión 2', short:'Reporte e informe', goal:'Vuelo a CP/HA/BP, reporte de entrada en el aire, informe de tierra, colación correcta y posible 5-line fría sin armas.' },
-  { id:'s3', no:'03', name:'Sesión 3', short:'9-Line y observaciones', goal:'Formato 9-line, observaciones, colación crítica, avance, marca, entrando, autorización y BDA.' },
-  { id:'s4', no:'04', name:'Sesión 4', short:'Control terminal', goal:'Correlación, entrando, continúe, autorizado fuego, ABORT y BDA.' },
+  { id:'s2', no:'02', name:'Sesión 2', short:'CP, SITREP y Zuni', goal:'Tránsito de aeródromo, reporte en CP, SITREP, movimiento a BP, plan de ataque, 5 líneas, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB.' },
+  { id:'s3', no:'03', name:'Sesión 3', short:'9-Line y observaciones', goal:'Formato 9-line, observaciones, colación crítica, avance, marca, DENTRO CALIENTE, confirmación de LINCE, RIFLE y BDA.' },
+  { id:'s4', no:'04', name:'Sesión 4', short:'Control terminal', goal:'Correlación, DENTRO CALIENTE, confirmación de LINCE, ABORT y BDA.' },
   { id:'s5', no:'05', name:'Sesión 5', short:'Integración JTAC', goal:'Integración con maniobra terrestre, prioridades y mando.' },
   { id:'s6', no:'06', name:'Sesión 6', short:'Sincronización de fuegos', goal:'Separación, coordinación y ventanas de ataque.' },
   { id:'s7', no:'07', name:'Sesión 7', short:'Plan CAS', goal:'Plan CAS completo, reunión previa, restricciones y ejecución.' },
@@ -334,21 +338,21 @@ const criteriaBySession = {
     { id:'s1-disc', icon:'⌁', title:'Disciplina radio', sub:'Corto, claro y ordenado', blocker:true }
   ],
   s2:[
-    { id:'s2-cp', icon:'⌂', title:'CP / HA / BP', sub:'Llegada y espera segura', blocker:false },
-    { id:'s2-check', icon:'⇄', title:'Reporte real', sub:'Verde, tiempo en estación y código ABORT', blocker:true },
-    { id:'s2-sitrep', icon:'◇', title:'Informe de tierra', sub:'AO, amigos, enemigo, amenaza', blocker:true },
-    { id:'s2-col', icon:'!', title:'Colación correcta', sub:'Colación y corrección', blocker:true }
+    { id:'s2-cp', icon:'⌂', title:'Tránsito / CP / BP', sub:'Llegada y espera segura', blocker:false },
+    { id:'s2-check', icon:'⇄', title:'Reporte + SITREP', sub:'Armas, tiempo, amigos, enemigo, ABORT', blocker:true },
+    { id:'s2-sitrep', icon:'◇', title:'Plan + 5 líneas', sub:'Zuni, objetivo, marca, egreso', blocker:true },
+    { id:'s2-col', icon:'!', title:'DENTRO / RIFLE / BDA', sub:'Confirmación LINCE y cierre RTB', blocker:true }
   ],
   s3:[
     { id:'s3-form', icon:'□', title:'Formato', sub:'1 a 9 en orden y sin correr', blocker:false },
     { id:'s3-crit', icon:'4', title:'Líneas críticas', sub:'4 · 6 · 8 + restricciones', blocker:true },
     { id:'s3-read', icon:'↵', title:'Colación', sub:'L4/L6/L8, FAH y egreso', blocker:true },
-    { id:'s3-rem', icon:'+', title:'Avance / marca', sub:'Avance, contacto, entrando y BDA', blocker:false }
+    { id:'s3-rem', icon:'+', title:'Avance / marca', sub:'DENTRO, RIFLE y BDA', blocker:false }
   ],
   s4:[
     { id:'s4-talk', icon:'⌕', title:'Guía hablada', sub:'De referencia grande a objetivo', blocker:false },
     { id:'s4-cor', icon:'◎', title:'Correlación', sub:'CONTACTO/BLANCO A LA VISTA/SIN BLANCO', blocker:true },
-    { id:'s4-clear', icon:'✓', title:'Autorización', sub:'CONTINÚE/AUTORIZADO/ABORT', blocker:true },
+    { id:'s4-clear', icon:'✓', title:'Confirmación', sub:'DENTRO/AUTORIZADO/ABORT', blocker:true },
     { id:'s4-bda', icon:'▤', title:'BDA', sub:'Resultado y reataque', blocker:false }
   ],
   s5:[
@@ -381,10 +385,11 @@ const statusMeta = {
   '':{ letter:'·', label:'Sin evaluar', className:'blank' },
   apto:{ letter:'A', label:'Apto', className:'apto' },
   mejora:{ letter:'M', label:'Mejora', className:'mejora' },
-  repetir:{ letter:'R', label:'Repetir', className:'repetir' }
+  repetir:{ letter:'R', label:'Repetir', className:'repetir' },
+  ausente:{ letter:'N', label:'No asistencia', className:'ausente' }
 };
-const cycle = ['', 'apto', 'mejora', 'repetir'];
-const statusMap = { green:'apto', amber:'mejora', red:'repetir', apto:'apto', mejora:'mejora', repetir:'repetir', blank:'' };
+const cycle = ['', 'apto', 'mejora', 'repetir', 'ausente'];
+const statusMap = { green:'apto', amber:'mejora', red:'repetir', apto:'apto', mejora:'mejora', repetir:'repetir', absent:'ausente', ausente:'ausente', no_asistencia:'ausente', noasistencia:'ausente', blank:'' };
 
 let state = defaultState();
 let activeSessionId = 's1';
@@ -603,6 +608,7 @@ function renderDetail(){
       <div class="mini-stat"><b>${stats.apto}</b><span>Apto</span></div>
       <div class="mini-stat"><b>${stats.mejora}</b><span>Mejora</span></div>
       <div class="mini-stat"><b>${stats.repetir}</b><span>Repetir</span></div>
+      <div class="mini-stat"><b>${stats.ausente}</b><span>No asiste</span></div>
       <div class="mini-stat"><b>${stats.blank}</b><span>Vacío</span></div>
     </div>
   </div>`;
@@ -616,14 +622,17 @@ function renderDetail(){
       <label>Siguiente ejercicio
         <div class="readonly-box ${current.action ? '' : 'empty'}">${escapeHtml(current.action || 'Sin siguiente ejercicio registrado.')}</div>
       </label>
-      <div class="hint">Las celdas vacías significan pendiente, no suspenso.</div>
+    <div class="hint">Las celdas vacías significan pendiente. N significa no asistencia y no equivale a suspenso.</div>
     </div>`;
     return;
   }
   document.getElementById('cellEditor').innerHTML = `<div class="editor">
     <div class="editor-meta">${escapeHtml(criterion.title)} · ${escapeHtml(criterion.sub)}</div>
     <div class="status-palette">
-      ${Object.entries(statusMeta).map(([status, meta]) => `<button class="status-choice ${meta.className} ${current.status === status ? 'active' : ''}" type="button" data-status="${status}">${meta.letter}</button>`).join('')}
+      ${Object.entries(statusMeta).map(([status, meta]) => `<button class="status-choice ${meta.className} ${current.status === status ? 'active' : ''}" type="button" data-status="${status}" title="${escapeAttr(meta.label)}" aria-label="${escapeAttr(meta.label)}">${meta.letter}</button>`).join('')}
+    </div>
+    <div class="editor-actions">
+      <button class="btn" type="button" id="markAbsentSessionBtn">No asistencia sesión</button>
     </div>
     <label>Evidencia observada
       <textarea id="evidenceInput" placeholder="Qué hizo el alumno en esta sesión.">${escapeHtml(current.evidence)}</textarea>
@@ -631,20 +640,21 @@ function renderDetail(){
     <label>Siguiente ejercicio
       <textarea id="actionInput" placeholder="Qué debe repetir o consolidar.">${escapeHtml(current.action)}</textarea>
     </label>
-    <div class="hint">Si una sesión aún no se ha impartido, deja sus celdas vacías. Vacío significa pendiente, no suspenso.</div>
+    <div class="hint">Si una sesión aún no se ha impartido, deja sus celdas vacías. Usa N solo cuando el alumno no asistió a una sesión impartida.</div>
   </div>`;
 }
 
 function renderStats(){
   const stats = sessionStats(activeSessionId);
   document.getElementById('sideStats').innerHTML = `<div class="stat-box"><div class="label">Alumnos</div><div class="value">${state.students.length}</div></div>
-  <div class="stat-box"><div class="label">Vacías</div><div class="value">${stats.blank}</div></div>`;
+  <div class="stat-box"><div class="label">Vacías</div><div class="value">${stats.blank}</div></div>
+  <div class="stat-box"><div class="label">Ausencias</div><div class="value">${stats.ausente}</div></div>`;
 }
 
 function sessionStats(sessionId){
   const criteria = criteriaFor(sessionId);
   const total = state.students.length * criteria.length;
-  const stats = { total, done:0, blank:0, apto:0, mejora:0, repetir:0 };
+  const stats = { total, done:0, blank:0, apto:0, mejora:0, repetir:0, ausente:0 };
   state.students.forEach(student => {
     criteria.forEach(criterion => {
       const status = getCell(student.id, criterion.id).status || '';
@@ -656,10 +666,11 @@ function sessionStats(sessionId){
 }
 
 function studentSessionStats(studentId, sessionId){
-  const stats = { blank:0, apto:0, mejora:0, repetir:0 };
+  const stats = { blank:0, apto:0, mejora:0, repetir:0, ausente:0 };
   criteriaFor(sessionId).forEach(criterion => {
     const status = getCell(studentId, criterion.id).status || '';
-    stats[status]++;
+    const bucket = status || 'blank';
+    if(stats[bucket] !== undefined) stats[bucket]++;
   });
   return stats;
 }
@@ -714,6 +725,21 @@ function setStatus(status){
   if(!isEditing) return;
   const cell = getCell(selectedStudentId, selectedCriterionId);
   cell.status = status;
+  saveState();
+  renderBoard();
+  renderDetail();
+  renderStats();
+  renderSessions();
+}
+
+function markAbsentForSession(){
+  if(!isEditing || !selectedStudentId) return;
+  criteriaFor(activeSessionId).forEach(criterion => {
+    const cell = getCell(selectedStudentId, criterion.id);
+    cell.status = 'ausente';
+    if(!cell.evidence) cell.evidence = 'No asistió a esta sesión.';
+    if(!cell.action) cell.action = 'Recuperar los contenidos de la sesión antes de ser evaluado.';
+  });
   saveState();
   renderBoard();
   renderDetail();
@@ -937,6 +963,10 @@ document.addEventListener('click', event => {
   const statusBtn = event.target.closest('[data-status]');
   if(statusBtn && isEditing){
     setStatus(statusBtn.dataset.status);
+    return;
+  }
+  if(event.target.closest('#markAbsentSessionBtn') && isEditing){
+    markAbsentForSession();
   }
 });
 
