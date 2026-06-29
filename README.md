@@ -24,7 +24,7 @@ Proyecto local para mantener y publicar materiales CAS de Arma Reforger.
 
 1. Sesion 1: transito de aerodromo, rodaje/despegue emulado y reporte de entrada en seco.
 2. Sesion 2: CP, SITREP, BP, plan de ataque, 5 lineas, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB.
-3. Sesion 3: consolidacion del Dia 2 con rotacion de LINCE y aparato atacante.
+3. Sesion 3: consolidacion del Dia 2 con rotacion de LINCE y aparato atacante usando el orden 6/5/4/5/4/6.
 4. Sesion 4: control terminal, correlacion, ABORT, reataque, correccion y BDA.
 5. Sesion 5: 9-line y observaciones solo cuando la 5-line ya sale ordenada.
 6. Sesion 6: integracion JTAC con maniobra terrestre y prioridades.
@@ -35,9 +35,12 @@ Proyecto local para mantener y publicar materiales CAS de Arma Reforger.
 
 - Video de referencia: `Rotary CAS engagement example` (`VRnjkj377EE`, Dave S, 2018-10-05).
 - Video de referencia 9-line: `Fixed Wing CAS Example` (`05Ed_ENSp8k`, Dave S, 2018-10-05).
+- Video de referencia para explicar por numeros: `How to Call for Close Air Support (CAS)` (`Qq-ieXBkziE`, HipPocket0341, 2024-11-24).
 - Transcripcion automatica extraida: `data/youtube/VRnjkj377EE.transcript.en.txt`.
 - Transcripcion automatica 9-line: `data/youtube/05Ed_ENSp8k.transcript.en.txt`.
+- Transcripcion automatica de estructura numerica: `data/youtube/Qq-ieXBkziE.en.json3`.
 - Uso doctrinal en el material: reporte de entrada completo, SITREP/informe de tierra, HA/BP, CCA 5-line, colacion correcta, avance, visual/BLANCO A LA VISTA, DENTRO CALIENTE del piloto, confirmacion de LINCE, RIFLE/Zuni, BDA y RTB.
+- Regla editorial vigente: el manual del alumno debe leerse como un flujo humano: llegar, entender, ordenar, confirmar, entrar y cerrar. Usa listas numeradas solo dentro de transmisiones reales, por ejemplo reporte de entrada de 6 datos, SITREP completo de 10 datos, 5-Line, 9-Line, control terminal o BDA. No meter tablas abstractas tipo `3-6-10` en el manual base.
 
 ## Estructura Operativa
 
@@ -49,6 +52,12 @@ exports/github-pages/  Copias auxiliares para Pages.
 exports/misiones/      Guias de mision/sesion.
 .publish/Cas_armados/  Repo Git real de GitHub Pages.
 ```
+
+## Arranque Para IA
+
+- Leer primero `docs/ARRANQUE_IA.md`.
+- Usar `docs/AGENTS_COMPLETO.md` solo si hace falta el detalle completo.
+- No tocar `.publish/Cas_armados/data/evaluacion-cas.json` salvo peticion explicita.
 
 ## Sincronizacion
 

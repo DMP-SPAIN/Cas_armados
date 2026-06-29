@@ -111,6 +111,22 @@ section{padding:54px 0 18px}
 .tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
 .tbl.brev td:first-child{font-family:var(--mono);color:var(--amber);font-size:13px}
 
+/* ---- numbered radio scripts ---- */
+.scriptbox{margin:16px 0;border:1px solid var(--line-strong);border-radius:12px;background:linear-gradient(180deg,rgba(255,178,46,.045),rgba(255,255,255,.012));overflow:hidden}
+.scriptbox h4{font-family:var(--disp);font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);padding:11px 14px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.18)}
+.script-grid{display:grid;gap:0}
+.script-line{display:grid;grid-template-columns:46px 112px 1fr;gap:10px;align-items:start;padding:10px 14px;border-top:1px solid var(--line)}
+.script-line:first-child{border-top:0}
+.script-line .idx{width:30px;height:30px;border:1px solid rgba(255,178,46,.55);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;color:var(--amber);background:#0a100d}
+.script-line .speaker{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-bright);padding-top:4px}
+.script-line .speaker.ford{color:var(--blue)}
+.script-line .say{font-size:14px;color:var(--ink-dim)}
+.script-line .say b{color:#fff}
+.script-line .say code{white-space:normal}
+.scriptbox.critical{border-color:rgba(229,83,60,.38);background:linear-gradient(180deg,rgba(229,83,60,.06),rgba(255,255,255,.012))}
+.scriptbox.critical h4{color:var(--red)}
+.scriptbox.critical .idx{border-color:rgba(229,83,60,.62);color:var(--red)}
+
 /* ---- callouts ---- */
 .callout{display:flex;gap:13px;border-radius:10px;padding:13px 16px;margin:16px 0;border:1px solid;font-size:14.5px}
 .callout .ic{flex:0 0 22px;width:22px;height:22px;margin-top:2px}
@@ -171,6 +187,9 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
   .tbl th,.tbl td{padding:8px;overflow-wrap:anywhere}
   .tbl td:first-child{white-space:normal}
   .tbl.brev td:nth-child(3){font-family:var(--mono);color:var(--amber);font-size:13px;font-weight:500;white-space:normal}
+  .script-line{grid-template-columns:38px 1fr;gap:8px}
+  .script-line .speaker{grid-column:2}
+  .script-line .say{grid-column:2}
 }
 @media print{
   *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
@@ -645,40 +664,101 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 <!-- ======= SECUENCIA ======= -->
 <section id="secuencia" class="sheet">
   <div class="shead"><span class="num">09</span><h2>La secuencia CAS</h2><span class="tag">Fase 6 · el corazón</span></div>
-  <p class="lead">El CAS se ordena en tres bloques: <strong>reporte de entrada</strong>, <strong>informe de tierra/control</strong> y <strong>BDA</strong>. La referencia práctica es el flujo CAS de ala rotatoria: autenticación si se usa, reporte de entrada completo, informe de tierra, HA/BP, 5-line, colación, avance, correlación, control final y BDA. Hilo conductor: la escuadra <strong>Lince</strong> está clavada por un <strong>técnico</strong> y trabaja con el helicóptero <strong>FORD 1</strong>.</p>
+  <p class="lead">El flujo CAS debe leerse como una conversación, no como una tabla que memorizar. Primero FORD llega y dice qué puede hacer. Después LINCE explica la situación. Luego LINCE ordena el ataque, FORD repite lo crítico, ambos confirman el mismo blanco, FORD entra caliente y LINCE autoriza o corta. La pasada termina con BDA, no con el disparo.</p>
+  <div class="cards c3">
+    <div class="card"><h3>Llegar</h3><p>FORD se presenta, declara posición, armas, tiempo y ABORT. LINCE no dicta ataque hasta saber qué tiene delante.</p></div>
+    <div class="card"><h3>Entender</h3><p>LINCE explica amigos, enemigo, amenaza y restricciones. Si falta ubicación amiga o restricción, se para.</p></div>
+    <div class="card"><h3>Ejecutar</h3><p>Plan, líneas, colación, correlación, entrada caliente, autorización, disparo, salida y BDA. Siempre en ese orden.</p></div>
+  </div>
+  <div class="callout key" style="font-size:15px">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+    <div><b>Regla de lectura:</b> cada lista numerada de esta sección representa una transmisión real. Si un punto no se puede decir por radio, no debe estar en la lista.</div>
+  </div>
   <div class="steps">
 
     <div class="step"><div class="dot"><div class="b">1</div><div class="ln"></div></div><div class="body">
-      <h3>Reporte de entrada — «quién soy y qué llevo»</h3>
-      <p class="why"><strong>Cómo:</strong> autenticación si procede · indicativo · número y tipo · posición/altura · armas operativas · tiempo en estación · código ABORT.</p>
+      <h3>Reporte de entrada — 6 datos</h3>
+      <p class="why"><strong>Objetivo:</strong> que LINCE sepa quién llega, qué puede hacer y cuánto tiempo tiene. No es una novela; son seis datos en orden.</p>
+      <table class="tbl">
+        <tr><th>#</th><th>Dato</th><th>Qué dice FORD</th></tr>
+        <tr><td>1</td><td>Identificación / misión</td><td>Indicativo, vuelo y que está listo para reporte.</td></tr>
+        <tr><td>2</td><td>Número y tipo</td><td>Uno o dos helicópteros, armados.</td></tr>
+        <tr><td>3</td><td>Posición / altura</td><td>CP, HA o BP y situación general de altura.</td></tr>
+        <tr><td>4</td><td>Armamento</td><td>Cohetes, cañón, munición o pasada en seco.</td></tr>
+        <tr><td>5</td><td>Tiempo en estación</td><td>Minutos útiles antes de volver.</td></tr>
+        <tr><td>6</td><td>Código ABORT</td><td>Palabra que corta la pasada sin discusión.</td></tr>
+      </table>
+      <div class="scriptbox">
+        <h4>Guion numerado que debe decir FORD</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>Identificación:</b> "LINCE, FORD 1, misión Ford-01, listo reporte de entrada."</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker ford">FORD</div><div class="say"><b>Número y tipo:</b> "Dos helicópteros armados."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>Posición:</b> "Establecido CP Oeste / BP Lago Oeste, baja cota."</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker ford">FORD</div><div class="say"><b>Armas:</b> "Cohetes y cañón listos" o "pasada en seco".</div></div>
+          <div class="script-line"><div class="idx">5</div><div class="speaker ford">FORD</div><div class="say"><b>Tiempo:</b> "Tiempo en estación 25 minutos."</div></div>
+          <div class="script-line"><div class="idx">6</div><div class="speaker ford">FORD</div><div class="say"><b>ABORT:</b> "Código ABORT banana" o "ABORT en claro".</div></div>
+        </div>
+      </div>
       <div class="radio"><span class="pil">FORD 1</span> "Lince, FORD 1, establecido BP Lago Oeste, listo reporte de entrada."
 <span class="jt">LINCE</span> "FORD 1, Lince, adelante reporte de entrada."
 <span class="pil">FORD 1</span> "Lince, FORD 1, un helicóptero armado, establecido BP Lago Oeste, a baja cota, cohetes y cañón listos. Tiempo en estación 25 minutos. Código ABORT banana."
 <span class="jt">LINCE</span> "FORD 1, Lince, recibido reporte de entrada. Copie informe de tierra."</div>
-      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: di <b>qué llevas y cuánto tiempo te queda</b>.</span></div>
+      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: <b>armas, tiempo y ABORT</b> siempre tienen que salir.</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">2</div><div class="ln"></div></div><div class="body">
-      <h3>Informe de tierra / SITREP — «qué pasa en la zona»</h3>
-      <p class="why"><strong>Lo dice el JTAC:</strong> AO · amigos · enemigo · amenazas al aire · fuegos propios · restricciones · HA/BP · efecto esperado.</p>
+      <h3>SITREP LINCE — informe de tierra</h3>
+      <p class="why"><strong>Objetivo:</strong> que FORD entienda la zona antes de recibir líneas. Si la situación es simple, basta con el SITREP corto de 5 datos. Si hay varios blancos, amenazas, fuegos propios o restricciones delicadas, usa el SITREP completo de 10 datos.</p>
       <div class="radio"><span class="jt">LINCE</span> "FORD 1, Lince, informe de tierra: AO pueblo en valle. Amigos en sector sur; no hay amigos al norte de carretera. Enemigo: técnico con ametralladora en el cruce norte, activo. Posible AA ligera al norte. Mueva a HA Pepsi. Restricción: ningún disparo hacia el sur. Colacione HA, amigos, restricción y código ABORT."
 <span class="pil">FORD 1</span> "Muevo HA Pepsi, amigos al sur, ningún disparo hacia el sur, código ABORT banana. FORD 1."</div>
       <table class="tbl">
-        <tr><th>Dato</th><th>Qué tiene que dejar claro</th></tr>
-        <tr><td>Enemigo</td><td>Qué es, qué hace y desde dónde amenaza.</td></tr>
-        <tr><td>Amenazas al aire</td><td>AA, MANPADS, vehículos armados, torres, cables o terreno que pueda matar al helicóptero.</td></tr>
-        <tr><td>Amigos</td><td>Situación de la unidad apoyada; no siempre coincide con la posición exacta del JTAC.</td></tr>
-        <tr><td>Fuegos propios</td><td>Morteros, artillería o trazadoras que puedan cruzarse con la pasada.</td></tr>
-        <tr><td>HA/BP</td><td>Zona de espera o posición de batalla donde el helicóptero espera antes de recibir la 5-line o el avance.</td></tr>
-        <tr><td>Autorización</td><td>Quién pide el efecto y qué efecto quiere: suprimir, destruir, fijar o observar.</td></tr>
-        <tr><td>Restricciones</td><td>Lo que no se puede hacer: rumbo prohibido, altura, no sobrevuelo, no disparo hacia amigos.</td></tr>
+        <tr><th>#</th><th>Dato</th><th>Qué tiene que dejar claro</th></tr>
+        <tr><td>1</td><td>Actualización</td><td>Número de actualización si hay varias, o “SITREP inicial”.</td></tr>
+        <tr><td>2</td><td>Objetivo / actividad enemiga</td><td>Qué es, qué hace y desde dónde amenaza.</td></tr>
+        <tr><td>3</td><td>Amenazas al aire</td><td>AA, vehículos armados, torres, cables o terreno peligroso.</td></tr>
+        <tr><td>4</td><td>Situación amiga</td><td>Dónde están amigos y qué límite no se cruza.</td></tr>
+        <tr><td>5</td><td>Fuegos propios</td><td>Morteros, artillería, humo o trazadoras que afecten a la pasada.</td></tr>
+        <tr><td>6</td><td>Autoridad / efecto</td><td>Quién pide el efecto y qué quiere: suprimir, destruir, fijar u observar.</td></tr>
+        <tr><td>7</td><td>Arma solicitada</td><td>Zuni, cañón, pasada en seco u otra opción.</td></tr>
+        <tr><td>8</td><td>Restricciones</td><td>Rumbo prohibido, altura, no sobrevuelo, no disparo hacia amigos.</td></tr>
+        <tr><td>9</td><td>Otros CAS</td><td>Otros aparatos, zonas o pasadas ya en curso.</td></tr>
+        <tr><td>10</td><td>Peligros / obstáculos</td><td>Cables, edificios, lomas, humo que tape blanco o amenaza no confirmada.</td></tr>
       </table>
+      <div class="scriptbox">
+        <h4>SITREP corto: 5 datos mínimos que dice LINCE</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>AO:</b> "SITREP: AO pueblo en valle."</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Amigos:</b> "Amigos en linde sur del bosque; no hay amigos al norte de carretera."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Enemigo:</b> "Técnico con ametralladora en el cruce norte, activo."</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Amenaza:</b> "Sin amenaza antiaérea vista" o "posible AA ligera al norte".</div></div>
+          <div class="script-line"><div class="idx">5</div><div class="speaker">LINCE</div><div class="say"><b>Restricción/BP:</b> "Mueva BP Lago Oeste. No dispare hacia el sur. Colacione amigos, restricción y ABORT."</div></div>
+        </div>
+      </div>
+      <div class="scriptbox">
+        <h4>SITREP completo: 10 datos cuando la misión crece</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Actualización:</b> "SITREP inicial" o "Actualización uno".</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Objetivo/enemigo:</b> qué es, qué hace y dónde amenaza.</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Amenaza al aire:</b> AA, vehículo armado, cable, torre o terreno peligroso.</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Amigos:</b> posición amiga y límite que no se cruza.</div></div>
+          <div class="script-line"><div class="idx">5</div><div class="speaker">LINCE</div><div class="say"><b>Fuegos propios:</b> mortero, humo, trazadora o "sin fuegos propios".</div></div>
+          <div class="script-line"><div class="idx">6</div><div class="speaker">LINCE</div><div class="say"><b>Autoridad/efecto:</b> suprimir, destruir, fijar u observar.</div></div>
+          <div class="script-line"><div class="idx">7</div><div class="speaker">LINCE</div><div class="say"><b>Arma solicitada:</b> Zuni, cañón, observación o pasada en seco.</div></div>
+          <div class="script-line"><div class="idx">8</div><div class="speaker">LINCE</div><div class="say"><b>Restricciones:</b> rumbo prohibido, no sobrevuelo, altura o zona de no fuego.</div></div>
+          <div class="script-line"><div class="idx">9</div><div class="speaker">LINCE</div><div class="say"><b>Otros CAS:</b> otro aparato, otro eje o "sin otros CAS".</div></div>
+          <div class="script-line"><div class="idx">10</div><div class="speaker">LINCE</div><div class="say"><b>Peligros:</b> obstáculos, humo que tapa, lomas o amenaza no confirmada.</div></div>
+        </div>
+      </div>
+      <div class="callout tip" style="font-size:14px">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+        <div><b>Regla práctica:</b> con una misión simple, usa 5 mínimos: AO, amigos, enemigo, amenaza y restricción/BP. Si cualquiera de esos cinco falta, no dictes líneas de ataque.</div>
+      </div>
       <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span><b>TIC</b> = tropas amigas bajo fuego = máxima urgencia. <b>Colaciona las restricciones</b>: son sagradas.</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">3</div><div class="ln"></div></div><div class="body">
-      <h3>Plan de ataque — «cómo será el ataque»</h3>
-      <p class="why"><strong>Una frase:</strong> tipo de control + método + arma + restricción principal.</p>
+      <h3>Plan de ataque — 4 piezas</h3>
+      <p class="why"><strong>Una frase:</strong> tipo de control + método + arma + separación/restricción principal.</p>
       <div class="radio"><span class="jt">LINCE</span> "FORD 1, Lince, plan de ataque: Tipo 2, ataque visual sobre marca, una pasada con cohetes, oeste a este. Mantenga BP hasta autorización."
 <span class="pil">FORD 1</span> "Tipo 2, visual sobre marca, una pasada con cohetes, oeste a este, mantengo BP. FORD 1."</div>
       <table class="tbl">
@@ -688,33 +768,75 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
         <tr><td>Arma</td><td>Qué se espera que uses</td><td>Cohetes / ametralladora</td></tr>
         <tr><td>Separación</td><td>Cómo no te mezclas con amigos u otros helos</td><td>Oeste-este, no disparo sur</td></tr>
       </table>
+      <div class="scriptbox">
+        <h4>Plan de ataque: 4 datos que dice LINCE</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Tipo:</b> "Tipo 2 en vigor."</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Método:</b> "Ataque visual sobre marca / guía hablada."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Arma:</b> "Una pasada con Zuni" o "cañón en seco".</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Separación:</b> "Entrada oeste-este, mantenga BP hasta avance, no fuego sur."</div></div>
+        </div>
+      </div>
       <table class="tbl">
-        <tr><th>Tipo</th><th>El JTAC…</th><th>Cuándo</th></tr>
-        <tr><td>Tipo 1</td><td>Debe verte a ti <strong>y</strong> ver el objetivo antes de cada ataque</td><td>Riesgo alto, amigos cerca, duda de geometría o poca confianza</td></tr>
-        <tr><td>Tipo 2</td><td>Controla cada ataque, aunque no vea a la vez helicóptero, blanco o marca</td><td><strong>El normal en entrenamiento</strong>: BP, terreno, humo o guía hablada</td></tr>
-        <tr><td>Tipo 3</td><td>Autoriza varios ataques dentro de límites concretos</td><td>Zona clara, límites cerrados y sin amigos comprometidos</td></tr>
+        <tr><th>Tipo</th><th>Qué exige a LINCE</th><th>Cuándo usarlo</th></tr>
+        <tr><td>Tipo 1</td><td>Debe tener visual de la aeronave y del objetivo antes de cada ataque.</td><td>Riesgo alto, amigos cerca, geometría delicada, poca confianza, mala meteo o barrera de idioma.</td></tr>
+        <tr><td>Tipo 2</td><td>Controla ataques individuales aunque falte una visual: no ve aeronave en suelta, no ve objetivo, o FORD no ve marca/objetivo antes de suelta.</td><td><strong>Normal en entrenamiento</strong>: helicóptero en BP, terreno de por medio, humo, referencia o guía hablada.</td></tr>
+        <tr><td>Tipo 3</td><td>Controla varios ataques dentro de límites cerrados; no necesita visual para cada suelta.</td><td>Solo con zona, límites, amigos, arma y finalización muy claros. Se autoriza con <strong>AUTORIZADO A ATACAR</strong>.</td></tr>
       </table>
       <div class="callout tip" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
-        <div><b>Para el curso:</b> normalmente usaremos Tipo 2, ataque visual sobre marca o guía hablada. Tipo 3 solo se entrena con límites muy claros y se autoriza con <b>AUTORIZADO A ATACAR</b>, no con un «dispara a lo que veas» ambiguo.</div>
+        <div><b>Por defecto:</b> usa Tipo 2, ataque visual sobre marca o guía hablada. Tipo 3 solo tiene sentido con límites muy claros y se autoriza con <b>AUTORIZADO A ATACAR</b>, no con un «dispara a lo que veas» ambiguo.</div>
       </div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">4</div><div class="ln"></div></div><div class="body">
-      <h3>Las líneas — «los datos del ataque»</h3>
-      <p class="why">El JTAC las dice <strong>despacio, en bloques, con pausa</strong>. En CAS de ala rotatoria puede usar 9-line completa o una CCA 5-line compacta si la situación está clara.</p>
+      <h3>Líneas del ataque — 5 o 9</h3>
+      <p class="why">El JTAC las dice <strong>despacio, en bloques, con pausa</strong>. Usa 5-Line cuando el escenario es simple y todos entienden la zona. Usa 9-Line cuando necesitas más precisión, coordenadas, marca, amigos cerca o restricciones delicadas.</p>
       <table class="tbl">
         <tr><th>#</th><th>Línea</th><th>En Reforger</th></tr>
-        <tr><td>1</td><td>IP/BP/HA</td><td>Punto inicial, posición de batalla o holding area. Para helicópteros normalmente HA/BP: «HA Pepsi» o «BP Lago Oeste»</td></tr>
-        <tr><td>2</td><td>Rumbo / lado permitido</td><td>Desde el centro de la BP al objetivo. Si hace falta: «lado derecho/izquierda» para no cruzar una zona prohibida</td></tr>
-        <tr><td>3</td><td>Distancia</td><td>Desde la BP, en metros</td></tr>
-        <tr><td>4</td><td>Cota</td><td>Altura del terreno si aporta algo. En procedimiento real va en pies; en Reforger vale cota de mapa o «N/A»</td></tr>
-        <tr><td>5</td><td>Descripción</td><td>Objeto + orientación + referencia de terreno: «técnico en cruce, morro al norte, junto al granero»</td></tr>
-        <tr><td>6</td><td>Localización</td><td>Cuadrícula de 6 cifras, cifra a cifra</td></tr>
-        <tr><td>7</td><td>Marca</td><td>Humo, trazadoras, IR, referencia visual, guía hablada o «sin marca»</td></tr>
+        <tr><td>1</td><td>IP/BP/HA</td><td><strong>IP</strong> para ala fija: punto geográfico visible, normalmente a 5-15 NM. <strong>BP/HA</strong> para helicópteros: zona de tiro/espera con cobertura, ocultación y alcance de arma.</td></tr>
+        <tr><td>2</td><td>Rumbo / offset</td><td>Rumbo IP/BP-objetivo y lado autorizado. Puede ser directo o con offset izquierda/derecha. Si LINCE da offset, cumplirlo es obligatorio.</td></tr>
+        <tr><td>3</td><td>Distancia</td><td>Ala fija: desde IP al blanco en NM. Helicópteros: desde el centro de la BP al blanco, redondeado a 100 m.</td></tr>
+        <tr><td>4</td><td>Cota / elevación</td><td>En procedimiento real se da en pies desde mapa/carta. En Reforger, cota de mapa o «N/A». Es lectura de vuelta obligatoria.</td></tr>
+        <tr><td>5</td><td>Descripción</td><td>Evita «enemigos en árboles». Mejor: tipo, postura, orientación y referencia: «escuadra en posición defensiva, orientada oeste, en línea de árboles, 300 m al este del río».</td></tr>
+        <tr><td>6</td><td>Localización</td><td>Cuadrícula 6/8 cifras o latitud/longitud desde mapa/GPS. Se dice cifra a cifra. Es lectura de vuelta obligatoria.</td></tr>
+        <tr><td>7</td><td>Marca</td><td>Humo/fósforo, iluminación, HE, láser, puntero IR, fuego indirecto, guía hablada o «sin marca». La marca debe quedar cerca del blanco, idealmente al lado y no encima.</td></tr>
         <tr><td>8</td><td>Aliados</td><td>Cardinal + metros desde el objetivo: «300 al sur». Es la posición de los amigos, no necesariamente la del JTAC</td></tr>
         <tr><td>9</td><td>Egreso</td><td>Por dónde sales y a dónde vuelves: «egreso norte, vuelva a BP Lago Oeste»</td></tr>
       </table>
+      <div class="scriptbox">
+        <h4>5-Line corta: 5 datos que dice LINCE</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Arma/efecto:</b> "Dos cohetes Zuni, destruir técnico."</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Propia/JTAC:</b> "LINCE 300 metros al sur del objetivo."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Objetivo:</b> "Técnico en cruce norte, rumbo tres-cuatro-cero, 700 metros desde BP."</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Marca/ataque/egreso:</b> "Humo rojo, entrada oeste-este, egreso norte a BP."</div></div>
+          <div class="script-line"><div class="idx">5</div><div class="speaker">LINCE</div><div class="say"><b>Amenaza/amigos:</b> "Posible AA norte, amigos al sur. No fuego sur. Colacione."</div></div>
+        </div>
+      </div>
+      <div class="scriptbox">
+        <h4>9-Line: 9 líneas que dice LINCE</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>IP/BP:</b> "BP Lago Oeste."</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Rumbo/offset:</b> "Rumbo uno-seis-cero, offset derecha" o "directo BP-objetivo".</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Distancia:</b> "Setecientos metros desde centro de BP."</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Cota:</b> "Cota cuatro-cinco" o "elevación N/A".</div></div>
+          <div class="script-line"><div class="idx">5</div><div class="speaker">LINCE</div><div class="say"><b>Descripción:</b> "Técnico con ametralladora, morro norte, junto al granero."</div></div>
+          <div class="script-line"><div class="idx">6</div><div class="speaker">LINCE</div><div class="say"><b>Localización:</b> "Cuadrícula cero-tres-cinco cero-cuatro-ocho."</div></div>
+          <div class="script-line"><div class="idx">7</div><div class="speaker">LINCE</div><div class="say"><b>Marca:</b> "Humo rojo / láser / IR / HE / guía hablada / sin marca."</div></div>
+          <div class="script-line"><div class="idx">8</div><div class="speaker">LINCE</div><div class="say"><b>Amigos:</b> "Amigos trescientos metros al sur."</div></div>
+          <div class="script-line"><div class="idx">9</div><div class="speaker">LINCE</div><div class="say"><b>Egreso:</b> "Egreso norte, vuelva BP Lago Oeste."</div></div>
+        </div>
+      </div>
+      <div class="scriptbox critical">
+        <h4>Lectura de vuelta obligatoria tras 9-Line</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 4:</b> "Cota cuatro-cinco" o "elevación N/A".</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 6:</b> "Objetivo en cero-tres-cinco cero-cuatro-ocho."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>Restricciones:</b> "No fuego sur, no sobrevuelo pueblo, offset derecha."</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker ford">FORD</div><div class="say"><b>Regla ArmadOS:</b> añade línea 8 y egreso cuando haya amigos cerca: "amigos 300 sur, egreso norte a BP".</div></div>
+        </div>
+      </div>
       <table class="tbl">
         <tr><th>Observaciones útiles</th><th>Para qué sirven</th></tr>
         <tr><td>FAH / rumbo final</td><td>Limita desde qué dirección puede atacar. Uno solo controla más; un sector da más flexibilidad.</td></tr>
@@ -722,6 +844,10 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
         <tr><td>Otros fuegos</td><td>Morteros, artillería o supresión en curso para separar trayectorias.</td></tr>
         <tr><td>Colación correcta / avance ahora</td><td>El JTAC valida la colación y ordena avanzar hacia la entrada sin autorizar armas todavía.</td></tr>
       </table>
+      <div class="callout tip" style="font-size:14px">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+        <div><b>Regla práctica:</b> si la 5-Line sale desordenada, no uses 9-Line para ocultar el problema. Vuelve a CP, SITREP, BP, plan, colación, entrada y BDA.</div>
+      </div>
       <div class="callout key">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
         <div><b>Código de humos:</b> <span class="dot-i r"></span>rojo/naranja = ENEMIGO · <span class="dot-i g"></span>verde = SOLO amigos. El humo se tira cerca, pero sin tapar el blanco; mejor a un lado o detrás según el rumbo de ataque. Si el humo se desplaza, tapa el blanco o falla, no se fuerza: se pasa a <b>guía hablada</b>. No marques un objetivo ya destruido.</div>
@@ -748,14 +874,31 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">5</div><div class="ln"></div></div><div class="body">
-      <h3>Colación — «confirmo lo crítico»</h3>
-      <p class="why">Como mínimo se colacionan <strong>línea 4, línea 6 y restricciones</strong>. En este curso añadimos siempre <strong>línea 8</strong> porque saber dónde están los amigos es más importante que ahorrar tres segundos.</p>
+      <h3>Colación — 4, 6, 8 y restricciones</h3>
+      <p class="why">Como mínimo se colacionan <strong>línea 4, línea 6 y restricciones</strong>. En ArmadOS añadimos siempre <strong>línea 8</strong> porque saber dónde están los amigos es más importante que ahorrar tres segundos.</p>
+      <div class="scriptbox">
+        <h4>Colación mínima: 4 datos que debe decir FORD</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 4 / cota:</b> "Cota cuatro-cinco" o "cota N/A".</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 6 / localización:</b> "Objetivo cero-tres-cinco cero-cuatro-ocho."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 8 / amigos:</b> "Amigos trescientos metros al sur."</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker ford">FORD</div><div class="say"><b>Restricciones:</b> "Ningún disparo hacia el sur, egreso norte, ABORT banana."</div></div>
+        </div>
+      </div>
+      <div class="scriptbox">
+        <h4>Respuesta de LINCE tras la colación</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Si está bien:</b> "Colación correcta. Avance ahora."</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Si falta algo:</b> "Negativo, repita amigos y restricción."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Si hay riesgo:</b> "Mantenga BP. Sin avance."</div></div>
+        </div>
+      </div>
       <div class="radio"><span class="pil">FORD 1</span> "Cota 45, objetivo en cero-tres-cinco cero-cuatro-ocho, aliados 300 al sur, ningún disparo al sur. FORD 1."
 <span class="jt">LINCE</span> "Colación correcta."</div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b" style="border-color:var(--red);color:var(--red)">6</div><div class="ln"></div></div><div class="body" style="border-color:rgba(229,83,60,.35)">
-      <h3 style="color:var(--red)">Correlación — ★ el paso más importante ★</h3>
+      <h3 style="color:var(--red)">Correlación — 3 palabras que no se mezclan</h3>
       <p class="why"><strong>Por qué:</strong> aquí os aseguráis de que los dos miráis el <strong>MISMO objetivo</strong>. Sin esto, no hay permiso de disparo.</p>
       <p style="font-size:14px;color:var(--ink-dim)"><strong>a) Por humo</strong> · <strong>b) por la cuadrícula</strong> · <strong>c) hablando (guía hablada)</strong> con el método <strong>DEDO</strong>:</p>
       <div class="diagram"><b>D</b>esde un punto fácil de ver   →  "desde el cruce de carreteras"
@@ -763,6 +906,23 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 <b>D</b>istancia (metros)            →  "unos 200 metros"
 <b>O</b>bjeto que quieres que vea    →  "una casa baja con tejado rojo"</div>
       <p style="font-size:14px;color:var(--ink-dim)">Trucos: de lo grande a lo pequeño · máximo 2 indicaciones y luego una pregunta · preguntas abiertas («describa el vehículo», «qué orientación tiene») para no meterle la respuesta al piloto.</p>
+      <div class="scriptbox critical">
+        <h4>Guía hablada DEDO: 4 frases que dice LINCE</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Desde:</b> "Desde el humo rojo / desde el cruce de carreteras..."</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>En dirección:</b> "...hacia el este / al norte de la carretera..."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Distancia:</b> "...cincuenta metros / doscientos metros..."</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Objeto:</b> "...técnico junto al granero. Describa objetivo."</div></div>
+        </div>
+      </div>
+      <div class="scriptbox critical">
+        <h4>Palabras de correlación: 3 términos que no se mezclan</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>CONTACTO:</b> "Veo la referencia que me describes." No significa objetivo confirmado.</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker ford">FORD</div><div class="say"><b>BLANCO A LA VISTA:</b> "Veo mi objetivo." Solo después de que LINCE confirme cuál es.</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>SIN BLANCO:</b> "No veo mi objetivo." Se mantiene o vuelve a BP; no se inventa.</div></div>
+        </div>
+      </div>
       <div class="radio"><span class="jt">LINCE</span> "Humo rojo en la zona."
 <span class="pil">FORD 1</span> "CONTACTO con el humo, FORD 1."
 <span class="jt">LINCE</span> "Desde el humo, 50 al este, junto al granero."
@@ -785,34 +945,66 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">7</div><div class="ln"></div></div><div class="body">
-      <h3>El ataque</h3>
-      <p class="why">Secuencia cerrada. A partir de aquí, <strong>silencio radio</strong> para los demás. Solo habla el aparato atacante, el JTAC y quien tenga un aviso de seguridad.</p>
+      <h3>Control terminal — 4 llamadas</h3>
+      <p class="why">Secuencia cerrada. A partir de aquí, <strong>silencio radio</strong> para los demás. Solo habla el aparato atacante, LINCE y quien tenga un aviso de seguridad.</p>
+      <div class="scriptbox critical">
+        <h4>Entrada caliente: 7 pasos que se dicen en radio</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>Salida:</b> "SALIENDO DE BP, FORD 1."</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Maniobra:</b> "FORD 1, CONTINÚE." Puede proceder, pero todavía no puede soltar.</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>Entrada:</b> "DENTRO CALIENTE desde el oeste, FORD 1." Es aviso del piloto.</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Decisión:</b> "FORD 1, autorizado" o "ABORT ABORT ABORT". Solo esta pasada.</div></div>
+          <div class="script-line"><div class="idx">5</div><div class="speaker ford">FORD</div><div class="say"><b>Empleo:</b> "RIFLE, ZUNI, FORD 1" o "CAÑÓN CAÑÓN CAÑÓN, FORD 1".</div></div>
+          <div class="script-line"><div class="idx">6</div><div class="speaker ford">FORD</div><div class="say"><b>Salida:</b> "SALIENDO norte, vuelvo a BP, FORD 1."</div></div>
+          <div class="script-line"><div class="idx">7</div><div class="speaker">LINCE</div><div class="say"><b>Cierre:</b> "Buenos impactos. Espere BDA."</div></div>
+        </div>
+      </div>
       <div class="radio"><span class="pil">FORD 1</span> "SALIENDO DE BP, FORD 1"        <span class="sys">(abandono la posición de batalla)</span>
 <span class="jt">LINCE</span> "FORD 1, CONTINÚE"              <span class="sys">(autoriza MANIOBRAR, no disparar)</span>
 <span class="pil">FORD 1</span> "DENTRO CALIENTE desde el oeste, FORD 1" <span class="sys">(entro a la pasada con intención de empleo)</span>
-<span class="jt">LINCE</span> "FORD 1, autorizado"                 <span class="sys">✅ CONFIRMACIÓN DE LINCE</span>
+<span class="jt">LINCE</span> "FORD 1, autorizado"                 <span class="sys">(confirmación de LINCE)</span>
 <span class="pil">FORD 1</span> "RIFLE, ZUNI, FORD 1" / "CAÑÓN CAÑÓN CAÑÓN, FORD 1"
 <span class="pil">FORD 1</span> "SALIENDO, vuelvo a la BP, FORD 1"</div>
       <table class="tbl">
-        <tr><th>Llamada</th><th>Significa</th></tr>
-        <tr><td>ABORT</td><td>Corta la pasada. No hay permiso de fuego.</td></tr>
-        <tr><td>CONTINÚE</td><td>Puede seguir la geometría, pero aún no puede disparar.</td></tr>
-        <tr><td>DENTRO CALIENTE</td><td>El piloto entra en la pasada con intención de empleo. No es permiso por sí solo.</td></tr>
-        <tr><td>AUTORIZADO</td><td>LINCE confirma que ese helicóptero puede soltar en esa pasada concreta.</td></tr>
+        <tr><th>#</th><th>Llamada de LINCE</th><th>Significa</th></tr>
+        <tr><td>1</td><td>ABORT</td><td>Cancela la pasada. No hay autorización de armas. El piloto sale y confirma ABORT recibido.</td></tr>
+        <tr><td>2</td><td>CONTINÚE</td><td>Puede continuar maniobra o pasada seca, pero no puede soltar munición todavía.</td></tr>
+        <tr><td>3</td><td>AUTORIZADO</td><td>Equivale a autorizado en caliente para esta pasada concreta después de DENTRO CALIENTE.</td></tr>
+        <tr><td>4</td><td>AUTORIZADO A ATACAR</td><td>Solo Tipo 3. FORD puede iniciar ataques dentro de los límites de LINCE y termina con «ataque completo».</td></tr>
       </table>
       <div class="callout warn" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
-        <div><b>DENTRO CALIENTE lo canta el piloto.</b> LINCE confirma o aborta. Para maniobrar sin armas se usa «continúe» o «continúe en seco».</div>
+        <div><b>DENTRO CALIENTE lo canta el piloto.</b> Es aviso de intención de empleo, no permiso. LINCE responde con una de sus llamadas: ABORT, CONTINÚE o AUTORIZADO.</div>
       </div>
       <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: <b>colación correcta → avance → BLANCO A LA VISTA → SALIENDO DE BP → DENTRO CALIENTE → autorizado → RIFLE/ZUNI → SALIENDO → BDA.</b> Si pierdes blanco, amigo o geometría: <b>SALIENDO EN SECO</b> y vuelves a HA/BP.</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">8</div></div><div class="body">
-      <h3>BDA — «¿funcionó?»</h3>
-      <p class="why">Quien mejor vea la zona reporta el resultado. Regla simple: <strong>si no lo ves, no lo inventes</strong>. Como mínimo: ataque exitoso o no exitoso.</p>
+      <h3>BDA — 6 datos</h3>
+      <p class="why">Quien mejor vea la zona reporta el resultado. Regla simple: <strong>si no lo ves, no lo inventes</strong>. El BDA cierra la pasada; no se termina con el disparo.</p>
       <div class="radio"><span class="jt">LINCE</span> "FORD 1, Lince, BDA: Ford-01, técnico en cero-tres-cinco cero-cuatro-ocho, ataque exitoso, objetivo destruido."
 <span class="pil">FORD 1</span> "Veo dos a pie huyendo al norte."
 <span class="jt">LINCE</span> "FORD 1, Lince, recibido. Mantenga vigilancia al norte."</div>
+      <table class="tbl">
+        <tr><th>#</th><th>Dato</th><th>Qué se comunica</th></tr>
+        <tr><td>1</td><td>Indicativos</td><td>Quién informa y a quién va dirigido.</td></tr>
+        <tr><td>2</td><td>Número de misión / pasada</td><td>Qué ataque se está cerrando: misión, pasada o aparato atacante.</td></tr>
+        <tr><td>3</td><td>Localización</td><td>Objetivo o cuadrícula si ayuda a dejar registro.</td></tr>
+        <tr><td>4</td><td>Hora / momento</td><td>Momento del impacto o ToT si se está registrando.</td></tr>
+        <tr><td>5</td><td>Resultado</td><td>Destruido, neutralizado, sin efecto o no observado.</td></tr>
+        <tr><td>6</td><td>Observaciones</td><td>Supervivientes, segunda pasada, RTB o vigilancia.</td></tr>
+      </table>
+      <div class="scriptbox">
+        <h4>BDA: 6 datos que dice LINCE u observador</h4>
+        <div class="script-grid">
+          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Indicativos:</b> "FORD 1, Lince, BDA..."</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Misión/pasada:</b> "Misión cero-uno / pasada Zuni."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Localización:</b> "Técnico en cero-tres-cinco cero-cuatro-ocho."</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Momento:</b> "Impacto uno-nueve-tres-cero / impacto ahora."</div></div>
+          <div class="script-line"><div class="idx">5</div><div class="speaker">LINCE</div><div class="say"><b>Resultado:</b> "Objetivo destruido / sin efecto observado."</div></div>
+          <div class="script-line"><div class="idx">6</div><div class="speaker">LINCE</div><div class="say"><b>Observaciones:</b> "Dos enemigos huyen norte, mantenga vigilancia" o "RTB autorizado".</div></div>
+        </div>
+      </div>
       <div class="callout tip" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
         <div><b>BDA corto:</b> misión/objetivo · resultado · observación útil. Si hace falta otra pasada, se vuelve a control, correlación y autorización; no se dispara por inercia.</div>
@@ -846,7 +1038,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
     <tr><th>Línea</th><th>Qué dice</th><th>Qué debe entender el piloto</th></tr>
     <tr><td>1</td><td><b>Arma / efecto</b></td><td>Qué se espera de la pasada: cohetes, cañón, supresión, destrucción o pasada en seco sin armas.</td></tr>
     <tr><td>2</td><td><b>Propia / referencia</b></td><td>Dónde está LINCE o desde qué referencia habla: humo azul, edificio, cruce, coordenada o posición relativa.</td></tr>
-    <tr><td>3</td><td><b>Objetivo</b></td><td>Qué es y dónde está: rumbo/range desde LINCE, cuadrícula o referencia visual clara.</td></tr>
+    <tr><td>3</td><td><b>Objetivo</b></td><td>Qué es y dónde está: rumbo/distancia desde LINCE, cuadrícula o referencia visual clara.</td></tr>
     <tr><td>4</td><td><b>Marca / ataque / egreso</b></td><td>Cómo lo encuentra, por dónde entra y por dónde sale: humo rojo, hombro derecho, egreso este.</td></tr>
     <tr><td>5</td><td><b>Amenaza / amigos</b></td><td>AA, amigos cercanos, peligro cercano y restricciones críticas que no se pueden fallar.</td></tr>
   </table>
@@ -873,7 +1065,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 <span class="pil">PILOTO · FORD 1</span> "SALIENDO norte, vuelvo a BP, FORD 1."
 <span class="jt">JTAC · LINCE</span> "FORD 1, Lince, buenos impactos. Mantenga BP para BDA."</div>
 
-  <h3 class="subh">Ejercicios para días de entrenamiento</h3>
+  <h3 class="subh">Ejercicios de entrenamiento</h3>
   <div class="cards c3">
     <div class="card"><p><strong>Ejercicio 1 · JTAC en 90 segundos.</strong> El monitor da una situación simple. El alumno prepara las 5 líneas y las dicta sin correr: amigos, objetivo, marca, restricciones, egreso.</p></div>
     <div class="card"><p><strong>Ejercicio 2 · Piloto disciplinado.</strong> El piloto solo puede atacar si ha repetido bien amigos, objetivo, restricciones y egreso. Si duda, canta <b>REPITA</b> o <b>SIN BLANCO</b>.</p></div>
@@ -1052,8 +1244,8 @@ BDA / resultado: ________________________________________</div>
     <div class="card"><h3>Mapa táctico</h3><p>Se usa antes y durante la misión para dibujar rutas, amigos, enemigos, líneas de no cruce, BP/HA, marcas y egresos. Si alguien no entiende la situación, se vuelve al mapa antes de seguir por radio.</p></div>
     <div class="card"><h3>CCA 5-Line</h3><p>Úsala con helicópteros cuando el escenario ya está claro: objetivo simple, amigos localizados, HA/BP definida, amenaza entendida y restricciones sencillas. Acelera lo que ya está claro; no arregla una situación confusa.</p></div>
     <div class="card"><h3>9-Line</h3><p>Úsala cuando hay varios blancos, coordenadas, marca láser/humo, zona urbana, amigos cerca, peligro cercano, mala visibilidad, piloto nuevo o restricciones delicadas. Es más lenta, pero ordena mejor la cabeza.</p></div>
-    <div class="card"><h3>Herramienta JTAC</h3><p>Úsala en sesiones iniciales para obligar a LINCE a hablar: reporte de entrada, HA/BP, informe de tierra, restricciones, colación correcta, plan de ataque y entrada fría. Si eso no sale limpio, no se pasa a fuego real.</p></div>
-    <div class="card"><h3>Evaluación</h3><p>Se rellena después de la sesión. No es para castigar: marca qué alumno ya es autónomo, quién necesita repetir una parte concreta y qué debe entrenar antes de la siguiente clase.</p></div>
+    <div class="card"><h3>Herramienta JTAC</h3><p>Úsala cuando LINCE necesite una guía para hablar con orden: reporte de entrada, HA/BP, informe de tierra, restricciones, colación correcta, plan de ataque y entrada fría. Si eso no sale limpio, no se pasa a fuego real.</p></div>
+    <div class="card"><h3>Evaluación</h3><p>Se rellena después del entrenamiento. No es para castigar: marca qué alumno ya es autónomo, quién necesita repetir una parte concreta y qué debe entrenar antes de la siguiente práctica.</p></div>
   </div>
 </section>
 
@@ -1091,12 +1283,15 @@ NUNCA:    cantar RIFLE sin confirmación de LINCE · pasar la BP sin permiso ·
 <pre>REUNIÓN PREVIA: situación·misión·plan·logística·comunicaciones (SMEAC)
           fija indicativos·2 frecuencias·CP·espera·humos
 
-1 REPORTE DE ENTRADA: recibo armas+tiempo → espera SEGURA
-2 SITREP: enemigo · amenazas al aire · amigos · fuegos propios ·
-          autorización/efecto · RESTRICCIONES · peligros → colación
-3 PLAN DE ATAQUE: Tipo ___ | método visual/coordenada ___ | arma ___
-          restricción principal ___ | aparato atacante ___ | Tipo 3 solo con límites
-4 LÍNEAS (despacio, bloques de 3):
+FLUJO: entrada → informe de tierra → plan → líneas → colación → correlación → control → BDA
+
+1 REPORTE DE ENTRADA (6): indicativo · nº/tipo · posición · armas · tiempo · ABORT
+2 SITREP: corto si la situación es simple; completo si hay amenaza o restricción compleja
+          objetivo/enemigo · amenazas · amigos · fuegos propios · efecto · arma ·
+          RESTRICCIONES · otros CAS · peligros
+3 PLAN DE ATAQUE (4): Tipo ___ | método visual/coordenada ___ | arma ___
+          separación/restricción ___ | aparato atacante ___ | Tipo 3 solo con límites
+4 LÍNEAS (5 o 9, despacio, bloques de 3):
    1 BP __    4 Cota __   7 Marca __
    2 Rumbo/offset __ 5 Objet. __ 8 Aliados __
    3 Dist __m 6 Cuadríc__ 9 Salida __
@@ -1106,10 +1301,11 @@ NUNCA:    cantar RIFLE sin confirmación de LINCE · pasar la BP sin permiso ·
 5 Exijo colación 4·6·8 + restr. → "correcta"
 6 CORRELACIÓN: humo o guía hablada (DEDO · 2+1 ·
    preguntas abiertas) → "el ___ es su objetivo"
-7 DENTRO CALIENTE del piloto → geometría → autorizado / ABORT
-   autorizado solo si confirmas arma · Tipo 3: AUTORIZADO A ATACAR
+7 CONTROL (4): ABORT · CONTINÚE · AUTORIZADO · AUTORIZADO A ATACAR
+   DENTRO CALIENTE es del piloto; autorizado solo si confirmas arma y geometría
    peligro cercano → "iniciales __ __" antes
-8 BDA: si no lo ves, no lo inventes → otra pasada / RTB / cierre de misión</pre>
+8 BDA (6): indicativos · misión · localización · momento · resultado · observaciones
+   si no lo ves, no lo inventes → otra pasada / RTB / cierre de misión</pre>
     </div>
     <div class="pcard green bk">
       <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>La misión en una línea</h3>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tarjetas de bolsillo · CAS · ArmaDos</title>
-<meta name="description" content="Tarjetas de bolsillo para misiones CAS en Arma Reforger. 5-Line, 9-Line, piernografo, mapa táctico local, vocabulario radio, secuencia de ataque y reglas no negociables.">
+<meta name="description" content="Tarjetas rellenables de bolsillo para misiones CAS en Arma Reforger. 5-Line, 9-Line, herramienta JTAC, piernografo y pizarra táctica local.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -430,15 +430,15 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <a href="#nine-line-tool">9-Line</a>
   <a href="#jtac-tool">JTAC</a>
   <a href="#kneeboard-tool">Pierna</a>
-  <a href="#tactical-map-tool">Mapa</a>
+  <a href="#tactical-map-tool">Pizarra</a>
 </nav>
 
 <!-- ====== INTRO ====== -->
 <section class="intro">
   <div class="kicker">Curso CAS · Arma Reforger</div>
   <h1>Tarjetas de bolsillo · alumno</h1>
-  <p>Cinco herramientas de bolsillo, en el orden en que se usan: la <b>CCA 5-Line</b> y la <b>9-Line</b> que dicta el JTAC, la <b>herramienta JTAC</b> para controlar el ataque, el <b>piernografo A5</b> del piloto y el <b>mapa táctico local</b>. Cada una cabe en una tarjeta: rellénalas en HTML, en el móvil o imprímelas. El detalle completo (vocabulario, reglas, tipos de control) está en el manual.</p>
-  <div class="note">5-Line · 9-Line · JTAC · Piernografo A5 · Mapa táctico · HTML / móvil / in-game</div>
+  <p>Herramientas rellenables para el alumno: 5-Line, 9-Line, hoja JTAC, piernógrafo y pizarra táctica. Todas siguen el mismo orden visual del manual para copiar rápido y no romper la secuencia.</p>
+  <div class="note">5-Line · 9-Line · JTAC · Piernógrafo A5 · Pizarra táctica · HTML / móvil / in-game</div>
 </section>
 
 <!-- ====== GRID DE TARJETAS ====== -->
@@ -451,7 +451,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <div class="toolgrid">
       <div class="field big"><label>1 · Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="five-1" data-placeholder="Dos cohetes / pasada fría / supresión"></div></div>
       <div class="field big"><label>2 · Propia / referencia JTAC</label><div class="fill" contenteditable="true" data-card-key="five-2" data-placeholder="LINCE 500 m norte de edificio azul / humo azul"></div></div>
-      <div class="field big"><label>3 · Objetivo / rumbo / range</label><div class="fill" contenteditable="true" data-card-key="five-3" data-placeholder="Camión mando, rumbo 340, 700 m"></div></div>
+      <div class="field big"><label>3 · Objetivo / rumbo / distancia</label><div class="fill" contenteditable="true" data-card-key="five-3" data-placeholder="Camión mando, rumbo 340, 700 m"></div></div>
       <div class="field big"><label>4 · Marca / ataque / egreso</label><div class="fill" contenteditable="true" data-card-key="five-4" data-placeholder="Humo rojo, sobre hombro derecho, egreso este"></div></div>
       <div class="field big"><label>5 · Amenaza / amigos</label><div class="fill" contenteditable="true" data-card-key="five-5" data-placeholder="AA norte, amigos al sur, cerca del objetivo"></div></div>
       <div class="field big"><label>Arma / efecto JTAC</label><div class="fill" contenteditable="true" data-card-key="five-weapon" data-placeholder="Cohetes, ametralladora, supresión, destrucción, marcar sin disparar..."></div></div>
@@ -459,7 +459,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
       <div class="field big"><label>BDA</label><div class="fill" contenteditable="true" data-card-key="five-bda" data-placeholder="Impactos, destruido, necesita segunda pasada..."></div></div>
       <div class="field big"><label>Notas</label><div class="fill" contenteditable="true" data-card-key="five-notes" data-placeholder="Aparato atacante, arma, entrada, amenaza, humo..."></div></div>
     </div>
-    <p class="minihelp">Patrón CAS de ala rotatoria: 5-line compacta, colación crítica, <b>colación correcta</b>, <b>avance ahora</b>, visual/BLANCO A LA VISTA, DENTRO CALIENTE del piloto, confirmación de LINCE, RIFLE/Zuni y BDA. Para escuela: pasada en seco si no hay armas. <strong style="color:var(--red)">No sustituye</strong> BLANCO A LA VISTA, confirmación de LINCE ni ABORT. Si hay duda, 9-Line.</p>
+    <p class="minihelp">Rellenable de alumno: copiar los 5 datos, colacionar lo crítico y dejar BDA/cierre escrito. La teoría completa va en el manual.</p>
   </article>
 
   <!-- ============ A. 9-LINE RELLENABLE ============ -->
@@ -483,34 +483,20 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <div class="field"><label>Tipo / arma / avance</label><div class="fill" contenteditable="true" data-card-key="nine-gameplan-weapon" data-placeholder="Tipo 2 · 1x misil guiado / cohetes · colación correcta · avance"></div></div>
       </div>
     </div>
-    <p class="minihelp">Patrón vídeo 9-line: tras reporte de entrada y SITREP, LINCE manda CP/IP, da Tipo 2, dicta 9-line, añade observaciones, valida colación, ordena avance, marca, recibe DENTRO CALIENTE, confirma la suelta y pide BDA.</p>
-    <pre class="pre" style="margin-top:10px"><span class="jt">LINCE:</span> "FORD 1, LINCE, Tipo 2 en vigor. Espere 9-line."
-<span class="pil">FORD 1:</span> "Listo para 9-line."
-<span class="jt">LINCE:</span> "1 IP FORD. 2 rumbo 160. 3 cuatro kilómetros. 4 cota 230. 5 T-80 carro de combate. 6 cuadrícula 237 1923. 7 láser. 8 amigos dos kilómetros noroeste. 9 egreso sur."
-<span class="jt">LINCE:</span> "Observaciones: solicito un misil guiado, rumbo final de ataque 180, línea láser norte-sur. Colacione."
-<span class="pil">FORD 1:</span> "Cota 230, cuadrícula 237 1923, amigos dos kilómetros noroeste, egreso sur, FAH 180, láser norte-sur."
-<span class="jt">LINCE:</span> "Colación correcta. Avance ahora."</pre>
-    <pre class="pre" style="margin-top:10px"><span class="pil">FORD 1:</span> "Avanzando. Dos minutos a IP."
-<span class="jt">LINCE:</span> "Continúe en IP."
-<span class="pil">FORD 1:</span> "Treinta segundos al objetivo."
-<span class="jt">LINCE:</span> "Marque objetivo."
-<span class="pil">FORD 1:</span> "Contacto láser. DENTRO CALIENTE desde el norte."
-<span class="jt">LINCE:</span> "FORD 1, autorizado."
-<span class="pil">FORD 1:</span> "RIFLE, misil. SALIENDO sur."
-<span class="jt">LINCE:</span> "Espere BDA. Carro destruido. Vuelva a CP Wolf."</pre>
+    <p class="minihelp">Rellenable de alumno: copiar 1-9, observaciones, tipo/arma y lectura de vuelta. La teoría, ejemplos y fraseología completa están en el manual.</p>
   </article>
 
   <!-- ============ JTAC UNIFICADO ============ -->
   <article class="card wide critical" id="jtac-tool">
     <span class="bk"></span>
-    <div class="hd"><span class="num">3</span><h2>Herramienta JTAC</h2><span class="tag">Reporte → 5 líneas → control → BDA</span></div>
+    <div class="hd"><span class="num">3</span><h2>Herramienta JTAC</h2><span class="tag">6 → 5 → 4 → 5 líneas → 4 → 6</span></div>
     <div class="toolgrid">
       <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="jtac-active" data-placeholder="LINCE 1"></div></div>
       <div class="field"><label>Vuelo controlado</label><div class="fill" contenteditable="true" data-card-key="jtac-flight" data-placeholder="FORD 1 / FORD 2 aparato atacante"></div></div>
       <div class="field"><label>Frecuencia CAS</label><div class="fill" contenteditable="true" data-card-key="jtac-freq" data-placeholder="65.0 / canal táctico"></div></div>
       <div class="field"><label>HA / BP espera</label><div class="fill" contenteditable="true" data-card-key="jtac-hold" data-placeholder="HA Pepsi / BP Lago Oeste"></div></div>
 
-      <div class="field big"><label>Reporte de entrada (armas · tiempo · ABORT)</label><div class="fill" contenteditable="true" data-card-key="jtac-checkin" data-placeholder="2 helicópteros, cohetes y cañón, 25 min, código ABORT banana"></div></div>
+      <div class="field big"><label>Reporte de entrada (6 datos)</label><div class="fill" contenteditable="true" data-card-key="jtac-checkin" data-placeholder="2 helicópteros, cohetes y cañón, 25 min, código ABORT banana"></div></div>
       <div class="field big"><label>Colación exigida</label><div class="fill" contenteditable="true" data-card-key="jtac-readback" data-placeholder="Amigos + restricción + HA + código ABORT"></div></div>
 
       <div class="field big"><label>Situación amiga</label><div class="fill" contenteditable="true" data-card-key="jtac-friendlies" data-placeholder="LINCE al sur del bosque, 300 m al sur del objetivo"></div></div>
@@ -523,24 +509,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
       <div class="field"><label>Confirmación LINCE</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="AUTORIZADO / CONTINÚE EN SECO / AUTORIZADO A ATACAR / ABORT"></div></div>
       <div class="field"><label>BDA / cierre</label><div class="fill" contenteditable="true" data-card-key="jtac-bda" data-placeholder="Espere BDA / destruido / no observado / RTB"></div></div>
     </div>
-    <p class="minihelp">Flujo JTAC completo: recibe <b>reporte de entrada</b> → manda <b>HA/BP</b> → da <b>SITREP</b> y exige colación → <b>plan de ataque + 5-line</b> → <b>colación correcta</b> → <b>avance</b> → correlación (visual/BLANCO A LA VISTA) → piloto <b>DENTRO CALIENTE</b> → LINCE <b>AUTORIZADO/ABORT</b> → piloto <b>RIFLE/Zuni</b> → <b>BDA</b>. Si el flujo no sale limpio, no se pasa a fuego real.</p>
-    <pre class="pre" style="margin-top:10px"><span class="pil">FORD 1:</span> "LINCE, FORD 1, establecido CP Oeste, listo reporte de entrada."
-<span class="jt">LINCE 1:</span> "FORD 1, LINCE 1, adelante reporte de entrada."
-<span class="pil">FORD 1:</span> "LINCE 1, FORD 1, dos helicópteros armados, a baja cota, cohetes y cañón listos, 25 minutos, código ABORT banana."
-<span class="jt">LINCE 1:</span> "Recibido. Mueva a HA Pepsi. Restricción: no cruce carretera norte. Colacione."
-<span class="pil">FORD 1:</span> "Muevo a HA Pepsi, no cruzo carretera norte, código ABORT banana, FORD 1."
-<span class="jt">LINCE:</span> "Informe de tierra: amigos linde sur del bosque, enemigo en casas al norte, sin AA vista."
-<span class="jt">LINCE:</span> "Plan de ataque: Tipo 2, cohetes, una pasada oeste-este. Espere 5-line."
-<span class="jt">LINCE:</span> "5-line: dos cohetes; LINCE 500 norte de edificio azul; técnico rumbo 340, 700 m; humo rojo, hombro derecho, egreso este; AA norte, amigos al sur. Colacione."
-<span class="pil">FORD 1:</span> "Dos cohetes, técnico rumbo 340, 700, humo rojo, hombro derecho, egreso este, AA norte, amigos sur. FORD 1."
-<span class="jt">LINCE:</span> "Colación correcta. Avance ahora."
-<span class="pil">FORD 1:</span> "Avanzando, visual."
-<span class="pil">FORD 1:</span> "BLANCO A LA VISTA, técnico junto al granero."
-<span class="jt">LINCE:</span> "Correcto, ese es su objetivo. Continúe."
-<span class="pil">FORD 1:</span> "SALIENDO DE BP. DENTRO CALIENTE desde el oeste, FORD 1."
-<span class="jt">LINCE:</span> "FORD 1, autorizado."
-<span class="pil">FORD 1:</span> "RIFLE, ZUNI. SALIENDO norte, vuelvo a BP, FORD 1."
-<span class="jt">LINCE:</span> "Buenos impactos. Espere BDA. Vuelva HA Pepsi."</pre>
+    <p class="minihelp">Rellenable de alumno/JTAC: cada bloque guarda el dato que se va a decir por radio. Enter salta al siguiente campo; los datos quedan guardados en este navegador.</p>
   </article>
 
   <!-- ============ K. PIERNOGRAFO ============ -->
@@ -617,10 +586,10 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     </div>
   </article>
 
-  <!-- ============ M. MAPA TACTICO LOCAL ============ -->
+  <!-- ============ M. PIZARRA TACTICA LOCAL ============ -->
   <article class="card wide" id="tactical-map-tool">
     <span class="bk"></span>
-    <div class="hd"><span class="num">5</span><h2>Mapa táctico local</h2><span class="tag">Dibujo / reunión previa</span></div>
+    <div class="hd"><span class="num">5</span><h2>Pizarra táctica local</h2><span class="tag">Dibujo / reunión previa</span></div>
     <div class="map-tools" aria-label="Herramientas de dibujo">
       <button type="button" class="map-btn active" data-tool="pen">Lápiz</button>
       <button type="button" class="map-btn" data-tool="line">Línea</button>
