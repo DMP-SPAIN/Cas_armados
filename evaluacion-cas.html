@@ -322,7 +322,7 @@ let isEditing = false;
 const sessions = [
   { id:'s1', no:'01', name:'Sesión 1', short:'Tránsito y reporte', goal:'Radio de tránsito, rodaje/despegue emulado y primer reporte de entrada en seco con JTAC.' },
   { id:'s2', no:'02', name:'Sesión 2', short:'CP, SITREP y Zuni', goal:'Tránsito de aeródromo, reporte en CP, SITREP, movimiento a BP, plan de ataque, 5 líneas, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB.' },
-  { id:'s3', no:'03', name:'Sesión 3', short:'Consolidación Día 2', goal:'Repetir el flujo CP, reporte, SITREP, BP, plan de ataque, 5 líneas, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB con rotación real de LINCE y FORD.' },
+  { id:'s3', no:'03', name:'Sesión 3', short:'Consolidación Día 2', goal:'Repetir el flujo CP, reporte de 6 datos, SITREP corto de 5 mínimos, BP, plan, 5 líneas, 4 llamadas de control, RIFLE/Zuni, BDA de 6 datos y RTB con rotación real de LINCE y FORD.' },
   { id:'s4', no:'04', name:'Sesión 4', short:'Control terminal', goal:'Correlación, BLANCO A LA VISTA, DENTRO CALIENTE, confirmación de LINCE, ABORT, reataque, corrección y BDA.' },
   { id:'s5', no:'05', name:'Sesión 5', short:'9-Line y observaciones', goal:'Formato 9-line, observaciones, colación crítica, avance, marca, pasada en seco o caliente según seguridad, y BDA.' },
   { id:'s6', no:'06', name:'Sesión 6', short:'Integración JTAC', goal:'Integración con maniobra terrestre, prioridades, posición amiga, restricciones y coordinación LINCE/FORD.' },
@@ -344,10 +344,10 @@ const criteriaBySession = {
     { id:'s2-col', icon:'!', title:'DENTRO / RIFLE / BDA', sub:'Confirmación LINCE y cierre RTB', blocker:true }
   ],
   s3:[
-    { id:'s3-form', icon:'□', title:'Flujo Día 2', sub:'CP, SITREP, BP, plan y 5 líneas', blocker:true },
-    { id:'s3-crit', icon:'4', title:'Rotación LINCE', sub:'Todos hablan y controlan una parte', blocker:false },
-    { id:'s3-read', icon:'↵', title:'Aparato atacante', sub:'FORD 1/2 sin saturar red CAS', blocker:false },
-    { id:'s3-rem', icon:'+', title:'Repetición segura', sub:'DENTRO, autorizado, RIFLE, BDA y RTB', blocker:true }
+    { id:'s3-form', icon:'6', title:'Orden 6/5/4/5', sub:'Reporte, SITREP corto, plan y 5 líneas', blocker:true },
+    { id:'s3-crit', icon:'4', title:'Rotación LINCE', sub:'Cada LINCE controla un número', blocker:false },
+    { id:'s3-read', icon:'↵', title:'Aparato atacante', sub:'FORD 1/2 y 4 llamadas', blocker:false },
+    { id:'s3-rem', icon:'6', title:'BDA y cierre', sub:'6 datos, RTB y sin inventar', blocker:true }
   ],
   s4:[
     { id:'s4-talk', icon:'⌕', title:'Guía hablada', sub:'De referencia grande a objetivo', blocker:false },
