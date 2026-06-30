@@ -4,7 +4,7 @@ Proyecto local para mantener y publicar materiales CAS de Arma Reforger.
 
 ## Fuentes Vigentes
 
-- `MANUAL_CAS_ARMADOS.html`: manual del alumno.
+- `MANUAL_CAS_ARMADOS.html`: manual del alumno. Es una sola fuente con selector de lectura `PC` / `Móvil`; no dupliques el manual en otro HTML salvo petición expresa.
 - `CHULETAS_CAS.html`: tablillas y herramientas de bolsillo.
 - `MANUAL_INSTRUCTORES_CAS.html`: manual del instructor.
 - `GUIA_DIA1_OPERACION_FORD.html`: guia visual de la primera sesion.
@@ -40,7 +40,7 @@ Proyecto local para mantener y publicar materiales CAS de Arma Reforger.
 - Transcripcion automatica 9-line: `data/youtube/05Ed_ENSp8k.transcript.en.txt`.
 - Transcripcion automatica de estructura numerica: `data/youtube/Qq-ieXBkziE.en.json3`.
 - Uso doctrinal en el material: reporte de entrada completo, SITREP/informe de tierra, HA/BP, CCA 5-line, colacion correcta, avance, visual/BLANCO A LA VISTA, DENTRO CALIENTE del piloto, confirmacion de LINCE, RIFLE/Zuni, BDA y RTB.
-- Regla editorial vigente: el manual del alumno debe leerse como un flujo humano: llegar, entender, ordenar, confirmar, entrar y cerrar. Usa listas numeradas solo dentro de transmisiones reales, por ejemplo reporte de entrada de 6 datos, SITREP completo de 10 datos, 5-Line, 9-Line, control terminal o BDA. No meter tablas abstractas tipo `3-6-10` en el manual base.
+- Regla editorial vigente: el manual del alumno debe leerse como un flujo humano: llegar, entender, ordenar, confirmar, entrar y cerrar. Usa listas numeradas solo dentro de transmisiones reales, por ejemplo reporte de entrada de 6 datos, SITREP completo de 10 datos, 5-Line, 9-Line, control terminal o BDA. No meter tablas abstractas tipo `3-6-10` en el manual base. La visualización móvil se resuelve con el selector integrado del propio manual.
 
 ## Estructura Operativa
 

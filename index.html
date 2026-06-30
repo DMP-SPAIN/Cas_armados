@@ -62,7 +62,7 @@ nav.topbar .links a:hover{color:var(--amber);background:rgba(255,178,46,.08)}
 .cover .clas::before,.cover .clas::after{content:"//";opacity:.5;margin:0 8px}
 
 /* ---- section ---- */
-section{padding:54px 0 18px}
+section{padding:54px 0 18px;scroll-margin-top:70px}
 .shead{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;border-bottom:1px solid var(--line);padding-bottom:14px}
 .shead .num{font-family:var(--disp);font-weight:700;font-size:30px;color:var(--amber);line-height:1}
 .shead h2{font-size:clamp(24px,4vw,34px);text-transform:uppercase;letter-spacing:.02em}
@@ -180,9 +180,54 @@ section{padding:54px 0 18px}
 footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 0 50px;text-align:center;color:var(--ink-faint);font-size:13px}
 footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
 
+.view-toggle{display:flex;gap:6px;margin-left:10px;border:1px solid var(--line-strong);border-radius:9px;padding:3px;background:rgba(255,255,255,.025)}
+.view-toggle button{border:0;border-radius:6px;background:transparent;color:var(--ink-dim);font-family:var(--disp);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;cursor:pointer}
+.view-toggle button.active{background:rgba(255,178,46,.16);color:var(--amber)}
+.view-toggle button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+body.mobile-view{background-color:#07100d}
+body.mobile-view .wrap{max-width:480px;padding:0 14px}
+body.mobile-view .cover{min-height:calc(100vh - 54px);padding:42px 18px}
+body.mobile-view .cover .emblem{width:132px;height:132px}
+body.mobile-view .cover .kicker{letter-spacing:.22em;font-size:11px}
+body.mobile-view .cover h1{font-size:40px}
+body.mobile-view .cover h1 .sub{font-size:.44em;letter-spacing:.08em}
+body.mobile-view section{padding:34px 0 10px}
+body.mobile-view .shead{display:block}
+body.mobile-view .shead .num{display:inline-block;margin-bottom:4px}
+body.mobile-view .shead .tag{display:block;margin:4px 0 0}
+body.mobile-view .lead{font-size:15.5px}
+body.mobile-view .hero{padding:18px}
+body.mobile-view .hero p{font-size:16px}
+body.mobile-view .rules,
+body.mobile-view .cards.c3,
+body.mobile-view .cards.c2,
+body.mobile-view .taxi,
+body.mobile-view .pocket{grid-template-columns:1fr}
+body.mobile-view .card,
+body.mobile-view .pcard,
+body.mobile-view .step .body{padding:15px}
+body.mobile-view .step{grid-template-columns:42px 1fr;gap:10px}
+body.mobile-view .step .dot .b{width:36px;height:36px;font-size:18px}
+body.mobile-view .script-line{grid-template-columns:34px 1fr;gap:7px;padding:9px 10px}
+body.mobile-view .script-line .speaker,
+body.mobile-view .script-line .say{grid-column:2}
+body.mobile-view .radio{font-size:11.8px;line-height:1.55;padding:12px;white-space:pre-wrap}
+body.mobile-view .diagram{font-size:11.5px;line-height:1.55;overflow-x:auto}
+body.mobile-view .tbl{display:block;overflow-x:auto;font-size:12.5px}
+body.mobile-view .tbl th,
+body.mobile-view .tbl td{padding:8px;overflow-wrap:anywhere}
+body.mobile-view .pcard pre{font-size:10.8px;line-height:1.5}
+body.mobile-view footer{padding-inline:14px}
+body.mobile-view nav.topbar .links{display:none}
+body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
+body.mobile-view .view-toggle{margin-left:auto}
+
 @media(max-width:720px){
   .rules,.cards.c3,.cards.c2,.taxi,.pocket{grid-template-columns:1fr}
   nav.topbar .links{display:none}
+  nav.topbar .wrap{gap:8px}
+  .view-toggle{margin-left:auto}
   .tbl{font-size:13px}
   .tbl th,.tbl td{padding:8px;overflow-wrap:anywhere}
   .tbl td:first-child{white-space:normal}
@@ -306,6 +351,10 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
     <a href="#radio">Radio</a><a href="#salida">Despegue</a><a href="#zona">Zona</a>
     <a href="#secuencia">CAS</a><a href="#cca5">CCA</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tablillas">Tablillas</a><a href="#tarjetas">Tarjetas</a><a href="MANUAL_INSTRUCTORES_CAS.html">Instructor</a>
   </span>
+  <span class="view-toggle" aria-label="Modo de lectura">
+    <button type="button" data-view="desktop" class="active">PC</button>
+    <button type="button" data-view="mobile">Móvil</button>
+  </span>
 </div></nav>
 
 <!-- ======= COVER ======= -->
@@ -338,11 +387,10 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
       <div class="col you"><h4>Tú (en el helicóptero)</h4><ul><li>Llevas las armas</li><li>Atacas lo que te señalan</li><li>NUNCA disparas sin permiso</li></ul></div>
     </div>
   </div>
-  <h3 class="subh">Las 3 reglas de oro · no se rompen jamás</h3>
-  <div class="rules">
-    <div class="rule bk"><div class="n">Regla 1</div><p><b>No disparas sin confirmación de LINCE.</b> Tú cantas «DENTRO CALIENTE»; si LINCE no confirma, no hay «RIFLE».</p></div>
-    <div class="rule bk"><div class="n">Regla 2</div><p><b>No pasas tu línea de espera (la «BP») sin permiso.</b> Esperas ahí hasta que te autoricen.</p></div>
-    <div class="rule bk"><div class="n">Regla 3</div><p><b>Si oyes «ABORT» → cortas al instante y te alejas.</b> Sin preguntar.</p></div>
+  <h3 class="subh">Cómo se lee este manual</h3>
+  <div class="cards c2">
+    <div class="card"><h3 style="font-size:15px">Primero entiende el viaje</h3><p>Reunión previa, salida, contacto, espera, ataque y vuelta. Si saltas directo a la 5-line o a la 9-line, memorizarás frases sin saber cuándo usarlas.</p></div>
+    <div class="card"><h3 style="font-size:15px">Después aprende la conversación</h3><p>Cada bloque del CAS indica quién habla, qué dato se transmite y qué debe hacer el otro. La seguridad se explica dentro del flujo, justo donde se aplica.</p></div>
   </div>
 </section>
 
@@ -477,11 +525,11 @@ footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
     </div>
   </div>
   <p>Hay <strong>radio corta</strong> (~2 km) y <strong>radio larga / de mochila</strong> (~40 km). Como el helicóptero vuela lejos del JTAC, Aeródromo y JTAC van en <strong>radio larga</strong>. La <strong>interna de vuelo</strong> puede ir por radio corta, canal de grupo o voz directa, según cómo estéis jugando. Los números MHz se acuerdan en la reunión previa (ej.: Aeródromo 60, JTAC 65).</p>
-  <h3 class="subh">Las 3 reglas de hablar por radio</h3>
+  <h3 class="subh">Formato básico de radio</h3>
   <div class="cards c3">
-    <div class="card"><h3 style="font-size:15px">Formato radio</h3><p><strong>Llamada:</strong> destinatario, emisor y mensaje: «<strong>Lince, FORD 1, en estación.</strong>» <strong>Entrada caliente:</strong> el piloto canta «<strong>DENTRO CALIENTE desde el oeste.</strong>» <strong>Confirmación:</strong> LINCE responde «<strong>FORD 1, autorizado.</strong>»</p></div>
-    <div class="card"><h3 style="font-size:15px">Colación</h3><p>Repetir lo crítico: dónde está el <strong>objetivo</strong>, dónde los <strong>amigos</strong> y las <strong>restricciones</strong>. El JTAC cierra: «colación correcta».</p></div>
-    <div class="card"><h3 style="font-size:15px">Silencio radio</h3><p>Tras «SALIENDO DE BP», solo hablan el JTAC y el piloto hasta «SALIENDO». <strong>Única excepción:</strong> cantar un peligro nuevo.</p></div>
+    <div class="card"><h3 style="font-size:15px">Orden de llamada</h3><p>Di primero a quién llamas, luego quién eres y después el mensaje: «<strong>Lince, FORD 1, establecido BP Lago Oeste.</strong>» Así nadie duda de para quién va la transmisión.</p></div>
+    <div class="card"><h3 style="font-size:15px">Colación</h3><p>Repite solo lo crítico: <strong>objetivo</strong>, <strong>amigos</strong>, <strong>restricciones</strong>, <strong>egreso</strong> y datos obligatorios. LINCE cierra: «colación correcta».</p></div>
+    <div class="card"><h3 style="font-size:15px">Disciplina</h3><p>Una radio buena es corta. Si no estás hablando con Aeródromo, JTAC o tu líder, escuchas. Durante la entrada al objetivo solo habla quien controla, quien ataca o quien vea un peligro inmediato.</p></div>
   </div>
   <h3 class="subh">Cuando vuelan varios helicópteros</h3>
   <p style="color:var(--ink-dim);font-size:15px">Si sois dos, tres o cuatro helicópteros, no sois cuatro radios independientes: sois un <strong>vuelo</strong>. El líder usa el indicativo general hacia fuera y los demás son <strong>2, 3 y 4</strong>. Hacia Aeródromo o JTAC habla normalmente <strong>FORD 1</strong> en nombre del vuelo. Los puntos confirman por interna con una palabra: «Dos», «Tres», «Cuatro».</p>
@@ -622,17 +670,12 @@ Llamadas mínimas:
 <span class="pil">FORD 1</span> "Lince, FORD 1. FORD 2 será aparato atacante, FORD 1 cover. FORD 3 y 4 mantienen BP."
 <span class="jt">JTAC · LINCE</span> "FORD 2, Lince, avise listo para copiar 5-line."
 <span class="pil">FORD 2</span> "Lince, FORD 2, listo para copiar."
-<span class="sys">(Lince trabaja solo con FORD 2 hasta terminar la pasada)</span>
-<span class="pil">FORD 2</span> "SALIENDO DE BP, FORD 2."
-<span class="pil">FORD 2</span> "DENTRO CALIENTE desde el oeste, FORD 2."
-<span class="jt">JTAC · LINCE</span> "FORD 2, autorizado."
-<span class="pil">FORD 2</span> "CAÑÓN CAÑÓN CAÑÓN, FORD 2."
-<span class="pil">FORD 2</span> "SALIENDO norte, FORD 2."
-<span class="jt">JTAC · LINCE</span> "FORD 2, buenos impactos. FORD 1, prepare siguiente aparato si queda objetivo."
-<span class="pil">FORD 1</span> "Lince, FORD 1. FORD 3 listo como siguiente aparato atacante."</div>
+<span class="sys">(Desde aquí LINCE trabaja con FORD 2. El resto mantiene BP, cover o escucha hasta nuevo turno.)</span>
+<span class="jt">JTAC · LINCE</span> "FORD 1, mantenga control del vuelo y prepare FORD 3 como siguiente aparato si queda objetivo."
+<span class="pil">FORD 1</span> "Lince, FORD 1. Mantengo vuelo en BP; FORD 3 queda preparado como siguiente aparato atacante."</div>
   <div class="callout key">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M21 12a9 9 0 1 1-6.2-8.5"/></svg>
-    <div><b>Regla de oro:</b> un JTAC activo, un líder de vuelo, un aparato atacante por pasada y una confirmación de LINCE dirigida a un número concreto antes de cualquier RIFLE, Zuni o cañón.</div>
+    <div><b>Criterio de orden:</b> un JTAC activo, un líder de vuelo y un aparato atacante por pasada. El control terminal se hace después, solo con el aparato asignado.</div>
   </div>
   <div class="callout warn">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
@@ -864,13 +907,8 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 <span class="pil">FORD 1</span> "Cota dos-tres-cero, cuadrícula dos-tres-siete uno-nueve-dos-tres, amigos dos kilómetros noroeste, egreso sur, FAH uno-ocho-cero, láser norte-sur."
 <span class="jt">LINCE</span> "Colación correcta. Avance ahora."
 <span class="pil">FORD 1</span> "Avanzando. Dos minutos a IP."
-<span class="jt">LINCE</span> "Continúe en IP."
-<span class="pil">FORD 1</span> "Treinta segundos al objetivo."
-<span class="jt">LINCE</span> "Marque objetivo."
-<span class="pil">FORD 1</span> "Contacto láser. DENTRO CALIENTE desde el norte."
-<span class="jt">LINCE</span> "FORD 1, autorizado."
-<span class="pil">FORD 1</span> "RIFLE, misil. SALIENDO sur."
-<span class="jt">LINCE</span> "Espere BDA. Carro destruido. Vuelva a CP Wolf, circuito derecho."</div>
+<span class="jt">LINCE</span> "Recibido. Mantenga IP y llame contacto con marca."
+<span class="sys">(Desde aquí se sigue con correlación y control terminal. No se repite el ataque completo: está explicado en el paso 7.)</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">5</div><div class="ln"></div></div><div class="body">
@@ -1058,12 +1096,8 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 <span class="pil">PILOTO · FORD 1</span> "Avanzando, visual."
 <span class="jt">JTAC · LINCE</span> "Desde humo rojo, cincuenta metros al este, técnico junto al granero. Describa objetivo."
 <span class="pil">PILOTO · FORD 1</span> "BLANCO A LA VISTA técnico junto al granero, orientado norte-sur. FORD 1."
-<span class="jt">JTAC · LINCE</span> "FORD 1, Lince, correcto. Ese técnico es su objetivo. Continúe."
-<span class="pil">PILOTO · FORD 1</span> "SALIENDO DE BP. DENTRO CALIENTE desde el oeste, FORD 1."
-<span class="jt">JTAC · LINCE</span> "FORD 1, autorizado."
-<span class="pil">PILOTO · FORD 1</span> "RIFLE, ZUNI, FORD 1."
-<span class="pil">PILOTO · FORD 1</span> "SALIENDO norte, vuelvo a BP, FORD 1."
-<span class="jt">JTAC · LINCE</span> "FORD 1, Lince, buenos impactos. Mantenga BP para BDA."</div>
+<span class="jt">JTAC · LINCE</span> "FORD 1, Lince, correcto. Ese técnico es su objetivo. Avise dejando BP."
+<span class="sys">(A partir de aquí se continúa con el control terminal explicado en la sección CAS: SALIENDO DE BP → DENTRO CALIENTE → decisión de LINCE → empleo → SALIENDO → BDA.)</span></div>
 
   <h3 class="subh">Ejercicios de entrenamiento</h3>
   <div class="cards c3">
@@ -1343,6 +1377,33 @@ FLUJO: entrada → informe de tierra → plan → líneas → colación → corr
   <div><strong style="color:var(--ink-dim)">ArmaDos · Simulación Virtual</strong> — Manual CAS Helicópteros · Edición 1</div>
   <div style="margin-top:6px;max-width:62ch;margin-inline:auto">Manual interno de apoyo aéreo cercano para Arma Reforger (ala rotatoria), con el ciclo completo de misión: reunión previa → despegue → zona → CAS → CCA 5-line → vuelta → cierre de misión. Doctrina estándar OTAN adaptada al grupo: orden de 5 puntos, tipos de control, líneas 9-line, CCA, colación 4/6/8, correlación y fraseología breve.</div>
 </footer>
+
+<script>
+(function(){
+  var key = 'armados-cas-manual-view';
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
+  function setView(view){
+    var mobile = view === 'mobile';
+    document.body.classList.toggle('mobile-view', mobile);
+    buttons.forEach(function(button){
+      button.classList.toggle('active', button.getAttribute('data-view') === view);
+    });
+    try { localStorage.setItem(key, view); } catch (err) {}
+  }
+  var selected = 'desktop';
+  try { selected = localStorage.getItem(key) || selected; } catch (err) {}
+  try {
+    var requested = new URLSearchParams(window.location.search).get('view');
+    if (requested === 'mobile' || requested === 'desktop') selected = requested;
+  } catch (err) {}
+  buttons.forEach(function(button){
+    button.addEventListener('click', function(){
+      setView(button.getAttribute('data-view'));
+    });
+  });
+  setView(selected === 'mobile' ? 'mobile' : 'desktop');
+})();
+</script>
 
 </body>
 </html>
