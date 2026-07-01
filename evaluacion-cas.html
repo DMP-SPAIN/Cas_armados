@@ -39,18 +39,20 @@ button{cursor:pointer}
 h1,h2,h3,p{margin:0}
 .shell{max-width:1680px;margin:0 auto;padding:8px}
 .topbar{
-  display:grid;grid-template-columns:46px minmax(300px,1fr) repeat(4,minmax(120px,160px)) minmax(190px,240px);
+  display:grid;grid-template-columns:46px minmax(300px,1fr) minmax(480px,640px) minmax(190px,240px);
   gap:0;border:1px solid var(--line2);background:rgba(9,15,12,.86);backdrop-filter:blur(10px);
 }
 .menu-mark{display:grid;place-items:center;border-right:1px solid var(--line2);color:var(--muted);font-size:28px}
 .title-block{padding:16px 18px;border-right:1px solid var(--line2)}
 .title-block h1{font-family:var(--disp);font-size:clamp(26px,3vw,40px);line-height:.95;text-transform:uppercase;letter-spacing:.03em}
 .title-block .sub{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin-top:8px}
+.meta-grid{display:grid;grid-template-columns:repeat(4,minmax(110px,1fr));border-right:1px solid var(--line2)}
 .meta-field{padding:14px 16px;border-right:1px solid var(--line2)}
+.meta-grid .meta-field:last-child{border-right:0}
 .meta-field label,.view-label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
 .meta-field input,.view-select{
   width:100%;border:0;border-bottom:1px solid var(--line2);background:transparent;color:#fff;
-  font-family:var(--mono);font-size:13px;padding:2px 0 7px;outline:0;
+  min-height:38px;font-family:var(--mono);font-size:13px;padding:6px 0 7px;outline:0;
 }
 .meta-field input:focus,.view-select:focus{border-bottom-color:var(--amber)}
 .view-box{padding:14px 16px}
@@ -194,8 +196,9 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
 .lock-actions{display:flex;gap:8px;margin-top:14px}
 .lock-note{border-top:1px solid var(--line);margin-top:16px;padding-top:12px;font-size:12px;color:var(--faint)}
 @media(max-width:1180px){
-  .topbar{grid-template-columns:46px 1fr 1fr 1fr}
+  .topbar{grid-template-columns:46px 1fr}
   .title-block{grid-column:2/-1}
+  .meta-grid{grid-column:1/-1;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line2);border-right:0}
   .view-box{grid-column:1/-1;border-top:1px solid var(--line2)}
   .legend-bar{grid-template-columns:1fr 1fr;gap:0}
   .legend-title,.legend-note{grid-column:1/-1;border-right:0;border-left:0;border-top:1px solid var(--line)}
@@ -207,8 +210,12 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
   .shell{padding:0}
   .topbar{grid-template-columns:42px 1fr}
   .title-block{padding:12px}
-  .meta-field{border-top:1px solid var(--line2)}
-  .meta-field,.view-box{grid-column:1/-1}
+  .meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .meta-field{padding:10px 12px;min-height:64px;border-top:0}
+  .meta-grid .meta-field:nth-child(2n){border-right:0}
+  .meta-field input,.view-select{min-height:40px;font-size:12px;padding-bottom:5px}
+  .meta-field,.view-box{grid-column:auto}
+  .view-box{grid-column:1/-1}
   .legend-bar{grid-template-columns:1fr}
   .legend-item{padding:8px 16px}
   .workbench{gap:0;margin-top:8px}
@@ -246,10 +253,12 @@ table.matrix{width:100%;min-width:820px;border-collapse:separate;border-spacing:
       <h1>Proceso evaluativo CAS</h1>
       <div class="sub">Grupo ArmadOS | Arma Reforger CAS School</div>
     </div>
-    <div class="meta-field"><label for="courseInput">Curso</label><input id="courseInput"></div>
-    <div class="meta-field"><label for="instructorInput">Instructor</label><input id="instructorInput"></div>
-    <div class="meta-field"><label for="dateInput">Fecha</label><input id="dateInput"></div>
-    <div class="meta-field"><label for="versionInput">Versión</label><input id="versionInput"></div>
+    <div class="meta-grid" aria-label="Datos del curso">
+      <div class="meta-field"><label for="courseInput">Curso</label><input id="courseInput"></div>
+      <div class="meta-field"><label for="instructorInput">Instructor</label><input id="instructorInput"></div>
+      <div class="meta-field"><label for="dateInput">Fecha</label><input id="dateInput"></div>
+      <div class="meta-field"><label for="versionInput">Versión</label><input id="versionInput"></div>
+    </div>
     <div class="view-box"><span class="view-label">Vista</span><select class="view-select" aria-label="Vista"><option>Matriz de evaluación</option></select></div>
   </header>
 
