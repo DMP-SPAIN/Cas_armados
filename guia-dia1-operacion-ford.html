@@ -224,7 +224,7 @@ a{color:inherit}
 .hero-card:after{
   content:"FORD";
   position:absolute;
-  right:-22px;
+  right:10px;
   bottom:-42px;
   font-family:var(--display);
   font-size:180px;
@@ -549,9 +549,23 @@ tr:last-child td{border-bottom:0}
   .field.wide{grid-column:1}
   .strip,.grid3,.cards-row,.flow{grid-template-columns:1fr}
   .hero-card{padding:24px}
+  .hero-card:after{right:10px;bottom:-28px;font-size:110px}
   .slide-head{align-items:flex-start;flex-direction:column}
   .tag{margin-left:0}
   th,td{padding:9px 8px;overflow-wrap:anywhere}
+  table.mobile-cards,
+  table.mobile-cards tbody,
+  table.mobile-cards tr,
+  table.mobile-cards td{display:block;width:100%}
+  table.mobile-cards thead{display:none}
+  table.mobile-cards{border:0;background:transparent}
+  table.mobile-cards tr{margin:12px 0;border:1px solid var(--line);border-radius:10px;background:rgba(9,13,12,.34);overflow:hidden}
+  table.mobile-cards td{border-bottom:1px solid var(--line);padding:10px 12px}
+  table.mobile-cards td:first-child{color:var(--amber);font-family:var(--display);font-size:18px;text-transform:uppercase}
+  table.mobile-cards td:last-child{border-bottom:0}
+  table.mobile-cards td::before{display:block;margin-bottom:3px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  table.mobile-cards td:nth-child(2)::before{content:attr(data-label)}
+  table.mobile-cards td:nth-child(3)::before{content:attr(data-label)}
 }
 @media print{
   body{background:#fff;color:#111}
@@ -901,15 +915,15 @@ tr:last-child td{border-bottom:0}
   <section id="chuleta" class="slide">
     <div class="slide-head"><div class="num">11</div><h2>Chuleta del alumno</h2><div class="tag">Memorizar esto</div></div>
     <div class="slide-body">
-      <table>
+      <table class="mobile-cards">
         <thead><tr><th>Momento</th><th>Qué digo</th><th>Qué no hago</th></tr></thead>
         <tbody>
-          <tr><td>Radio check</td><td>"2 listo", "3 listo", "alto y claro".</td><td>No dar explicaciones largas.</td></tr>
-          <tr><td>Arranque</td><td>FORD 1 notifica puesta en marcha.</td><td>No arrancar hablando todos a la vez.</td></tr>
-          <tr><td>Rodaje</td><td>Destino y pista: "rodaje a punto de espera pista 27".</td><td>No moverse sin notificar y escuchar.</td></tr>
-          <tr><td>Pista</td><td>Entrar o salir con aviso claro.</td><td>No cruzar pista por iniciativa propia.</td></tr>
-          <tr><td>En el aire</td><td>Rumbo, CP/BP y confirmaciones cortas.</td><td>No cambiar frecuencia por libre.</td></tr>
-          <tr><td>Check-in</td><td>Indicativo, misión, aeronave, posición, armas, tiempo, abort.</td><td>No pedir ataque ni meter 9-line.</td></tr>
+          <tr><td>Radio check</td><td data-label="Qué digo">"2 listo", "3 listo", "alto y claro".</td><td data-label="Qué no hago">No dar explicaciones largas.</td></tr>
+          <tr><td>Arranque</td><td data-label="Qué digo">FORD 1 notifica puesta en marcha.</td><td data-label="Qué no hago">No arrancar hablando todos a la vez.</td></tr>
+          <tr><td>Rodaje</td><td data-label="Qué digo">Destino y pista: "rodaje a punto de espera pista 27".</td><td data-label="Qué no hago">No moverse sin notificar y escuchar.</td></tr>
+          <tr><td>Pista</td><td data-label="Qué digo">Entrar o salir con aviso claro.</td><td data-label="Qué no hago">No cruzar pista por iniciativa propia.</td></tr>
+          <tr><td>En el aire</td><td data-label="Qué digo">Rumbo, CP/BP y confirmaciones cortas.</td><td data-label="Qué no hago">No cambiar frecuencia por libre.</td></tr>
+          <tr><td>Check-in</td><td data-label="Qué digo">Indicativo, misión, aeronave, posición, armas, tiempo, abort.</td><td data-label="Qué no hago">No pedir ataque ni meter 9-line.</td></tr>
         </tbody>
       </table>
     </div>
