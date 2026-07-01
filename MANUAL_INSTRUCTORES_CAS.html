@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manual del Instructor CAS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --ink: #16202d;
@@ -280,7 +283,350 @@
       }
     }
 
+    /* Auditoria 2026-07: alinea esta pagina con el sistema visual oscuro del resto del material CAS. */
+    :root {
+      --ink: #edf4ed;
+      --muted: #aebdaf;
+      --line: rgba(170, 205, 180, .17);
+      --line-strong: rgba(170, 205, 180, .32);
+      --paper: #0c1310;
+      --panel: #151f1a;
+      --soft: #0a100d;
+      --accent: #ffb22e;
+      --accent-2: #7fb069;
+      --accent-soft: rgba(255, 178, 46, .12);
+      --ok: #9ed47f;
+      --ok-bg: rgba(127, 176, 105, .12);
+      --warn: #ffbd3f;
+      --warn-bg: rgba(255, 178, 46, .11);
+      --bad: #ff6655;
+      --bad-bg: rgba(229, 83, 60, .12);
+      --disp: 'Oswald', system-ui, sans-serif;
+      --body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        linear-gradient(rgba(127, 176, 105, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(127, 176, 105, .035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 34px 34px;
+      color: var(--ink);
+      font-family: var(--body);
+    }
+
+    .page-nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(10, 17, 14, .92);
+      border-bottom: 1px solid var(--line-strong);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      width: min(1120px, calc(100% - 32px));
+      min-height: 56px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-family: var(--disp);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      width: 28px;
+      height: 28px;
+      display: inline-grid;
+      place-items: center;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 7px 10px;
+      font-family: var(--disp);
+      font-size: 12px;
+      letter-spacing: .07em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--accent);
+      border-color: rgba(255, 178, 46, .45);
+      background: rgba(255, 178, 46, .07);
+      outline: 0;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      padding: 28px 0 64px;
+    }
+
+    header {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(80% 110% at 100% 0, rgba(255, 178, 46, .08), transparent 58%),
+        linear-gradient(135deg, #17231b, #0a100d);
+      color: var(--ink);
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      box-shadow: 0 22px 56px rgba(0, 0, 0, .28);
+    }
+
+    header p {
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--disp);
+      letter-spacing: .02em;
+    }
+
+    h1 {
+      text-transform: uppercase;
+    }
+
+    h2 {
+      color: #fff;
+      border-bottom: 1px solid var(--line-strong);
+      text-transform: uppercase;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 2px;
+      margin-top: 8px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    h3 {
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    h4 {
+      color: var(--accent);
+    }
+
+    p,
+    li,
+    td {
+      color: var(--muted);
+    }
+
+    strong {
+      color: #fff;
+    }
+
+    .tag {
+      background: rgba(255, 178, 46, .12);
+      color: var(--accent);
+      border: 1px solid rgba(255, 178, 46, .36);
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .panel,
+    .phase,
+    .session-card,
+    .box,
+    .drill,
+    .radio-line {
+      background: rgba(21, 31, 26, .96);
+      border-color: var(--line-strong);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, .16);
+    }
+
+    .phase,
+    .session-card {
+      border-left-color: var(--accent);
+    }
+
+    .box,
+    .ok,
+    .warn,
+    .bad,
+    .script {
+      border-color: var(--line-strong);
+    }
+
+    .ok {
+      color: var(--ok);
+      border-color: rgba(127, 176, 105, .36);
+    }
+
+    .warn {
+      color: var(--warn);
+      border-color: rgba(255, 178, 46, .36);
+    }
+
+    .bad {
+      color: var(--bad);
+      border-color: rgba(229, 83, 60, .38);
+    }
+
+    .script {
+      background: #0a100d;
+      border-left: 3px solid var(--accent);
+      color: var(--ink);
+      font-family: var(--body);
+    }
+
+    .drill h4 {
+      color: var(--accent);
+    }
+
+    .note {
+      color: var(--muted);
+    }
+
+    .toc ol {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin-left: 0;
+      list-style-position: inside;
+    }
+
+    .toc a {
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-family: var(--disp);
+      font-size: .92rem;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      color: var(--accent);
+      border-color: rgba(255, 178, 46, .4);
+      background: rgba(255, 178, 46, .06);
+      outline: 0;
+    }
+
+    .rubric {
+      border-color: var(--line-strong);
+    }
+
+    .rubric th {
+      background: #1b271f;
+      color: var(--accent);
+      font-family: var(--disp);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .rubric td {
+      background: rgba(10, 16, 13, .55);
+      border-bottom-color: var(--line);
+    }
+
+    .rubric tr:nth-child(even) td {
+      background: rgba(255, 255, 255, .02);
+    }
+
+    .closing {
+      background:
+        radial-gradient(80% 120% at 100% 0, rgba(127, 176, 105, .12), transparent 58%),
+        #0a100d;
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+    }
+
+    .closing h2 {
+      border-bottom-color: var(--line-strong);
+    }
+
+    .closing p,
+    .closing li {
+      color: var(--muted);
+    }
+
+    @media (max-width: 840px) {
+      .nav-inner {
+        width: min(100%, calc(100% - 24px));
+        min-height: auto;
+        padding: 10px 0;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      main {
+        width: min(100%, calc(100% - 24px));
+        padding-top: 18px;
+      }
+
+      header {
+        padding: 28px;
+      }
+
+      .toc ol {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media print {
+      .page-nav {
+        display: none !important;
+      }
+
       body {
         background: #fff;
       }
@@ -312,7 +658,20 @@
   </style>
 </head>
 <body>
-  <main>
+  <nav class="page-nav" aria-label="Navegacion interna del manual de instructor">
+    <div class="nav-inner">
+      <a class="brand" href="#top"><span>CAS</span>ArmaDos instructor</a>
+      <div class="nav-links">
+        <a href="#progresion">Progresion</a>
+        <a href="#instructor">Preparacion</a>
+        <a href="#metodo">Metodo</a>
+        <a href="#fase2">Dia 2</a>
+        <a href="#evaluacion">Evaluacion</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
     <header>
       <span class="tag">Escuela CAS - Arma Reforger</span>
       <h1>Manual del instructor CAS</h1>
@@ -329,7 +688,7 @@
       </div>
     </section>
 
-    <section class="panel toc">
+    <section class="panel toc" id="progresion">
       <h2>Resumen de la progresión</h2>
       <ol>
         <li><a href="#instructor">Preparación del instructor</a></li>
