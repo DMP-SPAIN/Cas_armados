@@ -162,15 +162,6 @@ section{padding:54px 0 18px;scroll-margin-top:70px}
 .steps.flow .body{border-color:rgba(127,176,105,.25)}
 .steps.flow .body .ph-tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green-bright)}
 
-/* ---- pocket cards ---- */
-.pocket{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:22px 0}
-.pcard{border-radius:14px;padding:18px 20px;border:1.5px solid;position:relative;background:var(--surface)}
-.pcard h3{font-family:var(--disp);text-transform:uppercase;letter-spacing:.05em;font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:9px}
-.pcard pre{margin:0;font-family:var(--mono);font-size:11.6px;line-height:1.65;color:var(--ink-dim);white-space:pre-wrap}
-.pcard.blue{border-color:rgba(90,160,224,.5)} .pcard.blue h3{color:var(--blue)}
-.pcard.red{border-color:rgba(229,83,60,.5)} .pcard.red h3{color:var(--red)}
-.pcard.green{border-color:rgba(127,176,105,.5);grid-column:1/-1} .pcard.green h3{color:var(--green-bright)}
-
 .dot-i{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:middle;margin-right:3px}
 .dot-i.r{background:var(--red)} .dot-i.g{background:var(--green)}
 
@@ -179,11 +170,6 @@ section{padding:54px 0 18px;scroll-margin-top:70px}
 
 footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 0 50px;text-align:center;color:var(--ink-faint);font-size:13px}
 footer .emblem{width:54px;height:54px;opacity:.7;margin-bottom:10px}
-
-.view-toggle{display:flex;gap:6px;margin-left:10px;border:1px solid var(--line-strong);border-radius:9px;padding:3px;background:rgba(255,255,255,.025)}
-.view-toggle button{border:0;border-radius:6px;background:transparent;color:var(--ink-dim);font-family:var(--disp);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;cursor:pointer}
-.view-toggle button.active{background:rgba(255,178,46,.16);color:var(--amber)}
-.view-toggle button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 
 body.mobile-view{background-color:#07100d}
 body.mobile-view .wrap{max-width:480px;padding:0 14px}
@@ -202,10 +188,8 @@ body.mobile-view .hero p{font-size:16px}
 body.mobile-view .rules,
 body.mobile-view .cards.c3,
 body.mobile-view .cards.c2,
-body.mobile-view .taxi,
-body.mobile-view .pocket{grid-template-columns:1fr}
+body.mobile-view .taxi{grid-template-columns:1fr}
 body.mobile-view .card,
-body.mobile-view .pcard,
 body.mobile-view .step .body{padding:15px}
 body.mobile-view .step{grid-template-columns:42px 1fr;gap:10px}
 body.mobile-view .step .dot .b{width:36px;height:36px;font-size:18px}
@@ -214,20 +198,33 @@ body.mobile-view .script-line .speaker,
 body.mobile-view .script-line .say{grid-column:2}
 body.mobile-view .radio{font-size:11.8px;line-height:1.55;padding:12px;white-space:pre-wrap}
 body.mobile-view .diagram{font-size:11.5px;line-height:1.55;overflow-x:auto}
-body.mobile-view .tbl{display:block;overflow-x:auto;font-size:12.5px}
+body.mobile-view .tbl{display:block;overflow-x:auto;overflow-y:visible;font-size:12.5px}
 body.mobile-view .tbl th,
 body.mobile-view .tbl td{padding:8px;overflow-wrap:anywhere}
-body.mobile-view .pcard pre{font-size:10.8px;line-height:1.5}
+body.mobile-view .tbl:not(.mobile-cards) th,
+body.mobile-view .tbl:not(.mobile-cards) td{min-width:96px}
+body.mobile-view .tbl:not(.mobile-cards) th:nth-child(n+2),
+body.mobile-view .tbl:not(.mobile-cards) td:nth-child(n+2){min-width:190px}
+body.mobile-view .tbl.mobile-cards{display:block;border:0;background:transparent;overflow:visible}
+body.mobile-view .tbl.mobile-cards tbody,
+body.mobile-view .tbl.mobile-cards tr,
+body.mobile-view .tbl.mobile-cards th,
+body.mobile-view .tbl.mobile-cards td{display:block;width:100%}
+body.mobile-view .tbl.mobile-cards tr:first-child{display:none}
+body.mobile-view .tbl.mobile-cards tr{margin:12px 0;border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);overflow:hidden}
+body.mobile-view .tbl.mobile-cards td{border-top:1px solid var(--line);padding:10px 12px;white-space:normal}
+body.mobile-view .tbl.mobile-cards td:first-child{border-top:0;background:var(--surface2);color:var(--amber);font-family:var(--disp);font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+body.mobile-view .tbl.mobile-cards td::before{display:block;margin-bottom:3px;color:var(--ink-faint);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+body.mobile-view .tbl.mobile-cards td:nth-child(2)::before{content:attr(data-label)}
+body.mobile-view .tbl.mobile-cards td:nth-child(3)::before{content:attr(data-label)}
 body.mobile-view footer{padding-inline:14px}
 body.mobile-view nav.topbar .links{display:none}
 body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
-body.mobile-view .view-toggle{margin-left:auto}
 
 @media(max-width:720px){
-  .rules,.cards.c3,.cards.c2,.taxi,.pocket{grid-template-columns:1fr}
+  .rules,.cards.c3,.cards.c2,.taxi{grid-template-columns:1fr}
   nav.topbar .links{display:none}
   nav.topbar .wrap{gap:8px}
-  .view-toggle{margin-left:auto}
   .tbl{font-size:13px}
   .tbl th,.tbl td{padding:8px;overflow-wrap:anywhere}
   .tbl td:first-child{white-space:normal}
@@ -286,17 +283,17 @@ body.mobile-view .view-toggle{margin-left:auto}
   strong{color:#10120f}
   .lead{font-size:12.1px;color:var(--ink-dim);max-width:72ch}
   .subh{font-size:10.5px;margin-top:4mm;margin-bottom:1mm;color:var(--ink-dim)}
-  .hero,.callout,.card,.rule,.pcard,.taxi .col,.diagram,.step .body{
+  .hero,.callout,.card,.rule,.taxi .col,.diagram,.step .body{
     background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius);
     box-shadow:none;color:var(--ink);
   }
   .hero{padding:5mm 6mm;margin:4mm 0}
   .hero::before{display:none}
   .hero p{font-size:12.4px}
-  .rules,.cards,.pocket,.steps,.brief-grid{gap:3mm}
+  .rules,.cards,.steps,.brief-grid{gap:3mm}
   .phase-grid{display:block}
-  .rule,.card,.pcard,.step .body{padding:3.5mm 4mm}
-  .rule .n,.card h3,.pcard h3,.step .dot{color:var(--amber-deep)}
+  .rule,.card,.step .body{padding:3.5mm 4mm}
+  .rule .n,.card h3,.step .dot{color:var(--amber-deep)}
   .card .role,.why,.sys,.tbl td{color:var(--ink-dim)}
   .callout{padding:3.5mm 4mm;margin:3mm 0;background:#fff4d9}
   .callout.key{background:#edf4df}
@@ -326,9 +323,6 @@ body.mobile-view .view-toggle{margin-left:auto}
   .phase{padding:3mm 3.4mm;break-inside:avoid;margin-bottom:3mm}
   .phase-grid .phase:nth-child(6){break-before:page}
   .phase .why{font-size:10.2px}
-  .pcard pre{font-size:8.7px;line-height:1.42;color:var(--ink-dim)}
-  .pcard.green{grid-column:1/-1}
-  .pocket{grid-template-columns:1fr 1fr}
   footer{margin-top:5mm;padding:6mm 0 2mm;color:var(--ink-faint);font-size:9.5px}
   footer .emblem{width:12mm;height:12mm}
   a{color:var(--amber-deep)}
@@ -349,11 +343,7 @@ body.mobile-view .view-toggle{margin-left:auto}
   <span class="links">
     <a href="#idea">Idea</a><a href="#mision">Misión</a><a href="#briefing">Reunión previa</a>
     <a href="#radio">Radio</a><a href="#salida">Despegue</a><a href="#zona">Zona</a>
-    <a href="#secuencia">CAS</a><a href="#cca5">CCA</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tablillas">Tablillas</a><a href="#tarjetas">Tarjetas</a><a href="MANUAL_INSTRUCTORES_CAS.html">Instructor</a>
-  </span>
-  <span class="view-toggle" aria-label="Modo de lectura">
-    <button type="button" data-view="desktop" class="active">PC</button>
-    <button type="button" data-view="mobile">Móvil</button>
+    <a href="#secuencia">CAS</a><a href="#cca5">CCA</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tablillas">Tablillas</a><a href="MANUAL_INSTRUCTORES_CAS.html">Instructor</a>
   </span>
 </div></nav>
 
@@ -374,7 +364,7 @@ body.mobile-view .view-toggle{margin-left:auto}
 
 <div class="callout key" style="margin-top:26px">
   <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 0 3-3m-3 3L9 5M5 13a7 7 0 0 0 14 0"/><circle cx="12" cy="13" r="2"/></svg>
-  <div><b>Para qué es esto:</b> para que cualquiera del grupo —aunque no sepa nada de aviación— pueda llevar una misión de apoyo aéreo <b>de principio a fin</b> como se hace en simulación militar: planear, despegar, llegar a la zona, atacar coordinado con tierra y volver. Léelo una vez; en partida te bastará con las <b>tarjetas del final</b>. Norma nº1: <b>si te pierdes, pregunta o habla con tus propias palabras.</b></div>
+  <div><b>Para qué es esto:</b> para que cualquiera del grupo —aunque no sepa nada de aviación— pueda llevar una misión de apoyo aéreo <b>de principio a fin</b> como se hace en simulación militar: planear, despegar, llegar a la zona, atacar coordinado con tierra y volver. Léelo una vez; en partida te bastará con las <b>tablillas del curso</b>. Norma nº1: <b>si te pierdes, pregunta o habla con tus propias palabras.</b></div>
 </div>
 
 <!-- ======= LA IDEA EN 30 SEGUNDOS ======= -->
@@ -573,12 +563,12 @@ body.mobile-view .view-toggle{margin-left:auto}
     <li><strong>Rueda o trasládate</strong> a punto de espera / zona de salida sin cruzar pistas ni plataformas ocupadas.</li>
     <li><strong>Despega</strong> y forma: el líder delante, los puntos detrás y escalonados, sin pegarse.</li>
   </ol>
-  <table class="tbl">
+  <table class="tbl mobile-cards">
     <tr><th>Momento</th><th>Llamada exterior recomendada</th><th>Respuesta interna</th></tr>
-    <tr><td>Arranque</td><td>«Tráfico aeródromo, FORD 1, vuelo de cuatro, arrancando plataforma norte.»</td><td>«Dos» · «Tres» · «Cuatro»</td></tr>
-    <tr><td>Rodaje / traslado</td><td>«FORD 1, vuelo de cuatro, rodando de plataforma norte a punto de salida este.»</td><td>«Dos en cola» · «Tres listo» · «Cuatro listo»</td></tr>
-    <tr><td>Despegue</td><td>«FORD 1, vuelo de cuatro, despegando hacia el norte, salida por valle oeste.»</td><td>«Dos en el aire» · «Tres en el aire» · «Cuatro en el aire»</td></tr>
-    <tr><td>Entrada a circuito</td><td>«FORD 1, vuelo de cuatro, entrando en circuito por el sur para toma en plataforma norte.»</td><td>«Dos visual» · «Tres visual» · «Cuatro visual»</td></tr>
+    <tr><td>Arranque</td><td data-label="Llamada exterior">«Tráfico aeródromo, FORD 1, vuelo de cuatro, arrancando plataforma norte.»</td><td data-label="Respuesta interna">«Dos» · «Tres» · «Cuatro»</td></tr>
+    <tr><td>Rodaje / traslado</td><td data-label="Llamada exterior">«FORD 1, vuelo de cuatro, rodando de plataforma norte a punto de salida este.»</td><td data-label="Respuesta interna">«Dos en cola» · «Tres listo» · «Cuatro listo»</td></tr>
+    <tr><td>Despegue</td><td data-label="Llamada exterior">«FORD 1, vuelo de cuatro, despegando hacia el norte, salida por valle oeste.»</td><td data-label="Respuesta interna">«Dos en el aire» · «Tres en el aire» · «Cuatro en el aire»</td></tr>
+    <tr><td>Entrada a circuito</td><td data-label="Llamada exterior">«FORD 1, vuelo de cuatro, entrando en circuito por el sur para toma en plataforma norte.»</td><td data-label="Respuesta interna">«Dos visual» · «Tres visual» · «Cuatro visual»</td></tr>
   </table>
   <div class="radio"><span class="pil">FORD 1</span> "Tráfico aeródromo, FORD 1, vuelo de cuatro, rodando de plataforma norte a punto de salida este."
 <span class="pil">FORD 2</span> "Dos."
@@ -804,12 +794,12 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
       <p class="why"><strong>Una frase:</strong> tipo de control + método + arma + separación/restricción principal.</p>
       <div class="radio"><span class="jt">LINCE</span> "FORD 1, Lince, plan de ataque: Tipo 2, ataque visual sobre marca, una pasada con cohetes, oeste a este. Mantenga BP hasta autorización."
 <span class="pil">FORD 1</span> "Tipo 2, visual sobre marca, una pasada con cohetes, oeste a este, mantengo BP. FORD 1."</div>
-      <table class="tbl">
+      <table class="tbl mobile-cards">
         <tr><th>Pieza</th><th>Qué decide</th><th>Ejemplo corto</th></tr>
-        <tr><td>Tipo</td><td>Cómo controla el JTAC la seguridad</td><td>Tipo 2</td></tr>
-        <tr><td>Método</td><td>Si atacas por objetivo visto o por coordenada</td><td>Visual sobre marca</td></tr>
-        <tr><td>Arma</td><td>Qué se espera que uses</td><td>Cohetes / ametralladora</td></tr>
-        <tr><td>Separación</td><td>Cómo no te mezclas con amigos u otros helos</td><td>Oeste-este, no disparo sur</td></tr>
+        <tr><td>Pieza: Tipo</td><td data-label="Qué decide">Cómo controla el JTAC la seguridad</td><td data-label="Ejemplo">Tipo 2</td></tr>
+        <tr><td>Pieza: Método</td><td data-label="Qué decide">Si atacas por objetivo visto o por coordenada</td><td data-label="Ejemplo">Visual sobre marca</td></tr>
+        <tr><td>Pieza: Arma</td><td data-label="Qué decide">Qué se espera que uses</td><td data-label="Ejemplo">Cohetes / ametralladora</td></tr>
+        <tr><td>Pieza: Separación</td><td data-label="Qué decide">Cómo no te mezclas con amigos u otros helos</td><td data-label="Ejemplo">Oeste-este, no disparo sur</td></tr>
       </table>
       <div class="scriptbox">
         <h4>Plan de ataque: 4 datos que dice LINCE</h4>
@@ -820,11 +810,11 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
           <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Separación:</b> "Entrada oeste-este, mantenga BP hasta avance, no fuego sur."</div></div>
         </div>
       </div>
-      <table class="tbl">
+      <table class="tbl mobile-cards">
         <tr><th>Tipo</th><th>Qué exige a LINCE</th><th>Cuándo usarlo</th></tr>
-        <tr><td>Tipo 1</td><td>Debe tener visual de la aeronave y del objetivo antes de cada ataque.</td><td>Riesgo alto, amigos cerca, geometría delicada, poca confianza, mala meteo o barrera de idioma.</td></tr>
-        <tr><td>Tipo 2</td><td>Controla ataques individuales aunque falte una visual: no ve aeronave en suelta, no ve objetivo, o FORD no ve marca/objetivo antes de suelta.</td><td><strong>Normal en entrenamiento</strong>: helicóptero en BP, terreno de por medio, humo, referencia o guía hablada.</td></tr>
-        <tr><td>Tipo 3</td><td>Controla varios ataques dentro de límites cerrados; no necesita visual para cada suelta.</td><td>Solo con zona, límites, amigos, arma y finalización muy claros. Se autoriza con <strong>AUTORIZADO A ATACAR</strong>.</td></tr>
+        <tr><td>Tipo 1</td><td data-label="Exige">Debe tener visual de la aeronave y del objetivo antes de cada ataque.</td><td data-label="Uso">Riesgo alto, amigos cerca, geometría delicada, poca confianza, mala meteo o barrera de idioma.</td></tr>
+        <tr><td>Tipo 2</td><td data-label="Exige">Controla ataques individuales aunque falte una visual: no ve aeronave en suelta, no ve objetivo, o FORD no ve marca/objetivo antes de suelta.</td><td data-label="Uso"><strong>Normal en entrenamiento</strong>: helicóptero en BP, terreno de por medio, humo, referencia o guía hablada.</td></tr>
+        <tr><td>Tipo 3</td><td data-label="Exige">Controla varios ataques dentro de límites cerrados; no necesita visual para cada suelta.</td><td data-label="Uso">Solo con zona, límites, amigos, arma y finalización muy claros. Se autoriza con <strong>AUTORIZADO A ATACAR</strong>.</td></tr>
       </table>
       <div class="callout tip" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
@@ -1003,12 +993,12 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 <span class="jt">LINCE</span> "FORD 1, autorizado"                 <span class="sys">(confirmación de LINCE)</span>
 <span class="pil">FORD 1</span> "RIFLE, ZUNI, FORD 1" / "CAÑÓN CAÑÓN CAÑÓN, FORD 1"
 <span class="pil">FORD 1</span> "SALIENDO, vuelvo a la BP, FORD 1"</div>
-      <table class="tbl">
+      <table class="tbl mobile-cards">
         <tr><th>#</th><th>Llamada de LINCE</th><th>Significa</th></tr>
-        <tr><td>1</td><td>ABORT</td><td>Cancela la pasada. No hay autorización de armas. El piloto sale y confirma ABORT recibido.</td></tr>
-        <tr><td>2</td><td>CONTINÚE</td><td>Puede continuar maniobra o pasada seca, pero no puede soltar munición todavía.</td></tr>
-        <tr><td>3</td><td>AUTORIZADO</td><td>Equivale a autorizado en caliente para esta pasada concreta después de DENTRO CALIENTE.</td></tr>
-        <tr><td>4</td><td>AUTORIZADO A ATACAR</td><td>Solo Tipo 3. FORD puede iniciar ataques dentro de los límites de LINCE y termina con «ataque completo».</td></tr>
+        <tr><td>1. ABORT</td><td data-label="Llamada de LINCE">ABORT</td><td data-label="Significa">Cancela la pasada. No hay autorización de armas. El piloto sale y confirma ABORT recibido.</td></tr>
+        <tr><td>2. CONTINÚE</td><td data-label="Llamada de LINCE">CONTINÚE</td><td data-label="Significa">Puede continuar maniobra o pasada seca, pero no puede soltar munición todavía.</td></tr>
+        <tr><td>3. AUTORIZADO</td><td data-label="Llamada de LINCE">AUTORIZADO</td><td data-label="Significa">Equivale a autorizado en caliente para esta pasada concreta después de DENTRO CALIENTE.</td></tr>
+        <tr><td>4. AUTORIZADO A ATACAR</td><td data-label="Llamada de LINCE">AUTORIZADO A ATACAR</td><td data-label="Significa">Solo Tipo 3. FORD puede iniciar ataques dentro de los límites de LINCE y termina con «ataque completo».</td></tr>
       </table>
       <div class="callout warn" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
@@ -1281,73 +1271,6 @@ BDA / resultado: ________________________________________</div>
     <div class="card"><h3>Herramienta JTAC</h3><p>Úsala cuando LINCE necesite una guía para hablar con orden: reporte de entrada, HA/BP, informe de tierra, restricciones, colación correcta, plan de ataque y entrada fría. Si eso no sale limpio, no se pasa a fuego real.</p></div>
     <div class="card"><h3>Evaluación</h3><p>Se rellena después del entrenamiento. No es para castigar: marca qué alumno ya es autónomo, quién necesita repetir una parte concreta y qué debe entrenar antes de la siguiente práctica.</p></div>
   </div>
-</section>
-
-<!-- ======= TARJETAS ======= -->
-<section id="tarjetas" class="sheet">
-  <div class="shead"><span class="num">16</span><h2>Tarjetas de bolsillo</h2><span class="tag">Recórtalas</span></div>
-  <div class="pocket">
-    <div class="pcard blue bk">
-      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h7l3-4 2 4h6M7 12v4M14 12l2 5"/></svg>Piloto / Copiloto</h3>
-<pre>ANTES:    reunión previa → armar/repostar → frec 1 (Aeródromo)
-DESPEGUE: escucha → autoinfórmate → despega → forma
-
-EN RUTA:  bajo y con máscara → al CP cambia a frec 2
-          "Lince, FORD 1, entrando por CP Oeste"
-
-REPORTE DE ENTRADA: "[JTAC], [yo], misión __, un helicóptero,
-           BP/posición __, [cohetes] y ametralladora.
-           Tiempo en estación [min]. Código ABORT [palabra]."
-BP:       zona con cobertura, no punto exacto · no la abandono sin autorización
-COPIAR:   SITREP→colaciono RESTRICCIONES · Plan de ataque→colaciono
-          Líneas→colaciono 4·6·8 + restricciones
-CCA 5:    recibo amigos · objetivo · marca · restricciones · egreso
-          colaciono lo crítico → correlación → DENTRO CALIENTE → espero confirmación
-CORRELAR: CONTACTO → BLANCO A LA VISTA (lo veo) / SIN BLANCO (no lo veo)
-ATACAR:   "SALIENDO DE BP, [yo]" → "DENTRO CALIENTE desde el [dir], [yo]"
-          → esperar "autorizado" de LINCE → "RIFLE/ZUNI, [yo]"/"CAÑÓN x3, [yo]" → "SALIENDO, [yo]"
-          ABORT = cortar YA sin disparar, volver a BP
-VUELTA:   te liberan → egreso → frec 1 → autoinfórmate → aterriza
-
-NUNCA:    cantar RIFLE sin confirmación de LINCE · pasar la BP sin permiso ·
-          sobrevolar el blanco · repetir rumbo de pasada</pre>
-    </div>
-    <div class="pcard red bk">
-      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>JTAC</h3>
-<pre>REUNIÓN PREVIA: situación·misión·plan·logística·comunicaciones (SMEAC)
-          fija indicativos·2 frecuencias·CP·espera·humos
-
-FLUJO: entrada → informe de tierra → plan → líneas → colación → correlación → control → BDA
-
-1 REPORTE DE ENTRADA (6): indicativo · nº/tipo · posición · armas · tiempo · ABORT
-2 SITREP: corto si la situación es simple; completo si hay amenaza o restricción compleja
-          objetivo/enemigo · amenazas · amigos · fuegos propios · efecto · arma ·
-          RESTRICCIONES · otros CAS · peligros
-3 PLAN DE ATAQUE (4): Tipo ___ | método visual/coordenada ___ | arma ___
-          separación/restricción ___ | aparato atacante ___ | Tipo 3 solo con límites
-4 LÍNEAS (5 o 9, despacio, bloques de 3):
-   1 BP __    4 Cota __   7 Marca __
-   2 Rumbo/offset __ 5 Objet. __ 8 Aliados __
-   3 Dist __m 6 Cuadríc__ 9 Salida __
-   Observaciones: FAH __ altura/no sobrevuelo __ otros fuegos __
-   CCA 5 __ amigos · objetivo · marca · restr. · egreso
-          pido colación amigos/objetivo/restr./egreso
-5 Exijo colación 4·6·8 + restr. → "correcta"
-6 CORRELACIÓN: humo o guía hablada (DEDO · 2+1 ·
-   preguntas abiertas) → "el ___ es su objetivo"
-7 CONTROL (4): ABORT · CONTINÚE · AUTORIZADO · AUTORIZADO A ATACAR
-   DENTRO CALIENTE es del piloto; autorizado solo si confirmas arma y geometría
-   peligro cercano → "iniciales __ __" antes
-8 BDA (6): indicativos · misión · localización · momento · resultado · observaciones
-   si no lo ves, no lo inventes → otra pasada / RTB / cierre de misión</pre>
-    </div>
-    <div class="pcard green bk">
-      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>La misión en una línea</h3>
-<pre>REUNIÓN PREVIA → ARMAR → DESPEGUE → RUTA → PUNTO DE CONTACTO → [ REPORTE DE ENTRADA → SITREP → PLAN DE ATAQUE → LÍNEAS → COLACIÓN → CORRELACIÓN → SALIENDO DE BP → DENTRO CALIENTE → AUTORIZADO → RIFLE/ZUNI → SALIENDO → BDA ] → RTB → CIERRE DE MISIÓN
-                                                                                                          ↘ ABORT ×3 = todos a casa, sin disparar</pre>
-    </div>
-  </div>
-
   <h3 class="subh">Diccionario rápido · fraseología breve</h3>
   <table class="tbl brev wide">
     <tr><th>Palabra</th><th>Significa</th><th>Palabra</th><th>Significa</th></tr>
@@ -1380,28 +1303,33 @@ FLUJO: entrada → informe de tierra → plan → líneas → colación → corr
 
 <script>
 (function(){
-  var key = 'armados-cas-manual-view';
-  var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
-  function setView(view){
+  function inferredView(){
+    try {
+      return window.matchMedia('(max-width: 760px), (pointer: coarse)').matches ? 'mobile' : 'desktop';
+    } catch (err) {
+      return window.innerWidth <= 760 ? 'mobile' : 'desktop';
+    }
+  }
+  function requestedView(){
+    try {
+      var requested = new URLSearchParams(window.location.search).get('view');
+      return requested === 'mobile' || requested === 'desktop' ? requested : null;
+    } catch (err) {
+      return null;
+    }
+  }
+  function setView(){
+    var view = requestedView() || inferredView();
     var mobile = view === 'mobile';
     document.body.classList.toggle('mobile-view', mobile);
-    buttons.forEach(function(button){
-      button.classList.toggle('active', button.getAttribute('data-view') === view);
-    });
-    try { localStorage.setItem(key, view); } catch (err) {}
   }
-  var selected = 'desktop';
-  try { selected = localStorage.getItem(key) || selected; } catch (err) {}
+  setView();
   try {
-    var requested = new URLSearchParams(window.location.search).get('view');
-    if (requested === 'mobile' || requested === 'desktop') selected = requested;
+    var media = window.matchMedia('(max-width: 760px), (pointer: coarse)');
+    if (media.addEventListener) media.addEventListener('change', setView);
+    else if (media.addListener) media.addListener(setView);
   } catch (err) {}
-  buttons.forEach(function(button){
-    button.addEventListener('click', function(){
-      setView(button.getAttribute('data-view'));
-    });
-  });
-  setView(selected === 'mobile' ? 'mobile' : 'desktop');
+  window.addEventListener('resize', setView);
 })();
 </script>
 

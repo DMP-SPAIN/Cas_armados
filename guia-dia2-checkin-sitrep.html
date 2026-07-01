@@ -14,6 +14,7 @@ nav{position:sticky;top:0;z-index:5;background:rgba(10,16,14,.9);backdrop-filter
 .deck{max-width:1180px;margin:0 auto;padding:8px 18px 50px;display:grid;gap:20px}.slide{overflow:hidden}.slide-head{display:grid;grid-template-columns:74px 1fr auto;gap:14px;align-items:center;padding:18px 22px;background:linear-gradient(90deg,rgba(127,176,105,.20),rgba(255,255,255,.02));border-bottom:1px solid var(--line)}.num{font-family:var(--display);font-size:44px;color:var(--amber)}h2{font-family:var(--display);font-size:34px;text-transform:uppercase;margin:0}.slide-body{padding:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.box{background:rgba(9,13,12,.38);border:1px solid var(--line);border-radius:10px;padding:16px}.box h3{margin:0 0 8px;color:var(--amber);text-transform:uppercase}.box p,.box li{color:var(--muted)}.box ul,.box ol{margin:8px 0 0 18px;padding:0}.callout{border-left:5px solid var(--amber);background:rgba(241,170,61,.08);padding:14px 16px;margin-top:16px}.ok{border-left-color:var(--green);background:rgba(127,176,105,.08)}.warn{border-left-color:var(--red);background:rgba(223,90,69,.08)}
 .timeline{display:grid;gap:10px}.phase{display:grid;grid-template-columns:92px 1fr 170px;gap:12px;align-items:center;border:1px solid var(--line);background:rgba(9,13,12,.34);padding:12px}.time{font-family:var(--display);font-size:28px;color:var(--amber)}.owner{font-family:var(--mono);font-size:12px;color:var(--green);text-align:right;text-transform:uppercase}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.node{border:1px solid var(--line);background:rgba(127,176,105,.07);padding:12px;border-radius:10px}.node b{display:block;color:var(--amber);text-transform:uppercase}.node span{font-size:13px;color:var(--muted)}
 .radio{font-family:var(--mono);white-space:pre-wrap;background:#09100d;border:1px solid rgba(127,176,105,.28);border-radius:10px;padding:14px;color:#dcefe0}.ford{color:var(--blue);font-weight:900}.lince{color:var(--green);font-weight:900}.sys{color:var(--faint)}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{color:var(--amber);text-transform:uppercase;font-size:12px}
+@media(max-width:900px){table.mobile-cards,table.mobile-cards tbody,table.mobile-cards tr,table.mobile-cards td{display:block;width:100%}table.mobile-cards thead{display:none}table.mobile-cards{border:0;background:transparent}table.mobile-cards tr{margin:12px 0;border:1px solid var(--line);border-radius:10px;background:rgba(9,13,12,.38);overflow:hidden}table.mobile-cards td{border-bottom:1px solid var(--line);padding:10px 12px}table.mobile-cards td:first-child{color:var(--amber);font-family:var(--display);font-size:18px;text-transform:uppercase}table.mobile-cards td:last-child{border-bottom:0}table.mobile-cards td::before{display:block;margin-bottom:3px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}table.mobile-cards td:nth-child(2)::before{content:attr(data-label)}table.mobile-cards td:nth-child(3)::before{content:attr(data-label)}table.mobile-cards td:nth-child(4)::before{content:attr(data-label)}}
 @media(max-width:900px){.hero,.grid2,.grid3{grid-template-columns:1fr}.strip,.flow{grid-template-columns:1fr 1fr}.slide-head{grid-template-columns:1fr}.phase{grid-template-columns:1fr}.owner{text-align:left}.links{display:none}}@media print{nav{display:none}body{background:#fff;color:#111}.hero,.deck{max-width:none}.slide,.hero-card,.side,.box{box-shadow:none;break-inside:avoid;background:#fff;color:#111}.radio{background:#f4f4f4;color:#111}}
 </style>
 </head>
@@ -142,13 +143,13 @@ nav{position:sticky;top:0;z-index:5;background:rgba(10,16,14,.9);backdrop-filter
   <section class="slide">
     <div class="slide-head"><div class="num">07</div><h2>Rotación de JTAC</h2><div class="tag">Que hablen todos</div></div>
     <div class="slide-body">
-      <table>
+      <table class="mobile-cards">
         <thead><tr><th>Ronda</th><th>JTAC activo</th><th>Qué debe hacer</th><th>Qué evalúa el instructor</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>LINCE 1</td><td>Recibe reporte de entrada y manda BP.</td><td>Voz clara, orden y restricción.</td></tr>
-          <tr><td>2</td><td>LINCE 2</td><td>Da SITREP con AO/amigos/enemigo/amenaza.</td><td>No se alarga ni mezcla datos.</td></tr>
-          <tr><td>3</td><td>LINCE 3</td><td>Da plan de ataque, 5 líneas y valida colación.</td><td>Controla sin correr.</td></tr>
-          <tr><td>4</td><td>Alumno más flojo</td><td>Controla SALIENDO DE BP, DENTRO CALIENTE, confirmación de LINCE, RIFLE, SALIENDO y BDA.</td><td>Si mantiene la secuencia segura.</td></tr>
+          <tr><td>Ronda 1</td><td data-label="JTAC activo">LINCE 1</td><td data-label="Qué debe hacer">Recibe reporte de entrada y manda BP.</td><td data-label="Qué evalúa">Voz clara, orden y restricción.</td></tr>
+          <tr><td>Ronda 2</td><td data-label="JTAC activo">LINCE 2</td><td data-label="Qué debe hacer">Da SITREP con AO/amigos/enemigo/amenaza.</td><td data-label="Qué evalúa">No se alarga ni mezcla datos.</td></tr>
+          <tr><td>Ronda 3</td><td data-label="JTAC activo">LINCE 3</td><td data-label="Qué debe hacer">Da plan de ataque, 5 líneas y valida colación.</td><td data-label="Qué evalúa">Controla sin correr.</td></tr>
+          <tr><td>Ronda 4</td><td data-label="JTAC activo">Alumno más flojo</td><td data-label="Qué debe hacer">Controla SALIENDO DE BP, DENTRO CALIENTE, confirmación de LINCE, RIFLE, SALIENDO y BDA.</td><td data-label="Qué evalúa">Si mantiene la secuencia segura.</td></tr>
         </tbody>
       </table>
       <div class="callout warn"><b>Corte inmediato:</b> si FORD canta RIFLE sin confirmación de LINCE, o si LINCE confirma sin colación correcta y BLANCO A LA VISTA, se canta ABORT y se vuelve a "mantenga BP".</div>
@@ -172,13 +173,13 @@ nav{position:sticky;top:0;z-index:5;background:rgba(10,16,14,.9);backdrop-filter
   <section id="evaluacion" class="slide">
     <div class="slide-head"><div class="num">09</div><h2>Evaluación del Día 2</h2><div class="tag">A/M/R</div></div>
     <div class="slide-body">
-      <table>
+      <table class="mobile-cards">
         <thead><tr><th>Área</th><th>Apto</th><th>Necesita mejorar</th><th>Repetir</th></tr></thead>
         <tbody>
-          <tr><td>Tránsito / CP / BP</td><td>Llega, cambia de frecuencia y se establece en BP sin saturar.</td><td>Duda pero se corrige.</td><td>No sabe dónde está ni qué frecuencia usar.</td></tr>
-          <tr><td>Reporte y SITREP</td><td>Reporte de 6 datos y SITREP de 5 mínimos entendidos.</td><td>Olvida un dato menor.</td><td>No puede hacerlo sin guía total.</td></tr>
-          <tr><td>5 líneas y control</td><td>Plan de 4 piezas, 5 líneas, colación, avance, BLANCO A LA VISTA y DENTRO CALIENTE salen en orden.</td><td>Se alarga o desordena.</td><td>Entra o confirma sin control.</td></tr>
-          <tr><td>RIFLE / BDA / RTB</td><td>Lanza solo tras confirmación de LINCE, canta RIFLE/Zuni, SALIENDO, recibe BDA de 6 datos y vuelve al aeródromo.</td><td>Necesita recordatorio.</td><td>Lanza sin confirmación o no cierra la misión.</td></tr>
+          <tr><td>Tránsito / CP / BP</td><td data-label="Apto">Llega, cambia de frecuencia y se establece en BP sin saturar.</td><td data-label="Necesita mejorar">Duda pero se corrige.</td><td data-label="Repetir">No sabe dónde está ni qué frecuencia usar.</td></tr>
+          <tr><td>Reporte y SITREP</td><td data-label="Apto">Reporte de 6 datos y SITREP de 5 mínimos entendidos.</td><td data-label="Necesita mejorar">Olvida un dato menor.</td><td data-label="Repetir">No puede hacerlo sin guía total.</td></tr>
+          <tr><td>5 líneas y control</td><td data-label="Apto">Plan de 4 piezas, 5 líneas, colación, avance, BLANCO A LA VISTA y DENTRO CALIENTE salen en orden.</td><td data-label="Necesita mejorar">Se alarga o desordena.</td><td data-label="Repetir">Entra o confirma sin control.</td></tr>
+          <tr><td>RIFLE / BDA / RTB</td><td data-label="Apto">Lanza solo tras confirmación de LINCE, canta RIFLE/Zuni, SALIENDO, recibe BDA de 6 datos y vuelve al aeródromo.</td><td data-label="Necesita mejorar">Necesita recordatorio.</td><td data-label="Repetir">Lanza sin confirmación o no cierra la misión.</td></tr>
         </tbody>
       </table>
     </div>
