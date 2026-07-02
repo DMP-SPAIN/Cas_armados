@@ -71,6 +71,7 @@ strong{color:#fff;font-weight:600}
 #jtac-tool{order:3}
 #kneeboard-tool{order:4}
 #tactical-map-tool{order:5}
+#dry-exercises-tool{order:6}
 .card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0,rgba(255,178,46,.05),transparent 60%);pointer-events:none}
 .card .hd{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;position:relative}
 .card .hd .num{font-family:var(--disp);font-weight:700;font-size:24px;color:var(--amber);line-height:1;letter-spacing:.05em}
@@ -219,6 +220,45 @@ strong{color:#fff;font-weight:600}
 .map-hint{font-size:12px;color:var(--ink-faint);margin:10px 0 0;position:relative}
 .map-status{font-family:var(--mono);font-size:11px;color:var(--green-bright);margin-left:auto;align-self:center}
 
+/* ---- ejercicios en seco ---- */
+.exercise-intro{margin:0 0 16px;color:var(--ink-dim);font-size:14px;position:relative;max-width:900px}
+.exercise-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
+.exercise-card{
+  border:1px solid var(--line-strong);border-radius:10px;background:#0a100d;
+  padding:14px;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.96fr);
+  gap:14px;align-items:stretch;min-height:300px;
+}
+.exercise-copy{display:flex;flex-direction:column;gap:10px;min-width:0}
+.exercise-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.exercise-card h3{font-size:18px;text-transform:uppercase;color:#fff}
+.exercise-card p{margin:0;color:var(--ink-dim);font-size:13.5px;line-height:1.45}
+.exercise-task{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.exercise-task li{border-left:2px solid rgba(255,178,46,.5);padding-left:9px;color:var(--ink);font-size:13px;line-height:1.35}
+.exercise-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.exercise-card details{border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.025);padding:9px 10px}
+.exercise-card summary{cursor:pointer;font-family:var(--disp);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.exercise-card details[open] summary{margin-bottom:7px}
+.exercise-card details ul{margin:0;padding-left:18px;color:var(--ink-dim);font-size:13px;line-height:1.45}
+.exercise-map{
+  width:100%;height:100%;min-height:270px;border:1px solid var(--line);
+  border-radius:9px;background:#07100d;display:block;
+}
+.exercise-map .gridline{stroke:rgba(127,176,105,.22);stroke-width:1}
+.exercise-map .major{stroke:rgba(255,178,46,.28);stroke-width:1.4}
+.exercise-map .terrain{fill:rgba(127,176,105,.14);stroke:rgba(127,176,105,.28);stroke-width:1}
+.exercise-map .urban{fill:rgba(233,239,233,.08);stroke:rgba(233,239,233,.22);stroke-width:1}
+.exercise-map .friend{fill:rgba(127,176,105,.2);stroke:var(--green-bright);stroke-width:2}
+.exercise-map .enemy{fill:rgba(229,83,60,.18);stroke:var(--red);stroke-width:2}
+.exercise-map .bp{fill:rgba(90,160,224,.18);stroke:var(--blue);stroke-width:2}
+.exercise-map .smoke{fill:rgba(229,83,60,.25);stroke:var(--red);stroke-width:2;stroke-dasharray:4 3}
+.exercise-map .arrow{stroke:var(--amber);stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.exercise-map .egress{stroke:var(--green-bright);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:8 6}
+.exercise-map .nofire{stroke:var(--red);stroke-width:3;stroke-dasharray:9 6}
+.exercise-map text{font-family:var(--mono);font-size:13px;font-weight:700;fill:var(--ink)}
+.exercise-map .small{font-size:10px;fill:var(--ink-dim);letter-spacing:.05em}
+.exercise-map .redtext{fill:#ff8a72}.exercise-map .greentext{fill:var(--green-bright)}.exercise-map .ambertext{fill:var(--amber)}.exercise-map .bluetext{fill:#8dc8ff}
+.exercise-map .zone-label{fill:rgba(7,16,13,.86);stroke:rgba(233,239,233,.2);stroke-width:1}
+
 /* ---- modo móvil in-game ---- */
 @media(max-width:700px){
   body{font-size:16px;padding-bottom:76px;background-size:28px 28px}
@@ -282,6 +322,11 @@ strong{color:#fff;font-weight:600}
   .map-tools{gap:6px}
   .map-btn,.map-swatch{font-size:11px;min-height:38px;padding:8px 9px}
   .map-canvas-wrap{border-radius:9px}
+  .exercise-grid{grid-template-columns:1fr;gap:12px}
+  .exercise-card{grid-template-columns:1fr;min-height:0;padding:12px}
+  .exercise-map{min-height:230px}
+  .exercise-card h3{font-size:17px}
+  .exercise-actions .map-btn{flex:1 1 160px}
   .kneeboard-shell{padding:14px 10px 14px 38px;border-radius:10px}
   .kneeboard-shell::before{left:11px;top:24px;bottom:24px}
   .kneeboard-title{grid-template-columns:1fr;gap:6px}
@@ -405,6 +450,14 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   .field p{font-size:9.5px;color:#000;line-height:1.35}
   .field .fill{font-size:9.5px;color:#000;min-height:8mm}
   .actions,.minihelp,.map-tools,.map-hint,.map-status{display:none}
+  .exercise-actions{display:none}
+  .exercise-grid{grid-template-columns:1fr 1fr;gap:4mm}
+  .exercise-card{break-inside:avoid;grid-template-columns:1fr;gap:2.5mm;padding:3mm;border-radius:4px;min-height:auto}
+  .exercise-intro{font-size:9px;margin-bottom:3mm}
+  .exercise-card h3{font-size:11px}
+  .exercise-card p,.exercise-task li,.exercise-card details ul{font-size:8.5px;line-height:1.28}
+  .exercise-kicker,.exercise-card summary{font-size:7.5px}
+  .exercise-map{min-height:48mm;border-radius:3px}
   .map-canvas-wrap{border-color:var(--line-strong);border-radius:3px}
   #tacticalCanvas{aspect-ratio:12/7}
   .linebox{grid-template-columns:8mm 1fr;gap:1.5mm;margin-bottom:1.5mm}
@@ -432,6 +485,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <a href="#jtac-tool">JTAC</a>
   <a href="#kneeboard-tool">Pierna</a>
   <a href="#tactical-map-tool">Pizarra</a>
+  <a href="#dry-exercises-tool">Ejercicios</a>
 </nav>
 
 <!-- ====== INTRO ====== -->
@@ -623,6 +677,164 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <p class="map-hint">Uso: dibuja rutas, BP, CP, objetivo, amigos, humo y ejes de entrada/salida. Se guarda solo en este navegador; para compartirlo con el grupo, exporta PNG y súbelo al canal de la misión.</p>
   </article>
 
+  <!-- ============ N. EJERCICIOS EN SECO ============ -->
+  <article class="card wide" id="dry-exercises-tool">
+    <span class="bk"></span>
+    <div class="hd"><span class="num">6</span><h2>Ejercicios en seco</h2><span class="tag">Practicar sin misión</span></div>
+    <p class="exercise-intro">Usa estos casos para entrenar en casa o antes de una sesión. Lee el croquis, prepara la transmisión, colaciona lo crítico y carga el caso en la pizarra si quieres resolverlo dibujando encima.</p>
+
+    <div class="exercise-grid">
+      <section class="exercise-card">
+        <div class="exercise-copy">
+          <div class="exercise-kicker">Caso 1 · CCA 5-Line</div>
+          <h3>Técnico aislado, amigos al sur</h3>
+          <p>Objetivo claro, BP establecida y amigos separados. Debe resolverse con 5-Line si la colación sale limpia.</p>
+          <ul class="exercise-task">
+            <li>Prepara las 5 líneas de LINCE.</li>
+            <li>Colaciona objetivo, amigos, restricción y egreso.</li>
+            <li>Decide eje de entrada y salida segura.</li>
+          </ul>
+          <div class="exercise-actions">
+            <button type="button" class="map-btn" data-map-exercise="dry-1">Cargar en pizarra</button>
+          </div>
+          <details>
+            <summary>Solución esperada</summary>
+            <ul>
+              <li>Arma/efecto: dos cohetes o cañón, destruir técnico.</li>
+              <li>Propia: LINCE al sur, amigos 300 m al sur del objetivo.</li>
+              <li>Objetivo: técnico junto al cruce, marcado humo rojo.</li>
+              <li>Entrada oeste-este, egreso norte o vuelta a BP.</li>
+              <li>Restricción: ningún disparo hacia el sur.</li>
+            </ul>
+          </details>
+        </div>
+        <svg class="exercise-map" viewBox="0 0 520 300" role="img" aria-label="Croquis de técnico aislado con amigos al sur">
+          <line class="gridline" x1="80" y1="0" x2="80" y2="300"/><line class="gridline" x1="160" y1="0" x2="160" y2="300"/><line class="gridline" x1="240" y1="0" x2="240" y2="300"/><line class="gridline" x1="320" y1="0" x2="320" y2="300"/><line class="gridline" x1="400" y1="0" x2="400" y2="300"/><line class="major" x1="0" y1="150" x2="520" y2="150"/><line class="gridline" x1="0" y1="60" x2="520" y2="60"/><line class="gridline" x1="0" y1="240" x2="520" y2="240"/>
+          <path class="terrain" d="M20 250 C120 210 170 235 250 200 C320 168 390 190 500 150 L500 300 L20 300 Z"/>
+          <rect class="urban" x="300" y="82" width="95" height="65" rx="4"/><rect class="urban" x="322" y="101" width="22" height="18"/><rect class="urban" x="356" y="112" width="24" height="18"/>
+          <line class="nofire" x1="0" y1="205" x2="520" y2="205"/><text class="redtext small" x="18" y="198">NO FUEGO SUR</text>
+          <rect class="bp" x="62" y="126" width="74" height="44" rx="8"/><text class="bluetext" x="82" y="153">BP</text>
+          <ellipse class="friend" cx="248" cy="232" rx="72" ry="24"/><text class="greentext" x="208" y="237">AMIGOS</text>
+          <rect class="friend" x="221" y="252" width="54" height="25" rx="5"/><text class="greentext small" x="234" y="269">JTAC</text>
+          <circle class="smoke" cx="315" cy="128" r="24"/><circle class="enemy" cx="350" cy="128" r="18"/><text class="redtext" x="375" y="133">OBJ</text>
+          <path class="arrow" d="M136 148 C195 128 251 118 323 128"/><polygon fill="#ffb22e" points="323,128 303,118 307,131 302,143"/>
+          <path class="egress" d="M365 119 C420 92 455 82 492 78"/><polygon fill="#9ed47f" points="492,78 473,72 479,82 473,92"/>
+          <text class="ambertext small" x="151" y="118">ENTRADA OESTE-ESTE</text><text class="greentext small" x="407" y="70">EGRESO NORTE</text>
+        </svg>
+      </section>
+
+      <section class="exercise-card">
+        <div class="exercise-copy">
+          <div class="exercise-kicker">Caso 2 · 9-Line</div>
+          <h3>Objetivo urbano con restricciones</h3>
+          <p>Hay edificios, amigos al noroeste y una zona que no se puede sobrevolar. No lo resuelvas con 5-Line: usa 9-Line para ordenar la información.</p>
+          <ul class="exercise-task">
+            <li>Prepara IP/BP, rumbo, distancia, cota, objetivo, cuadrícula, marca, amigos y egreso.</li>
+            <li>Marca qué líneas debe repetir FORD.</li>
+            <li>Añade observaciones: FAH y no sobrevuelo.</li>
+          </ul>
+          <div class="exercise-actions">
+            <button type="button" class="map-btn" data-map-exercise="dry-2">Cargar en pizarra</button>
+          </div>
+          <details>
+            <summary>Solución esperada</summary>
+            <ul>
+              <li>Usar 9-Line por complejidad urbana y restricciones.</li>
+              <li>Lectura de vuelta: línea 4, línea 6, línea 8, egreso y restricciones.</li>
+              <li>Entrada controlada por FAH oeste-este o noroeste-sureste.</li>
+              <li>No sobrevolar el pueblo ni disparar hacia amigos.</li>
+            </ul>
+          </details>
+        </div>
+        <svg class="exercise-map" viewBox="0 0 520 300" role="img" aria-label="Croquis de 9-Line en zona urbana">
+          <line class="gridline" x1="80" y1="0" x2="80" y2="300"/><line class="gridline" x1="160" y1="0" x2="160" y2="300"/><line class="gridline" x1="240" y1="0" x2="240" y2="300"/><line class="gridline" x1="320" y1="0" x2="320" y2="300"/><line class="gridline" x1="400" y1="0" x2="400" y2="300"/><line class="gridline" x1="0" y1="75" x2="520" y2="75"/><line class="major" x1="0" y1="150" x2="520" y2="150"/><line class="gridline" x1="0" y1="225" x2="520" y2="225"/>
+          <rect class="urban" x="238" y="70" width="170" height="150" rx="8"/><rect class="urban" x="260" y="92" width="34" height="28"/><rect class="urban" x="310" y="89" width="42" height="34"/><rect class="urban" x="357" y="134" width="32" height="42"/><rect class="urban" x="280" y="158" width="45" height="38"/>
+          <rect class="zone-label" x="248" y="202" width="150" height="30" rx="6"/><text class="redtext small" x="260" y="222">NO SOBREVOLAR</text>
+          <rect class="bp" x="56" y="42" width="86" height="46" rx="8"/><text class="bluetext" x="79" y="70">IP/BP</text>
+          <ellipse class="friend" cx="205" cy="58" rx="54" ry="22"/><text class="greentext small" x="172" y="63">AMIGOS NW</text>
+          <circle class="enemy" cx="343" cy="151" r="18"/><circle class="smoke" cx="322" cy="149" r="21"/><text class="redtext" x="367" y="156">OBJ</text>
+          <line class="nofire" x1="170" y1="96" x2="430" y2="224"/><text class="redtext small" x="187" y="113">LIMITE FUEGO</text>
+          <path class="arrow" d="M141 66 C205 92 262 125 325 149"/><polygon fill="#ffb22e" points="325,149 310,133 309,147 298,156"/>
+          <path class="egress" d="M360 165 C383 205 418 235 468 256"/><polygon fill="#9ed47f" points="468,256 454,241 453,253 441,258"/>
+          <text class="ambertext small" x="146" y="103">FAH CONTROLADO</text><text class="greentext small" x="402" y="246">EGRESO S</text>
+        </svg>
+      </section>
+
+      <section class="exercise-card">
+        <div class="exercise-copy">
+          <div class="exercise-kicker">Caso 3 · Peligro cercano</div>
+          <h3>Amigos a 150 m del objetivo</h3>
+          <p>El objetivo amenaza a LINCE. La prioridad no es disparar rápido: es que el eje de fuego nunca apunte a los amigos.</p>
+          <ul class="exercise-task">
+            <li>Declara peligro cercano y exige iniciales de LINCE antes de autorizar.</li>
+            <li>Elige arma más controlable si procede.</li>
+            <li>Traza línea de no fuego y rumbo seguro.</li>
+          </ul>
+          <div class="exercise-actions">
+            <button type="button" class="map-btn" data-map-exercise="dry-3">Cargar en pizarra</button>
+          </div>
+          <details>
+            <summary>Solución esperada</summary>
+            <ul>
+              <li>LINCE anuncia PELIGRO CERCANO e iniciales antes de autorizar.</li>
+              <li>Preferir cañón/ametralladora en ráfagas cortas si el escenario lo permite.</li>
+              <li>Entrada paralela a la línea amiga-enemigo, no hacia los amigos.</li>
+              <li>Si se pierde visual de amigos u objetivo: SALIENDO EN SECO.</li>
+            </ul>
+          </details>
+        </div>
+        <svg class="exercise-map" viewBox="0 0 520 300" role="img" aria-label="Croquis de peligro cercano con amigos a 150 metros">
+          <line class="gridline" x1="80" y1="0" x2="80" y2="300"/><line class="gridline" x1="160" y1="0" x2="160" y2="300"/><line class="gridline" x1="240" y1="0" x2="240" y2="300"/><line class="gridline" x1="320" y1="0" x2="320" y2="300"/><line class="gridline" x1="400" y1="0" x2="400" y2="300"/><line class="major" x1="0" y1="150" x2="520" y2="150"/><line class="gridline" x1="0" y1="75" x2="520" y2="75"/><line class="gridline" x1="0" y1="225" x2="520" y2="225"/>
+          <path class="terrain" d="M0 235 C120 210 205 225 280 196 C365 163 430 174 520 135 L520 300 L0 300 Z"/>
+          <circle class="enemy" cx="292" cy="126" r="20"/><text class="redtext" x="318" y="131">OBJ</text>
+          <ellipse class="friend" cx="278" cy="204" rx="72" ry="24"/><text class="greentext" x="238" y="209">AMIGOS</text>
+          <line class="nofire" x1="0" y1="179" x2="520" y2="179"/><text class="redtext small" x="18" y="172">LINEA NO FUEGO</text>
+          <rect class="bp" x="56" y="91" width="82" height="45" rx="8"/><text class="bluetext" x="82" y="119">BP</text>
+          <path class="arrow" d="M135 114 C188 106 229 103 279 121"/><polygon fill="#ffb22e" points="279,121 262,107 263,121 252,132"/>
+          <path class="egress" d="M302 116 C362 94 421 78 482 73"/><polygon fill="#9ed47f" points="482,73 464,65 469,76 462,86"/>
+          <rect class="zone-label" x="190" y="18" width="195" height="31" rx="6"/><text class="ambertext small" x="204" y="38">INICIALES LINCE ANTES DE AUTORIZAR</text>
+          <path d="M292 126 L278 204" stroke="rgba(233,239,233,.45)" stroke-width="2" stroke-dasharray="4 5"/><text class="small" x="302" y="173">150 m</text>
+        </svg>
+      </section>
+
+      <section class="exercise-card">
+        <div class="exercise-copy">
+          <div class="exercise-kicker">Caso 4 · ABORT y reataque</div>
+          <h3>Entra caliente y aparece riesgo</h3>
+          <p>FORD está entrando cuando LINCE pierde seguridad de amigos. No se corrige saturando la radio: se corta la pasada y se reinicia desde control.</p>
+          <ul class="exercise-task">
+            <li>Da la llamada ABORT correcta.</li>
+            <li>Define salida segura y vuelta a BP.</li>
+            <li>Escribe qué debe pasar antes de reatacar.</li>
+          </ul>
+          <div class="exercise-actions">
+            <button type="button" class="map-btn" data-map-exercise="dry-4">Cargar en pizarra</button>
+          </div>
+          <details>
+            <summary>Solución esperada</summary>
+            <ul>
+              <li>LINCE: ABORT ABORT ABORT, FORD 1.</li>
+              <li>FORD confirma, corta empleo y sale por rumbo seguro.</li>
+              <li>Vuelve a BP/HA, recupera visual y escucha nueva correlación.</li>
+              <li>No hay reataque sin nueva colación, correlación y autorización.</li>
+            </ul>
+          </details>
+        </div>
+        <svg class="exercise-map" viewBox="0 0 520 300" role="img" aria-label="Croquis de ABORT y vuelta a BP">
+          <line class="gridline" x1="80" y1="0" x2="80" y2="300"/><line class="gridline" x1="160" y1="0" x2="160" y2="300"/><line class="gridline" x1="240" y1="0" x2="240" y2="300"/><line class="gridline" x1="320" y1="0" x2="320" y2="300"/><line class="gridline" x1="400" y1="0" x2="400" y2="300"/><line class="major" x1="0" y1="150" x2="520" y2="150"/><line class="gridline" x1="0" y1="75" x2="520" y2="75"/><line class="gridline" x1="0" y1="225" x2="520" y2="225"/>
+          <rect class="bp" x="64" y="198" width="86" height="46" rx="8"/><text class="bluetext" x="88" y="226">BP</text>
+          <circle class="enemy" cx="338" cy="116" r="19"/><text class="redtext" x="363" y="121">OBJ</text>
+          <ellipse class="friend" cx="316" cy="176" rx="58" ry="21"/><text class="greentext small" x="279" y="181">AMIGO MOVIL</text>
+          <path class="arrow" d="M137 218 C205 174 254 135 325 118"/><polygon fill="#ffb22e" points="325,118 304,113 312,124 307,137"/>
+          <path d="M276 136 C255 163 227 191 178 219" stroke="#e5533c" stroke-width="5" fill="none" stroke-linecap="round"/><polygon fill="#e5533c" points="178,219 199,214 188,207 188,194"/>
+          <rect class="zone-label" x="220" y="34" width="164" height="34" rx="6"/><text class="redtext" x="238" y="56">ABORT ABORT</text>
+          <path class="egress" d="M178 219 C141 237 112 249 80 265"/><polygon fill="#9ed47f" points="80,265 99,263 90,254 94,243"/>
+          <text class="greentext small" x="90" y="273">SALIDA SEGURA</text><text class="ambertext small" x="187" y="130">ENTRADA CORTADA</text>
+        </svg>
+      </section>
+    </div>
+  </article>
+
 </div><!-- /grid -->
 
 <div class="mobile-dock" aria-label="Acciones móviles">
@@ -633,7 +845,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 </div>
 
 <footer>
-  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.6
+  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.7
 </footer>
 
 <script>
@@ -796,6 +1008,202 @@ function setupTacticalMap(){
     ctx.fillRect(width / 2 - 1, 0, 2, height);
     ctx.fillRect(0, height / 2 - 1, width, 2);
     ctx.restore();
+  }
+
+  function drawExerciseLabel(x, y, text, stroke = "#ffb22e", fill = "rgba(7,16,13,.88)"){
+    ctx.save();
+    ctx.font = "700 22px Inter, Arial, sans-serif";
+    ctx.textBaseline = "middle";
+    const label = text.trim().slice(0, 34);
+    const metrics = ctx.measureText(label);
+    const boxWidth = Math.max(78, metrics.width + 24);
+    const boxHeight = 38;
+    ctx.fillStyle = fill;
+    roundedRect(x, y - boxHeight / 2, boxWidth, boxHeight, 8);
+    ctx.fill();
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+    ctx.fillStyle = stroke;
+    ctx.fillText(label, x + 12, y + 1);
+    ctx.restore();
+  }
+
+  function drawExercisePoint(x, y, label, stroke, fill = "rgba(7,16,13,.9)"){
+    ctx.save();
+    ctx.fillStyle = fill;
+    ctx.beginPath();
+    ctx.arc(x, y, 25, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = 4;
+    ctx.stroke();
+    ctx.fillStyle = stroke;
+    ctx.font = "700 20px Inter, Arial, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(label, x, y + 1);
+    ctx.restore();
+  }
+
+  function drawExerciseArrow(a, b, stroke = "#ffb22e", dashed = false){
+    const angle = Math.atan2(b.y - a.y, b.x - a.x);
+    const size = 20;
+    ctx.save();
+    ctx.strokeStyle = stroke;
+    ctx.fillStyle = stroke;
+    ctx.lineWidth = 5;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    if(dashed) ctx.setLineDash([14, 10]);
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.bezierCurveTo((a.x + b.x) / 2, a.y, (a.x + b.x) / 2, b.y, b.x, b.y);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.beginPath();
+    ctx.moveTo(b.x, b.y);
+    ctx.lineTo(b.x - size * Math.cos(angle - Math.PI / 6), b.y - size * Math.sin(angle - Math.PI / 6));
+    ctx.lineTo(b.x - size * Math.cos(angle + Math.PI / 6), b.y - size * Math.sin(angle + Math.PI / 6));
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawExerciseSmoke(x, y){
+    ctx.save();
+    ctx.strokeStyle = "#e5533c";
+    ctx.fillStyle = "rgba(229,83,60,.18)";
+    ctx.lineWidth = 3;
+    ctx.setLineDash([8, 6]);
+    for(let radius = 18; radius <= 44; radius += 13){
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function drawExerciseNoFire(y, label = "NO FUEGO"){
+    ctx.save();
+    ctx.strokeStyle = "#e5533c";
+    ctx.lineWidth = 4;
+    ctx.setLineDash([14, 10]);
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(width, y);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#ff8a72";
+    ctx.font = "700 18px JetBrains Mono, monospace";
+    ctx.fillText(label, 28, y - 12);
+    ctx.restore();
+  }
+
+  function drawExerciseArea(x, y, rx, ry, stroke, fill, label){
+    ctx.save();
+    ctx.fillStyle = fill;
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.ellipse(x, y, rx, ry, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = stroke;
+    ctx.font = "700 22px Inter, Arial, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(label, x, y + 1);
+    ctx.restore();
+  }
+
+  function loadExerciseMap(id){
+    pushHistory();
+    drawBaseMap();
+
+    ctx.save();
+    ctx.fillStyle = "rgba(127,176,105,.12)";
+    ctx.beginPath();
+    ctx.moveTo(0, 610);
+    ctx.bezierCurveTo(220, 520, 390, 570, 570, 480);
+    ctx.bezierCurveTo(760, 385, 900, 420, 1200, 330);
+    ctx.lineTo(1200, 700);
+    ctx.lineTo(0, 700);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    if(id === "dry-1"){
+      drawExerciseNoFire(500, "NO FUEGO SUR");
+      drawExerciseLabel(110, 350, "BP", "#5aa0e0");
+      drawExerciseArea(560, 555, 140, 42, "#9ed47f", "rgba(127,176,105,.18)", "AMIGOS");
+      drawExerciseLabel(522, 618, "JTAC", "#9ed47f");
+      drawExerciseSmoke(720, 315);
+      drawExercisePoint(805, 315, "OBJ", "#e5533c", "rgba(229,83,60,.18)");
+      drawExerciseArrow({x:185,y:371}, {x:720,y:315});
+      drawExerciseArrow({x:835,y:294}, {x:1090,y:200}, "#9ed47f", true);
+      drawExerciseLabel(255, 270, "ENTRADA OESTE-ESTE");
+      drawExerciseLabel(905, 165, "EGRESO NORTE", "#9ed47f");
+    }
+
+    if(id === "dry-2"){
+      ctx.save();
+      ctx.fillStyle = "rgba(233,239,233,.08)";
+      ctx.strokeStyle = "rgba(233,239,233,.26)";
+      ctx.lineWidth = 3;
+      roundedRect(610, 115, 350, 290, 12);
+      ctx.fill(); ctx.stroke();
+      [[650,155,70,48],[760,150,84,54],[850,245,72,82],[690,300,92,74]].forEach(([x,y,w,h]) => {
+        roundedRect(x, y, w, h, 5); ctx.fill(); ctx.stroke();
+      });
+      ctx.restore();
+      drawExerciseLabel(95, 120, "IP/BP", "#5aa0e0");
+      drawExerciseArea(465, 105, 108, 38, "#9ed47f", "rgba(127,176,105,.18)", "AMIGOS NW");
+      drawExerciseNoFire(440, "NO SOBREVUELO / LIMITE FUEGO");
+      drawExerciseSmoke(745, 315);
+      drawExercisePoint(825, 315, "OBJ", "#e5533c", "rgba(229,83,60,.18)");
+      drawExerciseArrow({x:190,y:135}, {x:760,y:315});
+      drawExerciseArrow({x:850,y:342}, {x:1085,y:580}, "#9ed47f", true);
+      drawExerciseLabel(310, 220, "9-LINE", "#ffb22e");
+      drawExerciseLabel(905, 610, "EGRESO SUR", "#9ed47f");
+    }
+
+    if(id === "dry-3"){
+      drawExerciseNoFire(420, "LINEA NO FUEGO");
+      drawExerciseLabel(105, 280, "BP", "#5aa0e0");
+      drawExercisePoint(680, 280, "OBJ", "#e5533c", "rgba(229,83,60,.18)");
+      drawExerciseArea(650, 470, 145, 42, "#9ed47f", "rgba(127,176,105,.18)", "AMIGOS");
+      ctx.save();
+      ctx.strokeStyle = "rgba(233,239,233,.55)";
+      ctx.lineWidth = 3;
+      ctx.setLineDash([8, 8]);
+      ctx.beginPath(); ctx.moveTo(680, 280); ctx.lineTo(650, 470); ctx.stroke();
+      ctx.fillStyle = "rgba(233,239,233,.75)";
+      ctx.font = "700 18px JetBrains Mono, monospace";
+      ctx.fillText("150 m", 705, 380);
+      ctx.restore();
+      drawExerciseArrow({x:185,y:282}, {x:650,y:282});
+      drawExerciseArrow({x:715,y:250}, {x:1080,y:180}, "#9ed47f", true);
+      drawExerciseLabel(360, 90, "PELIGRO CERCANO", "#ffb22e");
+      drawExerciseLabel(430, 135, "INICIALES LINCE", "#ffb22e");
+    }
+
+    if(id === "dry-4"){
+      drawExerciseLabel(112, 540, "BP", "#5aa0e0");
+      drawExercisePoint(800, 250, "OBJ", "#e5533c", "rgba(229,83,60,.18)");
+      drawExerciseArea(735, 392, 118, 38, "#9ed47f", "rgba(127,176,105,.18)", "AMIGO MOVIL");
+      drawExerciseArrow({x:190,y:538}, {x:760,y:260});
+      drawExerciseArrow({x:665,y:305}, {x:230,y:535}, "#e5533c");
+      drawExerciseArrow({x:230,y:535}, {x:110,y:620}, "#9ed47f", true);
+      drawExerciseLabel(475, 120, "ABORT ABORT", "#e5533c");
+      drawExerciseLabel(275, 640, "SALIDA SEGURA", "#9ed47f");
+      drawExerciseLabel(420, 315, "ENTRADA CORTADA", "#ffb22e");
+    }
+
+    saveMap(false);
+    setStatus("Ejercicio cargado en pizarra");
+    document.getElementById("tactical-map-tool")?.scrollIntoView({block:"start", behavior:"smooth"});
   }
 
   function saveMap(showMessage = true){
@@ -1022,6 +1430,10 @@ function setupTacticalMap(){
     localStorage.removeItem(tacticalMapKey);
     drawBaseMap();
     setStatus("Mapa limpio");
+  });
+
+  document.querySelectorAll("[data-map-exercise]").forEach((button) => {
+    button.addEventListener("click", () => loadExerciseMap(button.dataset.mapExercise));
   });
 
   loadMap();
