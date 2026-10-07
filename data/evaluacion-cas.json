@@ -1,6 +1,6 @@
 {
   "schema": "armados.cas.evaluacion.v2",
-  "updated_at": "2026-06-26T17:31:51.139Z",
+  "updated_at": "2026-07-02T18:19:31.670Z",
   "meta": {
     "course": "CAS/ JTAC",
     "instructor": "<A2>Rayon",
@@ -1381,22 +1381,22 @@
       "action": ""
     },
     "alumno-09|s2-cp": {
-      "status": "",
+      "status": "ausente",
       "evidence": "",
       "action": ""
     },
     "alumno-09|s2-check": {
-      "status": "",
+      "status": "ausente",
       "evidence": "",
       "action": ""
     },
     "alumno-09|s2-sitrep": {
-      "status": "",
+      "status": "ausente",
       "evidence": "",
       "action": ""
     },
     "alumno-09|s2-col": {
-      "status": "",
+      "status": "ausente",
       "evidence": "",
       "action": ""
     },
