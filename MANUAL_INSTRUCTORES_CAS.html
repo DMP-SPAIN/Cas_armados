@@ -59,6 +59,11 @@
       font-size: 1.05rem;
     }
 
+    header a {
+      display: inline-block;
+      padding: 4px 0;
+    }
+
     h1 {
       margin: 0;
       font-size: clamp(2rem, 4vw, 3.15rem);
@@ -675,7 +680,7 @@
     <header>
       <span class="tag">Escuela CAS - Arma Reforger</span>
       <h1>Manual del instructor CAS</h1>
-      <p>Guía práctica para dirigir sesiones según la progresión real del curso: Día 1 de comunicaciones, Día 2 con CP/SITREP/BP/5 líneas/Zuni, Día 3 de consolidación, control terminal, 9-line, integración y ejercicio final.</p>
+      <p>Guía práctica para dirigir las sesiones CAS y mantener el orden de cada ejercicio.</p>
     </header>
 
     <section class="panel">
@@ -684,7 +689,7 @@
       <p>El instructor no tiene que saberlo todo. Su trabajo es seguir una estructura, mantener el orden, explicar lo justo y hacer que los participantes practiquen de forma progresiva. Después de lo ocurrido en el Día 2, la estructura correcta es consolidar el flujo real antes de añadir procedimientos más largos.</p>
       <p>La forma de enseñarlo será numérica: <strong>3 bloques</strong>, <strong>6 datos de entrada</strong>, <strong>10/5 de SITREP</strong>, <strong>4 piezas de plan</strong>, <strong>5 o 9 líneas</strong>, <strong>4 llamadas de control</strong> y <strong>6 datos de BDA</strong>. Los números son la barandilla para que LINCE y FORD sepan qué falta sin depender del instructor.</p>
       <div class="ok">
-        <p><strong>Regla principal:</strong> primero se entiende el rol, después se comunica, luego se ejecuta el flujo CP/BP/5 líneas con seguridad, después se consolida con rotaciones y solo entonces se introduce 9-line, integración y misión completa.</p>
+        <p><strong>Regla principal:</strong> primero se entiende el rol, después se autentica y comunica, luego se ejecuta el flujo CP/BP/RW CAS 5-line con seguridad, después se consolida con rotaciones y solo entonces se introduce 9-line, integración y misión completa.</p>
       </div>
     </section>
 
@@ -711,9 +716,9 @@
         </thead>
         <tbody>
           <tr><td>1</td><td>Tránsito de aeródromo, rodaje/despegue emulado y reporte de entrada en seco.</td><td>No hay disciplina radio básica.</td></tr>
-          <tr><td>2</td><td>CP, SITREP, BP, plan de ataque, 5 líneas, Zuni, BDA y RTB.</td><td>LINCE no habla o FORD no colaciona lo crítico.</td></tr>
-          <tr><td>3</td><td>Repetir el Día 2 con orden numérico: 6 reporte, 5 SITREP corto, 4 plan, 5 líneas, 4 control y 6 BDA.</td><td>El grupo necesita guía constante para cada frase.</td></tr>
-          <tr><td>4</td><td>Control terminal: correlación, DENTRO CALIENTE, autorizado, ABORT, reataque y BDA.</td><td>Hay disparos por inercia o ABORT se discute.</td></tr>
+          <tr><td>2</td><td>CP, autenticación, SITREP, BP, RW CAS 5-line, Zuni, BDA y RTB.</td><td>LINCE no autentica, no habla o FORD no colaciona lo crítico.</td></tr>
+          <tr><td>3</td><td>Repetir el Día 2 con orden: 6 reporte, 5 SITREP corto, RW CAS 5-line, 4 control y 6 BDA.</td><td>El grupo necesita guía constante para cada frase.</td></tr>
+          <tr><td>4</td><td>Control terminal: correlación, DENTRO CALIENTE, AUTORIZADO CALIENTE, ABORT, reataque y BDA.</td><td>Hay disparos por inercia o ABORT se discute.</td></tr>
           <tr><td>5</td><td>9-line y observaciones, ya sobre una base de 5 líneas entendida.</td><td>La 5-line todavía sale desordenada.</td></tr>
           <tr><td>6</td><td>Integración JTAC con maniobra terrestre y prioridades tácticas.</td><td>No queda clara la posición amiga.</td></tr>
           <tr><td>7</td><td>Plan CAS: reunión previa, frecuencias, CP/BP, separación y ventanas.</td><td>No hay plan común antes de despegar.</td></tr>
@@ -971,7 +976,7 @@
         <div class="radio-line"><strong>FORD 2:</strong> "Lince, FORD 2, listo para copiar."</div>
         <div class="radio-line"><strong>LINCE:</strong> "FORD 2, proceda cuando listo."</div>
         <div class="radio-line"><strong>FORD 2:</strong> "SALIENDO DE BP. DENTRO CALIENTE desde el oeste, FORD 2."</div>
-        <div class="radio-line"><strong>LINCE:</strong> "FORD 2, autorizado."</div>
+        <div class="radio-line"><strong>LINCE:</strong> "FORD 2, autorizado caliente."</div>
         <div class="radio-line"><strong>FORD 2:</strong> "SALIENDO norte, FORD 2."</div>
         <div class="radio-line"><strong>LINCE:</strong> "FORD 2, buenos impactos. FORD 1, prepare siguiente aparato."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "FORD 3 listo como siguiente aparato atacante."</div>
@@ -1011,15 +1016,15 @@
 
     <section id="fase2" class="phase">
       <h2>Fase 2 - Día 2: primer flujo CAS real</h2>
-      <p><strong>Objetivo:</strong> convertir la radio básica del Día 1 en una misión CAS sencilla: tránsito, CP, reporte de entrada, SITREP, BP, plan de ataque, 5 líneas, una pasada Zuni, BDA y regreso.</p>
+        <p><strong>Objetivo:</strong> convertir la radio básica del Día 1 en una misión CAS sencilla: tránsito, autenticación, CP, reporte de entrada, SITREP, BP, RW CAS 5-line, una pasada Zuni, BDA y regreso.</p>
 
       <article class="session-card">
         <h3>Sesión 2.0 - Día 2: CP, SITREP, BP y primera pasada Zuni</h3>
         <h4>Objetivo del instructor</h4>
-        <p>Después del Día 1, el grupo ya ha escuchado radio de tránsito y reporte de entrada seco. El Día 2 ya debe parecer una misión CAS básica: salida en tránsito de aeródromo, reporte de entrada en CP, SITREP de LINCE, movimiento a BP, plan de ataque, 5 líneas, pasada con Zuni, BDA y regreso al aeródromo.</p>
+        <p>Después del Día 1, el grupo ya ha escuchado radio de tránsito y reporte de entrada seco. El Día 2 ya debe parecer una misión CAS básica: salida en tránsito de aeródromo, autenticación mutua, reporte de entrada en CP, SITREP de LINCE, movimiento a BP, RW CAS 5-line, pasada con Zuni, BDA y regreso al aeródromo.</p>
 
         <div class="ok">
-          <p><strong>Límite:</strong> el objetivo no es disparar por disparar: es que el ataque sea consecuencia de un control limpio. Sin reporte completo, SITREP entendido, BP clara, plan de ataque, 5 líneas, colación correcta y BLANCO A LA VISTA, FORD no canta DENTRO CALIENTE y LINCE no confirma la suelta.</p>
+          <p><strong>Límite:</strong> el objetivo no es disparar por disparar: es que el ataque sea consecuencia de un control limpio. Sin autenticación, reporte completo, SITREP entendido, BP clara, RW CAS 5-line, colación correcta y BLANCO A LA VISTA, FORD no canta DENTRO CALIENTE y LINCE no confirma la suelta.</p>
         </div>
 
         <h4>Preparación</h4>
@@ -1037,37 +1042,37 @@
           <li>LINCE activo recibe el reporte y mueve el vuelo a una BP segura.</li>
           <li>LINCE da SITREP breve: AO, amigos, enemigo, amenaza y restricción.</li>
           <li>FORD 1 colaciona BP, amigos, restricción y código ABORT.</li>
-          <li>LINCE da plan de ataque Tipo 2, 5 líneas y exige colación.</li>
-          <li>Con colación correcta: avance, correlación, BLANCO A LA VISTA, SALIENDO DE BP, DENTRO CALIENTE, confirmación de LINCE, RIFLE/Zuni, SALIENDO, BDA y RTB.</li>
+          <li>LINCE autentica con FORD antes de cualquier dato táctico y da la RW CAS 5-line: tipo/ataque/arma en la línea 1, posición/marca en la 2, objetivo en la 3-4 y restricciones en la 5.</li>
+          <li>Con colación correcta: avance, correlación, BLANCO A LA VISTA, SALIENDO DE BP, DENTRO CALIENTE, AUTORIZADO CALIENTE, RIFLE/Zuni, SALIENDO, BDA y RTB.</li>
         </ol>
 
         <h4>Ejemplo radio</h4>
         <div class="radio-line"><strong>FORD 1:</strong> "LINCE, FORD 1, establecido CP Oeste, listo reporte de entrada."</div>
-        <div class="radio-line"><strong>LINCE 1:</strong> "FORD 1, LINCE 1, adelante reporte de entrada."</div>
+        <div class="radio-line"><strong>LINCE 1:</strong> "FORD 1, LINCE 1, autentique Romeo Papa."</div>
+        <div class="radio-line"><strong>FORD 1:</strong> "FORD 1, autentico Uniform. LINCE 1, autentique Mike Delta."</div>
+        <div class="radio-line"><strong>LINCE 1:</strong> "LINCE 1, autentico Alfa. Autenticación correcta, adelante check-in."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "LINCE 1, FORD 1, dos helicópteros armados, establecido CP Oeste, a baja cota, cohetes y cañón listos, tiempo en estación 25 minutos, código ABORT banana."</div>
         <div class="radio-line"><strong>LINCE 1:</strong> "Recibido reporte de entrada. Mueva a BP Lago Oeste. Restricción: no cruce carretera norte."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "Muevo BP Lago Oeste, no cruzo carretera norte, código ABORT banana, FORD 1."</div>
         <div class="radio-line"><strong>LINCE 1:</strong> "Informe de tierra: AO pueblo en valle. Amigos en linde sur del bosque; no hay amigos al norte de carretera. Enemigo observado en casas al norte. Sin AA vista. Colacione amigos y restricción."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "Amigos al sur, no cruzo carretera norte, enemigo al norte de carretera, FORD 1."</div>
-        <div class="radio-line"><strong>LINCE 1:</strong> "Colación correcta. Plan de ataque: Tipo 2, una pasada con Zuni, oeste a este, desde BP Lago Oeste. Mantenga BP hasta avance."</div>
-        <div class="radio-line"><strong>FORD 1:</strong> "Tipo 2, una pasada con Zuni, oeste a este, desde BP Lago Oeste. Mantengo BP hasta avance, FORD 1."</div>
-        <div class="radio-line"><strong>LINCE 1:</strong> "5 líneas: uno, Zuni contra técnico; dos, LINCE al sur del bosque; tres, técnico junto a casa norte; cuatro, humo rojo y egreso norte a BP; cinco, sin AA vista, amigos al sur. Colacione."</div>
-        <div class="radio-line"><strong>FORD 1:</strong> "Zuni contra técnico junto a casa norte, LINCE al sur, humo rojo, egreso norte a BP, sin AA vista, amigos al sur. FORD 1."</div>
+        <div class="radio-line"><strong>LINCE 1:</strong> "RW CAS 5-line: uno, Tipo 2, ataque sobre blanco, cohetes; dos, LINCE al sur, humo azul; tres, desde LINCE, rumbo 340, 700 metros; cuatro, técnico junto a casa norte, humo rojo; cinco, entrada oeste-este, egreso norte a BP, amigos al sur, sin AA vista, no fuego sur. Colacione."</div>
+        <div class="radio-line"><strong>FORD 1:</strong> "Tipo 2, ataque sobre blanco, cohetes; LINCE al sur, humo azul; rumbo 340, 700 metros; técnico junto a casa norte, humo rojo; entrada oeste-este, egreso norte a BP, amigos al sur, sin AA vista, no fuego sur. FORD 1."</div>
         <div class="radio-line"><strong>LINCE 1:</strong> "Colación correcta. Avance ahora."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "SALIENDO DE BP Lago Oeste, FORD 1."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "BLANCO A LA VISTA, técnico junto a casa norte."</div>
         <div class="radio-line"><strong>LINCE 1:</strong> "FORD 1, correcto. Ese técnico es su objetivo. Continúe."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "DENTRO CALIENTE desde el oeste, FORD 1."</div>
-        <div class="radio-line"><strong>LINCE 1:</strong> "FORD 1, autorizado."</div>
+        <div class="radio-line"><strong>LINCE 1:</strong> "FORD 1, autorizado caliente."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "RIFLE, ZUNI. SALIENDO norte, vuelvo BP Lago Oeste."</div>
         <div class="radio-line"><strong>LINCE 1:</strong> "BDA: FORD 1, misión Zuni, técnico junto a casa norte, impacto ahora, objetivo destruido, sin movimiento observado. Autorizado RTB al aeródromo vía CP Oeste."</div>
 
         <h4>Qué evaluar</h4>
         <ul>
           <li>El piloto hace reporte de entrada completo en vuelo: composición, posición/altura, armas operativas, tiempo en estación y código ABORT.</li>
-          <li>El JTAC activo habla, no se queda como oyente.</li>
+          <li>El JTAC activo autentica antes de pasar información y habla, no se queda como oyente.</li>
           <li>El SITREP tiene AO, amigos, enemigo, amenaza y restricción.</li>
-          <li>La colación repite lo crítico y LINCE valida con colación correcta.</li>
+          <li>La colación repite todas las restricciones y la línea 3; LINCE valida con colación correcta.</li>
           <li>DENTRO CALIENTE es llamada del piloto al entrar caliente; no sustituye la confirmación de LINCE.</li>
           <li>El ataque termina con RIFLE/Zuni, SALIENDO, BDA y RTB; no se reataca por inercia.</li>
         </ul>
@@ -1157,7 +1162,7 @@
         </ol>
           <div class="radio-line"><strong>LINCE:</strong> "Ese técnico es su objetivo. Continúe."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "SALIENDO DE BP. DENTRO CALIENTE desde el oeste."</div>
-          <div class="radio-line"><strong>LINCE:</strong> "FORD 1, autorizado."</div>
+          <div class="radio-line"><strong>LINCE:</strong> "FORD 1, autorizado caliente."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "CAÑÓN CAÑÓN CAÑÓN... SALIENDO."</div>
           <div class="radio-line"><strong>LINCE:</strong> "FORD 1, ABORT, ABORT, ABORT, amigos cerca."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "ABORT recibido, SALIENDO."</div>
@@ -1167,7 +1172,7 @@
 
     <section id="fase3" class="phase">
       <h2>Fase 3 - Consolidación del Día 2</h2>
-      <p><strong>Objetivo:</strong> repetir lo que ya se hizo en el Día 2 hasta que salga sin ayuda constante: CP, reporte de entrada, SITREP, BP, plan de ataque, 5 líneas, pasada Zuni, BDA y RTB. Esta fase no mete procedimientos nuevos; convierte lo aprendido en rutina usando el orden <strong>6 → 5 → 4 → 5 líneas → 4 → 6</strong>.</p>
+        <p><strong>Objetivo:</strong> repetir lo que ya se hizo en el Día 2 hasta que salga sin ayuda constante: CP, autenticación, reporte de entrada, SITREP, BP, RW CAS 5-line, pasada Zuni, BDA y RTB. Esta fase no mete procedimientos nuevos; convierte lo aprendido en rutina usando el orden <strong>6 reporte → 5 SITREP → RW CAS 5-line → 4 control → 6 BDA</strong>.</p>
 
       <article class="session-card">
         <h3>Sesión 3.1 - Repetición completa del Día 2</h3>
@@ -1175,16 +1180,16 @@
         <p>Si el Día 2 salió, la siguiente sesión no debe abrir otro tema. Debe repetir el mismo flujo con menos ayuda del instructor y con todos los alumnos obligados a hablar. El objetivo es que LINCE y FORD sepan qué viene después sin que el instructor lo cante.</p>
 
         <div class="ok">
-          <p><strong>Regla de sesión:</strong> no se añade 9-line todavía. Se repite 5 líneas porque es el flujo que ya han vivido con Zuni y permite detectar fallos reales: reporte incompleto, SITREP largo, BP dudosa, colación pobre o BDA inventado.</p>
-          <p><strong>Orden obligatorio:</strong> FORD reporta 6 datos; LINCE da 5 mínimos de SITREP; LINCE dicta plan de 4 piezas y 5 líneas; LINCE controla con sus 4 llamadas; LINCE cierra con BDA de 6 datos.</p>
+          <p><strong>Regla de sesión:</strong> no se añade 9-line todavía. Se repite la RW CAS 5-line porque es el flujo que ya han vivido con Zuni y permite detectar fallos reales: autenticación omitida, reporte incompleto, SITREP largo, BP dudosa, colación pobre o BDA inventado.</p>
+          <p><strong>Orden obligatorio:</strong> FORD y LINCE se autentican; FORD reporta 6 datos; LINCE da 5 mínimos de SITREP; LINCE dicta la RW CAS 5-line; LINCE controla con sus 4 llamadas; LINCE cierra con BDA de 6 datos.</p>
         </div>
 
         <h4>Qué practicar</h4>
         <ul>
           <li>FORD llega al CP y hace reporte de entrada de 6 datos sin leer un guion completo.</li>
           <li>LINCE da SITREP breve de 5 mínimos: AO, amigos, enemigo, amenaza y restricción/BP.</li>
-          <li>LINCE mueve a BP y no permite buscar blancos por libre.</li>
-          <li>LINCE da plan de ataque y 5 líneas con una sola intención táctica.</li>
+          <li>La tripulación propone o confirma BP; LINCE la aprueba o deniega y controla la salida. No se buscan blancos por libre.</li>
+          <li>LINCE da una RW CAS 5-line con una sola intención táctica y sin convertirla en autorización de fuego.</li>
           <li>FORD colaciona lo crítico: objetivo, amigos, restricción, egreso y ABORT.</li>
           <li>La pasada termina con DENTRO CALIENTE, autorizado, RIFLE/Zuni, SALIENDO, BDA de 6 datos y RTB.</li>
         </ul>
@@ -1200,7 +1205,7 @@
         <div class="drill">
           <h4>Ejercicio práctico guiado</h4>
           <ol>
-            <li>Ronda 1: instructor ayuda a LINCE con una tarjeta 6/5/4/5/4/6.</li>
+            <li>Ronda 1: instructor ayuda a LINCE con una tarjeta 6 reporte / 5 SITREP / 5-Line / 4 control / 6 BDA.</li>
             <li>Ronda 2: LINCE diferente repite el flujo sin ayuda salvo errores críticos.</li>
             <li>Ronda 3: cambia el aparato atacante de FORD 1 a FORD 2.</li>
             <li>Ronda 4: obliga a BDA y RTB; no dejes que el ejercicio acabe con el disparo.</li>
@@ -1219,20 +1224,20 @@
 
         <h4>Qué practicar</h4>
         <ul>
-          <li>LINCE 1 recibe los 6 datos de entrada y asigna BP.</li>
+          <li>LINCE 1 recibe los 6 datos de entrada; la tripulación propone o confirma la BP y LINCE la aprueba o deniega y controla la salida.</li>
           <li>LINCE 2 da SITREP de 5 mínimos y exige colación de amigos/restricción.</li>
-          <li>LINCE 3 da plan de ataque de 4 piezas y 5 líneas.</li>
-          <li>LINCE 4 controla con las 4 llamadas: ABORT, CONTINÚE, AUTORIZADO o AUTORIZADO A ATACAR si procede. Después exige BDA de 6 datos.</li>
+          <li>LINCE 3 autentica y da la RW CAS 5-line completa.</li>
+          <li>LINCE 4 controla con las 4 llamadas: ABORT, CONTINÚE, AUTORIZADO CALIENTE o AUTORIZADO A ATACAR si procede. Después exige BDA de 6 datos.</li>
           <li>FORD 1 lidera el vuelo; FORD 2 puede ser aparato atacante si se le asigna.</li>
         </ul>
 
         <h4>Ejemplo radio</h4>
         <div class="radio-line"><strong>LINCE 1:</strong> "FORD 1, recibido reporte. Mueva BP Lago Oeste."</div>
         <div class="radio-line"><strong>LINCE 2:</strong> "SITREP: amigos sur del bosque, técnico junto a casa norte, no cruce carretera norte."</div>
-        <div class="radio-line"><strong>LINCE 3:</strong> "Plan de ataque: una pasada Zuni, oeste a este. 5 líneas..."</div>
+        <div class="radio-line"><strong>LINCE 3:</strong> "RW CAS 5-line: Tipo 2, ataque sobre blanco, Zuni; LINCE al sur del bosque, humo azul; rumbo 340, 700 metros; técnico junto a casa norte, humo rojo; entrada oeste-este, egreso norte, amigos al sur, no fuego sur. Colacione."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "FORD 2 será aparato atacante. FORD 2, copie y ejecute."</div>
         <div class="radio-line"><strong>FORD 2:</strong> "FORD 2 copia. SALIENDO DE BP. DENTRO CALIENTE desde el oeste."</div>
-        <div class="radio-line"><strong>LINCE 4:</strong> "FORD 2, autorizado."</div>
+        <div class="radio-line"><strong>LINCE 4:</strong> "FORD 2, autorizado caliente."</div>
 
         <h4>Qué evaluar</h4>
         <ul>
@@ -1286,7 +1291,7 @@
 
     <section id="fase4" class="phase">
       <h2>Fase 4 - Control terminal con armas</h2>
-      <p><strong>Objetivo:</strong> mejorar el tramo más delicado del flujo ya vivido: correlación, DENTRO CALIENTE, autorizado/ABORT, RIFLE o CAÑÓN, SALIENDO, corrección, reataque y BDA. Aquí no se premia disparar mucho; se premia disparar cuando toca y con control.</p>
+      <p><strong>Objetivo:</strong> mejorar el tramo más delicado del flujo ya vivido: correlación, DENTRO CALIENTE, AUTORIZADO CALIENTE/ABORT, RIFLE o CAÑÓN, SALIENDO, corrección, reataque y BDA. Aquí no se premia disparar mucho; se premia disparar cuando toca y con control.</p>
 
       <article class="session-card">
         <h3>Sesión 4.1 - Cañón con control terminal</h3>
@@ -1298,7 +1303,7 @@
           <li>Tierra/JTAC da objetivo y posición amiga.</li>
           <li>Piloto confirma.</li>
           <li>Piloto anuncia SALIENDO DE BP y DENTRO CALIENTE.</li>
-          <li>JTAC confirma al aparato atacante: "FORD 1, autorizado".</li>
+          <li>JTAC confirma al aparato atacante: "FORD 1, AUTORIZADO CALIENTE".</li>
           <li>Piloto dispara y anuncia CAÑÓN.</li>
           <li>Piloto sale y anuncia SALIENDO.</li>
           <li>Tierra corrige si hace falta.</li>
@@ -1324,14 +1329,14 @@
           <ol>
             <li>Empieza con un objetivo fijo y visible, sin amigos cerca.</li>
             <li>El piloto entra a observar, no a disparar.</li>
-          <li>El JTAC/FAC confirma el objetivo, escucha DENTRO CALIENTE y confirma autorizado al aparato atacante.</li>
+          <li>El JTAC/FAC confirma el objetivo, escucha DENTRO CALIENTE y confirma AUTORIZADO CALIENTE al aparato atacante.</li>
             <li>El piloto hace una sola pasada y sale.</li>
             <li>Tierra corrige: corto, largo, izquierda, derecha o buen impacto.</li>
             <li>Repite la pasada solo si la comunicación fue clara.</li>
           </ol>
           <div class="radio-line"><strong>LINCE:</strong> "Infantería junto al muro, amigos al sur. Ese es su objetivo. Continúe."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "SALIENDO DE BP. DENTRO CALIENTE desde el oeste."</div>
-          <div class="radio-line"><strong>LINCE:</strong> "FORD 1, autorizado."</div>
+          <div class="radio-line"><strong>LINCE:</strong> "FORD 1, autorizado caliente."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "CAÑÓN CAÑÓN CAÑÓN. SALIENDO hacia el sur."</div>
           <div class="radio-line"><strong>LINCE:</strong> "Impacto corto. Corrige un poco más al norte."</div>
           <p class="note"><strong>Mínimo para pasar:</strong> nadie dispara sin autorización y la salida se comunica.</p>
@@ -1347,7 +1352,7 @@
         <ul>
           <li>Seleccionar un objetivo adecuado.</li>
           <li>Confirmar que los amigos no están pegados al objetivo.</li>
-          <li>Confirmar "autorizado" dirigido al aparato atacante cuando el piloto cante DENTRO CALIENTE y el objetivo esté confirmado.</li>
+          <li>Confirmar "AUTORIZADO CALIENTE" dirigido al aparato atacante cuando el piloto cante DENTRO CALIENTE y el objetivo esté confirmado.</li>
           <li>Evaluar impacto y corregir.</li>
           <li>Repetir solo si tiene sentido.</li>
         </ul>
@@ -1356,7 +1361,7 @@
         <ul>
           <li>Objetivo claro.</li>
           <li>Disciplina para no lanzar si hay duda.</li>
-          <li>Uso correcto de DENTRO CALIENTE, autorizado, RIFLE y Zuni.</li>
+          <li>Uso correcto de DENTRO CALIENTE, AUTORIZADO CALIENTE, RIFLE y Zuni.</li>
           <li>Corrección después del impacto.</li>
         </ul>
 
@@ -1370,12 +1375,12 @@
             <li>Usa un objetivo más separado: vehículo, edificio vacío o posición enemiga aislada.</li>
             <li>Pide al JTAC/FAC que diga en voz alta dónde están los amigos antes de autorizar.</li>
             <li>El piloto sale de BP, confirma visual y canta DENTRO CALIENTE.</li>
-            <li>El JTAC/FAC confirma autorizado solo si el objetivo está claro y lo dirige al aparato atacante.</li>
+            <li>El JTAC/FAC confirma AUTORIZADO CALIENTE solo si el objetivo está claro y lo dirige al aparato atacante.</li>
             <li>Después del impacto, tierra evalúa si hace falta reataque o si se cierra el objetivo.</li>
           </ol>
           <div class="radio-line"><strong>LINCE:</strong> "Amigos al sur de la carretera, objetivo vehículo al norte, separado. Ese vehículo es su objetivo. Continúe."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "SALIENDO DE BP. DENTRO CALIENTE desde el este."</div>
-          <div class="radio-line"><strong>LINCE:</strong> "FORD 1, autorizado."</div>
+          <div class="radio-line"><strong>LINCE:</strong> "FORD 1, autorizado caliente."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "RIFLE, ZUNI. SALIENDO hacia el oeste."</div>
           <div class="radio-line"><strong>LINCE:</strong> "Impacto largo. No reataques. Espera corrección."</div>
           <p class="note"><strong>Mínimo para pasar:</strong> el alumno sabe negar el disparo si no hay separación clara.</p>
@@ -1414,7 +1419,7 @@
           </ol>
           <div class="radio-line"><strong>LINCE:</strong> "Impacto a la izquierda del objetivo. Corrige derecha, misma distancia."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "Recibido, corrijo derecha, misma distancia. Preparado para reataque."</div>
-          <div class="radio-line"><strong>LINCE:</strong> "Reataque aprobado. Cante DENTRO CALIENTE y espere autorizado dirigido a su indicativo."</div>
+          <div class="radio-line"><strong>LINCE:</strong> "Reataque aprobado. Cante DENTRO CALIENTE y espere AUTORIZADO CALIENTE dirigido a su indicativo."</div>
           <p class="note"><strong>Mínimo para pasar:</strong> el segundo ataque debe aplicar la corrección, no repetir por inercia.</p>
         </div>
       </article>
@@ -1428,29 +1433,30 @@
         <h3>Sesión 5.1 - 9-line y observaciones</h3>
         <h4>Explicación del instructor</h4>
         <p>La 9-line no sustituye a la 5-line del Día 2; se introduce después para ordenar escenarios más complejos: varios blancos, marca láser/humo, coordenadas, amigos cerca, restricciones delicadas o mala visibilidad.</p>
+        <p><strong>Orden de información:</strong> reporte de entrada → SITREP → game plan → 9-Line → observaciones/restricciones → colación. El game plan declara tipo de control y método; en el curso se concreta también arma/efecto y pasadas. El traslado de CP a BP no sustituye este bloque ni autoriza empleo. En la 5-Line del Día 2, la preparación se integra en las cinco casillas y no se transmite aparte.</p>
 
         <h4>Qué practicar</h4>
         <ul>
-          <li>LINCE dicta las 9 líneas en orden, sin correr.</li>
-          <li>FORD copia línea 4, línea 6, línea 8, egreso y observaciones.</li>
+          <li>LINCE transmite el game plan y espera a que FORD esté listo; después dicta las nueve líneas en orden.</li>
+          <li>FORD copia línea 4, línea 6 y restricciones; línea 7 debe indicar designador/código si el ataque es láser.</li>
           <li>LINCE añade FAH, marca, línea láser, arma solicitada o restricción principal.</li>
           <li>FORD colaciona lo crítico, no toda la 9-line de memoria.</li>
           <li>LINCE valida con "colación correcta" antes de "avance ahora".</li>
         </ul>
 
         <h4>Ejemplo radio</h4>
-        <div class="radio-line"><strong>LINCE:</strong> "FORD 1, LINCE, Tipo 2 en vigor. Espere 9-line."</div>
+        <div class="radio-line"><strong>LINCE:</strong> "FORD 1, game plan: Tipo 2, ataque visual sobre objetivo, cohetes contra técnico, una pasada. Mantenga BP hasta avance. Avise listo para 9-Line."</div>
         <div class="radio-line"><strong>FORD 1:</strong> "Listo para 9-line."</div>
-        <div class="radio-line"><strong>LINCE:</strong> "1 IP FORD. 2 rumbo uno-seis-cero. 3 cuatro kilómetros. 4 cota dos-tres-cero. 5 T-80. 6 cuadrícula dos-tres-siete uno-nueve-dos-tres. 7 láser. 8 amigos dos kilómetros noroeste. 9 egreso sur."</div>
-        <div class="radio-line"><strong>LINCE:</strong> "Observaciones: rumbo final de ataque uno-ocho-cero, línea láser norte-sur. Colacione."</div>
-        <div class="radio-line"><strong>FORD 1:</strong> "Cota dos-tres-cero, cuadrícula dos-tres-siete uno-nueve-dos-tres, amigos dos kilómetros noroeste, egreso sur, FAH uno-ocho-cero, láser norte-sur."</div>
-        <div class="radio-line"><strong>LINCE:</strong> "Colación correcta. Avance ahora."</div>
+        <div class="radio-line"><strong>LINCE:</strong> "BP Lago Oeste; rumbo cero-nueve-cero, sin offset; mil doscientos metros; cota cuatro-cinco metros; técnico con ametralladora junto al granero; cuadrícula cero-tres-cinco cero-cuatro-ocho; humo rojo cincuenta metros al oeste del objetivo; amigos trescientos metros al sur; egreso norte a BP."</div>
+        <div class="radio-line"><strong>LINCE:</strong> "Observaciones: ataque oeste a este, no sobrevuelo del pueblo, ningún disparo hacia el sur. Colacione."</div>
+        <div class="radio-line"><strong>FORD 1:</strong> "Cota cuatro-cinco metros; objetivo cero-tres-cinco cero-cuatro-ocho; amigos trescientos metros al sur; egreso norte a BP; ataque oeste a este, no sobrevuelo del pueblo, no fuego sur."</div>
+        <div class="radio-line"><strong>LINCE:</strong> "Colación correcta. Mantenga BP y avise contacto con humo rojo."</div>
 
         <h4>Qué evaluar</h4>
         <ul>
-          <li>La 9-line sale completa y ordenada.</li>
+          <li>El game plan precede a una 9-Line completa y ordenada.</li>
           <li>Las observaciones aclaran, no ensucian.</li>
-          <li>La colación crítica incluye amigos, objetivo, cota/cuadrícula, egreso y restricciones.</li>
+          <li>La colación crítica incluye línea 4, línea 6 y restricciones; se comprueba que amigos y egreso estén claros en el briefing.</li>
           <li>Si no hay objetivo claro, se mantiene BP o se hace pasada en seco.</li>
         </ul>
       </article>
@@ -1541,7 +1547,7 @@
             <li>El líder de tierra pide CAS al JTAC/FAC.</li>
             <li>El JTAC/FAC ordena la información y llama al piloto.</li>
             <li>El piloto entra a observar, canta CONTACTO con la referencia y BLANCO A LA VISTA cuando tenga el objetivo confirmado.</li>
-            <li>El piloto canta DENTRO CALIENTE; el JTAC/FAC confirma autorizado si procede, siempre dirigido al aparato atacante.</li>
+            <li>El piloto canta DENTRO CALIENTE; el JTAC/FAC confirma AUTORIZADO CALIENTE si procede, siempre dirigido al aparato atacante.</li>
             <li>Después del ataque, tierra informa resultado y decide si avanza, pide reataque o cancela.</li>
             <li>El instructor detiene la práctica y hace revisión corta.</li>
           </ol>
@@ -1553,7 +1559,7 @@
           <div class="radio-line"><strong>FORD 1:</strong> "BLANCO A LA VISTA técnico junto al muro."</div>
           <div class="radio-line"><strong>LINCE:</strong> "Ese técnico es su objetivo. Continúe."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "SALIENDO DE BP. DENTRO CALIENTE desde el oeste."</div>
-          <div class="radio-line"><strong>LINCE:</strong> "FORD 1, autorizado."</div>
+          <div class="radio-line"><strong>LINCE:</strong> "FORD 1, autorizado caliente."</div>
           <div class="radio-line"><strong>FORD 1:</strong> "CAÑÓN CAÑÓN CAÑÓN. SALIENDO hacia oeste."</div>
           <div class="radio-line"><strong>Tierra:</strong> "Buen impacto. Unidad avanza. CAS en espera."</div>
         </div>
