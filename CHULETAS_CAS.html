@@ -258,6 +258,51 @@ strong{color:#fff;font-weight:600}
 .exercise-map .small{font-size:10px;fill:var(--ink-dim);letter-spacing:.05em}
 .exercise-map .redtext{fill:#ff8a72}.exercise-map .greentext{fill:var(--green-bright)}.exercise-map .ambertext{fill:var(--amber)}.exercise-map .bluetext{fill:#8dc8ff}
 .exercise-map .zone-label{fill:rgba(7,16,13,.86);stroke:rgba(233,239,233,.2);stroke-width:1}
+.exercise-trainer{
+  position:relative;border:1px solid var(--line-strong);border-radius:12px;
+  background:linear-gradient(135deg,rgba(255,178,46,.08),rgba(10,16,13,.98) 34%,#07100d);
+  padding:14px;margin:0 0 14px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)
+}
+.trainer-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:start;margin-bottom:12px}
+.trainer-top h3{font-size:22px;text-transform:uppercase;color:#fff;margin-top:4px}
+.trainer-top p{margin:6px 0 0;color:var(--ink-dim);font-size:13.5px;line-height:1.45}
+.timer-box{
+  min-width:136px;border:1px solid rgba(255,178,46,.45);border-radius:10px;
+  background:rgba(7,16,13,.78);padding:10px 12px;text-align:center
+}
+.timer-box span{display:block;font-family:var(--disp);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
+.timer-box strong{display:block;margin-top:3px;font-family:var(--mono);font-size:28px;color:var(--amber)}
+.trainer-controls{display:flex;gap:8px;flex-wrap:wrap;align-items:end;margin-bottom:12px}
+.trainer-control{display:grid;gap:5px;min-width:142px;font-family:var(--disp);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.trainer-control select{
+  min-height:36px;border:1px solid var(--line-strong);border-radius:7px;
+  background:#0a100d;color:var(--ink);font:600 12px var(--body);padding:7px 9px
+}
+.trainer-main{display:grid;grid-template-columns:.78fr 1.32fr .9fr;gap:12px}
+.trainer-panel{
+  border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.026);
+  padding:12px;min-width:0
+}
+.trainer-panel h4{font-size:14px;text-transform:uppercase;color:#fff;margin-bottom:9px}
+.trainer-task{display:grid;gap:7px;margin:0;padding:0;list-style:none}
+.trainer-task li{border-left:2px solid rgba(255,178,46,.55);padding-left:9px;color:var(--ink);font-size:13px;line-height:1.35}
+.trainer-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.trainer-field{display:grid;gap:5px;min-width:0}
+.trainer-field.wide{grid-column:1/-1}
+.trainer-field span{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.trainer-field textarea{
+  width:100%;min-height:46px;resize:vertical;border:1px solid var(--line-strong);
+  border-radius:8px;background:#07100d;color:var(--ink);font:500 13px/1.35 var(--body);
+  padding:8px 9px;outline:none
+}
+.trainer-field textarea:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,178,46,.13)}
+.trainer-field.wide textarea{min-height:88px}
+.trainer-feedback{color:var(--ink-dim);font-size:13px;line-height:1.42}
+.trainer-feedback strong{color:#fff}
+.trainer-feedback .verdict{display:inline-block;margin:0 0 8px;padding:5px 8px;border-radius:999px;background:rgba(255,178,46,.14);color:var(--amber);font-family:var(--disp);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.trainer-feedback ul{margin:8px 0 0;padding-left:18px}
+.trainer-feedback li{margin:4px 0}
+.exercise-card.is-active{border-color:var(--amber);box-shadow:0 0 0 2px rgba(255,178,46,.12),0 0 28px rgba(255,178,46,.08)}
 
 /* ---- modo móvil in-game ---- */
 @media(max-width:700px){
@@ -322,6 +367,11 @@ strong{color:#fff;font-weight:600}
   .map-tools{gap:6px}
   .map-btn,.map-swatch{font-size:11px;min-height:38px;padding:8px 9px}
   .map-canvas-wrap{border-radius:9px}
+  .trainer-top,.trainer-main{grid-template-columns:1fr}
+  .timer-box{text-align:left;min-width:0}
+  .trainer-controls .map-btn{flex:1 1 136px}
+  .trainer-control{flex:1 1 140px;min-width:0}
+  .trainer-fields{grid-template-columns:1fr}
   .exercise-grid{grid-template-columns:1fr;gap:12px}
   .exercise-card{grid-template-columns:1fr;min-height:0;padding:12px}
   .exercise-map{min-height:230px}
@@ -450,6 +500,19 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   .field p{font-size:9.5px;color:#000;line-height:1.35}
   .field .fill{font-size:9.5px;color:#000;min-height:8mm}
   .actions,.minihelp,.map-tools,.map-hint,.map-status{display:none}
+  .trainer-controls{display:none}
+  .exercise-trainer{padding:3mm;border-radius:4px;margin-bottom:4mm}
+  .trainer-top,.trainer-main{grid-template-columns:1fr;gap:2.5mm}
+  .trainer-top h3{font-size:12px}
+  .trainer-top p,.trainer-task li,.trainer-feedback{font-size:8.5px;line-height:1.28}
+  .timer-box{min-width:0;border-radius:3px;padding:2mm;text-align:left}
+  .timer-box strong{font-size:14px}
+  .trainer-panel{border-radius:3px;padding:2.5mm}
+  .trainer-panel h4{font-size:9.5px;margin-bottom:1.5mm}
+  .trainer-fields{grid-template-columns:repeat(2,1fr);gap:1.8mm}
+  .trainer-field span{font-size:7px}
+  .trainer-field textarea{min-height:10mm;border-radius:3px;font-size:8px;color:#000;background:#fffaf0}
+  .trainer-field.wide textarea{min-height:18mm}
   .exercise-actions{display:none}
   .exercise-grid{grid-template-columns:1fr 1fr;gap:4mm}
   .exercise-card{break-inside:avoid;grid-template-columns:1fr;gap:2.5mm;padding:3mm;border-radius:4px;min-height:auto}
@@ -492,41 +555,42 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 <section class="intro">
   <div class="kicker">Curso CAS · Arma Reforger</div>
   <h1>Tarjetas de bolsillo · alumno</h1>
-  <p>Herramientas rellenables para el alumno: 5-Line, 9-Line, hoja JTAC, piernógrafo y pizarra táctica. Todas siguen el mismo orden visual del manual para copiar rápido y no romper la secuencia.</p>
-  <div class="note">5-Line · 9-Line · JTAC · Piernógrafo A5 · Pizarra táctica · HTML / móvil / in-game</div>
+  <p>Herramientas rellenables para el alumno: RW CAS 5-line, 9-line, hoja JTAC, piernógrafo y pizarra táctica. Todas siguen el mismo orden visual del manual para copiar rápido y no romper la secuencia.</p>
+  <div class="note">RW CAS 5-line · 9-line · JTAC · Piernógrafo A5 · Pizarra táctica · HTML / móvil / in-game</div>
 </section>
 
 <!-- ====== GRID DE TARJETAS ====== -->
 <div class="grid">
 
-  <!-- ============ 1. CCA 5-LINE RELLENABLE ============ -->
+  <!-- ============ 1. RW CAS 5-LINE RELLENABLE ============ -->
   <article class="card wide critical" id="five-line-tool">
     <span class="bk"></span>
-    <div class="hd"><span class="num">1</span><h2>CCA 5 líneas rellenable</h2><span class="tag">Rápida para helicóptero</span></div>
+    <div class="hd"><span class="num">1</span><h2>RW CAS 5-line rellenable</h2><span class="tag">Helicóptero · no autoriza fuego</span></div>
     <div class="toolgrid">
-      <div class="field big"><label>1 · Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="five-1" data-placeholder="Dos cohetes / pasada fría / supresión"></div></div>
-      <div class="field big"><label>2 · Propia / referencia JTAC</label><div class="fill" contenteditable="true" data-card-key="five-2" data-placeholder="LINCE 500 m norte de edificio azul / humo azul"></div></div>
-      <div class="field big"><label>3 · Objetivo / rumbo / distancia</label><div class="fill" contenteditable="true" data-card-key="five-3" data-placeholder="Camión mando, rumbo 340, 700 m"></div></div>
-      <div class="field big"><label>4 · Marca / ataque / egreso</label><div class="fill" contenteditable="true" data-card-key="five-4" data-placeholder="Humo rojo, sobre hombro derecho, egreso este"></div></div>
-      <div class="field big"><label>5 · Amenaza / amigos</label><div class="fill" contenteditable="true" data-card-key="five-5" data-placeholder="AA norte, amigos al sur, cerca del objetivo"></div></div>
-      <div class="field big"><label>Arma / efecto JTAC</label><div class="fill" contenteditable="true" data-card-key="five-weapon" data-placeholder="Cohetes, ametralladora, supresión, destrucción, marcar sin disparar..."></div></div>
-      <div class="field big"><label>Colación mínima</label><div class="fill" contenteditable="true" data-card-key="five-readback" data-placeholder="Amigos, objetivo, restricciones y egreso"></div></div>
+      <div class="field big"><label>1 · TIPO / ATAQUE / ARMA</label><div class="fill" contenteditable="true" data-card-key="five-1" data-placeholder="Tipo 2, ataque sobre blanco, 1 Hellfire"></div></div>
+      <div class="field big"><label>2 · POSICIÓN PROPIA / MARCA</label><div class="fill" contenteditable="true" data-card-key="five-2" data-placeholder="TRP Alfa, estrobo IR"></div></div>
+      <div class="field big"><label>3 · LOCALIZACIÓN DEL BLANCO</label><div class="fill" contenteditable="true" data-card-key="five-3" data-placeholder="090 magnéticos, 2000 m desde TRP Alfa"></div></div>
+      <div class="field big"><label>4 · DESCRIPCIÓN / MARCA</label><div class="fill" contenteditable="true" data-card-key="five-4" data-placeholder="T-90 en cruce, orientado sur, sin marca"></div></div>
+      <div class="field big"><label>5 · OBSERVACIONES / RESTRICCIONES</label><div class="fill" contenteditable="true" data-card-key="five-5" data-placeholder="Amenaza, amigos, FAH, salida, a mi orden, cese láser"></div></div>
+      <div class="field big"><label>Autenticación</label><div class="fill" contenteditable="true" data-card-key="five-auth" data-placeholder="Desafío / respuesta mutua antes de datos tácticos"></div></div>
+      <div class="field big"><label>Colación obligatoria</label><div class="fill" contenteditable="true" data-card-key="five-readback" data-placeholder="Todas las restricciones + línea 3"></div></div>
       <div class="field big"><label>BDA</label><div class="fill" contenteditable="true" data-card-key="five-bda" data-placeholder="Impactos, destruido, necesita segunda pasada..."></div></div>
       <div class="field big"><label>Notas</label><div class="fill" contenteditable="true" data-card-key="five-notes" data-placeholder="Aparato atacante, arma, entrada, amenaza, humo..."></div></div>
     </div>
-    <p class="minihelp">Rellenable de alumno: copiar los 5 datos, colacionar lo crítico y dejar BDA/cierre escrito. La teoría completa va en el manual.</p>
+    <p class="minihelp">Rellenable de alumno: completa las cinco líneas y léelas como una sola transmisión. No hagas un game plan aparte. La 5-line no autoriza el fuego: aún faltan correlación y autorización de LINCE.</p>
   </article>
 
   <!-- ============ A. 9-LINE RELLENABLE ============ -->
   <article class="card wide critical" id="nine-line-tool">
     <span class="bk"></span>
     <div class="hd"><span class="num">2</span><h2>9-Line rellenable</h2><span class="tag">Copiar durante misión</span></div>
+    <div class="field"><label>Game plan · antes de las nueve líneas</label><div class="fill" contenteditable="true" data-card-key="nine-gameplan-weapon" data-placeholder="Tipo 2 · ataque visual sobre objetivo · cohetes / efecto · una pasada"></div></div>
     <div class="toolgrid two">
       <div>
-        <div class="linebox"><div class="ln">1</div><div class="field"><label>IP / BP / HA</label><div class="fill" contenteditable="true" data-card-key="nine-1" data-placeholder="IP FORD / HA Pepsi / BP Lago Oeste"></div></div></div>
-        <div class="linebox"><div class="ln">2</div><div class="field"><label>Rumbo / lado permitido</label><div class="fill" contenteditable="true" data-card-key="nine-2" data-placeholder="Ej.: 160 · FAH 180 / lado derecho"></div></div></div>
+        <div class="linebox"><div class="ln">1</div><div class="field"><label>IP / BP</label><div class="fill" contenteditable="true" data-card-key="nine-1" data-placeholder="BP Lago Oeste"></div></div></div>
+        <div class="linebox"><div class="ln">2</div><div class="field"><label>Rumbo / offset</label><div class="fill" contenteditable="true" data-card-key="nine-2" data-placeholder="Desde BP al objetivo: 090 · sin offset / derecha"></div></div></div>
         <div class="linebox"><div class="ln">3</div><div class="field"><label>Distancia</label><div class="fill" contenteditable="true" data-card-key="nine-3" data-placeholder="Ej.: 4 km / 1200 m"></div></div></div>
-        <div class="linebox"><div class="ln">4</div><div class="field"><label>Cota</label><div class="fill" contenteditable="true" data-card-key="nine-4" data-placeholder="Lectura de vuelta"></div></div></div>
+        <div class="linebox"><div class="ln">4</div><div class="field"><label>Cota del objetivo · metros</label><div class="fill" contenteditable="true" data-card-key="nine-4" data-placeholder="Cota de mapa; lectura de vuelta con unidad"></div></div></div>
         <div class="linebox"><div class="ln">5</div><div class="field"><label>Objetivo</label><div class="fill" contenteditable="true" data-card-key="nine-5" data-placeholder="T-80 / técnico / camión mando"></div></div></div>
       </div>
       <div>
@@ -535,16 +599,15 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
         <div class="linebox"><div class="ln">8</div><div class="field"><label>Amigos</label><div class="fill" contenteditable="true" data-card-key="nine-8" data-placeholder="2 km NW / 300 m sur"></div></div></div>
         <div class="linebox"><div class="ln">9</div><div class="field"><label>Egreso</label><div class="fill" contenteditable="true" data-card-key="nine-9" data-placeholder="Sur a CP Wolf / vuelta HA"></div></div></div>
         <div class="field"><label>Observaciones / restricciones</label><div class="fill" contenteditable="true" data-card-key="nine-remarks" data-placeholder="FAH 180 · láser N-S · AA norte · no fuego sur"></div></div>
-        <div class="field"><label>Tipo / arma / avance</label><div class="fill" contenteditable="true" data-card-key="nine-gameplan-weapon" data-placeholder="Tipo 2 · 1x misil guiado / cohetes · colación correcta · avance"></div></div>
       </div>
     </div>
-    <p class="minihelp">Rellenable de alumno: copiar 1-9, observaciones, tipo/arma y lectura de vuelta. La teoría, ejemplos y fraseología completa están en el manual.</p>
+    <p class="minihelp">SITREP → game plan → nueve líneas → observaciones → colación de 4, 6 y restricciones. Avance permite movimiento; AUTORIZADO CALIENTE permite empleo en el control terminal.</p>
   </article>
 
   <!-- ============ JTAC UNIFICADO ============ -->
   <article class="card wide critical" id="jtac-tool">
     <span class="bk"></span>
-    <div class="hd"><span class="num">3</span><h2>Herramienta JTAC</h2><span class="tag">6 → 5 → 4 → 5 líneas → 4 → 6</span></div>
+    <div class="hd"><span class="num">3</span><h2>Herramienta JTAC</h2><span class="tag">6 → 5 → 5-Line → 4 → 6</span></div>
     <div class="toolgrid">
       <div class="field"><label>JTAC activo</label><div class="fill" contenteditable="true" data-card-key="jtac-active" data-placeholder="LINCE 1"></div></div>
       <div class="field"><label>Vuelo controlado</label><div class="fill" contenteditable="true" data-card-key="jtac-flight" data-placeholder="FORD 1 / FORD 2 aparato atacante"></div></div>
@@ -559,9 +622,10 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
       <div class="field big"><label>Marca / guía hablada</label><div class="fill" contenteditable="true" data-card-key="jtac-mark" data-placeholder="Humo rojo, desde humo 100 m este, junto al muro"></div></div>
       <div class="field big"><label>Restricción principal</label><div class="fill" contenteditable="true" data-card-key="jtac-restriction" data-placeholder="No disparar hacia el sur / no cruzar carretera norte"></div></div>
 
-      <div class="field"><label>Plan de ataque</label><div class="fill" contenteditable="true" data-card-key="jtac-gameplan" data-placeholder="Tipo 2 · cohetes · una pasada · oeste-este"></div></div>
-      <div class="field"><label>Arma / efecto</label><div class="fill" contenteditable="true" data-card-key="jtac-weapon-effect" data-placeholder="Cohetes / ametralladora / supresión / pasada seca"></div></div>
-      <div class="field"><label>Confirmación LINCE</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="AUTORIZADO / CONTINÚE EN SECO / AUTORIZADO A ATACAR / ABORT"></div></div>
+      <div class="field big"><label>RW CAS 5-line</label><div class="fill" contenteditable="true" data-card-key="jtac-gameplan" data-placeholder="1 tipo/ataque/arma · 2 posición/marca · 3 rumbo/distancia · 4 descripción/marca · 5 observaciones/restricciones"></div></div>
+      <div class="field big"><label>Game plan · solo si usas 9-Line</label><div class="fill" contenteditable="true" data-card-key="jtac-nine-gameplan" data-placeholder="Tras SITREP y antes de 9-Line: tipo · método · arma/efecto · pasadas"></div></div>
+      <div class="field"><label>Control adicional</label><div class="fill" contenteditable="true" data-card-key="jtac-weapon-effect" data-placeholder="Visual sobre marca / pasada seca / no fuego sur / código ABORT"></div></div>
+      <div class="field"><label>Confirmación LINCE</label><div class="fill" contenteditable="true" data-card-key="jtac-clearance" data-placeholder="AUTORIZADO SALIR BP / AUTORIZADO CALIENTE / ABORT"></div></div>
       <div class="field"><label>BDA / cierre</label><div class="fill" contenteditable="true" data-card-key="jtac-bda" data-placeholder="Espere BDA / destruido / no observado / RTB"></div></div>
     </div>
     <p class="minihelp">Rellenable de alumno/JTAC: cada bloque guarda el dato que se va a decir por radio. Enter salta al siguiente campo; los datos quedan guardados en este navegador.</p>
@@ -683,28 +747,96 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
     <div class="hd"><span class="num">6</span><h2>Ejercicios en seco</h2><span class="tag">Practicar sin misión</span></div>
     <p class="exercise-intro">Usa estos casos para entrenar en casa o antes de una sesión. Lee el croquis, prepara la transmisión, colaciona lo crítico y carga el caso en la pizarra si quieres resolverlo dibujando encima.</p>
 
+    <div class="exercise-trainer" id="dryTrainer" aria-label="Entrenamiento en seco cronometrado">
+      <div class="trainer-top">
+        <div>
+          <div class="exercise-kicker" id="trainerCaseMeta">Caso 1 &middot; 5-Line &middot; 5 min</div>
+          <h3 id="trainerTitle">Técnico aislado, amigos al sur</h3>
+          <p id="trainerSituation">Resuelve la ficha como si fueras a colacionar con LINCE. Primero escribe; después compara la solución.</p>
+        </div>
+        <div class="timer-box" aria-live="polite">
+          <span>Tiempo</span>
+          <strong id="trainerTimer">05:00</strong>
+        </div>
+      </div>
+
+      <div class="trainer-controls" aria-label="Controles del entrenamiento">
+        <label class="trainer-control">Caso
+          <select id="trainerCaseSelect">
+            <option value="dry-1">Caso 1 &middot; 5-Line</option>
+            <option value="dry-2">Caso 2 &middot; 9-Line</option>
+            <option value="dry-3">Caso 3 &middot; Peligro cercano</option>
+            <option value="dry-4">Caso 4 &middot; ABORT</option>
+          </select>
+        </label>
+        <label class="trainer-control">Tiempo
+          <select id="trainerTimeSelect">
+            <option value="180">3 min</option>
+            <option value="300" selected>5 min</option>
+            <option value="480">8 min</option>
+          </select>
+        </label>
+        <button type="button" class="map-btn" id="trainerNewCase">Nuevo caso</button>
+        <button type="button" class="map-btn" id="trainerStart">Iniciar</button>
+        <button type="button" class="map-btn" id="trainerReset">Reiniciar</button>
+        <button type="button" class="map-btn" id="trainerLoadMap">Cargar en pizarra</button>
+        <button type="button" class="map-btn" id="trainerCompare">Comparar solución</button>
+        <button type="button" class="map-btn danger" id="trainerClear">Limpiar ficha</button>
+      </div>
+
+      <div class="trainer-main">
+        <section class="trainer-panel">
+          <h4>Tarea</h4>
+          <ul class="trainer-task" id="trainerTaskList"></ul>
+        </section>
+
+        <section class="trainer-panel">
+          <h4>Ficha del alumno</h4>
+          <div class="trainer-fields">
+            <label class="trainer-field"><span>IP / BP / CP</span><textarea data-exercise-field="ip"></textarea></label>
+            <label class="trainer-field"><span>Rumbo / FAH</span><textarea data-exercise-field="heading"></textarea></label>
+            <label class="trainer-field"><span>Distancia</span><textarea data-exercise-field="distance"></textarea></label>
+            <label class="trainer-field"><span>Cota</span><textarea data-exercise-field="elevation"></textarea></label>
+            <label class="trainer-field"><span>Objetivo</span><textarea data-exercise-field="target"></textarea></label>
+            <label class="trainer-field"><span>Cuadrícula</span><textarea data-exercise-field="grid"></textarea></label>
+            <label class="trainer-field"><span>Marca</span><textarea data-exercise-field="mark"></textarea></label>
+            <label class="trainer-field"><span>Amigos</span><textarea data-exercise-field="friendlies"></textarea></label>
+            <label class="trainer-field"><span>Egreso</span><textarea data-exercise-field="egress"></textarea></label>
+            <label class="trainer-field"><span>Restricciones</span><textarea data-exercise-field="restrictions"></textarea></label>
+            <label class="trainer-field wide"><span>Transmisión final / 9-Line / decisión</span><textarea data-exercise-field="transmission"></textarea></label>
+          </div>
+        </section>
+
+        <section class="trainer-panel trainer-feedback" id="trainerFeedback" aria-live="polite">
+          <span class="verdict">Sin corregir</span>
+          <p>Rellena la ficha bajo tiempo. Al comparar, la herramienta busca los puntos críticos; no sustituye el criterio, pero detecta omisiones obvias.</p>
+        </section>
+      </div>
+    </div>
+
     <div class="exercise-grid">
       <section class="exercise-card">
         <div class="exercise-copy">
-          <div class="exercise-kicker">Caso 1 · CCA 5-Line</div>
+          <div class="exercise-kicker">Caso 1 · RW CAS 5-line</div>
           <h3>Técnico aislado, amigos al sur</h3>
           <p>Objetivo claro, BP establecida y amigos separados. Debe resolverse con 5-Line si la colación sale limpia.</p>
           <ul class="exercise-task">
-            <li>Prepara las 5 líneas de LINCE.</li>
-            <li>Colaciona objetivo, amigos, restricción y egreso.</li>
+            <li>Prepara las cinco líneas: control/ataque/arma, posición propia/marca, localización, descripción/marca y observaciones/restricciones.</li>
+            <li>Colaciona todas las restricciones y la línea 3; comprueba objetivo, amigos, amenaza y salida.</li>
             <li>Decide eje de entrada y salida segura.</li>
           </ul>
           <div class="exercise-actions">
+            <button type="button" class="map-btn" data-trainer-case="dry-1">Resolver este caso</button>
             <button type="button" class="map-btn" data-map-exercise="dry-1">Cargar en pizarra</button>
           </div>
           <details>
             <summary>Solución esperada</summary>
             <ul>
-              <li>Arma/efecto: dos cohetes o cañón, destruir técnico.</li>
-              <li>Propia: LINCE al sur, amigos 300 m al sur del objetivo.</li>
-              <li>Objetivo: técnico junto al cruce, marcado humo rojo.</li>
-              <li>Entrada oeste-este, egreso norte o vuelta a BP.</li>
-              <li>Restricción: ningún disparo hacia el sur.</li>
+              <li>Tipo/ataque/arma: Tipo 2, ataque sobre blanco, cohetes o cañón para destruir el técnico.</li>
+              <li>Posición propia/marca: LINCE al sur, referencia clara y humo azul si procede.</li>
+              <li>Localización: objetivo junto al cruce, desde LINCE y con rumbo/distancia.</li>
+              <li>Descripción/marca: técnico marcado con humo rojo.</li>
+              <li>Observaciones/restricciones: entrada oeste-este, egreso norte o BP, amigos 300 m al sur, no fuego sur.</li>
             </ul>
           </details>
         </div>
@@ -729,18 +861,21 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
           <h3>Objetivo urbano con restricciones</h3>
           <p>Hay edificios, amigos al noroeste y una zona que no se puede sobrevolar. No lo resuelvas con 5-Line: usa 9-Line para ordenar la información.</p>
           <ul class="exercise-task">
+            <li>Tras el SITREP, transmite el game plan antes de las nueve líneas.</li>
             <li>Prepara IP/BP, rumbo, distancia, cota, objetivo, cuadrícula, marca, amigos y egreso.</li>
             <li>Marca qué líneas debe repetir FORD.</li>
             <li>Añade observaciones: FAH y no sobrevuelo.</li>
           </ul>
           <div class="exercise-actions">
+            <button type="button" class="map-btn" data-trainer-case="dry-2">Resolver este caso</button>
             <button type="button" class="map-btn" data-map-exercise="dry-2">Cargar en pizarra</button>
           </div>
           <details>
             <summary>Solución esperada</summary>
             <ul>
               <li>Usar 9-Line por complejidad urbana y restricciones.</li>
-              <li>Lectura de vuelta: línea 4, línea 6, línea 8, egreso y restricciones.</li>
+              <li>Orden: SITREP, game plan, nueve líneas, observaciones y colación. No inventar coordenadas o distancias que el croquis no proporciona.</li>
+              <li>Colación: línea 4, línea 6 y restricciones.</li>
               <li>Entrada controlada por FAH oeste-este o noroeste-sureste.</li>
               <li>No sobrevolar el pueblo ni disparar hacia amigos.</li>
             </ul>
@@ -766,18 +901,19 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
           <h3>Amigos a 150 m del objetivo</h3>
           <p>El objetivo amenaza a LINCE. La prioridad no es disparar rápido: es que el eje de fuego nunca apunte a los amigos.</p>
           <ul class="exercise-task">
-            <li>Declara peligro cercano y exige iniciales de LINCE antes de autorizar.</li>
-            <li>Elige arma más controlable si procede.</li>
+            <li>Declara peligro cercano; LINCE transmite la aceptación del responsable terrestre del ejercicio con sus iniciales.</li>
+            <li>Si faltan datos o aceptación, mantén la espera o la pasada en seco.</li>
             <li>Traza línea de no fuego y rumbo seguro.</li>
           </ul>
           <div class="exercise-actions">
+            <button type="button" class="map-btn" data-trainer-case="dry-3">Resolver este caso</button>
             <button type="button" class="map-btn" data-map-exercise="dry-3">Cargar en pizarra</button>
           </div>
           <details>
             <summary>Solución esperada</summary>
             <ul>
-              <li>LINCE anuncia PELIGRO CERCANO e iniciales antes de autorizar.</li>
-              <li>Preferir cañón/ametralladora en ráfagas cortas si el escenario lo permite.</li>
+              <li>LINCE anuncia PELIGRO CERCANO y transmite la aceptación del responsable terrestre con sus iniciales.</li>
+              <li>Sin posición amiga confirmada o aceptación, no se autoriza empleo.</li>
               <li>Entrada paralela a la línea amiga-enemigo, no hacia los amigos.</li>
               <li>Si se pierde visual de amigos u objetivo: SALIENDO EN SECO.</li>
             </ul>
@@ -808,6 +944,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
             <li>Escribe qué debe pasar antes de reatacar.</li>
           </ul>
           <div class="exercise-actions">
+            <button type="button" class="map-btn" data-trainer-case="dry-4">Resolver este caso</button>
             <button type="button" class="map-btn" data-map-exercise="dry-4">Cargar en pizarra</button>
           </div>
           <details>
@@ -845,7 +982,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 </div>
 
 <footer>
-  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.7
+  ArmaDos · Curso CAS · Tarjetas de bolsillo v1.8
 </footer>
 
 <script>
@@ -920,6 +1057,299 @@ function clearCards(){
     localStorage.removeItem(cardPrefix + el.dataset.cardKey);
     el.innerText = "";
   });
+}
+const dryTrainingCases = [
+  {
+    id: "dry-1",
+    meta: "Caso 1 · 5-Line · 5 min",
+    title: "Tecnico aislado, amigos al sur",
+    situation: "Objetivo claro, BP establecida y amigos separados. Resuelve como RW CAS 5-line y evita cualquier empleo hacia el sur.",
+    seconds: 300,
+    tasks: [
+      "Preparar las cinco líneas de la RW CAS 5-line para LINCE.",
+      "Colacionar todas las restricciones y la línea 3, incluidos objetivo, amigos y egreso.",
+      "Decidir eje de entrada oeste-este y salida segura."
+    ],
+    checks: [
+      {label:"BP/IP identificado", field:"ip", terms:["bp","ip"]},
+      {label:"Eje oeste-este", field:"heading", terms:["oeste","este","w-e","270","090"]},
+      {label:"Objetivo tecnico/cruce", field:"target", terms:["tecnico","cruce","vehiculo"]},
+      {label:"Marca humo rojo", field:"mark", terms:["humo rojo","rojo","humo"]},
+      {label:"Amigos al sur", field:"friendlies", terms:["sur","300"]},
+      {label:"Egreso norte o BP", field:"egress", terms:["norte","bp"]},
+      {label:"No fuego sur", field:"restrictions", terms:["no fuego sur","sur"]},
+      {label:"Línea 1 incluye tipo/ataque/arma", field:"transmission", terms:["canon","cohete","zuni","hellfire","destruir","efecto","tipo","ataque sobre"]}
+    ],
+    solution: [
+      "1 Tipo/ataque/arma: Tipo 2, cohetes o cañón, destruir tecnico.",
+      "2 Posición propia/marca: LINCE al sur del objetivo, referencia clara y humo azul si procede.",
+      "3 Localización: referencia del objetivo junto al cruce. Si el caso no proporciona rumbo y distancia desde LINCE, solicitar esos datos; no medir sobre un croquis sin escala.",
+      "4 Descripción/marca: tecnico marcado con humo rojo.",
+      "5 Observaciones/restricciones: entrada oeste-este, egreso norte o BP, amigos 300 m al sur, no fuego sur."
+    ]
+  },
+  {
+    id: "dry-2",
+    meta: "Caso 2 · 9-Line · 8 min",
+    title: "Objetivo urbano con restricciones",
+    situation: "Zona urbana, amigos al noroeste y area que no se debe sobrevolar. Ordena la informacion en 9-Line y remata con observaciones.",
+    seconds: 480,
+    tasks: [
+      "Transmitir game plan tras SITREP y antes de 9-Line: tipo, metodo y arma/efecto del ejercicio.",
+      "Rellenar IP/BP, rumbo, distancia, cota, objetivo, cuadricula, marca, amigos y egreso.",
+      "Indicar que debe repetir FORD: linea 4, linea 6 y restricciones.",
+      "Anadir FAH y no sobrevuelo como observaciones."
+    ],
+    checks: [
+      {label:"IP/BP indicado", field:"ip", terms:["ip","bp"]},
+      {label:"Rumbo/FAH controlado", field:"heading", terms:["fah","oeste","noroeste","este"]},
+      {label:"Objetivo urbano", field:"target", terms:["urbano","edificio","pueblo","objetivo"]},
+      {label:"Cuadricula rellenada", field:"grid", terms:["grid","cuadricula","237","192"]},
+      {label:"Marca/humo", field:"mark", terms:["humo","laser","marca"]},
+      {label:"Amigos NW", field:"friendlies", terms:["noroeste","nw","amigos"]},
+      {label:"Egreso sur", field:"egress", terms:["sur","s"]},
+      {label:"No sobrevuelo", field:"restrictions", terms:["no sobrevolar","no sobrevuelo","limite fuego","restriccion"]},
+      {label:"Readback critico", field:"transmission", terms:["linea 4","linea 6","linea 8","egreso","restricciones"]}
+    ],
+    solution: [
+      "Usar 9-Line por complejidad urbana y restricciones.",
+      "SITREP -> game plan -> nueve lineas -> observaciones -> colacion. Solicitar los datos numericos que no aparezcan en el caso; no inventarlos.",
+      "Readback minimo: linea 4, linea 6 y restricciones.",
+      "Entrada con FAH controlado, evitando sobrevuelo del nucleo urbano.",
+      "No disparar hacia amigos ni cruzar el limite de fuego."
+    ]
+  },
+  {
+    id: "dry-3",
+    meta: "Caso 3 · Peligro cercano · 5 min",
+    title: "Amigos a 150 m del objetivo",
+    situation: "El objetivo esta muy cerca de LINCE. La prioridad es control de eje, iniciales y abortar si se pierde seguridad.",
+    seconds: 300,
+    tasks: [
+      "Declarar peligro cercano antes de autorizar.",
+      "LINCE transmite la aceptacion del responsable terrestre del ejercicio con sus iniciales.",
+      "Mantener espera o pasada en seco si faltan datos o aceptacion."
+    ],
+    checks: [
+      {label:"Peligro cercano declarado", field:"restrictions", terms:["peligro cercano","danger close"]},
+      {label:"Aceptacion del responsable terrestre", field:"transmission", terms:["iniciales","responsable","aceptacion"]},
+      {label:"Amigos a 150 m", field:"friendlies", terms:["150","amigos","lince"]},
+      {label:"Linea no fuego", field:"restrictions", terms:["linea no fuego","no fuego"]},
+      {label:"Sin empleo si faltan datos", field:"transmission", terms:["sin empleo","en seco","mantenga","espera"]},
+      {label:"Eje paralelo/seguro", field:"heading", terms:["paralelo","seguro","no hacia amigos","oeste","este"]},
+      {label:"Abortar si pierde visual", field:"transmission", terms:["abort","saliendo en seco","pierde visual"]}
+    ],
+    solution: [
+      "LINCE declara PELIGRO CERCANO y transmite la aceptacion del responsable terrestre con sus iniciales.",
+      "Si falta posicion amiga confirmada o aceptacion, mantener espera o pasada en seco.",
+      "Eje paralelo a la linea amigo-enemigo; nunca hacia amigos.",
+      "Si se pierde visual de amigos u objetivo: SALIENDO EN SECO / ABORT."
+    ]
+  },
+  {
+    id: "dry-4",
+    meta: "Caso 4 · ABORT y reataque · 3 min",
+    title: "Entra caliente y aparece riesgo",
+    situation: "FORD esta en la pasada y LINCE pierde seguridad sobre un amigo movil. La solucion es cortar la pasada y reiniciar control.",
+    seconds: 180,
+    tasks: [
+      "Dar llamada ABORT correcta.",
+      "Definir salida segura y vuelta a BP.",
+      "Escribir que debe ocurrir antes de autorizar reataque."
+    ],
+    checks: [
+      {label:"ABORT triple", field:"transmission", terms:["abort abort abort","abort"]},
+      {label:"FORD confirma", field:"transmission", terms:["ford","recibido","confirmo"]},
+      {label:"Salida segura", field:"egress", terms:["salida segura","seguro","bp"]},
+      {label:"Vuelta a BP/HA", field:"ip", terms:["bp","ha"]},
+      {label:"No reataque automatico", field:"restrictions", terms:["no reataque","nueva autorizacion","nueva colacion","correlacion"]},
+      {label:"Amigo movil reconocido", field:"friendlies", terms:["amigo movil","amigos","lince"]}
+    ],
+    solution: [
+      "LINCE: ABORT ABORT ABORT, FORD 1.",
+      "FORD confirma, corta empleo y sale por rumbo seguro.",
+      "Vuelve a BP/HA, recupera visual y escucha nueva correlacion.",
+      "No hay reataque sin nueva colacion, correlacion y autorizacion."
+    ]
+  }
+];
+const dryTrainingFields = ["ip","heading","distance","elevation","target","grid","mark","friendlies","egress","restrictions","transmission"];
+
+function setupDryTraining(){
+  const root = document.getElementById("dryTrainer");
+  if(!root) return;
+
+  const caseSelect = document.getElementById("trainerCaseSelect");
+  const timeSelect = document.getElementById("trainerTimeSelect");
+  const timerEl = document.getElementById("trainerTimer");
+  const metaEl = document.getElementById("trainerCaseMeta");
+  const titleEl = document.getElementById("trainerTitle");
+  const situationEl = document.getElementById("trainerSituation");
+  const taskList = document.getElementById("trainerTaskList");
+  const feedback = document.getElementById("trainerFeedback");
+  let activeCase = dryTrainingCases[0];
+  let remaining = activeCase.seconds;
+  let timerId = null;
+
+  function normalizeText(text){
+    return (text || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  }
+
+  function formatTime(seconds){
+    const safe = Math.max(0, seconds);
+    const minutes = Math.floor(safe / 60).toString().padStart(2, "0");
+    const rest = (safe % 60).toString().padStart(2, "0");
+    return `${minutes}:${rest}`;
+  }
+
+  function setTimer(seconds){
+    remaining = Math.max(0, seconds);
+    if(timerEl) timerEl.textContent = formatTime(remaining);
+  }
+
+  function stopTimer(){
+    if(timerId) window.clearInterval(timerId);
+    timerId = null;
+  }
+
+  function fieldValue(field){
+    return root.querySelector(`[data-exercise-field="${field}"]`)?.value || "";
+  }
+
+  function clearAnswers(){
+    dryTrainingFields.forEach(field => {
+      const input = root.querySelector(`[data-exercise-field="${field}"]`);
+      if(input) input.value = "";
+    });
+  }
+
+  function resetFeedback(){
+    if(!feedback) return;
+    feedback.innerHTML = "";
+    const badge = document.createElement("span");
+    badge.className = "verdict";
+    badge.textContent = "Sin corregir";
+    const text = document.createElement("p");
+    text.textContent = "Rellena la ficha bajo tiempo. Al comparar, la herramienta busca los puntos criticos; no sustituye el criterio, pero detecta omisiones obvias.";
+    feedback.append(badge, text);
+  }
+
+  function renderCase(caseId, options = {}){
+    const selected = dryTrainingCases.find(item => item.id === caseId) || dryTrainingCases[0];
+    activeCase = selected;
+    if(caseSelect) caseSelect.value = selected.id;
+    if(timeSelect) timeSelect.value = String(selected.seconds);
+    if(metaEl) metaEl.textContent = selected.meta;
+    if(titleEl) titleEl.textContent = selected.title;
+    if(situationEl) situationEl.textContent = selected.situation;
+    if(taskList){
+      taskList.innerHTML = "";
+      selected.tasks.forEach(task => {
+        const li = document.createElement("li");
+        li.textContent = task;
+        taskList.appendChild(li);
+      });
+    }
+    stopTimer();
+    setTimer(Number(timeSelect?.value || selected.seconds));
+    if(options.clear) clearAnswers();
+    resetFeedback();
+    document.querySelectorAll(".exercise-card").forEach(card => card.classList.remove("is-active"));
+    document.querySelector(`[data-trainer-case="${selected.id}"]`)?.closest(".exercise-card")?.classList.add("is-active");
+  }
+
+  function compareAnswers(){
+    stopTimer();
+    const missing = [];
+    let hits = 0;
+    activeCase.checks.forEach(check => {
+      const answer = normalizeText(fieldValue(check.field));
+      const matched = check.terms.some(term => answer.includes(normalizeText(term)));
+      if(matched) hits += 1;
+      else missing.push(check.label);
+    });
+    const score = Math.round((hits / activeCase.checks.length) * 100);
+    const verdict = missing.length === 0 ? "Lista completada" : "Revisar ficha";
+
+    if(!feedback) return;
+    feedback.innerHTML = "";
+    const badge = document.createElement("span");
+    badge.className = "verdict";
+    badge.textContent = `${verdict} · ${score}%`;
+    const summary = document.createElement("p");
+    summary.innerHTML = `<strong>${hits}/${activeCase.checks.length}</strong> coincidencias de palabras clave. Es una ayuda de autoevaluacion, no una validacion del briefing: compara cada dato y su orden con la solucion.`;
+    feedback.append(badge, summary);
+
+    if(missing.length){
+      const missingTitle = document.createElement("p");
+      missingTitle.innerHTML = "<strong>Falta o no aparece claro:</strong>";
+      const list = document.createElement("ul");
+      missing.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+      feedback.append(missingTitle, list);
+    }
+
+    const solutionTitle = document.createElement("p");
+    solutionTitle.innerHTML = "<strong>Solucion esperada:</strong>";
+    const solutionList = document.createElement("ul");
+    activeCase.solution.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      solutionList.appendChild(li);
+    });
+    feedback.append(solutionTitle, solutionList);
+  }
+
+  function randomCase(){
+    const pool = dryTrainingCases.filter(item => item.id !== activeCase.id);
+    const next = pool[Math.floor(Math.random() * pool.length)] || dryTrainingCases[0];
+    renderCase(next.id, {clear:true});
+  }
+
+  document.getElementById("trainerNewCase")?.addEventListener("click", randomCase);
+  document.getElementById("trainerCompare")?.addEventListener("click", compareAnswers);
+  document.getElementById("trainerClear")?.addEventListener("click", () => {
+    clearAnswers();
+    resetFeedback();
+  });
+  document.getElementById("trainerReset")?.addEventListener("click", () => {
+    stopTimer();
+    setTimer(Number(timeSelect?.value || activeCase.seconds));
+  });
+  document.getElementById("trainerStart")?.addEventListener("click", () => {
+    stopTimer();
+    if(remaining <= 0) setTimer(Number(timeSelect?.value || activeCase.seconds));
+    timerId = window.setInterval(() => {
+      setTimer(remaining - 1);
+      if(remaining <= 0){
+        stopTimer();
+        if(feedback){
+          const note = document.createElement("p");
+          note.innerHTML = "<strong>Tiempo agotado.</strong> Compara la solucion o repite el caso.";
+          feedback.appendChild(note);
+        }
+      }
+    }, 1000);
+  });
+  document.getElementById("trainerLoadMap")?.addEventListener("click", () => {
+    document.dispatchEvent(new CustomEvent("loadTacticalExercise", {detail:{id:activeCase.id}}));
+  });
+  caseSelect?.addEventListener("change", () => renderCase(caseSelect.value, {clear:true}));
+  timeSelect?.addEventListener("change", () => {
+    stopTimer();
+    setTimer(Number(timeSelect.value || activeCase.seconds));
+  });
+  document.querySelectorAll("[data-trainer-case]").forEach(button => {
+    button.addEventListener("click", () => {
+      renderCase(button.dataset.trainerCase, {clear:true});
+      root.scrollIntoView({block:"start", behavior:"smooth"});
+    });
+  });
+
+  renderCase(activeCase.id);
 }
 const tacticalMapKey = "armados-cas-tactical-map-v1";
 function setupTacticalMap(){
@@ -1435,12 +1865,17 @@ function setupTacticalMap(){
   document.querySelectorAll("[data-map-exercise]").forEach((button) => {
     button.addEventListener("click", () => loadExerciseMap(button.dataset.mapExercise));
   });
+  document.addEventListener("loadTacticalExercise", (event) => {
+    const id = event.detail?.id;
+    if(id) loadExerciseMap(id);
+  });
 
   loadMap();
 }
 loadCards();
 setupFieldNavigation();
 setupTacticalMap();
+setupDryTraining();
 </script>
 
 </body>

@@ -185,6 +185,7 @@ body.mobile-view .shead{display:block;margin-bottom:13px;padding-left:12px;borde
 body.mobile-view .shead .num{display:inline-block;margin-bottom:4px}
 body.mobile-view .shead .tag{display:block;margin:4px 0 0}
 body.mobile-view .lead{font-size:16px;line-height:1.62}
+body.mobile-view .sheet p a{display:inline-block;max-width:100%;min-height:32px;padding-block:4px;overflow-wrap:anywhere}
 body.mobile-view .hero{padding:18px}
 body.mobile-view .hero p{font-size:16px}
 body.mobile-view .rules,
@@ -349,7 +350,7 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
   <span class="links">
     <a href="#idea">Idea</a><a href="#mision">Misión</a><a href="#briefing">Reunión previa</a>
     <a href="#radio">Radio</a><a href="#salida">Despegue</a><a href="#zona">Zona</a>
-    <a href="#secuencia">CAS</a><a href="#cca5">CCA</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tablillas">Tablillas</a><a href="MANUAL_INSTRUCTORES_CAS.html">Instructor</a>
+    <a href="#secuencia">CAS</a><a href="#cca5">RW CAS 5-line</a><a href="#vuelta">Vuelta</a><a href="#volar">Volar</a><a href="#tablillas">Tablillas</a><a href="MANUAL_INSTRUCTORES_CAS.html">Instructor</a>
   </span>
 </div></nav>
 
@@ -370,7 +371,7 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
 
 <div class="callout key" style="margin-top:26px">
   <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 0 3-3m-3 3L9 5M5 13a7 7 0 0 0 14 0"/><circle cx="12" cy="13" r="2"/></svg>
-  <div><b>Para qué es esto:</b> para que cualquiera del grupo —aunque no sepa nada de aviación— pueda llevar una misión de apoyo aéreo <b>de principio a fin</b> como se hace en simulación militar: planear, despegar, llegar a la zona, atacar coordinado con tierra y volver. Léelo una vez; en partida te bastará con las <b>tablillas del curso</b>. Norma nº1: <b>si te pierdes, pregunta o habla con tus propias palabras.</b></div>
+  <div><b>Objeto y alcance:</b> procedimiento de apoyo aéreo para el grupo en <b>Arma Reforger</b>: preparación, salida, coordinación con tierra, ataque simulado y regreso. Las llamadas, colores y criterios propios del curso se indican como tales; <b>no constituye un procedimiento para operaciones reales</b>. Usa las tablillas como apoyo durante la partida. Ante una duda, solicita aclaración antes de continuar.</div>
 </div>
 
 <!-- ======= LA IDEA EN 30 SEGUNDOS ======= -->
@@ -422,7 +423,7 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
     </div></div>
     <div class="step print-break-before"><div class="dot"><div class="b">6</div><div class="ln"></div></div><div class="body" style="border-color:rgba(255,178,46,.4)">
       <div class="ph-tag" style="color:var(--amber)">Fase 6 · El corazón</div><h3>CAS — el apoyo</h3>
-      <div class="why">La secuencia de 8 pasos: reporte de entrada → SITREP → plan de ataque → líneas → colación → correlación → ataque → BDA. <strong>El grueso del manual.</strong></div>
+      <div class="why">Reporte de entrada → SITREP → preparación y briefing → colación → correlación → control terminal → BDA. <strong>5-Line:</strong> preparación integrada en sus cinco casillas. <strong>9-Line:</strong> game plan antes de las nueve líneas y observaciones después.</div>
       <div class="freq">Frecuencia: <b>2 · JTAC</b></div>
     </div></div>
     <div class="step"><div class="dot"><div class="b">7</div><div class="ln"></div></div><div class="body">
@@ -444,24 +445,27 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
 
 <!-- ======= 02 DICCIONARIO ======= -->
 <section id="dicc" class="sheet">
-  <div class="shead"><span class="num">02</span><h2>Diccionario para novatos</h2><span class="tag">Aviación básica</span></div>
+  <div class="shead"><span class="num">02</span><h2>Terminología básica</h2><span class="tag">Aviación básica</span></div>
   <p class="lead">Si ya vuelas con soltura, úsala como repaso. Si no, aquí tienes lo mínimo de aviación que necesitas para empezar.</p>
   <table class="tbl wide">
-    <tr><th>Palabra</th><th>En cristiano</th></tr>
+    <tr><th>Palabra</th><th>Significado</th></tr>
     <tr><td>Indicativo</td><td>El «nombre en clave» de cada uno por radio: el helicóptero es «FORD 1», la escuadra de tierra «Lince». Se acuerdan en la reunión previa.</td></tr>
     <tr><td>Rumbo</td><td>La dirección a la que apuntas, en grados, como una brújula: <strong>000 = norte, 090 = este, 180 = sur, 270 = oeste</strong>. Siempre 3 cifras: «cero-nueve-cero».</td></tr>
-    <tr><td>Cardinal</td><td>Norte, sur, este, oeste. Lo usamos para todo («100 metros al sur»), nunca «izquierda/derecha».</td></tr>
-    <tr><td>Cota / altitud</td><td>Lo alto que está algo. En Reforger, en metros.</td></tr>
+    <tr><td>Cardinal</td><td>Norte, sur, este, oeste. Para ubicar puntos geográficos usa cardinal y distancia. «Izquierda/derecha» solo se utiliza con una referencia inequívoca, como el sentido de giro o un offset anunciado.</td></tr>
+    <tr><td>Cota / altitud</td><td>Elevación de un punto o de la aeronave respecto al nivel de referencia. En el curso se declara en metros. La cota del objetivo no es la altura del helicóptero sobre el terreno.</td></tr>
     <tr><td>Pasada</td><td>Cada vez que el helicóptero <strong>entra a disparar y vuelve a salir</strong>. Un ataque puede tener varias.</td></tr>
     <tr><td>CP (Punto de Contacto)</td><td>El punto del mapa donde, al llegar, <strong>llamas por primera vez al JTAC</strong>. Está lejos del peligro.</td></tr>
     <tr><td>Zona de espera</td><td>Sitio seguro donde <strong>orbitas esperando órdenes</strong> si el JTAC está ocupado.</td></tr>
-    <tr><td>BP (Posición de batalla)</td><td>La zona desde donde <strong>esperas y atacas</strong>, escondido. Tu «esquina segura».</td></tr>
+    <tr><td>BP (Posición de batalla)</td><td>Posición de trabajo propuesta por la tripulación o preplaneada y aprobada por LINCE. Estar en BP no autoriza el ataque.</td></tr>
+    <tr><td>HA (Zona de espera)</td><td>Área asignada para esperar instrucciones. No es necesariamente la BP desde la que se prepara la pasada.</td></tr>
     <tr><td>JTAC</td><td>El compañero en tierra que dirige el ataque. Tu jefe mientras dure el apoyo.</td></tr>
-    <tr><td>Sección / vuelo</td><td>Dos helicópteros juntos: un <strong>líder</strong> y un <strong>punto</strong> (el segundo). Se cubren mutuamente.</td></tr>
+    <tr><td>Sección</td><td>Dos helicópteros: un <strong>líder</strong> y un <strong>punto</strong> (el segundo).</td></tr>
+    <tr><td>Vuelo</td><td>Conjunto de aeronaves bajo un líder; en los ejercicios puede ser de dos, tres o cuatro helicópteros.</td></tr>
+    <tr><td>FAC / game plan</td><td>FAC: controlador aéreo avanzado; en las casillas de la 5-Line se refiere a LINCE. Game plan: resumen del ataque que precede a la 9-Line y queda integrado en la 5-Line del curso.</td></tr>
     <tr><td>VISUAL / SIN VISUAL</td><td><strong>VISUAL</strong>: veo al compañero o amigo. <strong>SIN VISUAL</strong>: he perdido visual y necesito instrucciones.</td></tr>
     <tr><td>NORDO</td><td>Sin radio o con radio inutilizable. Si ocurre, no entras al objetivo: vuelves a zona segura según la reunión previa.</td></tr>
     <tr><td>ROE</td><td>Reglas de enfrentamiento: <strong>cuándo se puede disparar y cuándo no</strong>. Las marca el mando.</td></tr>
-    <tr><td>Egreso (salida)</td><td>Por dónde te largas después de disparar.</td></tr>
+    <tr><td>Egreso (salida)</td><td>Ruta de salida acordada tras la pasada, con o sin empleo de armas.</td></tr>
     <tr><td>RTB</td><td>Regreso a base.</td></tr>
     <tr><td>Fraseología breve</td><td>Palabras clave cortas (casi siempre en inglés) para decir mucho en poco.</td></tr>
   </table>
@@ -474,7 +478,7 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
 <!-- ======= 03 BRIEFING ======= -->
 <section id="briefing" class="sheet">
   <div class="shead"><span class="num">03</span><h2>La reunión previa: planear antes de volar</h2><span class="tag">Fase 1</span></div>
-  <p class="lead">En simulación militar de verdad <strong>nunca se despega sin reunión previa</strong>. Es una reunión corta en tierra donde el líder de vuelo y el JTAC dejan claro el plan. Se usa el orden clásico de <strong>5 puntos</strong> (lo que los militares llaman SMEAC). No hace falta que sea largo: 5 minutos bien hechos salvan la misión.</p>
+  <p class="lead">En el curso, <strong>no se despega sin reunión previa</strong>. El líder de vuelo y el JTAC acuerdan la misión siguiendo los <strong>cinco puntos de SMEAC</strong>: situación, misión, ejecución, apoyo y comunicaciones. Es el plan general de la salida; no sustituye al game plan de cada ataque con 9-Line.</p>
   <div class="steps">
     <div class="step"><div class="dot"><div class="b">S</div><div class="ln"></div></div><div class="body">
       <h3>Situación</h3><div class="why">Qué está pasando: dónde está el <strong>enemigo</strong>, dónde los <strong>amigos</strong>, el terreno y la meteo. La foto general.</div></div></div>
@@ -483,7 +487,7 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
     <div class="step"><div class="dot"><div class="b">E</div><div class="ln"></div></div><div class="body">
       <h3>Ejecución — el plan</h3><div class="why">Cómo: la <strong>ruta</strong>, el <strong>Punto de Contacto</strong>, la <strong>zona de espera</strong>, dónde estarán probablemente las <strong>BP</strong>, el tipo de control esperado, el <strong>código de humos</strong> (rojo enemigo / verde amigo) y, si sois dos helicópteros, <strong>qué hace cada uno</strong>.</div></div></div>
     <div class="step"><div class="dot"><div class="b">A</div><div class="ln"></div></div><div class="body">
-      <h3>Apoyo y logística</h3><div class="why">Con qué: el <strong>armamento</strong> que cargáis, el <strong>combustible</strong>, dónde <strong>rearmar/repostar</strong> y el plan si te quedas sin munición (WINCHESTER) o sin combustible (BINGO).</div></div></div>
+      <h3>Apoyo y logística</h3><div class="why">Armamento, combustible, rearmado/repostaje y contingencias. <strong>WINCHESTER</strong>: sin munición disponible. <strong>BINGO</strong>: alcanzado el mínimo de combustible acordado para regresar; no significa depósito agotado.</div></div></div>
     <div class="step"><div class="dot"><div class="b">C</div></div><div class="body">
       <h3>Comunicaciones y mando</h3><div class="why">Quién manda (líder de vuelo y JTAC), los <strong>indicativos</strong>, las <strong>2 frecuencias</strong> (Aeródromo y JTAC) y qué hacer <strong>si se cae la radio</strong>: la regla por defecto es seguir el último plan acordado y volver a la zona de espera.</div></div></div>
   </div>
@@ -535,7 +539,7 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
 <span class="pil">FORD 4</span> "Cuatro."</div>
   <div class="callout key">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
-    <div><b>Regla de formación:</b> el líder habla con Aeródromo/JTAC; los puntos hablan por interna salvo emergencia, pérdida de visual, conflicto de tráfico o peligro inmediato.</div>
+    <div><b>Regla de formación:</b> el líder representa al vuelo en Aeródromo/JTAC. Los puntos utilizan la interna, salvo incidencia de seguridad o cuando LINCE les asigne como <b>aparato atacante</b>; en ese turno hablan directamente con el JTAC.</div>
   </div>
   <h3 class="subh">Contingencias mínimas del vuelo</h3>
   <p style="color:var(--ink-dim);font-size:15px">El procedimiento no sirve solo cuando todo sale bien. La primera reacción ante un fallo debe ser simple, repetible y segura. En el curso usaremos estas cuatro respuestas básicas.</p>
@@ -591,15 +595,15 @@ Llamadas mínimas:
 2 "FORD 1, viento en cola izquierda para plataforma norte."
 3 "FORD 1, final para plataforma norte."
 4 "FORD 1, toma completada, libre de zona de aterrizaje."</div>
-  <h3 class="subh">Cada tramo del circuito, en cristiano</h3>
+  <h3 class="subh">Tramos del circuito</h3>
   <p style="color:var(--ink-dim);font-size:15px">El circuito es un rectángulo que se vuela alrededor de la pista, con todos los giros al mismo lado (normalmente a la izquierda) y aterrizando contra el viento. Sin torre, te <strong>autoinformas</strong> al cambiar de tramo. En helicóptero se vuela más bajo, lento y cerrado que en avión. Truco: el <strong>viento en cola</strong> va al revés de como vas a aterrizar; el <strong>final</strong>, en el sentido bueno.</p>
   <table class="tbl wide">
     <tr><th>Tramo</th><th>Qué es</th><th>En helicóptero</th></tr>
-    <tr><td>Inicial</td><td>Tu entrada al circuito cuando llegas de fuera: te alineas con la pista y avisas que llegas.</td><td>Entras bajo desde el CP; asoma solo para autoinformarte.</td></tr>
+    <tr><td>Inicial</td><td>Entrada al circuito desde la ruta de regreso, según el procedimiento acordado.</td><td>Reporta posición e intención antes de incorporarte; no confundir este tramo con el CP del área CAS.</td></tr>
     <tr><td>Viento cruzado</td><td>Tramo perpendicular a la pista justo tras despegar: subes y giras 90° para cruzar por un extremo.</td><td>Tu primer giro tras la plataforma; cerrado y corto.</td></tr>
     <tr><td>Viento en cola</td><td>Vuelas paralelo a la pista en sentido <strong>contrario</strong> al de aterrizaje, con la pista a un lado. El lado largo, donde más tiempo pasas.</td><td>Tramo de preparación: ajusta altura y empieza a bajar. Avisas «en viento en cola».</td></tr>
     <tr><td>Base</td><td>Tramo perpendicular que une viento en cola con el final: giras 90° hacia la pista mientras bajas.</td><td>Muy corta y pegada al campo; coordina descenso y giro.</td></tr>
-    <tr><td>Final</td><td>El último giro te deja alineado con la pista en el sentido <strong>correcto</strong>, descendiendo hacia el punto de toma. Avisas «en final».</td><td>Puede ser corto y empinado; apunta al BP o a la plataforma.</td></tr>
+    <tr><td>Final</td><td>Tramo alineado con el punto de toma. Avisas «en final».</td><td>Aproximación al punto de aterrizaje o plataforma; la BP pertenece al área CAS, no al circuito de aeródromo.</td></tr>
     <tr><td>Toma</td><td>El aterrizaje en sí: frenas el descenso y posas el aparato. Aquí acaba el circuito.</td><td>Puedes pararte en estacionario y bajar en vertical. Despeja rápido la plataforma.</td></tr>
   </table>
   <div class="callout tip">
@@ -617,8 +621,12 @@ Llamadas mínimas:
     <div class="card bk"><h3 style="font-size:16px">Punto de Contacto (CP)</h3><p>Al acercarte al CP, <strong>cambia a la frecuencia 2 (JTAC)</strong> y llámalo. Es tu primer «hola»: a partir de aquí trabajas para él.</p></div>
   </div>
   <div class="radio"><span class="pil">FORD 1</span> "Lince, FORD 1, entrando por CP Oeste, dos kilómetros al sur, listo para reporte de entrada."
-<span class="jt">LINCE</span> "FORD 1, Lince, recibido. Mantenga BP Lago Oeste, no cruce carretera norte. Llame establecido."
-<span class="pil">FORD 1</span> "Mantengo BP Lago Oeste, no cruzo carretera norte. Llamaré establecido, FORD 1."</div>
+<span class="jt">LINCE</span> "FORD 1, Lince, recibido. Proceda a BP Lago Oeste, no cruce carretera norte. Llame establecido."
+<span class="pil">FORD 1</span> "Procedo a BP Lago Oeste, no cruzo carretera norte. Llamaré establecido, FORD 1."</div>
+  <div class="callout key" id="cp-bp-flow">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+    <div><b>CP → BP no sustituye el briefing.</b> En CP se establece contacto y se pasa el reporte de entrada cuando LINCE lo solicita. La tripulación propone una HA o BP, o usa la preplaneada; LINCE la aprueba o deniega y controla la salida. El reporte y el SITREP pueden recibirse antes de llegar a BP; si la carga de vuelo impide copiar, pide espera y llama <b>establecido</b> cuando puedas atender la radio. Después: <b>RW CAS 5-line</b> o <b>game plan → 9-Line → observaciones → colación</b>. Llegar a BP no autoriza el ataque; <b>avance</b> autoriza el movimiento y <b>AUTORIZADO CALIENTE</b> autoriza el empleo en el control terminal.</div>
+  </div>
   <div class="callout key">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
     <div>Si el JTAC está ocupado, te mandará a la <b>zona de espera</b>: orbita ahí, seguro y sin pasar al objetivo, hasta que te llame. <b>Paciencia: el JTAC suele estar gestionando muchas cosas.</b></div>
@@ -683,17 +691,21 @@ Llamadas mínimas:
 <section id="mapa" class="sheet">
   <div class="shead"><span class="num">08</span><h2>Leer el mapa de Arma</h2><span class="tag">Cuadrícula</span></div>
   <p class="lead">El JTAC te dará la posición del enemigo como una <strong>cuadrícula de 6 cifras</strong>. Así se lee en el mapa de Reforger:</p>
-  <div class="diagram">El mapa está lleno de cuadros. Cada cuadro grande = <b>1 km</b>.
-En los <b>BORDES</b> del mapa hay números.
+  <div class="diagram">Orden de lectura: <b>ESTE primero, NORTE después</b>.
 
-Para dar un punto:
-  <b>1)</b> Mira el número de la línea VERTICAL a la izquierda del punto  → 3 cifras
-  <b>2)</b> Mira el número de la línea HORIZONTAL debajo del punto        → 3 cifras
-  <b>3)</b> Júntalas: 6 cifras.
+Para una cuadrícula estándar de 6 cifras:
+  <b>1.</b> Identifica el cuadro de 1 km que contiene el punto.
+  <b>2.</b> Divide mentalmente cada lado en 10 partes de 100 m.
+  <b>3.</b> Lee ESTE: dos cifras del kilómetro + una cifra de décima.
+  <b>4.</b> Lee NORTE del mismo modo. Conserva los ceros iniciales.
 
-Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
+Ejemplo: cuadro 03 / 04, cinco décimas al este y ocho al norte.
+Resultado: <b>035 048</b> → «cero-tres-cinco, cero-cuatro-ocho».
+
+Si el mapa ya muestra etiquetas de 100 m, lee sus tres cifras;
+<b>no añadas otra décima</b>. Comprueba la escala antes de copiar.</div>
   <ul style="color:var(--ink-dim)">
-    <li><strong>6 cifras = un cuadro de 100 × 100 m.</strong> Suficiente para el CAS.</li>
+    <li><strong>En la cuadrícula estándar, seis cifras identifican un cuadro de 100 × 100 m, no un blanco exacto.</strong> Confirma el objetivo con descripción, referencia y marca. Los mapas o mods pueden cambiar la presentación de la cuadrícula.</li>
     <li>Se dice <strong>cifra a cifra</strong>: «<strong>cero-tres-cinco, cero-cuatro-ocho</strong>», no «treinta y cinco…».</li>
     <li>Para <strong>rumbo y distancia</strong>: si tu versión tiene herramienta de medición en el mapa, úsala. Si no, vale el <strong>cardinal</strong> y una distancia aproximada en metros.</li>
     <li>Podéis poner <strong>marcadores</strong> en el mapa para acordar puntos («el cruce», «la colina»).</li>
@@ -702,12 +714,12 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
 
 <!-- ======= SECUENCIA ======= -->
 <section id="secuencia" class="sheet">
-  <div class="shead"><span class="num">09</span><h2>La secuencia CAS</h2><span class="tag">Fase 6 · el corazón</span></div>
-  <p class="lead">El flujo CAS debe leerse como una conversación, no como una tabla que memorizar. Primero FORD llega y dice qué puede hacer. Después LINCE explica la situación. Luego LINCE ordena el ataque, FORD repite lo crítico, ambos confirman el mismo blanco, FORD entra caliente y LINCE autoriza o corta. La pasada termina con BDA, no con el disparo.</p>
+  <div class="shead"><span class="num">09</span><h2>La secuencia CAS</h2><span class="tag">Fase 6 · Coordinación</span></div>
+  <p class="lead">FORD se autentica y declara sus capacidades; LINCE actualiza la situación y prepara el ataque. Con la <strong>RW CAS 5-line</strong>, el contenido va en cinco líneas y la línea 1 incluye el tipo de control y el ataque previsto. Con <strong>9-Line</strong>, LINCE transmite primero el <strong>game plan</strong>, después las nueve líneas y, a continuación, las observaciones y restricciones. En ambos formatos siguen colación, correlación, control terminal y BDA. El cambio de CP a BP no altera este orden de información.</p>
   <div class="cards c3">
     <div class="card"><h3>Llegar</h3><p>FORD se presenta, declara posición, armas, tiempo y ABORT. LINCE no dicta ataque hasta saber qué tiene delante.</p></div>
     <div class="card"><h3>Entender</h3><p>LINCE explica amigos, enemigo, amenaza y restricciones. Si falta ubicación amiga o restricción, se para.</p></div>
-    <div class="card"><h3>Ejecutar</h3><p>Plan, líneas, colación, correlación, entrada caliente, autorización, disparo, salida y BDA. Siempre en ese orden.</p></div>
+    <div class="card"><h3>Ejecutar</h3><p>Briefing según formato, colación, correlación, entrada, autorización, empleo, salida y BDA. Ninguna llamada de movimiento sustituye la autorización de empleo.</p></div>
   </div>
   <div class="callout key" style="font-size:15px">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
@@ -716,8 +728,15 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
   <div class="steps">
 
     <div class="step"><div class="dot"><div class="b">1</div><div class="ln"></div></div><div class="body">
-      <h3>Reporte de entrada — 6 datos</h3>
-      <p class="why"><strong>Objetivo:</strong> que LINCE sepa quién llega, qué puede hacer y cuánto tiempo tiene. No es una novela; son seis datos en orden.</p>
+      <h3>Check-in, autenticación y reporte de entrada — 6 datos</h3>
+      <p class="why"><strong>Objetivo:</strong> que LINCE sepa quién llega, qué puede hacer y cuánto tiempo tiene. Transmite los seis datos en orden, sin añadir información ajena al reporte.</p>
+      <div class="callout key">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+        <div><b>Antes de información táctica: autenticación mutua.</b> LINCE desafía primero; FORD responde y devuelve su propio desafío. Hasta que las dos estaciones se hayan autenticado, no se transmite situación, armamento, posición del objetivo ni restricciones. En el curso se practica con la palabra <b>GRUPOARMADOS</b>: «Autentique Romeo Papa» → «Uniform» y «Autentique Mike Delta» → «Alfa». En una operación real se emplean tablas de un solo uso distribuidas para la misión, no una palabra fija.</div>
+      </div>
+      <div class="radio"><span class="jt">LINCE</span> «FORD 1, Lince 1, autentique Romeo Papa.»
+<span class="pil">FORD 1</span> «Ford 1, autentico Uniform. Lince 1, autentique Mike Delta.»
+<span class="jt">LINCE</span> «Lince 1, autentico Alfa. Autenticación correcta, adelante check-in.»</div>
       <table class="tbl">
         <tr><th>#</th><th>Dato</th><th>Qué dice FORD</th></tr>
         <tr><td>1</td><td>Identificación / misión</td><td>Indicativo, vuelo y que está listo para reporte.</td></tr>
@@ -792,29 +811,21 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
         <div><b>Regla práctica:</b> con una misión simple, usa 5 mínimos: AO, amigos, enemigo, amenaza y restricción/BP. Si cualquiera de esos cinco falta, no dictes líneas de ataque.</div>
       </div>
-      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span><b>TIC</b> = tropas amigas bajo fuego = máxima urgencia. <b>Colaciona las restricciones</b>: son sagradas.</span></div>
+      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span><b>TIC</b> = tropas amigas bajo fuego. La urgencia <b>no elimina la colación de las restricciones</b>.</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">3</div><div class="ln"></div></div><div class="body">
-      <h3>Plan de ataque — 4 piezas</h3>
-      <p class="why"><strong>Una frase:</strong> tipo de control + método + arma + separación/restricción principal.</p>
-      <div class="radio"><span class="jt">LINCE</span> "FORD 1, Lince, plan de ataque: Tipo 2, ataque visual sobre marca, una pasada con cohetes, oeste a este. Mantenga BP hasta autorización."
-<span class="pil">FORD 1</span> "Tipo 2, visual sobre marca, una pasada con cohetes, oeste a este, mantengo BP. FORD 1."</div>
-      <table class="tbl mobile-cards">
-        <tr><th>Pieza</th><th>Qué decide</th><th>Ejemplo corto</th></tr>
-        <tr><td>Pieza: Tipo</td><td data-label="Qué decide">Cómo controla el JTAC la seguridad</td><td data-label="Ejemplo">Tipo 2</td></tr>
-        <tr><td>Pieza: Método</td><td data-label="Qué decide">Si atacas por objetivo visto o por coordenada</td><td data-label="Ejemplo">Visual sobre marca</td></tr>
-        <tr><td>Pieza: Arma</td><td data-label="Qué decide">Qué se espera que uses</td><td data-label="Ejemplo">Cohetes / ametralladora</td></tr>
-        <tr><td>Pieza: Separación</td><td data-label="Qué decide">Cómo no te mezclas con amigos u otros helos</td><td data-label="Ejemplo">Oeste-este, no disparo sur</td></tr>
-      </table>
-      <div class="scriptbox">
-        <h4>Plan de ataque: 4 datos que dice LINCE</h4>
-        <div class="script-grid">
-          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Tipo:</b> "Tipo 2 en vigor."</div></div>
-          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Método:</b> "Ataque visual sobre marca / guía hablada."</div></div>
-          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Arma:</b> "Una pasada con Zuni" o "cañón en seco".</div></div>
-          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Separación:</b> "Entrada oeste-este, mantenga BP hasta avance, no fuego sur."</div></div>
-        </div>
+      <h3>Preparación del ataque — elegir el formato</h3>
+      <p class="why">El game plan es el resumen del ataque que se va a coordinar, no el plan general de la misión ni una autorización de fuego. Su lugar depende del formato utilizado.</p>
+      <div class="cards c2">
+        <div class="card"><h3>RW CAS 5-line</h3><p><b>SITREP → 5-line.</b> No se añade un game plan separado: la línea 1 da tipo de control, ataque y arma; la 2 sitúa y marca al JTAC; la 3 localiza el blanco; la 4 lo describe y marca; la 5 reúne observaciones y restricciones. <a href="#cca5">Plantilla y ejemplo de las cinco líneas</a>.</p></div>
+        <div class="card"><h3>9-Line</h3><p><b>SITREP → game plan → 9-Line → observaciones.</b> El game plan se transmite antes de las nueve líneas: como mínimo, tipo de control y método de ataque. El arma o efecto solicitado y el número de pasadas se concretan en el game plan o en observaciones.</p></div>
+      </div>
+      <div class="scriptbox" id="nine-game-plan">
+        <h4>Antes de la 9-Line: game plan</h4>
+        <p>En este curso se declara el método como <b>ataque visual sobre objetivo o marca</b>. Tener una cuadrícula no elimina la confirmación visual exigida en el ejercicio.</p>
+        <div class="radio"><span class="jt">LINCE</span> "FORD 1, Lince, game plan: Tipo 2, ataque visual sobre objetivo, cohetes para destruir técnico, una pasada. Mantenga BP hasta avance. Avise listo para 9-Line."
+<span class="pil">FORD 1</span> "Tipo 2, ataque visual, cohetes, una pasada; mantengo BP hasta avance. Listo para 9-Line, FORD 1."</div>
       </div>
       <table class="tbl mobile-cards">
         <tr><th>Tipo</th><th>Qué exige a LINCE</th><th>Cuándo usarlo</th></tr>
@@ -824,56 +835,46 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
       </table>
       <div class="callout tip" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
-        <div><b>Por defecto:</b> usa Tipo 2, ataque visual sobre marca o guía hablada. Tipo 3 solo tiene sentido con límites muy claros y se autoriza con <b>AUTORIZADO A ATACAR</b>, no con un «dispara a lo que veas» ambiguo.</div>
+        <div><b>Convención del curso:</b> el ejercicio básico utiliza Tipo 2 y ataque visual sobre objetivo o marca, con guía hablada cuando haga falta. El tipo de control no se deduce de usar 5-Line o 9-Line. Tipo 3 requiere límites explícitos y la llamada <b>AUTORIZADO A ATACAR</b>; no equivale a fuego libre.</div>
       </div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">4</div><div class="ln"></div></div><div class="body">
-      <h3>Líneas del ataque — 5 o 9</h3>
-      <p class="why">El JTAC las dice <strong>despacio, en bloques, con pausa</strong>. Usa 5-Line cuando el escenario es simple y todos entienden la zona. Usa 9-Line cuando necesitas más precisión, coordenadas, marca, amigos cerca o restricciones delicadas.</p>
-      <table class="tbl">
+      <h3>Briefing — líneas y observaciones</h3>
+      <p class="why"><strong>RW CAS 5-line:</strong> transmite cinco líneas en una sola transmisión, leídas de la <a href="#cca5">tablilla</a>. <strong>9-Line:</strong> tras el game plan y el «listo para copiar» de FORD, transmite las nueve líneas en orden y añade observaciones y restricciones. Habla despacio, con pausas que permitan copiar.</p>
+      <h4>Formato 9-Line</h4>
+      <table class="tbl" id="nine-line-brief">
         <tr><th>#</th><th>Línea</th><th>En Reforger</th></tr>
-        <tr><td>1</td><td>IP/BP/HA</td><td><strong>IP</strong> para ala fija: punto geográfico visible, normalmente a 5-15 NM. <strong>BP/HA</strong> para helicópteros: zona de tiro/espera con cobertura, ocultación y alcance de arma.</td></tr>
+        <tr><td>1</td><td>IP/BP</td><td>Identificador del punto o posición de referencia. En el ejercicio de helicópteros se utiliza la <strong>BP</strong> propuesta por la tripulación o preplaneada y aprobada por LINCE. La HA es una zona de espera; no se convierte automáticamente en BP.</td></tr>
         <tr><td>2</td><td>Rumbo / offset</td><td>Rumbo IP/BP-objetivo y lado autorizado. Puede ser directo o con offset izquierda/derecha. Si LINCE da offset, cumplirlo es obligatorio.</td></tr>
         <tr><td>3</td><td>Distancia</td><td>Ala fija: desde IP al blanco en NM. Helicópteros: desde el centro de la BP al blanco, redondeado a 100 m.</td></tr>
-        <tr><td>4</td><td>Cota / elevación</td><td>En procedimiento real se da en pies desde mapa/carta. En Reforger, cota de mapa o «N/A». Es lectura de vuelta obligatoria.</td></tr>
+        <tr><td>4</td><td>Cota / elevación</td><td>En el curso, cota de mapa en <strong>metros</strong>, declarando la unidad; no confundirla con la altura de vuelo. Si no está disponible, «cota no disponible» y LINCE resuelve la falta de dato antes de continuar. No inventes una elevación.</td></tr>
         <tr><td>5</td><td>Descripción</td><td>Evita «enemigos en árboles». Mejor: tipo, postura, orientación y referencia: «escuadra en posición defensiva, orientada oeste, en línea de árboles, 300 m al este del río».</td></tr>
         <tr><td>6</td><td>Localización</td><td>Cuadrícula 6/8 cifras o latitud/longitud desde mapa/GPS. Se dice cifra a cifra. Es lectura de vuelta obligatoria.</td></tr>
-        <tr><td>7</td><td>Marca</td><td>Humo/fósforo, iluminación, HE, láser, puntero IR, fuego indirecto, guía hablada o «sin marca». La marca debe quedar cerca del blanco, idealmente al lado y no encima.</td></tr>
+        <tr><td>7</td><td>Marca</td><td>Humo/fósforo, iluminación, HE, láser, puntero IR, fuego indirecto, guía hablada o «sin marca». Si el ataque es láser, indica quién designa y el código. La marca debe quedar cerca del blanco, idealmente al lado y no encima.</td></tr>
         <tr><td>8</td><td>Aliados</td><td>Cardinal + metros desde el objetivo: «300 al sur». Es la posición de los amigos, no necesariamente la del JTAC</td></tr>
         <tr><td>9</td><td>Egreso</td><td>Por dónde sales y a dónde vuelves: «egreso norte, vuelva a BP Lago Oeste»</td></tr>
       </table>
       <div class="scriptbox">
-        <h4>5-Line corta: 5 datos que dice LINCE</h4>
-        <div class="script-grid">
-          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Arma/efecto:</b> "Dos cohetes Zuni, destruir técnico."</div></div>
-          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Propia/JTAC:</b> "LINCE 300 metros al sur del objetivo."</div></div>
-          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Objetivo:</b> "Técnico en cruce norte, rumbo tres-cuatro-cero, 700 metros desde BP."</div></div>
-          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Marca/ataque/egreso:</b> "Humo rojo, entrada oeste-este, egreso norte a BP."</div></div>
-          <div class="script-line"><div class="idx">5</div><div class="speaker">LINCE</div><div class="say"><b>Amenaza/amigos:</b> "Posible AA norte, amigos al sur. No fuego sur. Colacione."</div></div>
-        </div>
-      </div>
-      <div class="scriptbox">
         <h4>9-Line: 9 líneas que dice LINCE</h4>
         <div class="script-grid">
           <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>IP/BP:</b> "BP Lago Oeste."</div></div>
-          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Rumbo/offset:</b> "Rumbo uno-seis-cero, offset derecha" o "directo BP-objetivo".</div></div>
-          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Distancia:</b> "Setecientos metros desde centro de BP."</div></div>
-          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Cota:</b> "Cota cuatro-cinco" o "elevación N/A".</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Rumbo/offset:</b> "Rumbo cero-nueve-cero, sin offset."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Distancia:</b> "Mil doscientos metros desde centro de BP."</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Cota:</b> "Cota cuatro-cinco metros."</div></div>
           <div class="script-line"><div class="idx">5</div><div class="speaker">LINCE</div><div class="say"><b>Descripción:</b> "Técnico con ametralladora, morro norte, junto al granero."</div></div>
           <div class="script-line"><div class="idx">6</div><div class="speaker">LINCE</div><div class="say"><b>Localización:</b> "Cuadrícula cero-tres-cinco cero-cuatro-ocho."</div></div>
-          <div class="script-line"><div class="idx">7</div><div class="speaker">LINCE</div><div class="say"><b>Marca:</b> "Humo rojo / láser / IR / HE / guía hablada / sin marca."</div></div>
+          <div class="script-line"><div class="idx">7</div><div class="speaker">LINCE</div><div class="say"><b>Marca:</b> "Humo rojo, cincuenta metros al oeste del objetivo."</div></div>
           <div class="script-line"><div class="idx">8</div><div class="speaker">LINCE</div><div class="say"><b>Amigos:</b> "Amigos trescientos metros al sur."</div></div>
           <div class="script-line"><div class="idx">9</div><div class="speaker">LINCE</div><div class="say"><b>Egreso:</b> "Egreso norte, vuelva BP Lago Oeste."</div></div>
         </div>
       </div>
-      <div class="scriptbox critical">
-        <h4>Lectura de vuelta obligatoria tras 9-Line</h4>
+      <div class="scriptbox critical" id="readback-nine">
+        <h4>Colación obligatoria tras 9-Line</h4>
         <div class="script-grid">
-          <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 4:</b> "Cota cuatro-cinco" o "elevación N/A".</div></div>
+          <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 4:</b> "Cota cuatro-cinco metros."</div></div>
           <div class="script-line"><div class="idx">2</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 6:</b> "Objetivo en cero-tres-cinco cero-cuatro-ocho."</div></div>
-          <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>Restricciones:</b> "No fuego sur, no sobrevuelo pueblo, offset derecha."</div></div>
-          <div class="script-line"><div class="idx">4</div><div class="speaker ford">FORD</div><div class="say"><b>Regla ArmadOS:</b> añade línea 8 y egreso cuando haya amigos cerca: "amigos 300 sur, egreso norte a BP".</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>Restricciones:</b> "Rumbo final cero-seis-cero a uno-dos-cero, lanzamiento a tu orden, no fuego sur."</div></div>
         </div>
       </div>
       <table class="tbl">
@@ -885,44 +886,41 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
       </table>
       <div class="callout tip" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
-        <div><b>Regla práctica:</b> si la 5-Line sale desordenada, no uses 9-Line para ocultar el problema. Vuelve a CP, SITREP, BP, plan, colación, entrada y BDA.</div>
+        <div><b>Dato incompleto o contradictorio:</b> mantén la espera y solicita aclaración. Cambiar de formato no corrige una posición amiga desconocida ni un objetivo sin identificar. Actualiza el briefing y repite la colación afectada antes de continuar.</div>
       </div>
       <div class="callout key">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
-        <div><b>Código de humos:</b> <span class="dot-i r"></span>rojo/naranja = ENEMIGO · <span class="dot-i g"></span>verde = SOLO amigos. El humo se tira cerca, pero sin tapar el blanco; mejor a un lado o detrás según el rumbo de ataque. Si el humo se desplaza, tapa el blanco o falla, no se fuerza: se pasa a <b>guía hablada</b>. No marques un objetivo ya destruido.</div>
+        <div><b>Colores acordados en el curso:</b> <span class="dot-i r"></span>rojo/naranja = referencia del objetivo · <span class="dot-i g"></span>verde = amigos · azul = posición del FAC/JTAC, solo cuando se anuncie expresamente. El color por sí solo no identifica un blanco: confirma la marca y su desplazamiento respecto al objetivo. Si el humo lo tapa, deriva o falla, solicita <b>guía hablada</b>.</div>
       </div>
       <div class="callout warn" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
-        <div><b>HA/BP para helicópteros:</b> es una zona de espera/trabajo con cobertura dentro del alcance efectivo del arma. Puedes maniobrar dentro de ella, pero no la abandonas para una pasada en movimiento hasta que el JTAC lo haya autorizado o te haya dado avance.</div>
+        <div><b>HA y BP son posiciones distintas:</b> HA es espera; BP es la posición de trabajo propuesta por la tripulación o preplaneada y aprobada por LINCE. Reporta los cambios de posición. <b>Avance ahora</b> permite iniciar el movimiento indicado, no emplear armas; la autorización de empleo llega después en el control terminal.</div>
       </div>
-      <h3 class="subh">Ejemplo 9-line completo</h3>
-      <div class="radio long"><span class="jt">LINCE</span> "FORD 1, LINCE, Tipo 2 en vigor. Espere 9-line."
+      <h3 class="subh">Ejemplo de briefing 9-Line · helicóptero</h3>
+      <div class="radio long"><span class="jt">LINCE</span> "FORD 1, Lince, game plan: Tipo 2, ataque visual, cohetes contra técnico, una pasada. Mantenga BP hasta avance. Avise listo para 9-Line."
 <span class="pil">FORD 1</span> "Listo para 9-line."
-<span class="jt">LINCE</span> "1 IP FORD. 2 rumbo uno-seis-cero. 3 cuatro kilómetros. 4 cota dos-tres-cero. 5 T-80 carro de combate. 6 cuadrícula dos-tres-siete uno-nueve-dos-tres. 7 láser. 8 amigos dos kilómetros noroeste. 9 egreso sur."
-<span class="jt">LINCE</span> "Observaciones: solicito un misil guiado, rumbo final de ataque uno-ocho-cero, línea láser norte-sur. Colacione."
-<span class="pil">FORD 1</span> "Cota dos-tres-cero, cuadrícula dos-tres-siete uno-nueve-dos-tres, amigos dos kilómetros noroeste, egreso sur, FAH uno-ocho-cero, láser norte-sur."
-<span class="jt">LINCE</span> "Colación correcta. Avance ahora."
-<span class="pil">FORD 1</span> "Avanzando. Dos minutos a IP."
-<span class="jt">LINCE</span> "Recibido. Mantenga IP y llame contacto con marca."
-<span class="sys">(A continuación se pasa a correlación y control terminal. El ataque se cierra con la secuencia SALIENDO DE BP → DENTRO CALIENTE → decisión de LINCE → empleo → SALIENDO → BDA.)</span></div>
+<span class="jt">LINCE</span> "BP Lago Oeste; rumbo cero-nueve-cero, sin offset; mil doscientos metros; cota cuatro-cinco metros; técnico con ametralladora junto al granero; cuadrícula cero-tres-cinco cero-cuatro-ocho; humo rojo cincuenta metros al oeste del objetivo; amigos trescientos metros al sur; egreso norte, vuelva BP Lago Oeste."
+<span class="jt">LINCE</span> "Observaciones: ataque oeste a este, no sobrevuelo del pueblo, ningún disparo hacia el sur. Colacione cota, posición y restricciones."
+<span class="pil">FORD 1</span> "Cota cuatro-cinco metros; objetivo cero-tres-cinco cero-cuatro-ocho; amigos trescientos metros al sur; egreso norte a BP; ataque oeste a este; no sobrevuelo del pueblo, no fuego sur."
+<span class="jt">LINCE</span> "Colación correcta. Mantenga BP. Avise contacto con humo rojo."
+<span class="sys">(El briefing termina aquí. A continuación se confirma el objetivo, se ordena el avance y se ejecuta el control terminal. La misión completa aparece en la sección 13.)</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">5</div><div class="ln"></div></div><div class="body">
-      <h3>Colación — 4, 6, 8 y restricciones</h3>
-      <p class="why">Como mínimo se colacionan <strong>línea 4, línea 6 y restricciones</strong>. En ArmadOS añadimos siempre <strong>línea 8</strong> porque saber dónde están los amigos es más importante que ahorrar tres segundos.</p>
+      <h3>Colación — según el formato</h3>
+      <p class="why"><strong>9-Line:</strong> colaciona líneas <strong>4 y 6</strong> y restricciones. <strong>5-Line:</strong> en este curso repite todas las restricciones y siempre la línea 3, además de cualquier línea que pida LINCE. No mezcles la regla de un formato con el otro. LINCE confirma o corrige antes de continuar.</p>
       <div class="scriptbox">
-        <h4>Colación mínima: 4 datos que debe decir FORD</h4>
+        <h4>Colación 9-Line: tres bloques de FORD</h4>
         <div class="script-grid">
-          <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 4 / cota:</b> "Cota cuatro-cinco" o "cota N/A".</div></div>
+          <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 4 / cota:</b> "Cota cuatro-cinco metros."</div></div>
           <div class="script-line"><div class="idx">2</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 6 / localización:</b> "Objetivo cero-tres-cinco cero-cuatro-ocho."</div></div>
-          <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>Línea 8 / amigos:</b> "Amigos trescientos metros al sur."</div></div>
-          <div class="script-line"><div class="idx">4</div><div class="speaker ford">FORD</div><div class="say"><b>Restricciones:</b> "Ningún disparo hacia el sur, egreso norte, ABORT banana."</div></div>
+          <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>Restricciones:</b> "Ningún disparo hacia el sur, lanzamiento a tu orden, egreso norte."</div></div>
         </div>
       </div>
       <div class="scriptbox">
         <h4>Respuesta de LINCE tras la colación</h4>
         <div class="script-grid">
-          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Si está bien:</b> "Colación correcta. Avance ahora."</div></div>
+          <div class="script-line"><div class="idx">1</div><div class="speaker">LINCE</div><div class="say"><b>Si está bien:</b> "Colación correcta." Añade "avance ahora" solo cuando proceda el movimiento.</div></div>
           <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Si falta algo:</b> "Negativo, repita amigos y restricción."</div></div>
           <div class="script-line"><div class="idx">3</div><div class="speaker">LINCE</div><div class="say"><b>Si hay riesgo:</b> "Mantenga BP. Sin avance."</div></div>
         </div>
@@ -934,6 +932,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
     <div class="step"><div class="dot"><div class="b" style="border-color:var(--red);color:var(--red)">6</div><div class="ln"></div></div><div class="body" style="border-color:rgba(229,83,60,.35)">
       <h3 style="color:var(--red)">Correlación — 3 palabras que no se mezclan</h3>
       <p class="why"><strong>Por qué:</strong> aquí os aseguráis de que los dos miráis el <strong>MISMO objetivo</strong>. Sin esto, no hay permiso de disparo.</p>
+      <p style="font-size:14px;color:var(--ink-dim)">Intenta correlacionar desde la posición asignada. Si FORD necesita moverse para observar, LINCE puede dar avance a una posición indicada antes de completar la correlación. Ese movimiento no permite empleo: el objetivo debe quedar confirmado antes del control terminal.</p>
       <p style="font-size:14px;color:var(--ink-dim)"><strong>a) Por humo</strong> · <strong>b) por la cuadrícula</strong> · <strong>c) hablando (guía hablada)</strong> con el método <strong>DEDO</strong>:</p>
       <div class="diagram"><b>D</b>esde un punto fácil de ver   →  "desde el cruce de carreteras"
 <b>E</b>n una dirección (cardinal)   →  "hacia el norte"
@@ -953,7 +952,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
         <h4>Palabras de correlación: 3 términos que no se mezclan</h4>
         <div class="script-grid">
           <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>CONTACTO:</b> "Veo la referencia que me describes." No significa objetivo confirmado.</div></div>
-          <div class="script-line"><div class="idx">2</div><div class="speaker ford">FORD</div><div class="say"><b>BLANCO A LA VISTA:</b> "Veo mi objetivo." Solo después de que LINCE confirme cuál es.</div></div>
+          <div class="script-line"><div class="idx">2</div><div class="speaker ford">FORD</div><div class="say"><b>BLANCO A LA VISTA:</b> "Veo el objetivo asignado." FORD lo describe y LINCE confirma que ambos se refieren al mismo objeto.</div></div>
           <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>SIN BLANCO:</b> "No veo mi objetivo." Se mantiene o vuelve a BP; no se inventa.</div></div>
         </div>
       </div>
@@ -970,7 +969,7 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
       </table>
       <div class="callout warn">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
-        <div>Un enemigo que ves pero que <b>aún no te han asignado</b> es <b>CONTACTO</b>, no BLANCO A LA VISTA. Solo es BLANCO A LA VISTA cuando el JTAC confirma que es TUYO.</div>
+        <div>Un enemigo que ves pero que <b>no te han asignado</b> se reporta como contacto con una descripción; no se convierte en tu objetivo por verlo. <b>BLANCO A LA VISTA</b> comunica la adquisición del objetivo asignado. La confirmación de LINCE y la autorización de empleo siguen siendo necesarias.</div>
       </div>
       <div class="callout key" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
@@ -979,15 +978,15 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">7</div><div class="ln"></div></div><div class="body">
-      <h3>Control terminal — 4 llamadas</h3>
-      <p class="why">Secuencia cerrada. A partir de aquí, <strong>silencio radio</strong> para los demás. Solo habla el aparato atacante, LINCE y quien tenga un aviso de seguridad.</p>
+      <h3>Control terminal — respuestas de LINCE</h3>
+      <p class="why">A partir de aquí, <strong>silencio radio</strong> para los demás. Solo habla el aparato atacante, LINCE y quien tenga un aviso de seguridad. Las cuatro llamadas de LINCE son respuestas posibles, <strong>no cuatro autorizaciones que deban transmitirse seguidas</strong>.</p>
       <div class="scriptbox critical">
         <h4>Entrada caliente: 7 pasos que se dicen en radio</h4>
         <div class="script-grid">
           <div class="script-line"><div class="idx">1</div><div class="speaker ford">FORD</div><div class="say"><b>Salida:</b> "SALIENDO DE BP, FORD 1."</div></div>
           <div class="script-line"><div class="idx">2</div><div class="speaker">LINCE</div><div class="say"><b>Maniobra:</b> "FORD 1, CONTINÚE." Puede proceder, pero todavía no puede soltar.</div></div>
           <div class="script-line"><div class="idx">3</div><div class="speaker ford">FORD</div><div class="say"><b>Entrada:</b> "DENTRO CALIENTE desde el oeste, FORD 1." Es aviso del piloto.</div></div>
-          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Decisión:</b> "FORD 1, autorizado" o "ABORT ABORT ABORT". Solo esta pasada.</div></div>
+          <div class="script-line"><div class="idx">4</div><div class="speaker">LINCE</div><div class="say"><b>Decisión:</b> "FORD 1, AUTORIZADO CALIENTE" o "ABORT ABORT ABORT". Solo esta pasada.</div></div>
           <div class="script-line"><div class="idx">5</div><div class="speaker ford">FORD</div><div class="say"><b>Empleo:</b> "RIFLE, ZUNI, FORD 1" o "CAÑÓN CAÑÓN CAÑÓN, FORD 1".</div></div>
           <div class="script-line"><div class="idx">6</div><div class="speaker ford">FORD</div><div class="say"><b>Salida:</b> "SALIENDO norte, vuelvo a BP, FORD 1."</div></div>
           <div class="script-line"><div class="idx">7</div><div class="speaker">LINCE</div><div class="say"><b>Cierre:</b> "Buenos impactos. Espere BDA."</div></div>
@@ -996,21 +995,21 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
       <div class="radio"><span class="pil">FORD 1</span> "SALIENDO DE BP, FORD 1"        <span class="sys">(abandono la posición de batalla)</span>
 <span class="jt">LINCE</span> "FORD 1, CONTINÚE"              <span class="sys">(autoriza MANIOBRAR, no disparar)</span>
 <span class="pil">FORD 1</span> "DENTRO CALIENTE desde el oeste, FORD 1" <span class="sys">(entro a la pasada con intención de empleo)</span>
-<span class="jt">LINCE</span> "FORD 1, autorizado"                 <span class="sys">(confirmación de LINCE)</span>
+<span class="jt">LINCE</span> "FORD 1, AUTORIZADO CALIENTE"          <span class="sys">(confirmación de LINCE)</span>
 <span class="pil">FORD 1</span> "RIFLE, ZUNI, FORD 1" / "CAÑÓN CAÑÓN CAÑÓN, FORD 1"
 <span class="pil">FORD 1</span> "SALIENDO, vuelvo a la BP, FORD 1"</div>
       <table class="tbl mobile-cards">
         <tr><th>#</th><th>Llamada de LINCE</th><th>Significa</th></tr>
         <tr><td>1. ABORT</td><td data-label="Llamada de LINCE">ABORT</td><td data-label="Significa">Cancela la pasada. No hay autorización de armas. El piloto sale y confirma ABORT recibido.</td></tr>
         <tr><td>2. CONTINÚE</td><td data-label="Llamada de LINCE">CONTINÚE</td><td data-label="Significa">Puede continuar maniobra o pasada seca, pero no puede soltar munición todavía.</td></tr>
-        <tr><td>3. AUTORIZADO</td><td data-label="Llamada de LINCE">AUTORIZADO</td><td data-label="Significa">Equivale a autorizado en caliente para esta pasada concreta después de DENTRO CALIENTE.</td></tr>
+        <tr><td>3. AUTORIZADO CALIENTE</td><td data-label="Llamada de LINCE">AUTORIZADO CALIENTE</td><td data-label="Significa">Autoriza el empleo en esta pasada concreta después de DENTRO CALIENTE.</td></tr>
         <tr><td>4. AUTORIZADO A ATACAR</td><td data-label="Llamada de LINCE">AUTORIZADO A ATACAR</td><td data-label="Significa">Solo Tipo 3. FORD puede iniciar ataques dentro de los límites de LINCE y termina con «ataque completo».</td></tr>
       </table>
       <div class="callout warn" style="font-size:14px">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
-        <div><b>DENTRO CALIENTE lo canta el piloto.</b> Es aviso de intención de empleo, no permiso. LINCE responde con una de sus llamadas: ABORT, CONTINÚE o AUTORIZADO.</div>
+        <div><b>DENTRO CALIENTE lo canta el piloto.</b> Es aviso de intención de empleo, no permiso. LINCE responde con una de sus llamadas: ABORT, CONTINÚE o AUTORIZADO CALIENTE.</div>
       </div>
-      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span>Si solo recuerdas una cosa: <b>colación correcta → avance → BLANCO A LA VISTA → SALIENDO DE BP → DENTRO CALIENTE → autorizado → RIFLE/ZUNI → SALIENDO → BDA.</b> Si pierdes blanco, amigo o geometría: <b>SALIENDO EN SECO</b> y vuelves a HA/BP.</span></div>
+      <div class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 9.5l6.9-.6L12 2Z"/></svg><span><b>Antes de emplear:</b> briefing colacionado, objetivo confirmado y autorización explícita para la pasada. <b>Avance y DENTRO CALIENTE no son permisos de fuego.</b> Si pierdes un dato crítico, interrumpe el empleo y reporta salida en seco.</span></div>
     </div></div>
 
     <div class="step"><div class="dot"><div class="b">8</div></div><div class="body">
@@ -1048,71 +1047,81 @@ Truco para no equivocarte:  <b>"primero ANDO (derecha), luego SUBO".</b></div>
   </div>
 </section>
 
-<!-- ======= CCA 5-LINE ======= -->
+<!-- ======= RW CAS 5-LINE ======= -->
 <section id="cca5" class="sheet">
-  <div class="shead"><span class="num">10</span><h2>CCA / 5-line</h2><span class="tag">Helicóptero · procedimiento corto</span></div>
-  <p class="lead"><strong>CCA</strong> significa <em>Close Combat Attack</em>. En el curso lo usaremos como una forma rápida de controlar un helicóptero cuando el objetivo, los amigos, la amenaza y la geometría están entendidos. El flujo normal es: 5-line compacta, colación crítica, <strong>colación correcta</strong>, <strong>avance ahora</strong>, visual/BLANCO A LA VISTA, control final y BDA.</p>
+  <div class="shead"><span class="num">10</span><h2>RW CAS 5-line</h2><span class="tag">Helicóptero · cinco líneas</span></div>
+  <p class="lead"><strong>RW CAS</strong> significa CAS de ala rotatoria. En este curso usamos la <strong>RW CAS 5-line</strong> como procedimiento de coordinación para helicópteros: se rellena la tablilla completa y se lee después, de arriba abajo, en una sola transmisión. No se añade un game plan separado.</p>
 
   <div class="callout warn" style="font-size:15px">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg>
-    <div><b>No es un atajo para disparar.</b> La 5-line no elimina <b>correlación</b>, <b>restricciones</b>, <b>ABORT</b>, <b>DENTRO CALIENTE</b> ni confirmación de LINCE. Si el piloto no entiende el objetivo o hay riesgo para amigos, se para y se pasa a 9-line.</div>
+    <div><b>La 5-line no autoriza el fuego por sí sola.</b> No elimina autenticación, colación, correlación, restricciones, control terminal, ABORT ni BDA. En doctrina real, el OH-58D del Ejército de EE. UU. emplea CCA para sus helicópteros de ataque; este curso asume una tripulación instruida en TTP de CAS y usa la RW CAS 5-line como convención didáctica. Aquí la autorización llega después de la correlación, la entrada controlada y la orden explícita de LINCE.</div>
+  </div>
+  <div class="callout tip" style="font-size:14px">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    <div><b>Si la línea 5 es larga:</b> LINCE anuncia una pausa y manda las observaciones/restricciones en una segunda transmisión para evitar errores de copia. Sigue siendo parte de la misma 5-line y se colaciona completa.</div>
   </div>
 
   <div class="cards c2">
-    <div class="card bk"><h3 style="font-size:16px">Cuándo usar 5-line</h3><p>Blanco identificable, helicóptero en HA/BP conocida, amigos y amenaza declarados, marca o guía hablada clara y geometría de entrada/salida controlada. Puede usarse aunque haya tensión o amigos cerca, pero solo si la colación crítica sale limpia.</p></div>
-    <div class="card bk"><h3 style="font-size:16px">Cuándo usar 9-line</h3><p>Varios blancos, zona urbana, amigos muy cerca, peligro cercano, dudas de posición, piloto nuevo, mala visibilidad o restricciones delicadas. En caso de duda, 9-line. Es más lenta, pero ordena mejor la cabeza.</p></div>
+    <div class="card bk"><h3 style="font-size:16px">Cuándo encaja</h3><p>Blanco identificable, posición propia marcada, localización expresada desde esa referencia, amigos y amenazas entendidos y una ruta de ataque/salida compatible con la geometría. Si falta un dato, se mantiene la espera y se pregunta; no se rellena por intuición.</p></div>
+    <div class="card bk"><h3 style="font-size:16px">Qué cambia con 9-line</h3><p>La 9-line mantiene IP/BP, rumbo, distancia, cota, descripción, localización, marca, aliados y egreso. Antes lleva un game plan y después observaciones. La colación obligatoria del curso es línea 4, línea 6 y restricciones.</p></div>
   </div>
   <div class="callout tip" style="font-size:14px">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
-    <div><b>Regla práctica:</b> 5-line sirve para acelerar lo que ya está claro, no para aclarar una situación confusa. Si el JTAC necesita explicar demasiado, cambia a 9-line.</div>
+    <div><b>Regla práctica:</b> la 5-line ordena un ataque ya entendido. Si el JTAC necesita explicar demasiado, detén la transmisión y aclara la situación antes de continuar.</div>
   </div>
 
-  <h3 class="subh">Las 5 líneas que dicta el JTAC</h3>
-  <table class="tbl wide">
-    <tr><th>Línea</th><th>Qué dice</th><th>Qué debe entender el piloto</th></tr>
-    <tr><td>1</td><td><b>Arma / efecto</b></td><td>Qué se espera de la pasada: cohetes, cañón, supresión, destrucción o pasada en seco sin armas.</td></tr>
-    <tr><td>2</td><td><b>Propia / referencia</b></td><td>Dónde está LINCE o desde qué referencia habla: humo azul, edificio, cruce, coordenada o posición relativa.</td></tr>
-    <tr><td>3</td><td><b>Objetivo</b></td><td>Qué es y dónde está: rumbo/distancia desde LINCE, cuadrícula o referencia visual clara.</td></tr>
-    <tr><td>4</td><td><b>Marca / ataque / egreso</b></td><td>Cómo lo encuentra, por dónde entra y por dónde sale: humo rojo, hombro derecho, egreso este.</td></tr>
-    <tr><td>5</td><td><b>Amenaza / amigos</b></td><td>AA, amigos cercanos, peligro cercano y restricciones críticas que no se pueden fallar.</td></tr>
+  <h3 class="subh">Las cinco líneas que dicta el JTAC</h3>
+  <table class="tbl mobile-cards">
+    <tr><th>Línea</th><th>Contenido</th><th>Qué debe quedar claro</th></tr>
+    <tr><td>1</td><td data-label="Contenido"><b>Tipo de control / ataque / arma</b></td><td data-label="Qué debe quedar claro">Control Tipo 1/2/3, método —por ejemplo, ataque sobre blanco— y efecto o munición: «Tipo 2, ataque sobre blanco, un Hellfire».</td></tr>
+    <tr><td>2</td><td data-label="Contenido"><b>Posición propia y marca</b></td><td data-label="Qué debe quedar claro">Dónde está el JTAC y cómo se identifica: TRP, referencia, humo o estrobo. No se confunde con la marca del objetivo.</td></tr>
+    <tr><td>3</td><td data-label="Contenido"><b>Localización del blanco</b></td><td data-label="Qué debe quedar claro">Rumbo magnético y distancia desde la posición propia o TRP acordado. En el ejemplo: 090 magnéticos, 2000 metros desde TRP Alfa.</td></tr>
+    <tr><td>4</td><td data-label="Contenido"><b>Descripción y marca del blanco</b></td><td data-label="Qué debe quedar claro">Qué es, cuántos hay, actividad/orientación y marca; si no hay marca, se dice «sin marca» y el piloto correlaciona con guía o sensor.</td></tr>
+    <tr><td>5</td><td data-label="Contenido"><b>Observaciones y restricciones</b></td><td data-label="Qué debe quedar claro">Amenazas, amigos, otros fuegos, rumbo final de ataque, salida, salida de BP, disparo a mi orden, aborto tras lanzamiento, danger close e información láser si designa el JTAC.</td></tr>
   </table>
 
-  <div class="callout key">
+  <div class="callout key" id="readback-five">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
-    <div><b>Lectura de vuelta mínima:</b> el piloto repite efecto/arma, objetivo, marca/geometría, egreso, amenaza y amigos. Si se equivoca en amenaza, amigos o egreso, el JTAC corrige antes de dar <b>colación correcta</b>.</div>
+    <div><b>Colación RW CAS 5-line:</b> en el curso se repiten todas las restricciones y siempre se colaciona la línea 3. LINCE no dice «colación correcta» hasta comprobar rumbo/distancia, objetivo, amigos, amenaza, salida y órdenes «a mi orden». «Sin AA vista» conserva la incertidumbre: no se convierte en «sin AA».</div>
   </div>
 
-  <h3 class="subh">Ejemplo práctico · técnico aislado</h3>
-  <div class="radio long"><span class="ph">— CCA 5-LINE · MISMA SITUACIÓN, MÁS CORTA QUE LA 9-LINE —</span>
-<span class="jt">JTAC · LINCE</span> "FORD 1, Lince, CCA 5-line sobre técnico aislado. Avise listo para copiar."
-<span class="pil">PILOTO · FORD 1</span> "Lince, FORD 1, listo para 5-line."
-<span class="jt">JTAC · LINCE</span> "Uno: dos cohetes. Dos: Lince 500 metros norte de edificio azul, marcado humo azul. Tres: objetivo técnico rumbo tres-cuatro-cero, 700 metros, calle norte-sur. Cuatro: marca humo rojo, ataque sobre mi hombro derecho, egreso este. Cinco: AA ligera al norte, amigos al sur, cerca del objetivo. Colacione."
-<span class="pil">PILOTO · FORD 1</span> "Dos cohetes. Técnico rumbo tres-cuatro-cero, 700 metros, humo rojo, ataque sobre su hombro derecho, egreso este, AA al norte, amigos al sur. FORD 1."
-<span class="jt">JTAC · LINCE</span> "Colación correcta. Avance ahora."
-<span class="pil">PILOTO · FORD 1</span> "Avanzando, visual."
-<span class="jt">JTAC · LINCE</span> "Desde humo rojo, cincuenta metros al este, técnico junto al granero. Describa objetivo."
-<span class="pil">PILOTO · FORD 1</span> "BLANCO A LA VISTA técnico junto al granero, orientado norte-sur. FORD 1."
-<span class="jt">JTAC · LINCE</span> "FORD 1, Lince, correcto. Ese técnico es su objetivo. Avise dejando BP."
-<span class="sys">(Después se ejecuta el control terminal: SALIENDO DE BP → DENTRO CALIENTE → decisión de LINCE → empleo → SALIENDO → BDA.)</span></div>
+  <h3 class="subh">Ejemplo completo · Ford 1 contra T-90</h3>
+  <div class="radio long"><span class="ph">— RW CAS 5-LINE · EJEMPLO DE CURSO —</span>
+<span class="jt">LINCE 1</span> «Ford 1, Lince 1, cinco líneas. Control Tipo 2, ataque sobre blanco, un Hellfire.»
+<span class="jt">LINCE 1</span> «Mi posición: TRP Alfa, marcada con estrobo infrarrojo.»
+<span class="jt">LINCE 1</span> «Localización del blanco: cero-nueve-cero magnéticos, dos mil metros.»
+<span class="jt">LINCE 1</span> «Descripción del blanco: un carro de combate T-90, parado en el cruce, orientado al sur. Sin marca.»
+<span class="jt">LINCE 1</span> «Observaciones: posible ametralladora pesada doscientos metros al norte del blanco. Sección propia detenida en la linde sur, no avanza hasta el impacto. Restricciones: rumbo final cero-dos-cero a cero-siete-cero, salida al norte. Salida de Battle Position a mi orden. Disparo a mi orden. Aborto tras lanzamiento: cese láser. ¿Cómo recibes?»
+<span class="pil">FORD 1</span> «Recibido. Blanco cero-nueve-cero magnéticos, dos mil metros. Rumbo final cero-dos-cero a cero-siete-cero. Salida de Battle Position a tu orden, disparo a tu orden, aborto cese láser.»
+<span class="jt">LINCE 1</span> «Lince 1, colación correcta.»
+<span class="pil">FORD 1</span> «Contacto estrobo. Carro en el cruce, capturado en el MMS.»
+<span class="jt">LINCE 1</span> «Lince 1, ese es tu blanco.»
+<span class="pil">FORD 1</span> «Solicito salir de Battle Position.»
+<span class="jt">LINCE 1</span> «Ford 1, autorizado salir de Battle Position.»
+<span class="pil">FORD 1</span> «En caliente desde el suroeste, láser encendido.»
+<span class="jt">LINCE 1</span> «Ford 1, autorizado caliente.»
+<span class="pil">FORD 1</span> «Rifle, tiempo de vuelo diez segundos.»
+<span class="pil">FORD 1</span> «Impacto, cese láser. En frío, de vuelta en Battle Position Charlie, enmascarado.»
+<span class="jt">LINCE 1</span> «Ford 1, BDA: un carro T-90 destruido en el cruce, once veinticinco, sin actividad enemiga. Ataque con éxito.»</div>
 
   <h3 class="subh">Ejercicios de entrenamiento</h3>
   <div class="cards c3">
-    <div class="card"><p><strong>Ejercicio 1 · JTAC en 90 segundos.</strong> El monitor da una situación simple. El alumno prepara las 5 líneas y las dicta sin correr: amigos, objetivo, marca, restricciones, egreso.</p></div>
+    <div class="card"><p><strong>Ejercicio 1 · Preparación en 90 segundos.</strong> Usa un caso de las tablillas, rellena las cinco líneas y dicta el briefing. Compara con la solución: control/arma, posición propia/marca, localización, descripción/marca y observaciones/restricciones. No inventes datos que el caso no proporciona.</p></div>
     <div class="card"><p><strong>Ejercicio 2 · Piloto disciplinado.</strong> El piloto solo puede atacar si ha repetido bien amigos, objetivo, restricciones y egreso. Si duda, canta <b>REPITA</b> o <b>SIN BLANCO</b>.</p></div>
-    <div class="card"><p><strong>Ejercicio 3 · ABORT real.</strong> En mitad de la entrada, el JTAC canta <b>ABORT ABORT ABORT</b>. El piloto corta la pasada, no dispara y vuelve a BP. Se evalúa reacción, no puntería.</p></div>
+    <div class="card"><p><strong>Ejercicio 3 · ABORT simulado.</strong> En mitad de una entrada en seco, LINCE canta <b>ABORT ABORT ABORT</b>. FORD interrumpe la pasada y reporta su salida por la ruta acordada. Se evalúa la respuesta al aviso, no la puntería.</p></div>
   </div>
 
   <h3 class="subh">Plantilla para anotar en entrenamiento</h3>
-  <div class="diagram">CCA 5-LINE
-1 Arma / efecto:         ______________________________
-2 Propia / referencia:    ______________________________
-3 Objetivo / ubicación:   ______________________________
-4 Marca / ataque / egreso:______________________________
-5 Amenaza / amigos:       ______________________________
+  <div class="diagram">RW CAS 5-LINE
+1 TIPO DE CONTROL / ATAQUE / ARMA: __________________________
+2 POSICIÓN PROPIA / MARCA:       __________________________
+3 LOCALIZACIÓN DEL BLANCO:       __________________________
+4 DESCRIPCIÓN / MARCA:           __________________________
+5 OBSERVACIONES / RESTRICCIONES:__________________________
 
-Piloto colaciona: efecto [ ] objetivo [ ] egreso [ ] amenaza/amigos [ ]
+Colación: restricciones [ ]  línea 3 [ ]  objetivo [ ]  amigos [ ]
 Correlación: CONTACTO [ ]  BLANCO A LA VISTA [ ]  SIN BLANCO [ ]
-Control: COLACIÓN CORRECTA [ ]  AVANCE [ ]  DENTRO CALIENTE [ ]  AUTORIZADO [ ]  RIFLE/ZUNI [ ]  ABORT [ ]
+Control: SALIDA BP [ ]  EN CALIENTE [ ]  AUTORIZADO CALIENTE [ ]  RIFLE [ ]  ABORT [ ]
 BDA / resultado: ________________________________________</div>
 </section>
 
@@ -1125,14 +1134,10 @@ BDA / resultado: ________________________________________</div>
   </div>
   <ol style="color:var(--ink-dim)">
     <li>El JTAC lo <strong>anuncia</strong>.</li>
-    <li>Antes de confirmar la suelta, <strong>acepta el riesgo diciendo sus iniciales</strong>: <em>«FORD 1, Lince, PELIGRO CERCANO, iniciales DELTA MIKE, autorizado.»</em></li>
-    <li>Tú extremas el cuidado: <strong>rumbo de ataque que NUNCA apunte a los amigos</strong>, prefieres la <strong>ametralladora</strong> antes que cohetes, y disparas <strong>ráfagas cortas</strong>.</li>
+    <li>El responsable terrestre del ejercicio <strong>acepta expresamente el riesgo simulado</strong>; LINCE lo transmite con sus iniciales. No se presupone que el JTAC tenga esa autoridad por su función.</li>
+    <li>FORD colaciona posición amiga, restricción y declaración de peligro cercano. Si algún dato no está confirmado, se mantiene la espera o se realiza la pasada en seco, sin empleo.</li>
   </ol>
-  <table class="tbl" style="max-width:380px">
-    <tr><th>Arma</th><th>Riesgo a amigos</th></tr>
-    <tr><td>Cohetes Hydra 70</td><td>~150 m</td></tr>
-    <tr><td>Ametralladora</td><td>~100 m</td></tr>
-  </table>
+  <p style="color:var(--ink-dim)">El umbral de 200 m es una regla de aviso del grupo, <strong>no una distancia de seguridad garantizada</strong>. El efecto en Reforger depende del arma, la munición y los mods del escenario; no se deduce una distancia segura de un umbral fijo ni de la ausencia de peligro cercano.</p>
 </section>
 
 <!-- ======= VUELTA A CASA ======= -->
@@ -1156,16 +1161,20 @@ BDA / resultado: ________________________________________</div>
 <!-- ======= EJEMPLO COMPLETO DE MISION ======= -->
 <section class="sheet">
   <div class="shead"><span class="num">13</span><h2>Una misión entera, de radio a radio</h2><span class="tag">Ejemplo completo</span></div>
-  <p class="lead">Todo junto, de principio a fin. Léelo en voz alta en la formación: es exactamente cómo debería sonar una salida real.</p>
+  <p class="lead">Ejemplo completo de una misión de simulación con 9-Line. En este caso, LINCE dirige primero a FORD a BP para que pueda copiar con menor carga de trabajo. No es obligatorio esperar a BP para intercambiar el reporte o el SITREP; sí es obligatorio mantener el orden <strong>SITREP → game plan → 9-Line → observaciones → colación</strong>.</p>
   <div class="radio long"><span class="ph">— FRECUENCIA 1 · AERÓDROMO —</span>
 <span class="pil">PILOTO · FORD 1</span> "Tráfico aeródromo, FORD 1 despegando hacia el norte."
 <span class="sys">(vuela la ruta, bajo y pegado al terreno; al acercarse al CP cambia de frecuencia)</span>
 
 <span class="ph">— FRECUENCIA 2 · JTAC —</span>
 <span class="pil">PILOTO · FORD 1</span> "Lince, FORD 1, entrando por CP Oeste, dos kilómetros al sur, listo para reporte de entrada."
-<span class="jt">JTAC · LINCE</span> "FORD 1, Lince, recibido. Mantenga BP Lago Oeste, no cruce carretera norte. Llame establecido."
-<span class="pil">PILOTO · FORD 1</span> "Mantengo BP Lago Oeste, no cruzo carretera norte. Llamaré establecido, FORD 1."
+<span class="jt">JTAC · LINCE</span> "FORD 1, Lince, recibido. Proceda a BP Lago Oeste, no cruce carretera norte. Llame establecido."
+<span class="pil">PILOTO · FORD 1</span> "Procedo a BP Lago Oeste, no cruzo carretera norte. Llamaré establecido, FORD 1."
 <span class="sys">(FORD 1 entra en la BP, mantiene máscara de terreno y escucha la red)</span>
+
+<span class="jt">JTAC · LINCE</span> "FORD 1, Lince 1, autentique Romeo Papa."
+<span class="pil">PILOTO · FORD 1</span> "Ford 1, autentico Uniform. Lince 1, autentique Mike Delta."
+<span class="jt">JTAC · LINCE</span> "Lince 1, autentico Alfa. Autenticación correcta, adelante check-in."
 
 <span class="pil">PILOTO · FORD 1</span> "Lince, FORD 1, establecido BP Lago Oeste, listo reporte de entrada."
 <span class="jt">JTAC · LINCE</span> "FORD 1, Lince, adelante reporte de entrada."
@@ -1174,18 +1183,19 @@ BDA / resultado: ________________________________________</div>
 
 <span class="jt">JTAC · LINCE</span> "Contacto en curso. Técnico con ametralladora en el cruce norte, activo, nos tiene fijados. Sin AA vista. Somos 8 en la linde sur del bosque. Sin morteros propios activos. Lince solicita destruir el técnico con cohetes o ametralladora. Restricción: ningún disparo hacia el sur. Sin cables ni torres en zona. Colacione restricción."
 <span class="pil">PILOTO · FORD 1</span> "Restricción copiada: ningún disparo hacia el sur. FORD 1."
-<span class="jt">JTAC · LINCE</span> "FORD 1, Lince, colación correcta. Plan de ataque: Tipo 2, una pasada con cohetes desde el oeste. Mantenga BP hasta autorización."
-<span class="pil">PILOTO · FORD 1</span> "Tipo 2, una pasada con cohetes desde el oeste, mantengo BP hasta autorización. FORD 1."
+<span class="ph">— GAME PLAN · ANTES DE LA 9-LINE —</span>
+<span class="jt">JTAC · LINCE</span> "FORD 1, Lince, game plan: Tipo 2, ataque visual sobre objetivo, cohetes para destruir técnico, una pasada. Mantenga BP hasta avance."
+<span class="pil">PILOTO · FORD 1</span> "Tipo 2, ataque visual, cohetes contra técnico, una pasada; mantengo BP hasta avance. FORD 1."
 <span class="jt">JTAC · LINCE</span> "FORD 1, Lince, avise listo para copiar 9-line."
 <span class="pil">PILOTO · FORD 1</span> "Listo para copiar 9-line, FORD 1."
 
-<span class="jt">JTAC · LINCE</span> "HA/BP Lago Oeste. Rumbo cero-nueve-cero, sin offset. Distancia mil doscientos metros.
+<span class="jt">JTAC · LINCE</span> "BP Lago Oeste. Rumbo cero-nueve-cero, sin offset. Distancia mil doscientos metros.
         — pausa —
-        Cota cuatro-cinco. Objetivo técnico con ametralladora en cruce, morro al norte, junto al granero. Posición cero-tres-cinco, cero-cuatro-ocho.
+        Cota cuatro-cinco metros. Objetivo técnico con ametralladora en cruce, morro al norte, junto al granero. Posición cero-tres-cinco, cero-cuatro-ocho.
         — pausa —
-        Marca humo rojo. Aliados 300 metros al sur. Egreso norte, vuelta a BP."
+        Marca humo rojo, cincuenta metros al oeste del objetivo. Aliados 300 metros al sur. Egreso norte, vuelta a BP."
 <span class="jt">JTAC · LINCE</span> "Observaciones: FAH oeste a este, no sobrevolar el pueblo, ningún disparo al sur. Colacione cota, posición, amigos y restricciones."
-<span class="pil">PILOTO · FORD 1</span> "Cota cuatro-cinco, objetivo en cero-tres-cinco cero-cuatro-ocho, amigos 300 al sur, ataque oeste a este, no sobrevuelo el pueblo, ningún disparo al sur. FORD 1."
+<span class="pil">PILOTO · FORD 1</span> "Cota cuatro-cinco metros, objetivo en cero-tres-cinco cero-cuatro-ocho, amigos 300 metros al sur, egreso norte a BP, ataque oeste a este, no sobrevuelo el pueblo, ningún disparo al sur. FORD 1."
 <span class="jt">JTAC · LINCE</span> "FORD 1, Lince, colación correcta. Marcando con humo rojo."
 <span class="sys">(Lince lanza humo rojo cerca del objetivo)</span>
 
@@ -1197,7 +1207,7 @@ BDA / resultado: ________________________________________</div>
 <span class="pil">PILOTO · FORD 1</span> "SALIENDO DE BP, FORD 1."
 <span class="jt">JTAC · LINCE</span> "FORD 1, CONTINÚE."
 <span class="pil">PILOTO · FORD 1</span> "DENTRO CALIENTE desde el oeste, FORD 1."
-<span class="jt">JTAC · LINCE</span> "FORD 1, autorizado."
+<span class="jt">JTAC · LINCE</span> "FORD 1, autorizado caliente."
 <span class="pil">PILOTO · FORD 1</span> "RIFLE, ZUNI, FORD 1."
 <span class="pil">PILOTO · FORD 1</span> "SALIENDO norte, vuelvo a BP, FORD 1."
 <span class="jt">JTAC · LINCE</span> "FORD 1, Lince, buenos impactos. Mantenga BP para BDA."
@@ -1272,9 +1282,9 @@ BDA / resultado: ________________________________________</div>
   <div class="cards c2">
     <div class="card"><h3>Piernógrafo / hoja personal</h3><p>Se rellena antes de despegar. Sirve para que el piloto lleve frecuencias, indicativos, CP/HA/BP, armamento, restricciones, NORDO y ABORT. No sustituye la orden CAS: evita perder datos básicos en cabina.</p></div>
     <div class="card"><h3>Mapa táctico</h3><p>Se usa antes y durante la misión para dibujar rutas, amigos, enemigos, líneas de no cruce, BP/HA, marcas y egresos. Si alguien no entiende la situación, se vuelve al mapa antes de seguir por radio.</p></div>
-    <div class="card"><h3>CCA 5-Line</h3><p>Úsala con helicópteros cuando el escenario ya está claro: objetivo simple, amigos localizados, HA/BP definida, amenaza entendida y restricciones sencillas. Acelera lo que ya está claro; no arregla una situación confusa.</p></div>
-    <div class="card"><h3>9-Line</h3><p>Úsala cuando hay varios blancos, coordenadas, marca láser/humo, zona urbana, amigos cerca, peligro cercano, mala visibilidad, piloto nuevo o restricciones delicadas. Es más lenta, pero ordena mejor la cabeza.</p></div>
-    <div class="card"><h3>Herramienta JTAC</h3><p>Úsala cuando LINCE necesite una guía para hablar con orden: reporte de entrada, HA/BP, informe de tierra, restricciones, colación correcta, plan de ataque y entrada fría. Si eso no sale limpio, no se pasa a fuego real.</p></div>
+    <div class="card"><h3>RW CAS 5-line</h3><p>Úsala con helicópteros cuando el escenario ya está claro: objetivo simple, posición propia marcada, amigos localizados, amenaza entendida y restricciones sencillas. Acelera lo que ya está claro; no autoriza el fuego ni arregla una situación confusa.</p></div>
+    <div class="card"><h3>9-Line</h3><p>Hoja del briefing detallado: game plan primero, nueve líneas después y observaciones al final. Recoge elevación, cuadrícula, marca, amigos, egreso y restricciones; FORD colaciona antes de continuar.</p></div>
+    <div class="card"><h3>Herramienta JTAC</h3><p>Guía de coordinación: reporte de entrada, SITREP, posición de espera/trabajo, briefing elegido, colación, correlación, control terminal y BDA. No sustituye ninguna autorización ni permite omitir un dato pendiente.</p></div>
     <div class="card"><h3>Evaluación</h3><p>Se rellena después del entrenamiento. No es para castigar: marca qué alumno ya es autónomo, quién necesita repetir una parte concreta y qué debe entrenar antes de la siguiente práctica.</p></div>
   </div>
   <h3 class="subh">Diccionario rápido · fraseología breve</h3>
@@ -1284,18 +1294,18 @@ BDA / resultado: ________________________________________</div>
     <tr><td>BLANCO A LA VISTA/SIN BLANCO</td><td>Veo/no veo mi objetivo</td><td>DENTRO CALIENTE</td><td>Piloto entrando caliente; espera confirmación</td></tr>
     <tr><td>LADO</td><td>Lado permitido respecto al rumbo BP-objetivo</td><td>AUTORIZADO A ATACAR</td><td>Tipo 3: ataque dentro de límites</td></tr>
     <tr><td>CONTACTO</td><td>Veo la referencia descrita</td><td>CONTINÚE EN SECO</td><td>Pasada sin disparar</td></tr>
-    <tr><td>RIFLE</td><td>Munición aire-superficie lanzada</td><td>ABORT ×3</td><td>Corta el ataque YA</td></tr>
+    <tr><td>RIFLE</td><td>Convención del grupo para anunciar empleo aire-superficie; no se presenta como llamada universal de cohetes</td><td>ABORT ×3</td><td>Interrumpe el ataque</td></tr>
     <tr><td>ZUNI / COHETES</td><td>Cohetes lanzados</td><td>SALIENDO / SALIENDO EN SECO</td><td>Salgo de la pasada (con/sin disparo)</td></tr>
     <tr><td>MISIL</td><td>Misil guiado lanzado</td><td>SHIFT</td><td>Corrige impacto (metros + cardinal)</td></tr>
-    <tr><td>CAÑÓN CAÑÓN CAÑÓN</td><td>Disparando ametralladora</td><td>BDA</td><td>Evaluación de daños</td></tr>
-    <tr><td>WINCHESTER</td><td>Sin munición</td><td>BINGO</td><td>Combustible justo, me retiro</td></tr>
+    <tr><td>CAÑÓN CAÑÓN CAÑÓN</td><td>Convención del grupo: empleando cañón/ametralladora, según el arma declarada</td><td>BDA</td><td>Evaluación de daños</td></tr>
+    <tr><td>WINCHESTER</td><td>Sin munición disponible</td><td>BINGO</td><td>Mínimo de combustible acordado para regresar</td></tr>
     <tr><td>RTB</td><td>Vuelvo a base</td><td>TIC</td><td>Tropas amigas bajo fuego</td></tr>
     <tr><td>CP</td><td>Punto de Contacto con el JTAC</td><td>BP</td><td>Posición de batalla (desde donde atacas)</td></tr>
-    <tr><td>BOT / visual</td><td>Ataque sobre blanco o marca que el piloto confirma</td><td>BOC / coordenada</td><td>Ataque por coordenada acordada; usar solo si está muy claro</td></tr>
+    <tr><td>BOT / visual</td><td>Ataque que exige adquirir visualmente el objetivo o marca</td><td>BOC / coordenada</td><td>Método por coordenadas; fuera del ejercicio visual básico. Dar una cuadrícula no convierte el ataque en BOC</td></tr>
     <tr><td>FAH</td><td>Rumbo final de ataque permitido</td><td>REPITA</td><td>Repita la última transmisión</td></tr>
-    <tr><td>CCA 5-LINE</td><td>Control rápido de helicóptero en 5 líneas</td><td>ESPERE</td><td>Espera, ahora no puedo</td></tr>
+    <tr><td>RW CAS 5-LINE</td><td>Procedimiento de coordinación de helicóptero en 5 líneas</td><td>ESPERE</td><td>Espera, ahora no puedo</td></tr>
     <tr><td>PELIGRO CERCANO</td><td>Amigos muy cerca del blanco</td><td>WILCO</td><td>Recibido, lo haré</td></tr>
-    <tr><td>AFIRMA / NEGATIVO</td><td>Sí / No</td><td>AVANCE</td><td>Proceda según el plan cuando esté listo</td></tr>
+    <tr><td>AFIRMA / NEGATIVO</td><td>Sí / No</td><td>AVANCE</td><td>Movimiento indicado, sin autorización de empleo de armas</td></tr>
   </table>
 </section>
 
@@ -1304,7 +1314,7 @@ BDA / resultado: ________________________________________</div>
 <footer>
   <svg class="emblem"><use href="#emblem"/></svg>
   <div><strong style="color:var(--ink-dim)">ArmaDos · Simulación Virtual</strong> — Manual CAS Helicópteros · Edición 1</div>
-  <div style="margin-top:6px;max-width:62ch;margin-inline:auto">Manual interno de apoyo aéreo cercano para Arma Reforger (ala rotatoria), con el ciclo completo de misión: reunión previa → despegue → zona → CAS → CCA 5-line → vuelta → cierre de misión. Doctrina estándar OTAN adaptada al grupo: orden de 5 puntos, tipos de control, líneas 9-line, CCA, colación 4/6/8, correlación y fraseología breve.</div>
+  <div style="margin-top:6px;max-width:62ch;margin-inline:auto">Procedimiento interno de simulación para Arma Reforger: reunión previa → salida → autenticación/check-in → situación → coordinación CAS mediante RW CAS 5-line o game plan + 9-line → correlación → control terminal → BDA → regreso → cierre. Las convenciones ArmadOS se aplican al curso; no se presentan como normas universales ni como capacitación operativa real.</div>
 </footer>
 
 <script>

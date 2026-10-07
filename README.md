@@ -8,7 +8,7 @@ Proyecto local para mantener y publicar materiales CAS de Arma Reforger.
 - `CHULETAS_CAS.html`: tablillas y herramientas de bolsillo.
 - `MANUAL_INSTRUCTORES_CAS.html`: manual del instructor.
 - `GUIA_DIA1_OPERACION_FORD.html`: guia visual de la primera sesion.
-- `GUIA_DIA2_CHECKIN_SITREP.html`: guia del segundo ejercicio, transito de aerodromo, reporte en CP, SITREP, BP, plan de ataque, 5 lineas, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB.
+- `GUIA_DIA2_CHECKIN_SITREP.html`: guia del segundo ejercicio, transito de aerodromo, reporte en CP, SITREP, BP, 5-Line integrada, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB.
 - `1_MANUAL_CAS_HELICOPTEROS.md`, `2_PROGRAMA_FORMACION_INSTRUCTOR.md` y `FORMACION_CAS_KIOWA_REFORGER.md`: fuentes historicas/soporte.
 - `logo_armados.png`: recurso grafico.
 
@@ -23,8 +23,8 @@ Proyecto local para mantener y publicar materiales CAS de Arma Reforger.
 ## Progresion Del Curso
 
 1. Sesion 1: transito de aerodromo, rodaje/despegue emulado y reporte de entrada en seco.
-2. Sesion 2: CP, SITREP, BP, plan de ataque, 5 lineas, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB.
-3. Sesion 3: consolidacion del Dia 2 con rotacion de LINCE y aparato atacante usando el orden 6/5/4/5/4/6.
+2. Sesion 2: CP, SITREP, BP, 5-Line integrada, DENTRO CALIENTE, RIFLE/Zuni, BDA y RTB.
+3. Sesion 3: consolidacion del Dia 2 con rotacion de LINCE y aparato atacante usando el orden 6 reporte -> 5 SITREP -> 5-Line -> 4 control -> 6 BDA.
 4. Sesion 4: control terminal, correlacion, ABORT, reataque, correccion y BDA.
 5. Sesion 5: 9-line y observaciones solo cuando la 5-line ya sale ordenada.
 6. Sesion 6: integracion JTAC con maniobra terrestre y prioridades.
@@ -56,8 +56,16 @@ exports/misiones/      Guias de mision/sesion.
 ## Arranque Para IA
 
 - Leer primero `docs/ARRANQUE_IA.md`.
+- Leer despues `docs/ESTADO_IA.md` para estado vivo y `docs/PERFILES_IA.md` para elegir perfil de trabajo.
+- Usar `docs/INDICE_RAPIDO.md` antes de abrir HTML grandes.
 - Usar `docs/AGENTS_COMPLETO.md` solo si hace falta el detalle completo.
 - No tocar `.publish/Cas_armados/data/evaluacion-cas.json` salvo peticion explicita.
+
+Validacion rapida:
+
+```powershell
+.\tools\Invoke-ReforgerCasCheck.ps1
+```
 
 ## Sincronizacion
 
