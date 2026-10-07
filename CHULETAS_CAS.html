@@ -549,14 +549,13 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
   <a href="#kneeboard-tool">Pierna</a>
   <a href="#tactical-map-tool">Pizarra</a>
   <a href="#dry-exercises-tool">Ejercicios</a>
+  <a href="BREVITIES_CAS.html">Brevities</a>
 </nav>
 
 <!-- ====== INTRO ====== -->
 <section class="intro">
-  <div class="kicker">Curso CAS · Arma Reforger</div>
-  <h1>Tarjetas de bolsillo · alumno</h1>
-  <p>Herramientas rellenables para el alumno: RW CAS 5-line, 9-line, hoja JTAC, piernógrafo y pizarra táctica. Todas siguen el mismo orden visual del manual para copiar rápido y no romper la secuencia.</p>
-  <div class="note">RW CAS 5-line · 9-line · JTAC · Piernógrafo A5 · Pizarra táctica · HTML / móvil / in-game</div>
+  <h1>Tablillas CAS</h1>
+  <p>Fichas rellenables para 5-line, 9-line, JTAC, pierna y pizarra táctica.</p>
 </section>
 
 <!-- ====== GRID DE TARJETAS ====== -->
@@ -809,7 +808,7 @@ footer{border-top:1px solid var(--line-strong);margin-top:50px;padding:30px 22px
 
         <section class="trainer-panel trainer-feedback" id="trainerFeedback" aria-live="polite">
           <span class="verdict">Sin corregir</span>
-          <p>Rellena la ficha bajo tiempo. Al comparar, la herramienta busca los puntos críticos; no sustituye el criterio, pero detecta omisiones obvias.</p>
+          <p>Rellena la ficha bajo tiempo. Al comparar, la herramienta marca los puntos críticos y las omisiones obvias.</p>
         </section>
       </div>
     </div>
@@ -1230,7 +1229,7 @@ function setupDryTraining(){
     badge.className = "verdict";
     badge.textContent = "Sin corregir";
     const text = document.createElement("p");
-    text.textContent = "Rellena la ficha bajo tiempo. Al comparar, la herramienta busca los puntos criticos; no sustituye el criterio, pero detecta omisiones obvias.";
+    text.textContent = "Rellena la ficha bajo tiempo. Al comparar, la herramienta marca los puntos criticos y las omisiones obvias.";
     feedback.append(badge, text);
   }
 
