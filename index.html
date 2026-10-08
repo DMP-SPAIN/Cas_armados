@@ -99,15 +99,15 @@ h3[id]{scroll-margin-top:74px}
 .card.pilot{border-color:rgba(90,160,224,.4)} .card.pilot .ic{color:var(--blue)}
 .card.jtac{border-color:rgba(229,83,60,.4)} .card.jtac .ic{color:var(--red)}
 
-/* ---- manual index ---- */
-.manual-index{margin:28px 0 4px;padding:22px 24px;background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--line-strong);border-radius:var(--radius)}
-.manual-index h2{font-size:clamp(22px,3vw,30px);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px}
-.manual-index .intro{color:var(--ink-dim);font-size:14.5px;margin:0 0 18px}
-.index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 22px}
-.index-group{border-left:2px solid var(--amber);padding-left:12px}
-.index-group h3{font-size:13px;color:var(--amber);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
-.index-group a{display:flex;align-items:center;min-height:30px;color:var(--ink-dim);font-size:14px;line-height:1.4;text-decoration:none;padding:4px 0}
-.index-group a:hover{color:var(--amber)}
+/* ---- indice de manual ---- */
+.manual-index{margin:28px 0 4px;padding:22px 24px;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius)}
+.manual-index h2{font-size:clamp(22px,3vw,30px);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
+.manual-index .intro{color:var(--ink-dim);font-size:14.5px;margin:0 0 14px}
+.book-toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px;margin:0;padding:0;list-style:none}
+.book-toc li{border-bottom:1px solid var(--line);min-width:0}
+.book-toc a{display:grid;grid-template-columns:36px minmax(0,1fr);align-items:center;min-height:38px;gap:10px;color:var(--ink-dim);font-size:14px;line-height:1.35;text-decoration:none;padding:5px 0}
+.book-toc .toc-num{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.08em}
+.book-toc a:hover{color:var(--amber)}
 
 /* corner brackets */
 .bk::before,.bk::after{content:"";position:absolute;width:12px;height:12px;border:2px solid var(--amber);opacity:.55}
@@ -239,7 +239,7 @@ body.mobile-view nav.topbar .links{display:none}
 body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
 
 @media(max-width:720px){
-  .rules,.cards.c3,.cards.c2,.taxi,.index-grid{grid-template-columns:1fr}
+  .rules,.cards.c3,.cards.c2,.taxi,.book-toc{grid-template-columns:1fr}
   nav.topbar .links{display:none}
   nav.topbar .wrap{gap:8px}
   .tbl{font-size:13px}
@@ -308,10 +308,9 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
   .manual-index{margin:4mm 0;padding:4mm 5mm;break-inside:avoid}
   .manual-index h2{font-size:17px}
   .manual-index .intro{font-size:10px;margin-bottom:3mm}
-  .index-grid{grid-template-columns:repeat(3,1fr);gap:3mm}
-  .index-group{padding-left:2.5mm}
-  .index-group h3{font-size:8.5px;margin-bottom:1mm}
-  .index-group a{font-size:9px;line-height:1.28;padding:0}
+  .book-toc{grid-template-columns:repeat(2,1fr);column-gap:5mm}
+  .book-toc a{grid-template-columns:22px minmax(0,1fr);gap:2mm;min-height:0;font-size:9px;line-height:1.28;padding:1.5mm 0}
+  .book-toc .toc-num{font-size:8px}
   .hero::before{display:none}
   .hero p{font-size:12.4px}
   .rules,.cards,.steps,.brief-grid{gap:3mm}
@@ -396,50 +395,30 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
     <div class="card"><h3 style="font-size:15px">Primero entiende el viaje</h3><p>Reunión previa, salida, contacto, espera, ataque y vuelta. Si saltas directo a la 5-line o a la 9-line, memorizarás frases sin saber cuándo usarlas.</p></div>
     <div class="card"><h3 style="font-size:15px">Después aprende la conversación</h3><p>Cada bloque del CAS indica quién habla, qué dato se transmite y qué debe hacer el otro. La seguridad se explica dentro del flujo, justo donde se aplica.</p></div>
   </div>
-  <div class="manual-index" id="indice">
-    <h2>Índice del manual</h2>
-    <p class="intro">Consulta el bloque que necesitas. El recorrido recomendado va de arriba abajo; los enlaces te llevan directamente a cada parte.</p>
-    <div class="index-grid">
-      <div class="index-group">
-        <h3>Orientación</h3>
-        <a href="#idea">La idea en 30 segundos</a>
-        <a href="#mision">La misión, de principio a fin</a>
-        <a href="#dicc">Terminología básica</a>
-      </div>
-      <div class="index-group">
-        <h3>Antes de volar</h3>
-        <a href="#briefing">Reunión previa</a>
-        <a href="#radio">Radios y fraseología</a>
-        <a href="#salida">Despegue y salida</a>
-      </div>
-      <div class="index-group">
-        <h3>Llegar a la zona</h3>
-        <a href="#zona">Navegación y Punto de Contacto</a>
-        <a href="#mapa">Leer el mapa de Arma</a>
-        <a href="#roles">Quién hace qué</a>
-      </div>
-      <div class="index-group">
-        <h3>Coordinar CAS</h3>
-        <a href="#secuencia">Secuencia CAS</a>
-        <a href="#checkin">Check-in y autenticación</a>
-        <a href="#sitrep">SITREP y situación</a>
-      </div>
-      <div class="index-group">
-        <h3>Briefing y ataque</h3>
-        <a href="#nine-line-brief">Game plan y 9-Line</a>
-        <a href="#cca5">RW CAS 5-line</a>
-        <a href="#control">Control terminal y BDA</a>
-      </div>
-      <div class="index-group">
-        <h3>Cerrar y entrenar</h3>
-        <a href="#danger">Peligro cercano</a>
-        <a href="#vuelta">RTB y debrief</a>
-        <a href="#volar">Supervivencia</a>
-        <a href="#tablillas">Tablillas y herramientas</a>
-      </div>
-    </div>
-  </div>
 </section>
+
+<!-- ======= ÍNDICE ======= -->
+<nav class="manual-index" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Índice del manual</h2>
+  <p class="intro">Capítulos del manual, en el orden recomendado de lectura.</p>
+  <ol class="book-toc">
+    <li><a href="#mision"><span class="toc-num">01</span><span>La misión, de principio a fin</span></a></li>
+    <li><a href="#dicc"><span class="toc-num">02</span><span>Terminología básica</span></a></li>
+    <li><a href="#briefing"><span class="toc-num">03</span><span>La reunión previa: planear antes de volar</span></a></li>
+    <li><a href="#radio"><span class="toc-num">04</span><span>Las radios y cómo se habla</span></a></li>
+    <li><a href="#salida"><span class="toc-num">05</span><span>Despegue y salida del aeródromo</span></a></li>
+    <li><a href="#zona"><span class="toc-num">06</span><span>Navegación y Punto de Contacto</span></a></li>
+    <li><a href="#roles"><span class="toc-num">07</span><span>Quién hace qué</span></a></li>
+    <li><a href="#mapa"><span class="toc-num">08</span><span>Leer el mapa de Arma</span></a></li>
+    <li><a href="#secuencia"><span class="toc-num">09</span><span>La secuencia CAS</span></a></li>
+    <li><a href="#cca5"><span class="toc-num">10</span><span>RW CAS 5-line · Referencia completa</span></a></li>
+    <li><a href="#danger"><span class="toc-num">11</span><span>Peligro cercano</span></a></li>
+    <li><a href="#vuelta"><span class="toc-num">12</span><span>Vuelta a casa y cierre de misión</span></a></li>
+    <li><a href="#ejemplo-mision"><span class="toc-num">13</span><span>Una misión entera, de radio a radio</span></a></li>
+    <li><a href="#volar"><span class="toc-num">14</span><span>Supervivencia del helicóptero armado</span></a></li>
+    <li><a href="#tablillas"><span class="toc-num">15</span><span>Qué tablilla usar</span></a></li>
+  </ol>
+</nav>
 
 <!-- ======= LA MISIÓN DE PRINCIPIO A FIN ======= -->
 <section id="mision" class="sheet">
@@ -1209,7 +1188,7 @@ BDA / resultado: ________________________________________</div>
 </section>
 
 <!-- ======= EJEMPLO COMPLETO DE MISION ======= -->
-<section class="sheet">
+<section id="ejemplo-mision" class="sheet">
   <div class="shead"><span class="num">13</span><h2>Una misión entera, de radio a radio</h2><span class="tag">Ejemplo completo</span></div>
   <p class="lead">Ejemplo completo de una misión de simulación con 9-Line. En este caso, LINCE dirige primero a FORD a BP para que pueda copiar con menor carga de trabajo. No es obligatorio esperar a BP para intercambiar el reporte o el SITREP; sí es obligatorio mantener el orden <strong>SITREP → game plan → 9-Line → observaciones → colación</strong>.</p>
   <div class="radio long"><span class="ph">- FRECUENCIA 1 · AERÓDROMO -</span>
