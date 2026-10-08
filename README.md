@@ -20,12 +20,22 @@ Material de formación CAS para **Arma Reforger**.
 - Control terminal, ABORT, autorización, empleo y BDA.
 - Tablillas rellenables para usar durante la partida.
 
-## Orden recomendado
+## Qué abrir
 
-1. Leer el [manual del alumno](https://dmp-spain.github.io/Cas_armados/).
-2. Usar las [tablillas CAS](https://dmp-spain.github.io/Cas_armados/CHULETAS_CAS.html) durante el ejercicio.
-3. Consultar el [manual del instructor](https://dmp-spain.github.io/Cas_armados/MANUAL_INSTRUCTORES_CAS.html) para dirigir la sesión.
-4. Consultar el [recopilatorio de brevities](https://dmp-spain.github.io/Cas_armados/BREVITIES_CAS.html) durante la sesión.
-5. Registrar el resultado en la [evaluación CAS](https://dmp-spain.github.io/Cas_armados/evaluacion-cas.html).
+### Alumno
+
+1. [Manual del alumno](https://dmp-spain.github.io/Cas_armados/) para entender el flujo completo.
+2. [Guía Día 1](https://dmp-spain.github.io/Cas_armados/guia-dia1-operacion-ford.html) para comunicaciones y check-in.
+3. [Guía Día 2](https://dmp-spain.github.io/Cas_armados/guia-dia2-checkin-sitrep.html) para CP, SITREP, BP y primera pasada.
+
+### Durante la partida
+
+1. [Tablillas CAS](https://dmp-spain.github.io/Cas_armados/CHULETAS_CAS.html) para rellenar y coordinar.
+2. [Brevities CAS](https://dmp-spain.github.io/Cas_armados/BREVITIES_CAS.html) para consultar llamadas y abreviaturas.
+
+### Instructor
+
+1. [Manual del instructor](https://dmp-spain.github.io/Cas_armados/MANUAL_INSTRUCTORES_CAS.html) para dirigir las sesiones.
+2. [Evaluación CAS](https://dmp-spain.github.io/Cas_armados/evaluacion-cas.html) para registrar el resultado.
 
 El material está diseñado para PC, móvil y uso en partida.
