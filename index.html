@@ -100,7 +100,7 @@ h3[id]{scroll-margin-top:74px}
 .card.jtac{border-color:rgba(229,83,60,.4)} .card.jtac .ic{color:var(--red)}
 
 /* ---- indice de manual ---- */
-.manual-index{margin:28px 0 4px;padding:22px 24px;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius)}
+.manual-index{margin:28px 0 4px;padding:22px 24px;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius);scroll-margin-top:74px}
 .manual-index h2{font-size:clamp(22px,3vw,30px);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
 .manual-index .intro{color:var(--ink-dim);font-size:14.5px;margin:0 0 14px}
 .book-toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px;margin:0;padding:0;list-style:none}
@@ -108,6 +108,7 @@ h3[id]{scroll-margin-top:74px}
 .book-toc a{display:grid;grid-template-columns:36px minmax(0,1fr);align-items:center;min-height:38px;gap:10px;color:var(--ink-dim);font-size:14px;line-height:1.35;text-decoration:none;padding:5px 0}
 .book-toc .toc-num{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.08em}
 .book-toc a:hover{color:var(--amber)}
+.manual-index .toc-subtitle{font-size:13px;color:var(--amber);letter-spacing:.08em;text-transform:uppercase;margin:22px 0 4px}
 
 /* corner brackets */
 .bk::before,.bk::after{content:"";position:absolute;width:12px;height:12px;border:2px solid var(--amber);opacity:.55}
@@ -311,6 +312,7 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
   .book-toc{grid-template-columns:repeat(2,1fr);column-gap:5mm}
   .book-toc a{grid-template-columns:22px minmax(0,1fr);gap:2mm;min-height:0;font-size:9px;line-height:1.28;padding:1.5mm 0}
   .book-toc .toc-num{font-size:8px}
+  .manual-index .toc-subtitle{font-size:9px;margin:4mm 0 1mm}
   .hero::before{display:none}
   .hero p{font-size:12.4px}
   .rules,.cards,.steps,.brief-grid{gap:3mm}
@@ -417,6 +419,13 @@ body.mobile-view nav.topbar .wrap{max-width:480px;gap:8px}
     <li><a href="#ejemplo-mision"><span class="toc-num">13</span><span>Una misión entera, de radio a radio</span></a></li>
     <li><a href="#volar"><span class="toc-num">14</span><span>Supervivencia del helicóptero armado</span></a></li>
     <li><a href="#tablillas"><span class="toc-num">15</span><span>Qué tablilla usar</span></a></li>
+  </ol>
+  <h3 class="toc-subtitle">Material complementario</h3>
+  <ol class="book-toc">
+    <li><a href="CHULETAS_CAS.html"><span class="toc-num">A1</span><span>Tablillas CAS</span></a></li>
+    <li><a href="BREVITIES_CAS.html"><span class="toc-num">A2</span><span>Recopilatorio de brevities</span></a></li>
+    <li><a href="evaluacion-cas.html"><span class="toc-num">A3</span><span>Evaluación CAS</span></a></li>
+    <li><a href="MANUAL_INSTRUCTORES_CAS.html"><span class="toc-num">A4</span><span>Manual del instructor</span></a></li>
   </ol>
 </nav>
 
